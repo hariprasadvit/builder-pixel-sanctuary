@@ -360,15 +360,15 @@ export default function Index() {
       </section>
 
       {/* Trending Near You */}
-      <section className="py-8">
+      <section className="py-6 md:py-8">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold">Trending Near You</h2>
-            <Button variant="ghost" className="text-brand-blue">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold">Trending Near You</h2>
+            <Button variant="ghost" className="text-brand-blue text-sm md:text-base">
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {trendingProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -382,18 +382,18 @@ export default function Index() {
       </section>
 
       {/* Top from UK */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-6 md:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-bold">Top from UK</h2>
-              <Badge className="bg-blue-600">Fast Delivery</Badge>
+              <h2 className="text-lg md:text-xl font-bold">Top from UK</h2>
+              <Badge className="bg-blue-600 text-xs">Fast Delivery</Badge>
             </div>
-            <Button variant="ghost" className="text-brand-blue">
+            <Button variant="ghost" className="text-brand-blue text-sm md:text-base">
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {ukProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -407,18 +407,18 @@ export default function Index() {
       </section>
 
       {/* Editor's Picks from China */}
-      <section className="py-8">
+      <section className="py-6 md:py-8">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-bold">Editor's Picks from China</h2>
-              <Badge className="bg-red-600">Great Value</Badge>
+              <h2 className="text-lg md:text-xl font-bold">Editor's Picks from China</h2>
+              <Badge className="bg-red-600 text-xs">Great Value</Badge>
             </div>
-            <Button variant="ghost" className="text-brand-blue">
+            <Button variant="ghost" className="text-brand-blue text-sm md:text-base">
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {chinaProducts.map((product) => (
               <ProductCard
                 key={product.id}
