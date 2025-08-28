@@ -126,18 +126,6 @@ export default function Categories() {
     },
   ];
 
-  const menuItems = [
-    { id: 'promotions', label: 'Promotions', icon: Tag, color: 'text-red-600' },
-    { id: 'brands', label: 'Brands', icon: Award, color: 'text-purple-600' },
-    { id: 'newest', label: 'Newest', icon: Star, color: 'text-blue-600' },
-    { id: 'bestsellers', label: 'Bestsellers', icon: TrendingUp, color: 'text-green-600' },
-    { id: 'sale', label: 'On sale', icon: Tag, color: 'text-orange-600' },
-  ];
-
-  const secondaryMenuItems = [
-    { id: 'seller', label: 'Become a seller', icon: Users, color: 'text-indigo-600' },
-    { id: 'contact', label: 'Contact Us', icon: Phone, color: 'text-gray-600' },
-  ];
 
   const filteredProducts = selectedCategory 
     ? sampleProducts.filter(product => product.category === selectedCategory)
