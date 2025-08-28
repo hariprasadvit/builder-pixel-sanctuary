@@ -163,110 +163,11 @@ export default function Categories() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header with Hamburger Menu */}
+      {/* Header */}
       <div className="bg-white border-b sticky top-[73px] z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              {/* Hamburger Menu */}
-              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="w-5 h-5" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="left" className="w-80 p-0">
-                  <SheetHeader className="p-6 border-b">
-                    <SheetTitle className="text-left">Menu</SheetTitle>
-                    <SheetDescription className="text-left">
-                      Browse categories and options
-                    </SheetDescription>
-                  </SheetHeader>
-                  
-                  <div className="p-0">
-                    {/* Main Menu Items */}
-                    <div className="py-4">
-                      {menuItems.map((item) => {
-                        const IconComponent = item.icon;
-                        return (
-                          <button
-                            key={item.id}
-                            className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
-                            onClick={() => {
-                              console.log(`Selected: ${item.label}`);
-                              setIsMenuOpen(false);
-                            }}
-                          >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
-                            <span className="font-medium text-gray-900">{item.label}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Separator */}
-                    <div className="border-t border-gray-200 my-2" />
-
-                    {/* Secondary Menu Items */}
-                    <div className="py-4">
-                      {secondaryMenuItems.map((item) => {
-                        const IconComponent = item.icon;
-                        return (
-                          <button
-                            key={item.id}
-                            className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
-                            onClick={() => {
-                              console.log(`Selected: ${item.label}`);
-                              setIsMenuOpen(false);
-                            }}
-                          >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
-                            <span className="font-medium text-gray-900">{item.label}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </SheetContent>
-              </Sheet>
-
-              <h1 className="text-xl font-bold">Categories</h1>
-            </div>
-
-            {/* Search and Filter Controls */}
-            <div className="flex items-center gap-2">
-              <div className="hidden md:flex relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                <Input
-                  placeholder="Search categories..."
-                  className="pl-10 pr-4 w-64"
-                />
-              </div>
-              
-              <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-32">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="popular">Popular</SelectItem>
-                  <SelectItem value="newest">Newest</SelectItem>
-                  <SelectItem value="price-low">Price: Low</SelectItem>
-                  <SelectItem value="price-high">Price: High</SelectItem>
-                  <SelectItem value="rating">Rating</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {/* Mobile Search */}
-          <div className="md:hidden mt-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <Input
-                placeholder="Search categories..."
-                className="pl-10 pr-4"
-              />
-            </div>
+            <h1 className="text-xl font-bold">Categories</h1>
           </div>
         </div>
       </div>
