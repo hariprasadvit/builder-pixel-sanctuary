@@ -400,6 +400,72 @@ export default function ProductDetail() {
           </div>
         </div>
 
+        {/* Marketing Images */}
+        <div className="mb-8">
+          <h2 className="text-xl font-bold mb-4">Why iPhone 16?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {marketingImages.map((image, index) => (
+              <div key={index} className="rounded-lg overflow-hidden">
+                <img
+                  src={image}
+                  alt={`iPhone 16 Marketing ${index + 1}`}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* iPhone Comparison */}
+        <Card className="mb-8">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold">Compare iPhone Models</h2>
+              <Button
+                variant="outline"
+                onClick={() => setShowComparison(!showComparison)}
+                className="flex items-center gap-2"
+              >
+                {showComparison ? "Hide" : "Show"} Comparison
+                <ChevronDown className={`w-4 h-4 transition-transform ${showComparison ? "rotate-180" : ""}`} />
+              </Button>
+            </div>
+            {showComparison && (
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left p-3 font-semibold">Model</th>
+                      <th className="text-left p-3 font-semibold">Price</th>
+                      <th className="text-left p-3 font-semibold">Display</th>
+                      <th className="text-left p-3 font-semibold">Chip</th>
+                      <th className="text-left p-3 font-semibold">Camera</th>
+                      <th className="text-left p-3 font-semibold">Battery</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {iPhoneComparison.map((phone, index) => (
+                      <tr key={index} className={`border-b ${phone.model === 'iPhone 16' ? 'bg-blue-50' : ''}`}>
+                        <td className="p-3">
+                          <div className="font-medium">{phone.model}</div>
+                          <div className="text-xs text-gray-600">
+                            {phone.features.slice(0, 2).join(", ")}
+                          </div>
+                        </td>
+                        <td className="p-3 font-semibold text-green-600">{phone.price}</td>
+                        <td className="p-3 text-sm">{phone.display}</td>
+                        <td className="p-3 text-sm">{phone.chip}</td>
+                        <td className="p-3 text-sm">{phone.camera}</td>
+                        <td className="p-3 text-sm">{phone.battery}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
         {/* Product Details Tabs */}
         <Card>
           <CardContent className="p-6">
@@ -407,7 +473,7 @@ export default function ProductDetail() {
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="description">Description</TabsTrigger>
                 <TabsTrigger value="specifications">Specifications</TabsTrigger>
-                <TabsTrigger value="reviews">Reviews</TabsTrigger>
+                <TabsTrigger value="reviews">Reviews & AI Summary</TabsTrigger>
               </TabsList>
               
               <TabsContent value="description" className="mt-6">
