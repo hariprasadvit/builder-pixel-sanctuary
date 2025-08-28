@@ -247,11 +247,42 @@ export default function Cart() {
               <ShoppingCart className="w-16 h-16 mx-auto text-gray-300 mb-4" />
               <h2 className="text-2xl font-semibold mb-2">Your cart is empty</h2>
               <p className="text-gray-600 mb-6">Add some products to get started</p>
-              <Link to="/">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                  Continue Shopping
+              <div className="flex gap-3 justify-center mb-4">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    addToCart({
+                      id: "demo-1",
+                      name: "iPhone 16 Pro Max 256GB",
+                      price: 999.99,
+                      image: "/placeholder.svg",
+                      vendor: "uk",
+                      vendorName: "UK Marketplace",
+                      category: "Electronics"
+                    });
+                    addToCart({
+                      id: "demo-2",
+                      name: "Xiaomi Mi 13 Ultra 512GB",
+                      price: 649.99,
+                      originalPrice: 799.99,
+                      image: "/placeholder.svg",
+                      vendor: "china",
+                      vendorName: "China Marketplace",
+                      category: "Electronics"
+                    });
+                  }}
+                >
+                  Add Demo Items
                 </Button>
-              </Link>
+                <Link to="/">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    Continue Shopping
+                  </Button>
+                </Link>
+              </div>
+              <p className="text-xs text-gray-500">
+                💡 Tip: Use coupon code "1234" for a special surprise!
+              </p>
             </CardContent>
           </Card>
         </div>
