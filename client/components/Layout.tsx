@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle, Play } from "lucide-react";
+import { ReactNode, useState } from "react";
+import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle, Play, MapPin, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
