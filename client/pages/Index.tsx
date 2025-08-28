@@ -853,6 +853,36 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Seasonal Collection */}
+      <section className="py-8 md:py-10 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🍂 Autumn Collection</h2>
+            <p className="text-gray-600">Cozy up with our seasonal favorites</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Category Tiles */}
+            {[
+              { name: "Cozy Sweaters", bg: "from-orange-200 to-red-200", emoji: "🧥" },
+              { name: "Winter Coats", bg: "from-blue-200 to-indigo-200", emoji: "🧥" },
+              { name: "Warm Accessories", bg: "from-purple-200 to-pink-200", emoji: "🧣" },
+              { name: "Home & Decor", bg: "from-amber-200 to-yellow-200", emoji: "🏠" }
+            ].map((category, index) => (
+              <div key={index} className="group cursor-pointer">
+                <div className={`aspect-square bg-gradient-to-br ${category.bg} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-white/20 group-hover:bg-white/30 transition-colors duration-300"></div>
+                  <div className="relative z-10 text-center">
+                    <div className="text-4xl mb-2">{category.emoji}</div>
+                    <div className="text-gray-800 font-semibold">{category.name}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Personalized Recommendations */}
       {personalizedProducts.length > 0 && (
         <section className="py-6 md:py-8">
