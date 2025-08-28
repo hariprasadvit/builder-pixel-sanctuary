@@ -67,6 +67,17 @@ export default function Layout({ children }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Track scroll position to hide mobile search/delivery on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menuItems = [
     { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600" },
     { id: "brands", label: "Brands", icon: Award, color: "text-purple-600" },
