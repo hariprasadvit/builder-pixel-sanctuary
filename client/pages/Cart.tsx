@@ -22,6 +22,7 @@ import {
 import { useCart, CartItem } from "@/contexts/CartContext";
 import { useMarketplace, MarketplaceType } from "@/contexts/MarketplaceContext";
 import { useLocation } from "@/contexts/LocationContext";
+import { useFireworks } from "@/hooks/useFireworks";
 
 export default function Cart() {
   const navigate = useNavigate();
