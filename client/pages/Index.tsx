@@ -934,17 +934,35 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {/* Category Tiles */}
             {[
-              { name: "Cozy Sweaters", bg: "from-orange-200 to-red-200", emoji: "🧥" },
-              { name: "Winter Coats", bg: "from-blue-200 to-indigo-200", emoji: "🧥" },
-              { name: "Warm Accessories", bg: "from-purple-200 to-pink-200", emoji: "🧣" },
-              { name: "Home & Decor", bg: "from-amber-200 to-yellow-200", emoji: "🏠" }
+              {
+                name: "Colorful Sweaters",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2a6787b80b14476a80db21ea67609b51?format=webp&width=800"
+              },
+              {
+                name: "Winter Outerwear",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9a9188694a1e45d7a8e4b7d2c406244a?format=webp&width=800"
+              },
+              {
+                name: "Warm Accessories",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fee98e92f2e164d8f828cb6845ee08747?format=webp&width=800"
+              },
+              {
+                name: "Home & Decor",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F50e4544c4ce0496b9970dc48aff7cf1f?format=webp&width=800"
+              }
             ].map((category, index) => (
               <div key={index} className="group cursor-pointer">
-                <div className={`aspect-square bg-gradient-to-br ${category.bg} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 flex items-center justify-center relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-white/20 group-hover:bg-white/30 transition-colors duration-300"></div>
-                  <div className="relative z-10 text-center">
-                    <div className="text-4xl mb-2">{category.emoji}</div>
-                    <div className="text-gray-800 font-semibold">{category.name}</div>
+                <div className="aspect-square bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 relative overflow-hidden border border-gray-100">
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 z-10">
+                    <div className="text-white font-bold text-sm md:text-base text-center drop-shadow-lg">
+                      {category.name}
+                    </div>
                   </div>
                 </div>
               </div>
