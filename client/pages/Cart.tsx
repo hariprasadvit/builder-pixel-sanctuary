@@ -27,11 +27,12 @@ import StripeCheckout from "@/components/StripeCheckout";
 
 export default function Cart() {
   const navigate = useNavigate();
-  const { 
-    items, 
-    removeFromCart, 
-    updateQuantity, 
-    clearCart, 
+  const {
+    items,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
     clearVendorCart,
     getItemsByVendor,
     getCartWarnings,
