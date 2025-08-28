@@ -281,18 +281,19 @@ export default function Cart() {
                   </Button>
                 </Link>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <p className="text-xs text-gray-500">
                   💡 Tip: Use coupon code "1234" for a special surprise!
                 </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={triggerFireworks}
-                  className="text-xs"
-                >
-                  🎆 Test Fireworks
-                </Button>
+                <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 bg-blue-50">
+                  <p className="text-sm font-medium text-blue-800 mb-2">Test the firework effect:</p>
+                  <Button
+                    onClick={triggerFireworks}
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold"
+                  >
+                    🎆 Launch Fireworks! 🎆
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
