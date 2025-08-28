@@ -52,17 +52,18 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Right section */}
-            <div className="flex items-center gap-4">
-              {/* Marketplace Toggle */}
+            <div className="flex items-center gap-2 md:gap-4">
+              {/* Marketplace Toggle - Always visible */}
               <Select value={currentMarketplace} onValueChange={setMarketplace}>
-                <SelectTrigger className="w-[130px] hidden md:flex">
+                <SelectTrigger className="w-[100px] md:w-[130px] flex">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="nearbuy">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      Nearbuy
+                      <span className="hidden sm:inline">Nearbuy</span>
+                      <span className="sm:hidden">Local</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="uk">
@@ -80,8 +81,8 @@ export default function Layout({ children }: LayoutProps) {
                 </SelectContent>
               </Select>
 
-              {/* Wishlist */}
-              <Button variant="ghost" size="icon" className="relative">
+              {/* Wishlist - Hidden on very small screens */}
+              <Button variant="ghost" size="icon" className="relative hidden xs:flex">
                 <Heart className="w-5 h-5" />
               </Button>
 
@@ -93,8 +94,8 @@ export default function Layout({ children }: LayoutProps) {
                 </Badge>
               </Button>
 
-              {/* User Avatar */}
-              <Button variant="ghost" size="icon">
+              {/* User Avatar - Hidden on very small screens */}
+              <Button variant="ghost" size="icon" className="hidden xs:flex">
                 <User className="w-5 h-5" />
               </Button>
             </div>
