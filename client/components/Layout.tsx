@@ -36,7 +36,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const location = useLocation();
+  const router = useRouter();
   const { currentMarketplace, setMarketplace, getMarketplaceLabel } = useMarketplace();
   const { currentAddress, savedAddresses, setCurrentAddress, getCurrentLocationName } = useLocationContext();
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
