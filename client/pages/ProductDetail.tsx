@@ -207,9 +207,9 @@ export default function ProductDetail() {
           <span className="text-gray-900">{product.title}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {/* Product Images */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:space-y-6">
             <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
               <img
                 src={product.images[selectedImage]}
@@ -237,18 +237,18 @@ export default function ProductDetail() {
           </div>
 
           {/* Product Info */}
-          <div className="space-y-6">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
+          <div className="space-y-4 lg:space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
                 <Badge className="bg-blue-600 text-white">{product.origin}</Badge>
                 <Badge variant="outline">{product.brand}</Badge>
               </div>
-              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
                 {product.title}
               </h1>
-              
+
               {/* Rating */}
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -267,7 +267,7 @@ export default function ProductDetail() {
               </div>
 
               {/* Price */}
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-baseline gap-3">
                 <span className="text-3xl font-bold text-gray-900">
                   {getCurrencySymbol()}{product.price.toFixed(2)}
                 </span>
@@ -317,24 +317,24 @@ export default function ProductDetail() {
             </Card>
 
             {/* Quantity & Actions */}
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="flex items-center gap-4">
-                <span className="font-medium">Quantity:</span>
-                <div className="flex items-center border rounded-lg">
+                <span className="font-medium text-gray-900 min-w-[80px]">Quantity:</span>
+                <div className="flex items-center border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-10 w-10"
+                    className="h-10 w-10 hover:bg-blue-50"
                     onClick={() => handleQuantityChange(false)}
                     disabled={quantity <= 1}
                   >
                     <Minus className="w-4 h-4" />
                   </Button>
-                  <span className="w-12 text-center font-medium">{quantity}</span>
+                  <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-10 w-10"
+                    className="h-10 w-10 hover:bg-blue-50"
                     onClick={() => handleQuantityChange(true)}
                     disabled={quantity >= product.stockCount}
                   >
@@ -346,7 +346,7 @@ export default function ProductDetail() {
               <div className="space-y-3">
                 <Button
                   size="lg"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14"
                   onClick={handleBuyNow}
                   disabled={!product.inStock}
                 >
@@ -356,7 +356,7 @@ export default function ProductDetail() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg transition-all duration-200"
+                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg transition-all duration-200 h-14"
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
                 >
@@ -365,17 +365,17 @@ export default function ProductDetail() {
                 </Button>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-3 pt-2">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setIsWishlisted(!isWishlisted)}
-                  className={isWishlisted ? "text-red-600 border-red-600" : ""}
+                  className={`flex-1 h-12 ${isWishlisted ? "text-red-600 border-red-600" : ""}`}
                 >
                   <Heart className={`w-4 h-4 mr-2 ${isWishlisted ? "fill-current" : ""}`} />
-                  {isWishlisted ? "Wishlisted" : "Add to Wishlist"}
+                  {isWishlisted ? "Wishlisted" : "Wishlist"}
                 </Button>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="sm" className="flex-1 h-12">
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
                 </Button>
@@ -383,18 +383,18 @@ export default function ProductDetail() {
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+            <div className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t border-gray-200">
               <div className="text-center">
-                <Shield className="w-6 h-6 text-brand-blue mx-auto mb-1" />
-                <div className="text-xs text-gray-600">Secure Payment</div>
+                <Shield className="w-6 h-6 text-brand-blue mx-auto mb-2" />
+                <div className="text-xs font-medium text-gray-700">Secure Payment</div>
               </div>
               <div className="text-center">
-                <RotateCcw className="w-6 h-6 text-brand-blue mx-auto mb-1" />
-                <div className="text-xs text-gray-600">30-Day Returns</div>
+                <RotateCcw className="w-6 h-6 text-brand-blue mx-auto mb-2" />
+                <div className="text-xs font-medium text-gray-700">30-Day Returns</div>
               </div>
               <div className="text-center">
-                <Truck className="w-6 h-6 text-brand-blue mx-auto mb-1" />
-                <div className="text-xs text-gray-600">Fast Delivery</div>
+                <Truck className="w-6 h-6 text-brand-blue mx-auto mb-2" />
+                <div className="text-xs font-medium text-gray-700">Fast Delivery</div>
               </div>
             </div>
           </div>
