@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ProductCard from "@/components/ProductCard";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Index() {
   const [isMuted, setIsMuted] = useState(true);
@@ -208,31 +209,8 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Banner */}
-      <section className="relative bg-gradient-to-r from-brand-blue to-brand-blue/80 text-white">
-        <div className="container mx-auto px-4 py-12 md:py-20">
-          <div className="max-w-2xl">
-            <Badge className="mb-4 bg-white/20 text-white hover:bg-white/30">
-              New Year Sale 🎉
-            </Badge>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">
-              Discover Amazing Products from UK & China
-            </h1>
-            <p className="text-lg md:text-xl mb-8 text-white/90">
-              Shop from local UK stores or explore unique finds from China. 
-              Fast delivery, great prices, all in GBP.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-brand-blue hover:bg-white/90">
-                Shop UK Products
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/80 text-white bg-white/10 hover:bg-white hover:text-brand-blue backdrop-blur-sm">
-                Explore China Collection
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Carousel */}
+      <HeroCarousel />
 
       {/* Quick Categories */}
       <section className="py-8 bg-gray-50">
