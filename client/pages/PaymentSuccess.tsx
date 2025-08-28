@@ -220,7 +220,7 @@ export default function PaymentSuccess() {
           </div>
 
           {/* Footer Message */}
-          <div className={`text-center transition-all duration-700 delay-1200 ${
+          <div className={`text-center space-y-4 transition-all duration-700 delay-1200 ${
             animationStep >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <p className="text-gray-600">
@@ -229,6 +229,18 @@ export default function PaymentSuccess() {
                 support@example.com
               </a>
             </p>
+
+            {/* Debug: Manual firework trigger */}
+            <div className="pt-4 border-t border-gray-200">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={triggerFireworks}
+                className="text-xs text-gray-500 hover:text-gray-700"
+              >
+                🎆 Celebrate Again
+              </Button>
+            </div>
           </div>
         </div>
       </div>
