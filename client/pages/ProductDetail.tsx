@@ -34,6 +34,8 @@ export default function ProductDetail() {
   const [newReview, setNewReview] = useState("");
   const [newRating, setNewRating] = useState(5);
   const [showComparison, setShowComparison] = useState(false);
+  const [selectedColor, setSelectedColor] = useState("Black Titanium");
+  const [selectedStorage, setSelectedStorage] = useState("128GB");
 
   // Mock product data - in real app this would be fetched based on the ID
   const product = {
@@ -184,6 +186,40 @@ export default function ProductDetail() {
   ];
 
   const aiSummary = "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
+
+  const colorOptions = [
+    {
+      name: "Black Titanium",
+      image: "https://m.media-amazon.com/images/I/61135j8fPJL._AC_SX69_.jpg",
+      price: 999.99,
+      originalPrice: 1099.99
+    },
+    {
+      name: "Natural Titanium",
+      image: "https://m.media-amazon.com/images/I/51UIlT-iiML._AC_SX69_.jpg",
+      price: 999.99,
+      originalPrice: 1099.99
+    },
+    {
+      name: "White Titanium",
+      image: "https://m.media-amazon.com/images/I/71kahbX9OlL._AC_SX69_.jpg",
+      price: 1019.99,
+      originalPrice: 1099.99
+    },
+    {
+      name: "Desert Titanium",
+      image: "https://m.media-amazon.com/images/I/61135j8fPJL._AC_SX69_.jpg",
+      price: 1039.99,
+      originalPrice: 1099.99
+    }
+  ];
+
+  const storageOptions = [
+    { size: "128GB", price: 999.99, available: true },
+    { size: "256GB", price: 1099.99, available: true },
+    { size: "512GB", price: 1299.99, available: true },
+    { size: "1TB", price: 1499.99, available: false }
+  ];
 
   const frequentlyBoughtTogether = [
     {
@@ -358,6 +394,71 @@ export default function ProductDetail() {
                   <span className="text-red-700 font-medium">Out of Stock</span>
                 </>
               )}
+            </div>
+
+            {/* Color Selection */}
+            <div className="space-y-3">
+              <div>
+                <span className="text-sm font-medium text-gray-900">
+                  Colour: <span className="font-semibold">{selectedColor}</span>
+                </span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                {colorOptions.map((color) => (
+                  <div
+                    key={color.name}
+                    className={`cursor-pointer rounded-lg border-2 p-3 transition-all ${
+                      selectedColor === color.name
+                        ? "border-blue-600 bg-blue-50"
+                        : "border-gray-200 hover:border-gray-300"
+                    }`}
+                    onClick={() => setSelectedColor(color.name)}
+                  >
+                    <div className="aspect-square w-16 mx-auto mb-2 bg-white rounded-lg overflow-hidden">
+                      <img
+                        src={color.image}
+                        alt={color.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xs font-medium text-gray-900 mb-1">
+                        £{color.price.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-gray-500 line-through">
+                        £{color.originalPrice.toFixed(2)}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Storage Selection */}
+            <div className="space-y-3">
+              <div>
+                <span className="text-sm font-medium text-gray-900">
+                  Size: <span className="font-semibold">{selectedStorage}</span>
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {storageOptions.map((storage) => (
+                  <button
+                    key={storage.size}
+                    className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
+                      selectedStorage === storage.size
+                        ? "border-blue-600 bg-blue-600 text-white"
+                        : storage.available
+                        ? "border-gray-300 text-gray-900 hover:border-gray-400"
+                        : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
+                    } ${!storage.available ? "border-dashed" : ""}`}
+                    onClick={() => storage.available && setSelectedStorage(storage.size)}
+                    disabled={!storage.available}
+                  >
+                    {storage.size}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Delivery Info */}
@@ -593,32 +694,60 @@ export default function ProductDetail() {
               </TabsContent>
               
               <TabsContent value="specifications" className="mt-6 relative z-0">
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-200">
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-gradient-to-r from-gray-600 to-blue-600 rounded-lg flex items-center justify-center">
-                        <div className="w-3 h-3 border-2 border-white rounded-sm"></div>
+                <div className="bg-white border border-gray-200 rounded-lg">
+                  <div className="p-4 border-b bg-gray-50">
+                    <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                      <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
+                        <div className="w-2 h-2 border border-white rounded-sm"></div>
                       </div>
                       Technical Specifications
                     </h3>
-                    <p className="text-gray-600 mt-1">Detailed product specifications and features</p>
+                    <p className="text-sm text-gray-600 mt-1">Detailed product specifications and features</p>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-3">
-                    {Object.entries(product.specifications).map(([key, value], index) => (
-                      <div
-                        key={key}
-                        className="bg-white rounded-lg p-4 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200"
-                      >
-                        <div className="flex justify-between items-center">
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                            <span className="font-semibold text-gray-900">{key}</span>
-                          </div>
-                          <span className="text-gray-700 font-medium bg-gray-50 px-3 py-1 rounded-full text-sm">{value}</span>
+                  {/* Compact 2-column layout for desktop */}
+                  <div className="p-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      {Object.entries(product.specifications).map(([key, value], index) => (
+                        <div
+                          key={key}
+                          className="flex justify-between items-center py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
+                          <span className="font-medium text-gray-900 text-sm">{key}</span>
+                          <span className="text-gray-700 font-semibold text-sm">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Additional compact specs */}
+                    <div className="mt-6 pt-4 border-t">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Brand</span>
+                          <span className="font-medium">Apple</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Operating System</span>
+                          <span className="font-medium">iOS 18</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">RAM Memory Installed Size</span>
+                          <span className="font-medium">8GB</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Memory Storage Capacity</span>
+                          <span className="font-medium">{selectedStorage}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Screen Size</span>
+                          <span className="font-medium">6.1 Inches</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Color</span>
+                          <span className="font-medium">{selectedColor}</span>
                         </div>
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </TabsContent>
