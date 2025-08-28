@@ -19,26 +19,18 @@ export default function HeroCarousel() {
     {
       id: "1",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F059b947b846b4246be4e8cbfc589afe8?format=webp&width=800",
-      alt: "Xbox Series X - Gaming Console",
-      category: "Video Games",
-      link: "/categories?filter=video-games",
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F753e715874c845f98ec44b6e6edf8d15?format=webp&width=800",
+      alt: "iPhone 15 Newphoria - Available Now",
+      category: "Electronics",
+      link: "/electronics",
     },
     {
       id: "2",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F529790af526a44b5be555e849b00a8eb?format=webp&width=800",
-      alt: "DJI Mavic 3 Pro - Camera Drone",
-      category: "Cameras & Photo",
-      link: "/categories?filter=cameras-photo",
-    },
-    {
-      id: "3",
-      image:
-        "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=400&fit=crop&crop=center",
-      alt: "Global Marketplace - Shop Worldwide",
-      category: "All Categories",
-      link: "/categories",
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff0abf8386e0e42ee980b750efc33cce2?format=webp&width=800",
+      alt: "Creative Clothing Advertisement - Boost Sales",
+      category: "Apparel",
+      link: "/categories?filter=apparel",
     },
   ];
 
