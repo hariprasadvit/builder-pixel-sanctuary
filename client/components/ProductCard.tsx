@@ -11,7 +11,7 @@ interface ProductCardProps {
   originalPrice?: number;
   rating: number;
   reviewCount: number;
-  origin: 'UK' | 'China';
+  origin: "UK" | "China";
   deliveryEta: string;
   hasVideo?: boolean;
   isWishlisted?: boolean;
@@ -44,13 +44,13 @@ export default function ProductCard({
             alt={title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
           />
-          
+
           {/* Origin Badge */}
-          <Badge 
+          <Badge
             className={`absolute top-2 left-2 text-xs font-medium ${
-              origin === 'UK' 
-                ? 'bg-blue-600 hover:bg-blue-700' 
-                : 'bg-red-600 hover:bg-red-700'
+              origin === "UK"
+                ? "bg-blue-600 hover:bg-blue-700"
+                : "bg-red-600 hover:bg-red-700"
             }`}
           >
             {origin}
@@ -68,14 +68,16 @@ export default function ProductCard({
             variant="ghost"
             size="icon"
             className={`absolute bottom-2 right-2 w-8 h-8 bg-white/90 hover:bg-white shadow-sm ${
-              isWishlisted ? 'text-brand-red' : 'text-muted-foreground'
+              isWishlisted ? "text-brand-red" : "text-muted-foreground"
             }`}
             onClick={(e) => {
               e.preventDefault();
               onWishlistToggle?.(id);
             }}
           >
-            <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
+            <Heart
+              className={`w-4 h-4 ${isWishlisted ? "fill-current" : ""}`}
+            />
           </Button>
 
           {/* Delivery ETA Pill */}
@@ -99,8 +101,8 @@ export default function ProductCard({
                   key={i}
                   className={`w-3 h-3 ${
                     i < Math.floor(rating)
-                      ? 'text-yellow-400 fill-current'
-                      : 'text-gray-300'
+                      ? "text-yellow-400 fill-current"
+                      : "text-gray-300"
                   }`}
                 />
               ))}

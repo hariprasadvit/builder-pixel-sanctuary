@@ -1,5 +1,24 @@
 import { ReactNode, useState } from "react";
-import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle, Play, MapPin, ChevronDown, Menu, Star, TrendingUp, Award, Tag, Users, Phone } from "lucide-react";
+import {
+  Search,
+  Heart,
+  ShoppingCart,
+  User,
+  Home,
+  Grid3X3,
+  Package,
+  UserCircle,
+  Play,
+  MapPin,
+  ChevronDown,
+  Menu,
+  Star,
+  TrendingUp,
+  Award,
+  Tag,
+  Users,
+  Phone,
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -36,22 +55,38 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
-  const { currentMarketplace, setMarketplace, getMarketplaceLabel } = useMarketplace();
-  const { currentAddress, savedAddresses, setCurrentAddress, getCurrentLocationName } = useLocationContext();
+  const { currentMarketplace, setMarketplace, getMarketplaceLabel } =
+    useMarketplace();
+  const {
+    currentAddress,
+    savedAddresses,
+    setCurrentAddress,
+    getCurrentLocationName,
+  } = useLocationContext();
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { id: 'promotions', label: 'Promotions', icon: Tag, color: 'text-red-600' },
-    { id: 'brands', label: 'Brands', icon: Award, color: 'text-purple-600' },
-    { id: 'newest', label: 'Newest', icon: Star, color: 'text-blue-600' },
-    { id: 'bestsellers', label: 'Bestsellers', icon: TrendingUp, color: 'text-green-600' },
-    { id: 'sale', label: 'On sale', icon: Tag, color: 'text-orange-600' },
+    { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600" },
+    { id: "brands", label: "Brands", icon: Award, color: "text-purple-600" },
+    { id: "newest", label: "Newest", icon: Star, color: "text-blue-600" },
+    {
+      id: "bestsellers",
+      label: "Bestsellers",
+      icon: TrendingUp,
+      color: "text-green-600",
+    },
+    { id: "sale", label: "On sale", icon: Tag, color: "text-orange-600" },
   ];
 
   const secondaryMenuItems = [
-    { id: 'seller', label: 'Become a seller', icon: Users, color: 'text-indigo-600' },
-    { id: 'contact', label: 'Contact Us', icon: Phone, color: 'text-gray-600' },
+    {
+      id: "seller",
+      label: "Become a seller",
+      icon: Users,
+      color: "text-indigo-600",
+    },
+    { id: "contact", label: "Contact Us", icon: Phone, color: "text-gray-600" },
   ];
 
   const isActiveTab = (path: string) => {
@@ -60,7 +95,6 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-background">
-
       {/* Top Bar - Sticky */}
       <header className="sticky top-0 z-50 bg-white border-b border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
@@ -96,8 +130,12 @@ export default function Layout({ children }: LayoutProps) {
                               setIsMenuOpen(false);
                             }}
                           >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
-                            <span className="font-medium text-gray-900">{item.label}</span>
+                            <IconComponent
+                              className={`w-5 h-5 ${item.color}`}
+                            />
+                            <span className="font-medium text-gray-900">
+                              {item.label}
+                            </span>
                           </button>
                         );
                       })}
@@ -119,8 +157,12 @@ export default function Layout({ children }: LayoutProps) {
                               setIsMenuOpen(false);
                             }}
                           >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
-                            <span className="font-medium text-gray-900">{item.label}</span>
+                            <IconComponent
+                              className={`w-5 h-5 ${item.color}`}
+                            />
+                            <span className="font-medium text-gray-900">
+                              {item.label}
+                            </span>
                           </button>
                         );
                       })}
@@ -143,11 +185,18 @@ export default function Layout({ children }: LayoutProps) {
             <div className="hidden md:flex items-center">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 max-w-[200px] justify-start px-2">
+                  <Button
+                    variant="ghost"
+                    className="flex items-center gap-2 max-w-[200px] justify-start px-2"
+                  >
                     <MapPin className="w-4 h-4 text-brand-blue" />
                     <div className="flex flex-col items-start text-left">
-                      <span className="text-xs text-muted-foreground">Deliver to</span>
-                      <span className="text-sm font-medium truncate">{getCurrentLocationName()}</span>
+                      <span className="text-xs text-muted-foreground">
+                        Deliver to
+                      </span>
+                      <span className="text-sm font-medium truncate">
+                        {getCurrentLocationName()}
+                      </span>
                     </div>
                     <ChevronDown className="w-4 h-4 text-muted-foreground" />
                   </Button>
@@ -163,9 +212,15 @@ export default function Layout({ children }: LayoutProps) {
                     >
                       <div className="flex items-center gap-2 w-full">
                         <div className="flex items-center gap-2">
-                          {address.type === 'home' && <Home className="w-4 h-4" />}
-                          {address.type === 'office' && <Package className="w-4 h-4" />}
-                          {address.type === 'other' && <MapPin className="w-4 h-4" />}
+                          {address.type === "home" && (
+                            <Home className="w-4 h-4" />
+                          )}
+                          {address.type === "office" && (
+                            <Package className="w-4 h-4" />
+                          )}
+                          {address.type === "other" && (
+                            <MapPin className="w-4 h-4" />
+                          )}
                           <span className="font-medium">{address.label}</span>
                         </div>
                         {currentAddress?.id === address.id && (
@@ -205,7 +260,9 @@ export default function Layout({ children }: LayoutProps) {
               <Link
                 to="/categories"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
-                  isActiveTab('/categories') ? 'text-brand-blue' : 'text-muted-foreground'
+                  isActiveTab("/categories")
+                    ? "text-brand-blue"
+                    : "text-muted-foreground"
                 }`}
               >
                 Categories
@@ -213,7 +270,9 @@ export default function Layout({ children }: LayoutProps) {
               <Link
                 to="/videos"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
-                  isActiveTab('/videos') ? 'text-brand-blue' : 'text-muted-foreground'
+                  isActiveTab("/videos")
+                    ? "text-brand-blue"
+                    : "text-muted-foreground"
                 }`}
               >
                 Videos
@@ -221,7 +280,9 @@ export default function Layout({ children }: LayoutProps) {
               <Link
                 to="/orders"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
-                  isActiveTab('/orders') ? 'text-brand-blue' : 'text-muted-foreground'
+                  isActiveTab("/orders")
+                    ? "text-brand-blue"
+                    : "text-muted-foreground"
                 }`}
               >
                 Orders
@@ -230,7 +291,11 @@ export default function Layout({ children }: LayoutProps) {
               {/* Desktop Menu Button */}
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="flex items-center gap-2"
+                  >
                     <Menu className="w-4 h-4" />
                     <span className="text-sm">Menu</span>
                   </Button>
@@ -257,8 +322,12 @@ export default function Layout({ children }: LayoutProps) {
                               setIsMenuOpen(false);
                             }}
                           >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
-                            <span className="font-medium text-gray-900">{item.label}</span>
+                            <IconComponent
+                              className={`w-5 h-5 ${item.color}`}
+                            />
+                            <span className="font-medium text-gray-900">
+                              {item.label}
+                            </span>
                           </button>
                         );
                       })}
@@ -280,8 +349,12 @@ export default function Layout({ children }: LayoutProps) {
                               setIsMenuOpen(false);
                             }}
                           >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
-                            <span className="font-medium text-gray-900">{item.label}</span>
+                            <IconComponent
+                              className={`w-5 h-5 ${item.color}`}
+                            />
+                            <span className="font-medium text-gray-900">
+                              {item.label}
+                            </span>
                           </button>
                         );
                       })}
@@ -322,7 +395,11 @@ export default function Layout({ children }: LayoutProps) {
               </Select>
 
               {/* Wishlist - Hidden on very small screens */}
-              <Button variant="ghost" size="icon" className="relative hidden xs:flex">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="relative hidden xs:flex"
+              >
                 <Heart className="w-5 h-5" />
               </Button>
 
@@ -350,22 +427,32 @@ export default function Layout({ children }: LayoutProps) {
             <div className="relative mb-3">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
-                placeholder={`Search products in ${currentMarketplace === 'nearbuy' ? 'your area' : currentMarketplace.toUpperCase()}...`}
+                placeholder={`Search products in ${currentMarketplace === "nearbuy" ? "your area" : currentMarketplace.toUpperCase()}...`}
                 className="pl-10 pr-4 h-10"
               />
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="w-full flex items-center gap-2 justify-start h-10">
+                <Button
+                  variant="outline"
+                  className="w-full flex items-center gap-2 justify-start h-10"
+                >
                   <MapPin className="w-4 h-4 text-brand-blue" />
                   <div className="flex flex-col items-start text-left flex-1">
-                    <span className="text-xs text-muted-foreground">Deliver to</span>
-                    <span className="text-sm font-medium truncate">{getCurrentLocationName()}</span>
+                    <span className="text-xs text-muted-foreground">
+                      Deliver to
+                    </span>
+                    <span className="text-sm font-medium truncate">
+                      {getCurrentLocationName()}
+                    </span>
                   </div>
                   <ChevronDown className="w-4 h-4 text-muted-foreground" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[calc(100vw-2rem)]" align="start">
+              <DropdownMenuContent
+                className="w-[calc(100vw-2rem)]"
+                align="start"
+              >
                 <DropdownMenuLabel>Select delivery address</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {savedAddresses.map((address) => (
@@ -376,9 +463,15 @@ export default function Layout({ children }: LayoutProps) {
                   >
                     <div className="flex items-center gap-2 w-full">
                       <div className="flex items-center gap-2">
-                        {address.type === 'home' && <Home className="w-4 h-4" />}
-                        {address.type === 'office' && <Package className="w-4 h-4" />}
-                        {address.type === 'other' && <MapPin className="w-4 h-4" />}
+                        {address.type === "home" && (
+                          <Home className="w-4 h-4" />
+                        )}
+                        {address.type === "office" && (
+                          <Package className="w-4 h-4" />
+                        )}
+                        {address.type === "other" && (
+                          <MapPin className="w-4 h-4" />
+                        )}
                         <span className="font-medium">{address.label}</span>
                       </div>
                       {currentAddress?.id === address.id && (
@@ -405,9 +498,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="pb-20 md:pb-0">
-        {children}
-      </main>
+      <main className="pb-20 md:pb-0">{children}</main>
 
       {/* Mobile Bottom Tab Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
@@ -415,21 +506,21 @@ export default function Layout({ children }: LayoutProps) {
           <Link
             to="/"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/')
-                ? 'text-brand-blue'
-                : 'text-muted-foreground hover:text-foreground'
+              isActiveTab("/")
+                ? "text-brand-blue"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <Home className="w-5 h-5" />
             <span className="text-xs">Home</span>
           </Link>
-          
+
           <Link
             to="/categories"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/categories')
-                ? 'text-brand-blue'
-                : 'text-muted-foreground hover:text-foreground'
+              isActiveTab("/categories")
+                ? "text-brand-blue"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <Grid3X3 className="w-5 h-5" />
@@ -439,9 +530,9 @@ export default function Layout({ children }: LayoutProps) {
           <Link
             to="/videos"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/videos')
-                ? 'text-brand-blue'
-                : 'text-muted-foreground hover:text-foreground'
+              isActiveTab("/videos")
+                ? "text-brand-blue"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <Play className="w-5 h-5" />
@@ -451,21 +542,21 @@ export default function Layout({ children }: LayoutProps) {
           <Link
             to="/orders"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/orders')
-                ? 'text-brand-blue'
-                : 'text-muted-foreground hover:text-foreground'
+              isActiveTab("/orders")
+                ? "text-brand-blue"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <Package className="w-5 h-5" />
             <span className="text-xs">Orders</span>
           </Link>
-          
+
           <Link
             to="/profile"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/profile') 
-                ? 'text-brand-blue' 
-                : 'text-muted-foreground hover:text-foreground'
+              isActiveTab("/profile")
+                ? "text-brand-blue"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <UserCircle className="w-5 h-5" />

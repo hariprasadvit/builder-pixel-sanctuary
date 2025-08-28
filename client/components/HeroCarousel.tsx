@@ -17,26 +17,29 @@ export default function HeroCarousel() {
 
   const slides: CarouselSlide[] = [
     {
-      id: '1',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F059b947b846b4246be4e8cbfc589afe8?format=webp&width=800',
-      alt: 'Xbox Series X - Gaming Console',
-      category: 'Video Games',
-      link: '/categories?filter=video-games'
+      id: "1",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F059b947b846b4246be4e8cbfc589afe8?format=webp&width=800",
+      alt: "Xbox Series X - Gaming Console",
+      category: "Video Games",
+      link: "/categories?filter=video-games",
     },
     {
-      id: '2',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F529790af526a44b5be555e849b00a8eb?format=webp&width=800',
-      alt: 'DJI Mavic 3 Pro - Camera Drone',
-      category: 'Cameras & Photo',
-      link: '/categories?filter=cameras-photo'
+      id: "2",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F529790af526a44b5be555e849b00a8eb?format=webp&width=800",
+      alt: "DJI Mavic 3 Pro - Camera Drone",
+      category: "Cameras & Photo",
+      link: "/categories?filter=cameras-photo",
     },
     {
-      id: '3',
-      image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=400&fit=crop&crop=center',
-      alt: 'Global Marketplace - Shop Worldwide',
-      category: 'All Categories',
-      link: '/categories'
-    }
+      id: "3",
+      image:
+        "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=400&fit=crop&crop=center",
+      alt: "Global Marketplace - Shop Worldwide",
+      category: "All Categories",
+      link: "/categories",
+    },
   ];
 
   // Auto-play functionality
@@ -59,7 +62,7 @@ export default function HeroCarousel() {
   const handleSlideClick = (slide: CarouselSlide) => {
     // For now, navigate to categories page
     // In the future, this could be individual category pages
-    navigate('/categories');
+    navigate("/categories");
   };
 
   return (
@@ -70,9 +73,7 @@ export default function HeroCarousel() {
           <div
             key={slide.id}
             className={`absolute inset-0 transition-all duration-1000 cursor-pointer ${
-              index === currentSlide
-                ? 'opacity-100 z-10'
-                : 'opacity-0 z-0'
+              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
             onClick={() => handleSlideClick(slide)}
           >
@@ -99,7 +100,7 @@ export default function HeroCarousel() {
         >
           <ChevronLeft className="w-6 h-6" />
         </Button>
-        
+
         <Button
           variant="ghost"
           size="icon"
@@ -119,8 +120,8 @@ export default function HeroCarousel() {
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
-                  ? 'bg-white scale-110'
-                  : 'bg-white/50 hover:bg-white/70'
+                  ? "bg-white scale-110"
+                  : "bg-white/50 hover:bg-white/70"
               }`}
             />
           ))}
