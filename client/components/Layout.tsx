@@ -172,14 +172,62 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Mobile Search Bar */}
-          <div className="md:hidden pb-3 pt-2">
-            <div className="relative">
+          <div className="md:hidden pb-2 pt-2">
+            <div className="relative mb-3">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder={`Search in ${currentMarketplace === 'nearbuy' ? 'your area' : currentMarketplace.toUpperCase()}...`}
                 className="pl-10 pr-4 h-10"
               />
             </div>
+
+            {/* Mobile Location Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="w-full flex items-center gap-2 justify-start h-10">
+                  <MapPin className="w-4 h-4 text-brand-blue" />
+                  <div className="flex flex-col items-start text-left flex-1">
+                    <span className="text-xs text-muted-foreground">Deliver to</span>
+                    <span className="text-sm font-medium truncate">{getCurrentLocationName()}</span>
+                  </div>
+                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[calc(100vw-2rem)]" align="start">
+                <DropdownMenuLabel>Select delivery address</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {savedAddresses.map((address) => (
+                  <DropdownMenuItem
+                    key={address.id}
+                    onClick={() => setCurrentAddress(address)}
+                    className="flex flex-col items-start py-3"
+                  >
+                    <div className="flex items-center gap-2 w-full">
+                      <div className="flex items-center gap-2">
+                        {address.type === 'home' && <Home className="w-4 h-4" />}
+                        {address.type === 'office' && <Package className="w-4 h-4" />}
+                        {address.type === 'other' && <MapPin className="w-4 h-4" />}
+                        <span className="font-medium">{address.label}</span>
+                      </div>
+                      {currentAddress?.id === address.id && (
+                        <div className="w-2 h-2 bg-brand-blue rounded-full ml-auto" />
+                      )}
+                    </div>
+                    <div className="text-sm text-muted-foreground mt-1">
+                      {address.address}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {address.pincode} {address.city}, {address.state}
+                    </div>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="text-brand-blue">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Add new address
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </header>
