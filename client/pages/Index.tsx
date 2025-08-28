@@ -646,44 +646,56 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Brand Card 1 */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                <div className="text-2xl font-bold text-blue-800">[Brand Logo]</div>
+            {/* Brand Card 1 - Audio Tech */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9c36f6de0762441eaf56d05097d7e6ac?format=webp&width=800"
+                  alt="Monstrous Sound Audio Collection"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Premium Tech Brand</h3>
-                <p className="text-gray-600 mb-4">Discover cutting-edge technology and innovation</p>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                  Explore Collection
+                <h3 className="text-xl font-bold mb-2">🔊 Monstrous Sound</h3>
+                <p className="text-gray-600 mb-4">14W Stereo Speakers • IPX5 Water & Dust Resistant</p>
+                <Button className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white">
+                  Shop Audio Collection
                 </Button>
               </div>
             </div>
 
-            {/* Brand Card 2 */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                <div className="text-2xl font-bold text-green-800">[Brand Logo]</div>
+            {/* Brand Card 2 - Men's Grooming */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3a1252877fca4d32a9a06270cc53f01b?format=webp&width=800"
+                  alt="Bombay Shaving Company - Gift Him Something Dope"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Eco-Friendly Living</h3>
-                <p className="text-gray-600 mb-4">Sustainable products for a better tomorrow</p>
-                <Button className="w-full bg-green-600 hover:bg-green-700">
-                  Shop Sustainable
+                <h3 className="text-xl font-bold mb-2">🎁 Bombay Shaving Co.</h3>
+                <p className="text-gray-600 mb-4">Premium Men's Grooming • Gift Him Something Dope</p>
+                <Button className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white">
+                  Explore Grooming
                 </Button>
               </div>
             </div>
 
-            {/* Brand Card 3 */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-                <div className="text-2xl font-bold text-purple-800">[Brand Logo]</div>
+            {/* Brand Card 3 - Luxury Accessories */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F149b8178133442bfa33b7cce6645a6b1?format=webp&width=800"
+                  alt="Selected Luxury Collection - Extra 12% Off"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Luxury Fashion</h3>
-                <p className="text-gray-600 mb-4">Exclusive designer collections and limited editions</p>
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                  View Luxury Items
+                <h3 className="text-xl font-bold mb-2">✨ Selected Luxury</h3>
+                <p className="text-gray-600 mb-4">A Glamorous Touch • Extra 12% OFF Designer Bags</p>
+                <Button className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white">
+                  Shop Luxury Now
                 </Button>
               </div>
             </div>
