@@ -39,6 +39,20 @@ export default function Layout({ children }: LayoutProps) {
   const { currentMarketplace, setMarketplace, getMarketplaceLabel } = useMarketplace();
   const { currentAddress, savedAddresses, setCurrentAddress, getCurrentLocationName } = useLocationContext();
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuItems = [
+    { id: 'promotions', label: 'Promotions', icon: Tag, color: 'text-red-600' },
+    { id: 'brands', label: 'Brands', icon: Award, color: 'text-purple-600' },
+    { id: 'newest', label: 'Newest', icon: Star, color: 'text-blue-600' },
+    { id: 'bestsellers', label: 'Bestsellers', icon: TrendingUp, color: 'text-green-600' },
+    { id: 'sale', label: 'On sale', icon: Tag, color: 'text-orange-600' },
+  ];
+
+  const secondaryMenuItems = [
+    { id: 'seller', label: 'Become a seller', icon: Users, color: 'text-indigo-600' },
+    { id: 'contact', label: 'Contact Us', icon: Phone, color: 'text-gray-600' },
+  ];
 
   const isActiveTab = (path: string) => {
     return location.pathname === path;
