@@ -50,6 +50,7 @@ export default function Cart() {
   const [couponCode, setCouponCode] = useState("");
   const [couponLoading, setCouponLoading] = useState(false);
   const [couponError, setCouponError] = useState("");
+  const [showStripeCheckout, setShowStripeCheckout] = useState(false);
 
   const warnings = getCartWarnings();
   const currency = getCurrencySymbol();
