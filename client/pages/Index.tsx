@@ -13,49 +13,49 @@ export default function Index() {
     {
       id: '1',
       name: 'Electronics',
-      image: 'https://images.unsplash.com/photo-1593640408182-31c5089b25c8?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc6001bf2a08e4f5d8f6f64acceaba8f1?format=webp&width=800',
       subcategories: ['Computers', 'Mobile Phones', 'Audio', 'Wearables']
     },
     {
       id: '2',
       name: 'TVs / Video',
-      image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Febf594d6a2184a96acd8cfb15383b1a8?format=webp&width=800',
       subcategories: ['Smart TVs', 'Streaming Devices', 'Projectors']
     },
     {
       id: '3',
       name: 'Video Games',
-      image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F29d21051a0914626a49de19684e9befd?format=webp&width=800',
       subcategories: ['Consoles', 'Games', 'Accessories']
     },
     {
       id: '4',
       name: 'Cameras & Photo',
-      image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F798dd616ad5a4f9092588913656e1a41?format=webp&width=800',
       subcategories: ['Digital Cameras', 'Lenses', 'Accessories']
     },
     {
       id: '5',
       name: 'Cell Phones',
-      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5580a7f4d84c4fd5b5757cc8dfeae1b4?format=webp&width=800',
       subcategories: ['Smartphones', 'Cases', 'Chargers']
     },
     {
       id: '6',
       name: 'Sports & Outdoors',
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbcec0ac8b5ee4411bc8e33e0bd6c0cc3?format=webp&width=800',
       subcategories: ['Fitness', 'Cycling', 'Camping']
     },
     {
       id: '7',
       name: 'Apparel',
-      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1c6981d2cd61432e95af2786a78c0ddf?format=webp&width=800',
       subcategories: ['Mens Clothing', 'Womens Clothing', 'Shoes']
     },
     {
       id: '8',
       name: 'Car Electronics',
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9af92a605ea1422886583e88afdb204e?format=webp&width=800',
       subcategories: ['Audio Systems', 'GPS', 'Dash Cams']
     },
   ];
