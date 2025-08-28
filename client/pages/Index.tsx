@@ -201,8 +201,8 @@ export default function Index() {
   const ukProducts = [
     {
       id: "5",
-      image: "/placeholder.svg",
-      title: "Marks & Spencer Wool Blend Coat",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8887b09d9bf34ca59cea9a5134a30613?format=webp&width=800",
+      title: "Women's Casual Fashion Collection",
       price: 159.99,
       rating: 4.6,
       reviewCount: 234,
@@ -212,8 +212,8 @@ export default function Index() {
     },
     {
       id: "6",
-      image: "/placeholder.svg",
-      title: "John Lewis Premium Cotton Bedding Set",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F553f83079d584f98b998ffbf332afc0d?format=webp&width=800",
+      title: "Premium Bedding & Home Decor",
       price: 89.99,
       rating: 4.8,
       reviewCount: 445,
@@ -223,8 +223,8 @@ export default function Index() {
     },
     {
       id: "7",
-      image: "/placeholder.svg",
-      title: "Waitrose Organic Tea Collection",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4d0382344ba241c7b444ca142bd885df?format=webp&width=800",
+      title: "Artisan Coffee Collection",
       price: 24.99,
       rating: 4.7,
       reviewCount: 167,
@@ -234,8 +234,8 @@ export default function Index() {
     },
     {
       id: "11",
-      image: "/placeholder.svg",
-      title: "Burberry Classic Trench Coat",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F77bcae8814be429ba5ad9507b8c55021?format=webp&width=800",
+      title: "Designer Fashion Collection",
       price: 1890.99,
       rating: 4.9,
       reviewCount: 89,
