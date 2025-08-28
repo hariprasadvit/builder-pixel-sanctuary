@@ -400,12 +400,12 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Marketing Images - Amazon Style No Gap Layout */}
+        {/* Marketing Images - Single Column Scroll Layout */}
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-6">Why iPhone 16?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+          <div className="space-y-0">
             {marketingImages.map((image, index) => (
-              <div key={index} className="overflow-hidden">
+              <div key={index} className="w-full">
                 <img
                   src={image}
                   alt={`iPhone 16 Marketing ${index + 1}`}
