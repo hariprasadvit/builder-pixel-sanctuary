@@ -1,18 +1,19 @@
 import { ReactNode, useState } from "react";
 import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle, Play, MapPin, ChevronDown, Menu, Star, TrendingUp, Award, Tag, Users, Phone } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Badge } from "@/client/components/ui/badge";
+import { Button } from "@/client/components/ui/button";
+import { Input } from "@/client/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { useMarketplace } from "@/contexts/MarketplaceContext";
-import { useLocation as useLocationContext } from "@/contexts/LocationContext";
+} from "@/client/components/ui/select";
+import { useMarketplace } from "@/client/contexts/MarketplaceContext";
+import { useLocation as useLocationContext } from "@/client/contexts/LocationContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +21,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/client/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
@@ -28,7 +29,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/client/components/ui/sheet";
 
 interface LayoutProps {
   children: ReactNode;
