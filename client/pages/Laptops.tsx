@@ -150,6 +150,17 @@ export default function Laptops() {
         </div>
       </div>
 
+      {/* Electronics Banner */}
+      <section className="w-full">
+        <div className="container mx-auto px-4">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3012a8ef6bc84d1f89d0e2e312467ee9?format=webp&width=800"
+            alt="Electronics and Accessories Banner"
+            className="w-full h-auto rounded-lg shadow-sm"
+          />
+        </div>
+      </section>
+
       {/* Laptops Content */}
       <div className="container mx-auto px-4 py-6">
         {!selectedCategory ? (
