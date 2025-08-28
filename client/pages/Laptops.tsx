@@ -434,6 +434,209 @@ export default function Laptops() {
               </div>
             </section>
 
+            {/* Most Selling Laptops */}
+            <section className="mb-8">
+              <h2 className="text-2xl font-bold mb-6">Most Selling Laptops</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  {
+                    id: '11',
+                    image: '/placeholder.svg',
+                    title: 'HP Pavilion 15 Core i5 12th Gen',
+                    price: 54999,
+                    originalPrice: 67999,
+                    rating: 4.4,
+                    reviewCount: 2156,
+                    origin: 'UK' as const,
+                    deliveryEta: '1-2 days',
+                    hasVideo: false,
+                    specs: 'Intel i5-1235U, 8GB RAM, 512GB SSD'
+                  },
+                  {
+                    id: '12',
+                    image: '/placeholder.svg',
+                    title: 'Lenovo IdeaPad Slim 3 Ryzen 5',
+                    price: 48999,
+                    originalPrice: 59999,
+                    rating: 4.3,
+                    reviewCount: 1834,
+                    origin: 'China' as const,
+                    deliveryEta: '2-4 days',
+                    hasVideo: false,
+                    specs: 'AMD Ryzen 5-5500U, 8GB RAM, 512GB SSD'
+                  },
+                  {
+                    id: '13',
+                    image: '/placeholder.svg',
+                    title: 'ASUS VivoBook 15 Core i3 11th Gen',
+                    price: 35999,
+                    rating: 4.2,
+                    reviewCount: 1567,
+                    origin: 'China' as const,
+                    deliveryEta: '3-5 days',
+                    hasVideo: false,
+                    specs: 'Intel i3-1115G4, 8GB RAM, 256GB SSD'
+                  },
+                  {
+                    id: '14',
+                    image: '/placeholder.svg',
+                    title: 'Dell Inspiron 15 3000 Core i3',
+                    price: 38999,
+                    rating: 4.1,
+                    reviewCount: 1289,
+                    origin: 'UK' as const,
+                    deliveryEta: '1-2 days',
+                    hasVideo: false,
+                    specs: 'Intel i3-1115G4, 4GB RAM, 1TB HDD'
+                  },
+                  {
+                    id: '15',
+                    image: '/placeholder.svg',
+                    title: 'Acer Aspire 5 Core i5 11th Gen',
+                    price: 49999,
+                    originalPrice: 59999,
+                    rating: 4.5,
+                    reviewCount: 2034,
+                    origin: 'UK' as const,
+                    deliveryEta: '1-2 days',
+                    hasVideo: true,
+                    specs: 'Intel i5-1135G7, 8GB RAM, 512GB SSD'
+                  },
+                  {
+                    id: '16',
+                    image: '/placeholder.svg',
+                    title: 'HP 14s Core i3 11th Gen',
+                    price: 36999,
+                    rating: 4.0,
+                    reviewCount: 987,
+                    origin: 'UK' as const,
+                    deliveryEta: '1-2 days',
+                    hasVideo: false,
+                    specs: 'Intel i3-1115G4, 8GB RAM, 256GB SSD'
+                  },
+                  {
+                    id: '17',
+                    image: '/placeholder.svg',
+                    title: 'Lenovo ThinkBook 15 Core i5',
+                    price: 62999,
+                    originalPrice: 74999,
+                    rating: 4.6,
+                    reviewCount: 1445,
+                    origin: 'China' as const,
+                    deliveryEta: '3-5 days',
+                    hasVideo: false,
+                    specs: 'Intel i5-1135G7, 8GB RAM, 512GB SSD'
+                  },
+                  {
+                    id: '18',
+                    image: '/placeholder.svg',
+                    title: 'MSI Modern 14 Core i5 11th Gen',
+                    price: 56999,
+                    rating: 4.4,
+                    reviewCount: 823,
+                    origin: 'China' as const,
+                    deliveryEta: '4-6 days',
+                    hasVideo: true,
+                    specs: 'Intel i5-1135G7, 8GB RAM, 512GB SSD'
+                  },
+                ].map((laptop) => (
+                  <Card key={laptop.id} className="group relative overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                    <CardContent className="p-0">
+                      {/* Image Container */}
+                      <div className="relative aspect-square bg-gray-100">
+                        <img
+                          src={laptop.image}
+                          alt={laptop.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                        />
+
+                        {/* Origin Badge */}
+                        <Badge
+                          className={`absolute top-2 left-2 text-xs font-medium ${
+                            laptop.origin === 'UK'
+                              ? 'bg-blue-600 hover:bg-blue-700'
+                              : 'bg-red-600 hover:bg-red-700'
+                          }`}
+                        >
+                          {laptop.origin}
+                        </Badge>
+
+                        {/* Video Icon */}
+                        {laptop.hasVideo && (
+                          <div className="absolute top-2 right-2 w-6 h-6 bg-black/70 rounded-full flex items-center justify-center">
+                            <span className="w-3 h-3 text-white">▶</span>
+                          </div>
+                        )}
+
+                        {/* Delivery ETA */}
+                        <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
+                          <span className="text-xs text-muted-foreground">{laptop.deliveryEta}</span>
+                        </div>
+                      </div>
+
+                      {/* Product Info */}
+                      <div className="p-3">
+                        {/* Title */}
+                        <h3 className="font-medium text-sm leading-5 line-clamp-2 mb-2 min-h-[2.5rem]">
+                          {laptop.title}
+                        </h3>
+
+                        {/* Specs */}
+                        <p className="text-xs text-gray-600 mb-2 line-clamp-2">
+                          {laptop.specs}
+                        </p>
+
+                        {/* Rating */}
+                        <div className="flex items-center gap-1 mb-2">
+                          <div className="flex items-center">
+                            {[...Array(5)].map((_, i) => (
+                              <span
+                                key={i}
+                                className={`text-xs ${
+                                  i < Math.floor(laptop.rating)
+                                    ? 'text-yellow-400'
+                                    : 'text-gray-300'
+                                }`}
+                              >
+                                ★
+                              </span>
+                            ))}
+                          </div>
+                          <span className="text-xs text-muted-foreground">
+                            ({laptop.reviewCount})
+                          </span>
+                        </div>
+
+                        {/* Price */}
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="font-bold text-brand-dark">
+                            ₹{laptop.price.toLocaleString()}
+                          </span>
+                          {laptop.originalPrice && laptop.originalPrice > laptop.price && (
+                            <span className="text-xs text-muted-foreground line-through">
+                              ₹{laptop.originalPrice.toLocaleString()}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Add to Cart Button */}
+                        <Button
+                          size="sm"
+                          className="w-full bg-brand-blue hover:bg-brand-blue/90"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log('Add to cart:', laptop.id);
+                          }}
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
           </>
         ) : (
           <>
