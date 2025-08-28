@@ -1,35 +1,23 @@
 import { useState, useCallback } from 'react';
+import SimpleFireworks from '@/components/SimpleFireworks';
 
 export function useFireworks() {
   const [isActive, setIsActive] = useState(false);
 
   const triggerFireworks = useCallback(() => {
     setIsActive(true);
-    
-    // Auto-hide after animation completes
-    setTimeout(() => {
-      setIsActive(false);
-    }, 3000);
+  }, []);
+
+  const handleComplete = useCallback(() => {
+    setIsActive(false);
   }, []);
 
   const FireworksComponent = () => {
-    if (!isActive) return null;
-
     return (
-      <div className="firework-overlay active">
-        {/* Pyro fireworks effect */}
-        <div className="pyro">
-          <div className="before"></div>
-          <div className="after"></div>
-        </div>
-
-        {/* Confetti fallback */}
-        <div className="absolute inset-0">
-          {[...Array(9)].map((_, i) => (
-            <div key={i} className="confetti" />
-          ))}
-        </div>
-      </div>
+      <SimpleFireworks 
+        isActive={isActive} 
+        onComplete={handleComplete}
+      />
     );
   };
 
