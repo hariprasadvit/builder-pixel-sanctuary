@@ -577,23 +577,32 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
+            {[
+              { id: 1, title: "Smart Fitness Watch", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4444064dbe514c3ea39494880ee0eedd?format=webp&width=800", price: 199.99 },
+              { id: 2, title: "Pet Training Collar", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9186d63f23f54c87b840ba9bf2b76731?format=webp&width=800", price: 149.99 },
+              { id: 3, title: "Gaming Controller", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf0007c350e64f1cb675c9fa56c8c6cc?format=webp&width=800", price: 299.99 },
+              { id: 4, title: "Mountain Bicycle", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F83bd11634aff48988b2cd202ed37472c?format=webp&width=800", price: 399.99 },
+              { id: 5, title: "Kitchen Mixer", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F530577c64eac4a5aae827ee06cd1c1d5?format=webp&width=800", price: 449.99 },
+              { id: 6, title: "Energy Drinks Pack", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02a4c749d1aa481aae948af8a5bdd6f1?format=webp&width=800", price: 549.99 }
+            ].map((item) => (
+              <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
                 <div className="relative">
                   <div className="absolute top-2 left-2 z-10">
                     <div className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                      #{item}
+                      #{item.id}
                     </div>
                   </div>
-                  <div className="aspect-square bg-gray-100">
-                    <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-300">
-                      [Product {item}]
-                    </div>
+                  <div className="aspect-square bg-gray-100 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                 </div>
                 <div className="p-3">
                   <div className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
-                    Best Seller #{item}
+                    {item.title}
                   </div>
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
@@ -601,7 +610,7 @@ export default function Index() {
                     ))}
                     <span className="text-xs text-gray-500">(4.8)</span>
                   </div>
-                  <div className="text-lg font-bold text-gray-900">£{99 + item * 50}.99</div>
+                  <div className="text-lg font-bold text-gray-900">£{item.price}</div>
                 </div>
               </div>
             ))}
@@ -741,7 +750,7 @@ export default function Index() {
               <div className="w-1 h-8 bg-gradient-to-b from-emerald-600 to-teal-600 rounded-full"></div>
               <div>
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
-                  🆕 New Arrivals
+                  �� New Arrivals
                   <span className="bg-emerald-100 text-emerald-700 text-sm px-2 py-1 rounded-full">Fresh</span>
                 </h2>
                 <p className="text-sm text-gray-600">Just landed - Be the first to shop</p>
