@@ -13,14 +13,14 @@ export default function Electronics() {
     {
       id: '1',
       name: 'TV & Video',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feda818fc97204d96bfc86169a8b0d9ce?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7f10e16ce5324ea29cf7ab48508b367c?format=webp&width=800',
       items: ['LED TVs', 'Plasma TVs', '3D TVs', 'DVD & Blu-ray Players', 'Home Theater Systems'],
       productCount: 450
     },
     {
       id: '2',
       name: 'Computers',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7f10e16ce5324ea29cf7ab48508b367c?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F85a07ddf5ba447c098992ae8ef39b36f?format=webp&width=800',
       items: ['Desktops', 'Laptops', 'Tablets', 'Monitors', 'Networking'],
       productCount: 678,
       badge: 'HIT'
@@ -28,28 +28,28 @@ export default function Electronics() {
     {
       id: '3',
       name: 'Car Electronics',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F85a07ddf5ba447c098992ae8ef39b36f?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2d4de7e12e4147cbae90ce528c561332?format=webp&width=800',
       items: ['GPS & Navigation', 'In-Dash Stereos', 'Speakers', 'Subwoofers', 'Amplifiers'],
       productCount: 234
     },
     {
       id: '4',
       name: 'Cell Phones',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2d4de7e12e4147cbae90ce528c561332?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F10bc369f9b1b419f9f3f50074801412d?format=webp&width=800',
       items: ['Apple iPhone', 'HTC', 'Motorola', 'Nokia', 'Samsung'],
       productCount: 567
     },
     {
       id: '5',
       name: 'MP3 Players',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F10bc369f9b1b419f9f3f50074801412d?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F409da87afc3d4553b90b3c7a25283f03?format=webp&width=800',
       items: ['iPods', 'Android', 'MP3 Players', 'MP3 Speaker Systems', 'Headphones'],
       productCount: 123
     },
     {
       id: '6',
       name: 'Cameras & Photo',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F409da87afc3d4553b90b3c7a25283f03?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F924cf65e69cc456e9ba3be6f8a22be27?format=webp&width=800',
       items: ['Digital Cameras', 'DSLR Cameras', 'Camcorders', 'Lenses'],
       productCount: 345
     },
@@ -147,24 +147,70 @@ export default function Electronics() {
             </div>
 
             {/* Subcategories Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6">
               {subcategories.map((subcategory) => (
-                <Card 
-                  key={subcategory.id} 
+                <Card
+                  key={subcategory.id}
                   className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white"
                   onClick={() => setSelectedSubcategory(subcategory.name)}
                 >
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
+                  <CardContent className="p-4 sm:p-6">
+                    {/* Mobile Layout */}
+                    <div className="flex flex-col sm:hidden">
+                      {/* Image centered on mobile */}
+                      <div className="w-24 h-24 mx-auto mb-4 bg-gray-50 rounded-lg overflow-hidden flex-shrink-0">
+                        <img
+                          src={subcategory.image}
+                          alt={subcategory.name}
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                        />
+                      </div>
+
+                      {/* Content centered on mobile */}
+                      <div className="text-center">
+                        <div className="flex items-center justify-center gap-2 mb-3">
+                          <h3 className="font-semibold text-lg text-gray-900">
+                            {subcategory.name}
+                          </h3>
+                          {subcategory.badge && (
+                            <Badge className="bg-orange-500 text-white text-xs">
+                              {subcategory.badge}
+                            </Badge>
+                          )}
+                        </div>
+
+                        {/* Items List */}
+                        <div className="space-y-1 mb-3">
+                          {subcategory.items.slice(0, 3).map((item, index) => (
+                            <p key={index} className="text-sm text-gray-600">
+                              {item}
+                            </p>
+                          ))}
+                          {subcategory.items.length > 3 && (
+                            <p className="text-sm text-brand-blue font-medium cursor-pointer">
+                              More ▼
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Product Count */}
+                        <Badge variant="secondary" className="text-xs">
+                          {subcategory.productCount.toLocaleString()} items
+                        </Badge>
+                      </div>
+                    </div>
+
+                    {/* Desktop Layout */}
+                    <div className="hidden sm:flex items-start gap-4">
                       {/* Image */}
                       <div className="w-20 h-20 flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden">
                         <img
                           src={subcategory.image}
                           alt={subcategory.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
                         />
                       </div>
-                      
+
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-2">
@@ -177,7 +223,7 @@ export default function Electronics() {
                             </Badge>
                           )}
                         </div>
-                        
+
                         {/* Items List */}
                         <div className="space-y-1 mb-3">
                           {subcategory.items.map((item, index) => (
@@ -191,7 +237,7 @@ export default function Electronics() {
                             </p>
                           )}
                         </div>
-                        
+
                         {/* Product Count */}
                         <Badge variant="secondary" className="text-xs">
                           {subcategory.productCount.toLocaleString()} items
