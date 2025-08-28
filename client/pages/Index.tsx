@@ -596,6 +596,60 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Brand Spotlight */}
+      <section className="py-8 md:py-10 bg-gradient-to-r from-purple-50 via-pink-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">✨ Brand Spotlight</h2>
+            <p className="text-gray-600">Featured brands and exclusive collections</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Brand Card 1 */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                <div className="text-2xl font-bold text-blue-800">[Brand Logo]</div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Premium Tech Brand</h3>
+                <p className="text-gray-600 mb-4">Discover cutting-edge technology and innovation</p>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  Explore Collection
+                </Button>
+              </div>
+            </div>
+
+            {/* Brand Card 2 */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                <div className="text-2xl font-bold text-green-800">[Brand Logo]</div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Eco-Friendly Living</h3>
+                <p className="text-gray-600 mb-4">Sustainable products for a better tomorrow</p>
+                <Button className="w-full bg-green-600 hover:bg-green-700">
+                  Shop Sustainable
+                </Button>
+              </div>
+            </div>
+
+            {/* Brand Card 3 */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                <div className="text-2xl font-bold text-purple-800">[Brand Logo]</div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Luxury Fashion</h3>
+                <p className="text-gray-600 mb-4">Exclusive designer collections and limited editions</p>
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                  View Luxury Items
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Editor's Picks from China */}
       <section className="py-6 md:py-8">
         <div className="container mx-auto px-4">
