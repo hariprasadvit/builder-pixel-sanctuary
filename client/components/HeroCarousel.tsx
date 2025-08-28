@@ -32,14 +32,6 @@ export default function HeroCarousel() {
       category: "Apparel",
       link: "/categories?filter=apparel",
     },
-    {
-      id: "3",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa57bdca442e54abcb222ba6b8790cadf?format=webp&width=800",
-      alt: "Lenovo Legion Go - Gaming Revolution",
-      category: "Gaming",
-      link: "/categories?filter=gaming",
-    },
   ];
 
   // Auto-play functionality
