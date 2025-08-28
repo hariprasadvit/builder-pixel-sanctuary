@@ -347,7 +347,7 @@ export default function Index() {
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {ukProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -372,7 +372,7 @@ export default function Index() {
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {chinaProducts.map((product) => (
               <ProductCard
                 key={product.id}
