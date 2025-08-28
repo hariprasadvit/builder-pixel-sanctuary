@@ -387,20 +387,22 @@ export default function Index() {
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-orange-200 to-pink-300 rounded-full blur-3xl transform translate-x-32 translate-y-32"></div>
         </div>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
             <div className="flex items-center gap-3">
               <div className="w-1 h-8 bg-gradient-to-b from-red-600 to-orange-600 rounded-full"></div>
-              <div>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
-                  ⚡ Deals of the Day
-                  <span className="bg-red-600 text-white text-sm px-2 py-1 rounded-full animate-pulse">LIVE</span>
-                </h2>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+                    ⚡ Deals of the Day
+                  </h2>
+                  <span className="bg-red-600 text-white text-xs sm:text-sm px-2 py-1 rounded-full animate-pulse self-start">LIVE</span>
+                </div>
                 <p className="text-sm text-gray-600">Limited time offers - Don't miss out!</p>
               </div>
             </div>
-            <div className="text-right">
+            <div className="text-left sm:text-right shrink-0">
               <div className="text-sm text-gray-600">Ends in</div>
-              <div className="text-red-600 font-bold font-mono">23:59:42</div>
+              <div className="text-red-600 font-bold font-mono text-lg">23:59:42</div>
             </div>
           </div>
 
