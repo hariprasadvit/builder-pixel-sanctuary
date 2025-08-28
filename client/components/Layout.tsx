@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import {
   Search,
   Heart,
@@ -65,6 +65,7 @@ export default function Layout({ children }: LayoutProps) {
   } = useLocationContext();
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const menuItems = [
     { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600" },
