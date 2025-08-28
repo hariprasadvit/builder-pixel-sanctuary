@@ -44,7 +44,8 @@ export default function Cart() {
   
   const { getMarketplaceLabel, getDeliveryTime, getCurrencySymbol } = useMarketplace();
   const { currentAddress } = useLocation();
-  
+  const { triggerFireworks, FireworksComponent } = useFireworks();
+
   const [couponCode, setCouponCode] = useState("");
   const [couponLoading, setCouponLoading] = useState(false);
   const [couponError, setCouponError] = useState("");
