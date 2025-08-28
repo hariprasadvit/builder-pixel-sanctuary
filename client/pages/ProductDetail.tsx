@@ -1314,7 +1314,69 @@ export default function ProductDetail() {
         <Card className="mt-8">
           <CardContent className="p-6">
             <h2 className="text-xl font-bold mb-6">Frequently bought together</h2>
-            <div className="flex flex-col lg:flex-row items-start gap-6">
+            {/* Mobile Layout */}
+            <div className="lg:hidden">
+              <div className="space-y-4">
+                {/* Main Product - Mobile */}
+                <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                  <div className="w-20 h-20 bg-white border rounded-lg overflow-hidden flex-shrink-0">
+                    <img
+                      src={product.images[0]}
+                      alt={product.title}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-medium text-gray-900">This item</div>
+                    <div className="text-sm text-gray-600 truncate">{product.title}</div>
+                    <div className="text-sm font-semibold text-gray-900">£{product.price.toFixed(2)}</div>
+                  </div>
+                </div>
+
+                {/* Additional Products - Mobile */}
+                {frequentlyBoughtTogether.map((item, index) => (
+                  <div key={item.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div className="text-xl text-gray-400 font-light flex-shrink-0">+</div>
+                    <div className="w-20 h-20 bg-white border rounded-lg overflow-hidden flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm text-blue-600 hover:underline cursor-pointer line-clamp-2 font-medium">
+                        {item.title}
+                      </div>
+                      <div className="flex items-center gap-1 mt-1">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-3 h-3 ${
+                                i < Math.floor(item.rating)
+                                  ? "text-yellow-400 fill-current"
+                                  : "text-gray-300"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-gray-600">({item.reviewCount.toLocaleString()})</span>
+                      </div>
+                      <div className="flex items-center gap-2 mt-1">
+                        <div className="text-sm font-semibold">£{item.price.toFixed(2)}</div>
+                        {item.savings && (
+                          <div className="text-xs text-green-600">{item.savings}</div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:flex flex-row items-start gap-6">
               {/* Main Product */}
               <div className="flex-shrink-0">
                 <div className="w-24 h-24 bg-white border rounded-lg overflow-hidden">
