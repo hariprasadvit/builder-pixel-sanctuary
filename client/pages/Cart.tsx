@@ -430,6 +430,12 @@ export default function Cart() {
                   {couponError && (
                     <p className="text-sm text-red-600">{couponError}</p>
                   )}
+
+                  {couponSuccess && (
+                    <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                      <p className="text-sm text-green-700 font-medium">{couponSuccess}</p>
+                    </div>
+                  )}
                   
                   {appliedCoupons.length > 0 && (
                     <div className="space-y-2">
