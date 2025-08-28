@@ -107,7 +107,7 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Mobile Bottom Tab Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
-        <div className="grid grid-cols-6 h-16">
+        <div className="grid grid-cols-5 h-16">
           <Link
             to="/"
             className={`flex flex-col items-center justify-center gap-1 ${
@@ -144,21 +144,6 @@ export default function Layout({ children }: LayoutProps) {
             <span className="text-xs">Videos</span>
           </Link>
 
-          <Link
-            to="/cart"
-            className={`flex flex-col items-center justify-center gap-1 relative ${
-              isActiveTab('/cart') 
-                ? 'text-brand-blue' 
-                : 'text-muted-foreground hover:text-foreground'
-            }`}
-          >
-            <ShoppingCart className="w-5 h-5" />
-            <span className="text-xs">Cart</span>
-            <Badge className="absolute top-1 right-6 w-5 h-5 flex items-center justify-center p-0 text-xs bg-brand-red">
-              3
-            </Badge>
-          </Link>
-          
           <Link
             to="/orders"
             className={`flex flex-col items-center justify-center gap-1 ${
