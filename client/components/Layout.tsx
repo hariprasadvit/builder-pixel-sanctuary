@@ -64,6 +64,7 @@ export default function Layout({ children }: LayoutProps) {
     setCurrentAddress,
     getCurrentLocationName,
   } = useLocationContext();
+  const { getItemCount } = useCart();
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
