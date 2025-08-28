@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import { useMarketplace } from "@/contexts/MarketplaceContext";
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const { currentMarketplace, getCurrencySymbol } = useMarketplace();
+  const navigate = useNavigate();
 
   const categories = [
     {
@@ -155,10 +157,16 @@ export default function Categories() {
             {/* Categories Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
               {categories.map((category) => (
-                <Card 
-                  key={category.id} 
+                <Card
+                  key={category.id}
                   className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white"
-                  onClick={() => setSelectedCategory(category.name)}
+                  onClick={() => {
+                    if (category.name === 'Electronics') {
+                      navigate('/electronics');
+                    } else {
+                      setSelectedCategory(category.name);
+                    }
+                  }}
                 >
                   <CardContent className="p-4">
                     <div className="flex flex-col items-center">
