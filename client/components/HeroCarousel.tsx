@@ -29,6 +29,13 @@ export default function HeroCarousel() {
       alt: 'DJI Mavic 3 Pro - Camera Drone',
       category: 'Cameras & Photo',
       link: '/categories?filter=cameras-photo'
+    },
+    {
+      id: '3',
+      image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=400&fit=crop&crop=center',
+      alt: 'Global Marketplace - Shop Worldwide',
+      category: 'All Categories',
+      link: '/categories'
     }
   ];
 

@@ -31,15 +31,11 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex items-center">
-                <div className="w-8 h-6 bg-brand-blue rounded-sm flex items-center justify-center">
-                  <div className="w-6 h-4 bg-white rounded-sm relative">
-                    <div className="absolute top-3 left-1 w-1 h-1 bg-brand-red rounded-full"></div>
-                    <div className="absolute top-3 right-1 w-1 h-1 bg-brand-red rounded-full"></div>
-                  </div>
-                </div>
-                <span className="ml-2 text-xl font-bold text-brand-dark">RIKY</span>
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa74e56e283d44231b5a2ba37cfcd2c4b?format=webp&width=800"
+                alt="RIKY Logo"
+                className="h-8 w-auto"
+              />
             </Link>
 
             {/* Search Bar - Hidden on mobile */}
