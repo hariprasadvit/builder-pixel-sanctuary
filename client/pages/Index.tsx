@@ -82,14 +82,14 @@ export default function Index() {
     },
   ];
 
-  // Enhanced product data with marketplace filtering
+  // Enhanced product data with marketplace filtering and new images
   const allProducts = [
     {
       id: "1",
-      image: "/placeholder.svg",
-      title: "iPhone 15 Pro Max 256GB Natural Titanium",
-      price: 1199.99,
-      originalPrice: 1299.99,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5af4fad80ff4399a6d668145b207b6e?format=webp&width=800",
+      title: "iPhone 16 Pro Max 256GB with Camera Control",
+      price: 999.99,
+      originalPrice: 1099.99,
       rating: 4.8,
       reviewCount: 2847,
       origin: "UK" as const,
@@ -102,7 +102,7 @@ export default function Index() {
     },
     {
       id: "2",
-      image: "/placeholder.svg",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F71434f1b6c444921b1f60218c7258242?format=webp&width=800",
       title: "Samsung Galaxy Buds Pro Wireless Earbuds",
       price: 89.99,
       originalPrice: 149.99,
@@ -118,8 +118,8 @@ export default function Index() {
     },
     {
       id: "3",
-      image: "/placeholder.svg",
-      title: "Nike Air Max 270 Running Shoes",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F840cbc4d5c6c45b891684ac95917a774?format=webp&width=800",
+      title: "Nike Air Max Plus Running Shoes",
       price: 119.99,
       rating: 4.7,
       reviewCount: 567,
@@ -133,7 +133,7 @@ export default function Index() {
     },
     {
       id: "4",
-      image: "/placeholder.svg",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbc0b172ea8124ff1b3a0d4c65468556e?format=webp&width=800",
       title: "Dyson V15 Detect Absolute Cordless Vacuum",
       price: 549.99,
       rating: 4.9,
@@ -323,8 +323,8 @@ export default function Index() {
       {/* Hero Carousel */}
       <HeroCarousel />
 
-      {/* Quick Categories */}
-      <section className="py-6 md:py-8 bg-gray-50">
+      {/* Quick Categories - Tighter spacing */}
+      <section className="py-6 md:py-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <h2 className="text-lg md:text-xl font-bold">Shop by Category</h2>
@@ -335,7 +335,7 @@ export default function Index() {
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
             {categories.map((category) => (
               <Card
                 key={category.id}
@@ -366,38 +366,76 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Trending Near You */}
-      <section className="py-6 md:py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-lg md:text-xl font-bold">Trending Near You</h2>
+      {/* Trending Near You - Enhanced Design */}
+      <section className="py-8 md:py-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full blur-3xl transform -translate-x-32 -translate-y-32"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-indigo-200 to-cyan-200 rounded-full blur-3xl transform translate-x-32 translate-y-32"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex items-center justify-between mb-6 md:mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Trending Near You</h2>
+                <p className="text-sm text-gray-600 mt-1">Discover what's popular in your area</p>
+              </div>
+            </div>
             <Button
               variant="ghost"
-              className="text-brand-blue text-sm md:text-base"
+              className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 text-sm md:text-base font-medium"
             >
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {trendingProducts.map((product, index) => (
               <div
                 key={product.id}
-                className={index === 0 ? "cursor-pointer" : ""}
+                className={`group relative ${index === 0 ? "cursor-pointer" : ""}`}
                 onClick={index === 0 ? () => navigate(`/product/${product.id}`) : undefined}
               >
-                <ProductCard
-                  {...product}
-                  onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                  onAddToCart={(id) => console.log("Add to cart:", id)}
-                />
+                {/* Enhanced Card with Gradient Background */}
+                <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] overflow-hidden border border-gray-100">
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/20 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  {/* Trending Badge */}
+                  {index < 2 && (
+                    <div className="absolute top-3 left-3 z-10">
+                      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-lg">
+                        🔥 Hot
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="relative z-10">
+                    <ProductCard
+                      {...product}
+                      onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
+                      onAddToCart={(id) => console.log("Add to cart:", id)}
+                    />
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-8 text-center">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-gray-700">Live trends updated every hour</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Top from UK */}
-      <section className="py-6 md:py-8 bg-gray-50">
+      <section className="py-6 md:py-8 bg-gradient-to-br from-blue-50 via-white to-slate-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <div className="flex items-center gap-2">
@@ -455,7 +493,7 @@ export default function Index() {
       </section>
 
       {/* Short Video Rail */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-8 bg-gradient-to-br from-slate-100 via-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold">Product Videos</h2>
@@ -557,7 +595,7 @@ export default function Index() {
 
       {/* Recently Viewed */}
       {recentlyViewedProducts.length > 0 && (
-        <section className="py-6 md:py-8 bg-gray-50">
+        <section className="py-6 md:py-8 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-4 md:mb-6">
               <div className="flex items-center gap-2">
