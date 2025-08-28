@@ -206,7 +206,7 @@ export default function Profile() {
                 </div>
                 {isEditing && (
                   <div className="flex gap-3">
-                    <Button onClick={handleSaveProfile}>Save Changes</Button>
+                    <Button onClick={handleSaveProfile} className="bg-blue-600 hover:bg-blue-700 text-white">Save Changes</Button>
                     <Button variant="outline" onClick={() => setIsEditing(false)}>Cancel</Button>
                   </div>
                 )}
@@ -219,7 +219,7 @@ export default function Profile() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Saved Addresses</CardTitle>
-                <Button>
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                   <Plus className="w-4 h-4 mr-2" />
                   Add Address
                 </Button>
@@ -261,7 +261,7 @@ export default function Profile() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Payment Methods</CardTitle>
-                <Button>
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                   <Plus className="w-4 h-4 mr-2" />
                   Add Card
                 </Button>
@@ -349,7 +349,7 @@ export default function Profile() {
                   <h3 className="text-lg font-semibold mb-2">Your wishlist is empty</h3>
                   <p className="text-gray-600 mb-4">Save items you love for later</p>
                   <Link to="/">
-                    <Button>Start Shopping</Button>
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">Start Shopping</Button>
                   </Link>
                 </div>
               </CardContent>
