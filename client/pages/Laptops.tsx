@@ -133,7 +133,7 @@ export default function Laptops() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b sticky top-[73px] z-40">
+      <div className="bg-white border-b sticky top-[65px] z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
