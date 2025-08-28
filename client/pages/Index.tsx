@@ -397,8 +397,8 @@ export default function Index() {
                 </div>
                 <div className="aspect-square bg-gray-100 overflow-hidden relative">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3ce07e8de00a454f8e978a46d3a72308?format=webp&width=800"
-                    alt="Electronics Collection"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F319deb5bd62f44adbe76dee2d2c91558?format=webp&width=800"
+                    alt="Electronics Collection - Flash Sale on Home Appliances"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -472,8 +472,8 @@ export default function Index() {
                 </div>
                 <div className="aspect-square bg-gray-100 overflow-hidden relative">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdf6b54d176914f2a8dbf7897e53a3082?format=webp&width=800"
-                    alt="Fashion Collection"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe125a25e2ee04583b76a8a3a45e708c7?format=webp&width=800"
+                    alt="Fashion Collection - Women's Fashion Collection"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
