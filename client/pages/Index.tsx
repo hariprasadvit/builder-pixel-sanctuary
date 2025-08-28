@@ -389,7 +389,7 @@ export default function Index() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Deal Card 1 */}
             <div className="">
-              <div className="bg-white rounded-xl shadow-lg border border-red-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-white rounded-xl shadow-lg border border-red-200 overflow-hidden hover:shadow-xl transition-all duration-300 group relative">
                 <div className="absolute top-3 left-3 z-10">
                   <div className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                     60% OFF
