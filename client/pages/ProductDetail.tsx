@@ -497,17 +497,35 @@ export default function ProductDetail() {
               </TabsList>
               
               <TabsContent value="description" className="mt-6 relative z-0">
-                <div className="space-y-6">
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <p className="text-gray-700 text-lg leading-relaxed">{product.description}</p>
+                <div className="space-y-8">
+                  {/* Product Description */}
+                  <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-xl p-8 border border-blue-100 shadow-sm">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-1 h-16 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">Product Overview</h3>
+                        <p className="text-gray-700 text-lg leading-relaxed">{product.description}</p>
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Key Features */}
                   <div>
-                    <h4 className="font-bold text-lg mb-4">Key Features:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <Star className="w-4 h-4 text-white" />
+                      </div>
+                      Key Features
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {product.features.map((feature, index) => (
-                        <div key={index} className="flex items-center gap-3 p-3 bg-white border rounded-lg">
-                          <div className="w-2 h-2 bg-brand-blue rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-700 font-medium">{feature}</span>
+                        <div key={index} className="group hover:shadow-md transition-shadow duration-200 p-4 bg-white border border-gray-200 rounded-xl hover:border-blue-300">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <div className="w-3 h-3 bg-white rounded-full"></div>
+                            </div>
+                            <span className="text-gray-800 font-medium">{feature}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -516,19 +534,30 @@ export default function ProductDetail() {
               </TabsContent>
               
               <TabsContent value="specifications" className="mt-6 relative z-0">
-                <div className="bg-white rounded-lg">
-                  <div className="grid grid-cols-1 gap-0">
+                <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-200">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                      <div className="w-6 h-6 bg-gradient-to-r from-gray-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <div className="w-3 h-3 border-2 border-white rounded-sm"></div>
+                      </div>
+                      Technical Specifications
+                    </h3>
+                    <p className="text-gray-600 mt-1">Detailed product specifications and features</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-3">
                     {Object.entries(product.specifications).map(([key, value], index) => (
                       <div
                         key={key}
-                        className={`flex justify-between items-center py-4 px-6 ${
-                          index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                        } ${index === 0 ? 'rounded-t-lg' : ''} ${
-                          index === Object.entries(product.specifications).length - 1 ? 'rounded-b-lg' : ''
-                        }`}
+                        className="bg-white rounded-lg p-4 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200"
                       >
-                        <span className="font-semibold text-gray-900">{key}</span>
-                        <span className="text-gray-700 font-medium">{value}</span>
+                        <div className="flex justify-between items-center">
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <span className="font-semibold text-gray-900">{key}</span>
+                          </div>
+                          <span className="text-gray-700 font-medium bg-gray-50 px-3 py-1 rounded-full text-sm">{value}</span>
+                        </div>
                       </div>
                     ))}
                   </div>
