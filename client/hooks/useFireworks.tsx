@@ -17,9 +17,17 @@ export function useFireworks() {
 
     return (
       <div className="firework-overlay active">
+        {/* Pyro fireworks effect */}
         <div className="pyro">
           <div className="before"></div>
           <div className="after"></div>
+        </div>
+
+        {/* Confetti fallback */}
+        <div className="absolute inset-0">
+          {[...Array(9)].map((_, i) => (
+            <div key={i} className="confetti" />
+          ))}
         </div>
       </div>
     );
