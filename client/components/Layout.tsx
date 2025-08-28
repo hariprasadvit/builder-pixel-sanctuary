@@ -414,10 +414,10 @@ export default function Layout({ children }: LayoutProps) {
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
         <div className="grid grid-cols-5 h-16">
           <Link
-            to="/"
+            href="/"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/') 
-                ? 'text-brand-blue' 
+              isActiveTab('/')
+                ? 'text-brand-blue'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -426,7 +426,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
           
           <Link
-            to="/categories"
+            href="/categories"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/categories')
                 ? 'text-brand-blue'
@@ -438,7 +438,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
 
           <Link
-            to="/videos"
+            href="/videos"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/videos')
                 ? 'text-brand-blue'
@@ -450,10 +450,10 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
 
           <Link
-            to="/orders"
+            href="/orders"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/orders') 
-                ? 'text-brand-blue' 
+              isActiveTab('/orders')
+                ? 'text-brand-blue'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -462,7 +462,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
           
           <Link
-            to="/profile"
+            href="/profile"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/profile') 
                 ? 'text-brand-blue' 
