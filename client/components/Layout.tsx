@@ -423,9 +423,11 @@ export default function Layout({ children }: LayoutProps) {
               <Link to="/cart">
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="w-5 h-5" />
-                  <Badge className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center p-0 text-xs bg-brand-red">
-                    3
-                  </Badge>
+                  {getItemCount() > 0 && (
+                    <Badge className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center p-0 text-xs bg-red-500 text-white">
+                      {getItemCount()}
+                    </Badge>
+                  )}
                 </Button>
               </Link>
 
