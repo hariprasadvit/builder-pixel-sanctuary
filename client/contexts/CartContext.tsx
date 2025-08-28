@@ -258,6 +258,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Mock coupon validation - in real app this would call an API
   const applyCoupon = async (code: string): Promise<boolean> => {
     const mockCoupons: Record<string, AppliedCoupon> = {
+      "1234": {
+        code: "1234",
+        type: "fixed",
+        value: 50,
+        description: "🎉 Special firework discount - £50 off!",
+        minOrder: 10
+      },
       "SAVE10": {
         code: "SAVE10",
         type: "percentage",
