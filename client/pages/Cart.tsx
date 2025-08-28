@@ -432,9 +432,9 @@ export default function Cart() {
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-                  onClick={() => navigate("/checkout")}
+                  onClick={() => setShowStripeCheckout(true)}
                 >
                   Proceed to Checkout
                 </Button>
