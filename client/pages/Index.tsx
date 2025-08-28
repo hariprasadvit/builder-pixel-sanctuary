@@ -850,12 +850,12 @@ export default function Index() {
       {/* Flash Sale Banner */}
       <section className="py-6">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-br from-purple-600 via-blue-500 via-pink-500 to-orange-400 rounded-2xl overflow-hidden relative shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20"></div>
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-4 left-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-              <div className="absolute bottom-8 right-8 w-32 h-32 bg-yellow-300/20 rounded-full blur-2xl"></div>
-              <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-pink-300/30 rounded-full blur-lg"></div>
+          <div className="bg-gradient-to-br from-slate-700 via-blue-600 to-indigo-700 rounded-2xl overflow-hidden relative shadow-xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10"></div>
+            <div className="absolute inset-0 opacity-15">
+              <div className="absolute top-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+              <div className="absolute bottom-8 right-8 w-32 h-32 bg-blue-300/10 rounded-full blur-2xl"></div>
+              <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-indigo-300/15 rounded-full blur-lg"></div>
             </div>
             <div className="relative z-10 py-12 px-6 text-center text-white">
               <h2 className="text-2xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -881,7 +881,7 @@ export default function Index() {
                   <div className="text-sm">Seconds</div>
                 </div>
               </div>
-              <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-lg px-8 py-3">
+              <Button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-3 backdrop-blur-sm transition-all duration-300">
                 Shop Flash Sale Now
               </Button>
             </div>
@@ -1084,20 +1084,34 @@ export default function Index() {
       {/* Product Comparison CTA */}
       <section className="py-6 md:py-8">
         <div className="container mx-auto px-4">
-          <Card className="bg-gradient-to-r from-brand-blue to-brand-blue/80 text-white">
-            <CardContent className="p-4 md:p-6 text-center">
-              <h3 className="text-lg md:text-xl font-bold mb-2">
-                Compare Products
-              </h3>
-              <p className="mb-4 text-white/90 text-sm md:text-base">
-                Found similar products? Compare features, prices, and reviews
-                side by side.
-              </p>
-              <Button className="bg-white text-brand-blue hover:bg-white/90 text-sm md:text-base">
-                Start Comparing
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl overflow-hidden relative shadow-xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-white/5"></div>
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl transform -translate-x-20 -translate-y-20"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-300/20 rounded-full blur-xl transform translate-x-16 translate-y-16"></div>
+            </div>
+            <div className="relative z-10 p-8 md:p-12 text-center text-white">
+              <div className="max-w-2xl mx-auto">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-6 backdrop-blur-sm">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  Compare Products
+                </h3>
+                <p className="mb-8 text-white/90 text-lg leading-relaxed">
+                  Found similar products? Compare features, prices, and reviews side by side to make the perfect choice.
+                </p>
+                <Button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-lg px-8 py-4 backdrop-blur-sm transition-all duration-300 rounded-xl">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Start Comparing
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
