@@ -379,37 +379,36 @@ export default function Laptops() {
                 />
               </div>
 
-              <h2 className="text-2xl font-bold mb-6">Browse by Curated Selection for Every Use</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {[
                   {
                     title: 'Laptops for school',
                     image: '/placeholder.svg',
-                    badge: 'Amazon Choice',
+                    badge: 'Best Choice',
                     description: 'Perfect for students'
                   },
                   {
                     title: 'Multitasking laptops',
                     image: '/placeholder.svg',
-                    badge: 'Amazon Choice',
+                    badge: 'Best Choice',
                     description: 'Productivity focused'
                   },
                   {
                     title: 'Laptops for professionals',
                     image: '/placeholder.svg',
-                    badge: 'Amazon Choice',
+                    badge: 'Best Choice',
                     description: 'Business ready'
                   },
                   {
                     title: 'Entry Gaming',
                     image: '/placeholder.svg',
-                    badge: 'Amazon Choice',
+                    badge: 'Best Choice',
                     description: 'Gaming on budget'
                   },
                   {
                     title: 'E-sports Gaming',
                     image: '/placeholder.svg',
-                    badge: 'Amazon Choice',
+                    badge: 'Best Choice',
                     description: 'Pro gaming'
                   },
                 ].map((selection, index) => (
