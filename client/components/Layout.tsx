@@ -1,19 +1,18 @@
 import { ReactNode, useState } from "react";
 import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle, Play, MapPin, ChevronDown, Menu, Star, TrendingUp, Award, Tag, Users, Phone } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Badge } from "@/client/components/ui/badge";
-import { Button } from "@/client/components/ui/button";
-import { Input } from "@/client/components/ui/input";
+import { Link, useLocation } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/client/components/ui/select";
-import { useMarketplace } from "@/client/contexts/MarketplaceContext";
-import { useLocation as useLocationContext } from "@/client/contexts/LocationContext";
+} from "@/components/ui/select";
+import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { useLocation as useLocationContext } from "@/contexts/LocationContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +20,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/client/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
@@ -29,14 +28,14 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/client/components/ui/sheet";
+} from "@/components/ui/sheet";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const router = useRouter();
+  const location = useLocation();
   const { currentMarketplace, setMarketplace, getMarketplaceLabel } = useMarketplace();
   const { currentAddress, savedAddresses, setCurrentAddress, getCurrentLocationName } = useLocationContext();
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
@@ -56,7 +55,7 @@ export default function Layout({ children }: LayoutProps) {
   ];
 
   const isActiveTab = (path: string) => {
-    return router.pathname === path;
+    return location.pathname === path;
   };
 
   return (
