@@ -381,7 +381,11 @@ export default function Index() {
       </section>
 
       {/* Deals of the Day - Limited Time Offers */}
-      <section className="py-8 md:py-10 bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 relative overflow-hidden">
+      <section className="py-8 md:py-10 bg-gradient-to-br from-purple-50 via-blue-50 via-pink-50 to-orange-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-purple-200 to-blue-300 rounded-full blur-3xl transform -translate-x-32 -translate-y-32"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-orange-200 to-pink-300 rounded-full blur-3xl transform translate-x-32 translate-y-32"></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -505,11 +509,12 @@ export default function Index() {
       </section>
 
       {/* Trending Near You - Enhanced Design */}
-      <section className="py-8 md:py-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+      <section className="py-8 md:py-10 bg-gradient-to-br from-indigo-50 via-purple-50 via-pink-50 to-orange-50 relative overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full blur-3xl transform -translate-x-32 -translate-y-32"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-indigo-200 to-cyan-200 rounded-full blur-3xl transform translate-x-32 translate-y-32"></div>
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-indigo-300 via-purple-300 to-pink-300 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-orange-300 via-pink-300 to-purple-300 rounded-full blur-3xl transform translate-x-40 translate-y-40"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-2xl transform -translate-x-32 -translate-y-32 opacity-60"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -661,7 +666,11 @@ export default function Index() {
       </section>
 
       {/* Brand Spotlight */}
-      <section className="py-8 md:py-10 bg-gradient-to-r from-purple-50 via-pink-50 to-purple-50">
+      <section className="py-8 md:py-10 bg-gradient-to-br from-purple-50 via-pink-50 via-indigo-50 to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-25">
+          <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-purple-200 via-pink-300 to-indigo-300 rounded-full blur-3xl transform -translate-x-48"></div>
+          <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-200 via-blue-300 to-purple-300 rounded-full blur-3xl transform translate-x-40"></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">✨ Brand Spotlight</h2>
@@ -757,7 +766,11 @@ export default function Index() {
       </section>
 
       {/* New Arrivals */}
-      <section className="py-8 md:py-10 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+      <section className="py-8 md:py-10 bg-gradient-to-br from-emerald-50 via-teal-50 via-cyan-50 to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-25">
+          <div className="absolute top-8 right-8 w-72 h-72 bg-gradient-to-br from-emerald-200 to-teal-300 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-8 left-8 w-64 h-64 bg-gradient-to-tr from-cyan-200 to-blue-300 rounded-full blur-2xl"></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -837,9 +850,14 @@ export default function Index() {
       {/* Flash Sale Banner */}
       <section className="py-6">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 rounded-2xl overflow-hidden relative">
-            <div className="absolute inset-0 bg-black/20"></div>
-            <div className="relative z-10 py-8 px-6 text-center text-white">
+          <div className="bg-gradient-to-br from-purple-600 via-blue-500 via-pink-500 to-orange-400 rounded-2xl overflow-hidden relative shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20"></div>
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-4 left-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+              <div className="absolute bottom-8 right-8 w-32 h-32 bg-yellow-300/20 rounded-full blur-2xl"></div>
+              <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-pink-300/30 rounded-full blur-lg"></div>
+            </div>
+            <div className="relative z-10 py-12 px-6 text-center text-white">
               <h2 className="text-2xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-3">
                 ⚡ FLASH SALE ⚡
                 <span className="bg-yellow-400 text-black text-lg px-3 py-1 rounded-full animate-bounce">
@@ -872,7 +890,11 @@ export default function Index() {
       </section>
 
       {/* Short Video Rail */}
-      <section className="py-8 bg-gradient-to-br from-slate-100 via-gray-50 to-blue-50">
+      <section className="py-8 bg-gradient-to-br from-slate-100 via-purple-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-48 h-48 bg-gradient-to-br from-purple-300 to-blue-300 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-gradient-to-tl from-indigo-300 to-purple-300 rounded-full blur-2xl"></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold">Product Videos</h2>
@@ -938,7 +960,11 @@ export default function Index() {
       </section>
 
       {/* Seasonal Collection */}
-      <section className="py-8 md:py-10 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+      <section className="py-8 md:py-10 bg-gradient-to-br from-amber-50 via-orange-50 via-red-50 to-pink-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-200 via-orange-300 to-red-300 rounded-full blur-3xl transform translate-x-40 -translate-y-40"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-red-200 via-pink-200 to-orange-200 rounded-full blur-2xl transform -translate-x-36 translate-y-36"></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🍂 Autumn Collection</h2>
