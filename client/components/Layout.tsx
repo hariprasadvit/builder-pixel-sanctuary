@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useMarketplace } from "@/contexts/MarketplaceContext";
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,7 +19,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
-  
+  const { currentMarketplace, setMarketplace, getMarketplaceLabel } = useMarketplace();
+
   const isActiveTab = (path: string) => {
     return location.pathname === path;
   };
@@ -51,15 +53,30 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Right section */}
             <div className="flex items-center gap-4">
-              {/* Region Toggle */}
-              <Select defaultValue="nearbuy">
+              {/* Marketplace Toggle */}
+              <Select value={currentMarketplace} onValueChange={setMarketplace}>
                 <SelectTrigger className="w-[130px] hidden md:flex">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="nearbuy">Nearbuy</SelectItem>
-                  <SelectItem value="uk">UK</SelectItem>
-                  <SelectItem value="china">China</SelectItem>
+                  <SelectItem value="nearbuy">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      Nearbuy
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="uk">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      UK
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="china">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      China
+                    </div>
+                  </SelectItem>
                 </SelectContent>
               </Select>
 
