@@ -14,9 +14,11 @@ import { Badge } from "@/components/ui/badge";
 import ProductCard from "@/components/ProductCard";
 import HeroCarousel from "@/components/HeroCarousel";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Index() {
   const [isMuted, setIsMuted] = useState(true);
+  const navigate = useNavigate();
   const { currentMarketplace, getDeliveryTime, getCurrencySymbol } =
     useMarketplace();
 
@@ -377,13 +379,18 @@ export default function Index() {
             </Button>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-            {trendingProducts.map((product) => (
-              <ProductCard
+            {trendingProducts.map((product, index) => (
+              <div
                 key={product.id}
-                {...product}
-                onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                onAddToCart={(id) => console.log("Add to cart:", id)}
-              />
+                className={index === 0 ? "cursor-pointer" : ""}
+                onClick={index === 0 ? () => navigate(`/product/${product.id}`) : undefined}
+              >
+                <ProductCard
+                  {...product}
+                  onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
+                  onAddToCart={(id) => console.log("Add to cart:", id)}
+                />
+              </div>
             ))}
           </div>
         </div>
