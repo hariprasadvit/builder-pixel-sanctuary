@@ -56,7 +56,7 @@ export default function Layout({ children }: LayoutProps) {
   ];
 
   const isActiveTab = (path: string) => {
-    return location.pathname === path;
+    return router.pathname === path;
   };
 
   return (
