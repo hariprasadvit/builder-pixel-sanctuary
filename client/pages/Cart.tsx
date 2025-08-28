@@ -281,9 +281,19 @@ export default function Cart() {
                   </Button>
                 </Link>
               </div>
-              <p className="text-xs text-gray-500">
-                💡 Tip: Use coupon code "1234" for a special surprise!
-              </p>
+              <div className="space-y-2">
+                <p className="text-xs text-gray-500">
+                  💡 Tip: Use coupon code "1234" for a special surprise!
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={triggerFireworks}
+                  className="text-xs"
+                >
+                  🎆 Test Fireworks
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
