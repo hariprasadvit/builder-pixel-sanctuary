@@ -26,7 +26,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <MarketplaceProvider>
-          <Layout>
+          <LocationProvider>
+            <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/categories" element={<Categories />} />
@@ -37,7 +38,8 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </Layout>
+            </Layout>
+          </LocationProvider>
         </MarketplaceProvider>
       </BrowserRouter>
     </TooltipProvider>
