@@ -216,7 +216,7 @@ export default function Profile() {
 
           {/* Addresses */}
           <TabsContent value="addresses">
-            <Card>
+            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Saved Addresses</CardTitle>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -258,7 +258,7 @@ export default function Profile() {
 
           {/* Payment Methods */}
           <TabsContent value="payments">
-            <Card>
+            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Payment Methods</CardTitle>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -301,7 +301,7 @@ export default function Profile() {
 
           {/* Orders */}
           <TabsContent value="orders">
-            <Card>
+            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Recent Orders</CardTitle>
                 <Link to="/orders">
@@ -336,7 +336,7 @@ export default function Profile() {
 
           {/* Wishlist */}
           <TabsContent value="wishlist">
-            <Card>
+            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Heart className="w-5 h-5" />
@@ -360,7 +360,7 @@ export default function Profile() {
           <TabsContent value="settings">
             <div className="space-y-6">
               {/* Notifications */}
-              <Card>
+              <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Bell className="w-5 h-5" />
@@ -412,7 +412,7 @@ export default function Profile() {
               </Card>
 
               {/* Security */}
-              <Card>
+              <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Shield className="w-5 h-5" />
