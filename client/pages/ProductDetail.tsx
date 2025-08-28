@@ -330,122 +330,161 @@ export default function ProductDetail() {
           <span className="text-gray-900">{product.title}</span>
         </nav>
 
-        {/* Mobile Layout - CTA in top fold */}
+        {/* Mobile Layout - Cleaner top section */}
         <div className="lg:hidden mb-6">
-          <div className="grid grid-cols-2 gap-4">
-            {/* Product Image */}
-            <div className="space-y-2">
-              <div className="aspect-square bg-white rounded-lg overflow-hidden shadow-md border">
-                <img
-                  src={product.images[selectedImage]}
-                  alt={product.title}
-                  className="w-full h-full object-contain p-2"
-                />
-              </div>
-              <div className="flex gap-1 overflow-x-auto">
-                {product.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`flex-shrink-0 w-12 h-12 bg-white rounded-md overflow-hidden cursor-pointer border ${
-                      selectedImage === index ? "border-brand-blue" : "border-gray-200"
-                    }`}
-                    onClick={() => setSelectedImage(index)}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.title} ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+          {/* Product Image - Full width */}
+          <div className="mb-4">
+            <div className="aspect-square bg-white rounded-lg overflow-hidden shadow-md border max-w-sm mx-auto">
+              <img
+                src={product.images[selectedImage]}
+                alt={product.title}
+                className="w-full h-full object-contain p-4"
+              />
             </div>
-
-            {/* Compact Product Info & CTA */}
-            <div className="space-y-3">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Badge className="bg-blue-600 text-white text-xs">{product.origin}</Badge>
-                  <Badge variant="outline" className="text-xs">{product.brand}</Badge>
+            <div className="flex gap-2 justify-center mt-3 overflow-x-auto px-4">
+              {product.images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
+                    selectedImage === index ? "border-brand-blue" : "border-gray-200"
+                  }`}
+                  onClick={() => setSelectedImage(index)}
+                >
+                  <img
+                    src={image}
+                    alt={`${product.title} ${index + 1}`}
+                    className="w-full h-full object-contain p-1"
+                  />
                 </div>
-                <h1 className="text-lg font-bold text-gray-900 leading-tight line-clamp-2">
-                  {product.title}
-                </h1>
+              ))}
+            </div>
+          </div>
 
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-2">
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-3 h-3 ${
-                          i < Math.floor(product.rating)
-                            ? "text-yellow-400 fill-current"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs text-gray-600">
-                    {product.rating} ({product.reviewCount})
-                  </span>
-                </div>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-xl font-bold text-gray-900">
-                    {getCurrencySymbol()}{product.price.toFixed(2)}
-                  </span>
-                  {product.originalPrice && (
-                    <span className="text-sm text-gray-500 line-through">
-                      {getCurrencySymbol()}{product.originalPrice.toFixed(2)}
-                    </span>
-                  )}
-                  {product.originalPrice && (
-                    <Badge className="bg-red-100 text-red-700 text-xs">
-                      Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}
-                    </Badge>
-                  )}
-                </div>
+          {/* Product Info - Organized */}
+          <div className="space-y-4 px-1">
+            {/* Header Info */}
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Badge className="bg-blue-600 text-white text-xs">{product.origin}</Badge>
+                <Badge variant="outline" className="text-xs">{product.brand}</Badge>
               </div>
+              <h1 className="text-xl font-bold text-gray-900 leading-tight mb-3">
+                {product.title}
+              </h1>
+
+              {/* Rating */}
+              <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-4 h-4 ${
+                        i < Math.floor(product.rating)
+                          ? "text-yellow-400 fill-current"
+                          : "text-gray-300"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="text-sm text-gray-600">
+                  {product.rating} ({product.reviewCount} reviews)
+                </span>
+              </div>
+
+              {/* Price */}
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-2xl font-bold text-gray-900">
+                  {getCurrencySymbol()}{product.price.toFixed(2)}
+                </span>
+                {product.originalPrice && (
+                  <span className="text-lg text-gray-500 line-through">
+                    {getCurrencySymbol()}{product.originalPrice.toFixed(2)}
+                  </span>
+                )}
+              </div>
+              {product.originalPrice && (
+                <Badge className="bg-red-100 text-red-700 mb-4 inline-block">
+                  Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}
+                </Badge>
+              )}
 
               {/* Stock Status */}
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-2 mb-4">
                 {product.inStock ? (
                   <>
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-green-700 font-medium text-xs">
-                      In Stock ({product.stockCount})
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="text-green-700 font-medium text-sm">
+                      In Stock ({product.stockCount} available)
                     </span>
                   </>
                 ) : (
                   <>
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span className="text-red-700 font-medium text-xs">Out of Stock</span>
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span className="text-red-700 font-medium text-sm">Out of Stock</span>
                   </>
                 )}
               </div>
+            </div>
 
-              {/* Quick CTA Buttons */}
-              <div className="space-y-2">
-                <Button
-                  size="sm"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-sm h-10"
-                  onClick={handleBuyNow}
-                  disabled={!product.inStock}
-                >
-                  Buy Now - {getCurrencySymbol()}{(product.price * quantity).toFixed(2)}
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium text-sm h-10"
-                  onClick={handleAddToCart}
-                  disabled={!product.inStock}
-                >
-                  Add to Cart
-                </Button>
+            {/* Product Description - Now visible on mobile */}
+            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+              <p className="text-gray-800 text-sm leading-relaxed">
+                The iPhone 16 Pro Max delivers pro-grade performance with the A18 Pro chip,
+                featuring the revolutionary Camera Control and advanced Pro camera system with 5x telephoto.
+                Built with aerospace-grade titanium and the largest iPhone display ever.
+                <span className="font-medium text-blue-700 block mt-2"> Experience professional mobile photography and videography.</span>
+              </p>
+            </div>
+
+            {/* Product Highlights - Mobile version */}
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-4 border border-blue-100">
+              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                Product Highlights
+              </h3>
+              <div className="grid grid-cols-1 gap-2 text-sm text-gray-700">
+                <div className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>A18 Pro chip for pro-level performance</span>
+                </div>
+                <div className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>Pro camera system with 5x telephoto lens</span>
+                </div>
+                <div className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>Extended battery life up to 33 hours video</span>
+                </div>
+                <div className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>Premium titanium design - aerospace grade</span>
+                </div>
+                <div className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>6.9″ largest iPhone display ever</span>
+                </div>
               </div>
+            </div>
+
+            {/* CTA Buttons - Better positioned */}
+            <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 -mx-1 space-y-3">
+              <Button
+                size="lg"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg h-12"
+                onClick={handleBuyNow}
+                disabled={!product.inStock}
+              >
+                Buy Now - {getCurrencySymbol()}{(product.price * quantity).toFixed(2)}
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg h-12"
+                onClick={handleAddToCart}
+                disabled={!product.inStock}
+              >
+                Add to Cart
+              </Button>
             </div>
           </div>
         </div>
@@ -555,14 +594,14 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {/* Color Selection */}
+            {/* Color Selection - 3x3 for desktop */}
             <div className="space-y-3">
               <div>
                 <span className="text-sm font-medium text-gray-900">
                   Colour: <span className="font-semibold">{selectedColor}</span>
                 </span>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <div className="grid grid-cols-3 gap-3">
                 {colorOptions.map((color) => (
                   <div
                     key={color.name}
@@ -806,25 +845,25 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Mobile Detail Sections - Below the fold */}
-        <div className="lg:hidden space-y-4 mb-6">
-          {/* Color Selection */}
-          <div>
-            <h3 className="font-medium text-gray-900 mb-2">
+        {/* Mobile Detail Sections - Options */}
+        <div className="lg:hidden space-y-6 mb-8 px-1">
+          {/* Color Selection - 2x2 grid */}
+          <div className="bg-white rounded-lg border border-gray-200 p-4">
+            <h3 className="font-medium text-gray-900 mb-3">
               Colour: <span className="font-semibold">{selectedColor}</span>
             </h3>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 gap-3">
               {colorOptions.map((color) => (
                 <div
                   key={color.name}
-                  className={`cursor-pointer rounded-lg border-2 p-2 transition-all ${
+                  className={`cursor-pointer rounded-lg border-2 p-3 transition-all ${
                     selectedColor === color.name
                       ? "border-blue-600 bg-blue-50"
                       : "border-gray-200 hover:border-gray-300"
                   }`}
                   onClick={() => setSelectedColor(color.name)}
                 >
-                  <div className="aspect-square w-12 mx-auto mb-1 bg-white rounded-md overflow-hidden">
+                  <div className="aspect-square w-16 mx-auto mb-2 bg-white rounded-lg overflow-hidden">
                     <img
                       src={color.image}
                       alt={color.name}
@@ -832,8 +871,11 @@ export default function ProductDetail() {
                     />
                   </div>
                   <div className="text-center">
-                    <div className="text-xs font-medium text-gray-900">
+                    <div className="text-sm font-medium text-gray-900 mb-1">
                       £{color.price.toFixed(2)}
+                    </div>
+                    <div className="text-xs text-gray-500 line-through">
+                      £{color.originalPrice.toFixed(2)}
                     </div>
                   </div>
                 </div>
@@ -842,15 +884,15 @@ export default function ProductDetail() {
           </div>
 
           {/* Storage Selection */}
-          <div>
-            <h3 className="font-medium text-gray-900 mb-2">
+          <div className="bg-white rounded-lg border border-gray-200 p-4">
+            <h3 className="font-medium text-gray-900 mb-3">
               Size: <span className="font-semibold">{selectedStorage}</span>
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {storageOptions.map((storage) => (
                 <button
                   key={storage.size}
-                  className={`px-3 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
+                  className={`px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
                     selectedStorage === storage.size
                       ? "border-blue-600 bg-blue-600 text-white"
                       : storage.available
@@ -866,44 +908,46 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Delivery Info */}
-          <Card>
-            <CardContent className="p-3">
-              <div className="flex items-center gap-3">
+          {/* Quantity & Delivery Info */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Quantity Selector */}
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <h4 className="font-medium text-gray-900 mb-3">Quantity</h4>
+              <div className="flex items-center justify-center border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-10 w-10 hover:bg-blue-50"
+                  onClick={() => handleQuantityChange(false)}
+                  disabled={quantity <= 1}
+                >
+                  <Minus className="w-4 h-4" />
+                </Button>
+                <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-10 w-10 hover:bg-blue-50"
+                  onClick={() => handleQuantityChange(true)}
+                  disabled={quantity >= product.stockCount}
+                >
+                  <Plus className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Delivery Info */}
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
                 <Truck className="w-4 h-4 text-brand-blue" />
-                <div>
-                  <div className="font-medium text-sm">Delivery: {product.deliveryEta}</div>
-                  <div className="text-xs text-gray-600">
-                    Free delivery on orders over {getCurrencySymbol()}50
-                  </div>
+                Delivery
+              </h4>
+              <div className="text-sm">
+                <div className="font-medium">{product.deliveryEta}</div>
+                <div className="text-gray-600 text-xs">
+                  Free on £50+ orders
                 </div>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Quantity Selector */}
-          <div className="flex items-center gap-4">
-            <span className="font-medium text-gray-900">Quantity:</span>
-            <div className="flex items-center border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 w-8 hover:bg-blue-50"
-                onClick={() => handleQuantityChange(false)}
-                disabled={quantity <= 1}
-              >
-                <Minus className="w-3 h-3" />
-              </Button>
-              <span className="w-8 text-center font-semibold">{quantity}</span>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 w-8 hover:bg-blue-50"
-                onClick={() => handleQuantityChange(true)}
-                disabled={quantity >= product.stockCount}
-              >
-                <Plus className="w-3 h-3" />
-              </Button>
             </div>
           </div>
         </div>
