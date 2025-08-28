@@ -42,6 +42,11 @@
 
     --radius: 0.5rem;
 
+    /* RIKY Brand Colors */
+    --brand-blue: 220 91% 40%;
+    --brand-red: 0 84% 60%;
+    --brand-dark: 220 9% 15%;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -95,6 +100,11 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* RIKY Brand Colors - Dark mode */
+    --brand-blue: 220 91% 50%;
+    --brand-red: 0 84% 60%;
+    --brand-dark: 220 9% 85%;
   }
 }
 
