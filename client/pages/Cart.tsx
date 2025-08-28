@@ -295,14 +295,39 @@ export default function Cart() {
                 <p className="text-xs text-gray-500">
                   💡 Tip: Use coupon code "1234" for a special surprise!
                 </p>
-                <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 bg-blue-50">
-                  <p className="text-sm font-medium text-blue-800 mb-2">Test the firework effect:</p>
-                  <Button
-                    onClick={triggerFireworks}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold"
-                  >
-                    🎆 Launch Fireworks! 🎆
-                  </Button>
+                <div className="space-y-3">
+                  <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 bg-blue-50">
+                    <p className="text-sm font-medium text-blue-800 mb-2">Test the firework effect:</p>
+                    <Button
+                      onClick={triggerFireworks}
+                      className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold"
+                    >
+                      🎆 Launch Fireworks! 🎆
+                    </Button>
+                  </div>
+
+                  <div className="border-2 border-dashed border-green-300 rounded-lg p-4 bg-green-50">
+                    <p className="text-sm font-medium text-green-800 mb-2">Test the complete payment flow:</p>
+                    <Button
+                      onClick={() => {
+                        // Add demo items first
+                        addToCart({
+                          id: "demo-1",
+                          name: "iPhone 16 Pro Max 256GB",
+                          price: 999.99,
+                          image: "/placeholder.svg",
+                          vendor: "uk",
+                          vendorName: "UK Marketplace",
+                          category: "Electronics"
+                        });
+                        // Then open payment modal
+                        setTimeout(() => setShowStripeCheckout(true), 500);
+                      }}
+                      className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-semibold"
+                    >
+                      💳 Test Payment Flow 💳
+                    </Button>
+                  </div>
                 </div>
               </div>
             </CardContent>
