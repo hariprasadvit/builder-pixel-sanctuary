@@ -377,6 +377,16 @@ export default function ProductDetail() {
                   </Badge>
                 )}
               </div>
+
+              {/* Product Description */}
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                <p className="text-gray-800 text-sm leading-relaxed">
+                  The iPhone 16 delivers breakthrough performance with the A18 Bionic chip,
+                  featuring the revolutionary Camera Control for instant photo and video capture.
+                  Built with aerospace-grade titanium for durability and style.
+                  <span className="font-medium text-blue-700"> Experience the future of mobile technology.</span>
+                </p>
+              </div>
             </div>
 
             {/* Stock Status */}
