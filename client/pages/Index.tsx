@@ -448,7 +448,7 @@ export default function Index() {
           </div>
           <div className="flex gap-4 overflow-x-auto pb-4">
             {videoProducts.map((product, index) => (
-              <div key={product.id} className="flex-shrink-0 w-48">
+              <div key={product.id} className="flex-shrink-0 w-40 md:w-48">
                 <Card className="overflow-hidden">
                   <div className="relative aspect-[9/16] bg-gray-900">
                     <img
@@ -457,16 +457,16 @@ export default function Index() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                        <Play className="w-6 h-6 text-white fill-white" />
+                      <div className="w-10 md:w-12 h-10 md:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <Play className="w-5 md:w-6 h-5 md:h-6 text-white fill-white" />
                       </div>
                     </div>
-                    
+
                     {/* Origin Badge */}
-                    <Badge 
+                    <Badge
                       className={`absolute top-2 left-2 text-xs ${
-                        product.origin === 'UK' 
-                          ? 'bg-blue-600' 
+                        product.origin === 'UK'
+                          ? 'bg-blue-600'
                           : 'bg-red-600'
                       }`}
                     >
@@ -475,16 +475,16 @@ export default function Index() {
 
                     {/* Mute Indicator */}
                     {isMuted && (
-                      <div className="absolute top-2 right-2 w-6 h-6 bg-black/50 rounded-full flex items-center justify-center">
+                      <div className="absolute top-2 right-2 w-5 md:w-6 h-5 md:h-6 bg-black/50 rounded-full flex items-center justify-center">
                         <VolumeX className="w-3 h-3 text-white" />
                       </div>
                     )}
                   </div>
-                  <CardContent className="p-3">
-                    <h3 className="font-medium text-sm line-clamp-2 mb-1">
+                  <CardContent className="p-2 md:p-3">
+                    <h3 className="font-medium text-xs md:text-sm line-clamp-2 mb-1">
                       {product.title}
                     </h3>
-                    <p className="font-bold text-brand-dark">
+                    <p className="font-bold text-brand-dark text-sm">
                       £{product.price.toFixed(2)}
                     </p>
                   </CardContent>
@@ -497,21 +497,21 @@ export default function Index() {
 
       {/* Personalized Recommendations */}
       {personalizedProducts.length > 0 && (
-        <section className="py-8">
+        <section className="py-6 md:py-8">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 md:mb-6">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold">Recommended for You</h2>
-                <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200">
+                <h2 className="text-lg md:text-xl font-bold">Recommended for You</h2>
+                <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200 text-xs">
                   <Star className="w-3 h-3 mr-1" />
-                  Personalized
+                  <span className="hidden sm:inline">Personalized</span>
                 </Badge>
               </div>
-              <Button variant="ghost" className="text-brand-blue">
+              <Button variant="ghost" className="text-brand-blue text-sm md:text-base">
                 View All <ChevronRight className="w-4 h-4 ml-1" />
               </Button>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {personalizedProducts.slice(0, 4).map((product) => (
                 <ProductCard
                   key={product.id}
