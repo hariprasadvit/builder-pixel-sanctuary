@@ -245,18 +245,19 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {categories.map((category) => (
-              <Card key={category.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                      <h3 className="text-white font-semibold text-sm">{category.name}</h3>
-                      <p className="text-white/80 text-xs">
+              <Card key={category.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white">
+                <CardContent className="p-4">
+                  <div className="flex flex-col items-center">
+                    <div className="w-full h-32 flex items-center justify-center mb-4 bg-gray-50 rounded-lg overflow-hidden">
+                      <img
+                        src={category.image}
+                        alt={category.name}
+                        className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="font-semibold text-sm text-gray-900 mb-1">{category.name}</h3>
+                      <p className="text-gray-600 text-xs">
                         {category.subcategories.slice(0, 2).join(' • ')}
                       </p>
                     </div>
