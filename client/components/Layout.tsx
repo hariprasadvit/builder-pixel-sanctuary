@@ -111,12 +111,12 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Mobile Search Bar */}
-          <div className="md:hidden pb-3">
+          <div className="md:hidden pb-3 pt-2">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
-                placeholder="Search products..."
-                className="pl-10 pr-4"
+                placeholder={`Search in ${currentMarketplace === 'nearbuy' ? 'your area' : currentMarketplace.toUpperCase()}...`}
+                className="pl-10 pr-4 h-10"
               />
             </div>
           </div>
