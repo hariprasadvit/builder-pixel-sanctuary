@@ -33,7 +33,8 @@ const App = () => (
       <BrowserRouter>
         <MarketplaceProvider>
           <LocationProvider>
-            <Routes>
+            <CartProvider>
+              <Routes>
               {/* Authentication routes without Layout */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -57,7 +58,8 @@ const App = () => (
                   </Routes>
                 </Layout>
               } />
-            </Routes>
+              </Routes>
+            </CartProvider>
           </LocationProvider>
         </MarketplaceProvider>
       </BrowserRouter>
