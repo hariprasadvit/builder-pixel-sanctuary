@@ -147,7 +147,6 @@ export default function Categories() {
           <>
             {/* Category Overview */}
             <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-2">Shop by Category</h2>
               <p className="text-muted-foreground">
                 Browse our wide selection of products across different categories
               </p>
