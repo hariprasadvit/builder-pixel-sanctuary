@@ -68,12 +68,41 @@ export default function ProductDetail() {
     ],
     description: "The iPhone 16 features the powerful A18 chip, enhanced camera capabilities with the new Camera Control, and comes in stunning colors. Experience next-level performance and photography.",
     specifications: {
-      "Display": "6.1-inch Super Retina XDR OLED",
-      "Chip": "A18 Bionic",
-      "Storage": "128GB",
-      "Camera": "48MP Main, 12MP Ultra Wide",
-      "Battery": "Up to 22 hours video playback",
-      "OS": "iOS 18"
+      // Display
+      "Display Type": "Super Retina XDR OLED",
+      "Screen Size": "17.43 cm / 6.9″ (diagonal)",
+      "Resolution": "2868x1320-pixel at 460 ppi",
+      "Display Features": "All-screen OLED display",
+
+      // Storage & Capacity
+      "Storage Options": "256GB, 512GB, 1TB",
+      "Available Capacity": selectedStorage,
+
+      // Durability
+      "Water Resistance": "IP68 rated",
+      "Water Depth": "Maximum 6 metres up to 30 minutes",
+      "Standard": "IEC standard 60529",
+
+      // Camera System
+      "Main Camera": "48MP Fusion (24mm, ƒ/1.78)",
+      "Telephoto 2x": "12MP (52mm, ƒ/1.6)",
+      "Ultra Wide": "48MP (13mm, ƒ/2.2, 120° FOV)",
+      "Telephoto 5x": "12MP (120mm, ƒ/2.8, 20° FOV)",
+      "Optical Zoom": "5x zoom in, 2x zoom out, 10x range",
+      "Digital Zoom": "Up to 25x",
+      "Front Camera": "12MP (ƒ/1.9, Autofocus)",
+
+      // Power & Battery
+      "Video Playback": "Up to 33 hours",
+      "Audio Playback": "Up to 105 hours",
+      "Charging": "MagSafe up to 25W, USB-C fast charge",
+      "Fast Charge": "50% in 30 minutes with 20W adapter",
+
+      // Physical
+      "Height": "163 mm (6.42 inches)",
+      "Operating System": "iOS 18",
+      "Processor": "A18 Pro Bionic",
+      "Warranty": "One-Year Limited Warranty"
     },
     seller: {
       name: "Apple Store",
@@ -792,56 +821,215 @@ export default function ProductDetail() {
               
               <TabsContent value="specifications" className="mt-6 relative z-0">
                 <div className="bg-white border border-gray-200 rounded-lg">
-                  <div className="p-4 border-b bg-gray-50">
+                  <div className="p-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
                     <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
+                      <div className="w-5 h-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded flex items-center justify-center">
                         <div className="w-2 h-2 border border-white rounded-sm"></div>
                       </div>
                       Technical Specifications
                     </h3>
-                    <p className="text-sm text-gray-600 mt-1">Detailed product specifications and features</p>
+                    <p className="text-sm text-gray-600 mt-1">Complete technical details and features</p>
                   </div>
 
-                  {/* Compact 2-column layout for desktop */}
-                  <div className="p-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                      {Object.entries(product.specifications).map(([key, value], index) => (
-                        <div
-                          key={key}
-                          className="flex justify-between items-center py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                        >
-                          <span className="font-medium text-gray-900 text-sm">{key}</span>
-                          <span className="text-gray-700 font-semibold text-sm">{value}</span>
+                  <div className="p-6 space-y-8">
+                    {/* Display Section */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        Display
+                      </h4>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <div className="bg-blue-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Screen Size</span>
+                            <span className="text-sm text-gray-700 text-right">17.43 cm / 6.9″ (diagonal)</span>
+                          </div>
                         </div>
-                      ))}
+                        <div className="bg-blue-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Resolution</span>
+                            <span className="text-sm text-gray-700 text-right">2868x1320-pixel at 460 ppi</span>
+                          </div>
+                        </div>
+                        <div className="bg-blue-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Display Type</span>
+                            <span className="text-sm text-gray-700 text-right">Super Retina XDR OLED</span>
+                          </div>
+                        </div>
+                        <div className="bg-blue-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Features</span>
+                            <span className="text-sm text-gray-700 text-right">All-screen OLED display</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Additional compact specs */}
-                    <div className="mt-6 pt-4 border-t">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Brand</span>
-                          <span className="font-medium">Apple</span>
+                    {/* Camera System */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                        Pro Camera System
+                      </h4>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <div className="bg-purple-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Main Camera</span>
+                            <span className="text-sm text-gray-700 text-right">48MP Fusion (24mm, ƒ/1.78)</span>
+                          </div>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Operating System</span>
-                          <span className="font-medium">iOS 18</span>
+                        <div className="bg-purple-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Ultra Wide</span>
+                            <span className="text-sm text-gray-700 text-right">48MP (13mm, ƒ/2.2, 120° FOV)</span>
+                          </div>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">RAM Memory Installed Size</span>
-                          <span className="font-medium">8GB</span>
+                        <div className="bg-purple-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Telephoto 2x</span>
+                            <span className="text-sm text-gray-700 text-right">12MP (52mm, ƒ/1.6)</span>
+                          </div>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Memory Storage Capacity</span>
-                          <span className="font-medium">{selectedStorage}</span>
+                        <div className="bg-purple-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Telephoto 5x</span>
+                            <span className="text-sm text-gray-700 text-right">12MP (120mm, ƒ/2.8)</span>
+                          </div>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Screen Size</span>
-                          <span className="font-medium">6.1 Inches</span>
+                        <div className="bg-purple-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Optical Zoom</span>
+                            <span className="text-sm text-gray-700 text-right">5x in, 2x out, 10x range</span>
+                          </div>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Color</span>
-                          <span className="font-medium">{selectedColor}</span>
+                        <div className="bg-purple-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Front Camera</span>
+                            <span className="text-sm text-gray-700 text-right">12MP (ƒ/1.9, Autofocus)</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Performance & Storage */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                        Performance & Storage
+                      </h4>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <div className="bg-green-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Processor</span>
+                            <span className="text-sm text-gray-700 text-right">A18 Pro Bionic</span>
+                          </div>
+                        </div>
+                        <div className="bg-green-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Storage Options</span>
+                            <span className="text-sm text-gray-700 text-right">256GB, 512GB, 1TB</span>
+                          </div>
+                        </div>
+                        <div className="bg-green-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Selected Storage</span>
+                            <span className="text-sm text-gray-700 text-right font-semibold text-green-700">{selectedStorage}</span>
+                          </div>
+                        </div>
+                        <div className="bg-green-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Operating System</span>
+                            <span className="text-sm text-gray-700 text-right">iOS 18</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Battery & Charging */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                        Battery & Charging
+                      </h4>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <div className="bg-orange-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Video Playback</span>
+                            <span className="text-sm text-gray-700 text-right">Up to 33 hours</span>
+                          </div>
+                        </div>
+                        <div className="bg-orange-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Audio Playback</span>
+                            <span className="text-sm text-gray-700 text-right">Up to 105 hours</span>
+                          </div>
+                        </div>
+                        <div className="bg-orange-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">MagSafe Charging</span>
+                            <span className="text-sm text-gray-700 text-right">Up to 25W</span>
+                          </div>
+                        </div>
+                        <div className="bg-orange-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Fast Charge</span>
+                            <span className="text-sm text-gray-700 text-right">50% in 30 minutes</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Durability & Physical */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
+                        Durability & Physical
+                      </h4>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Water Resistance</span>
+                            <span className="text-sm text-gray-700 text-right">IP68 rated</span>
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Water Depth</span>
+                            <span className="text-sm text-gray-700 text-right">6 metres up to 30 min</span>
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Height</span>
+                            <span className="text-sm text-gray-700 text-right">163 mm (6.42 inches)</span>
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Color</span>
+                            <span className="text-sm text-gray-700 text-right font-semibold text-blue-700">{selectedColor}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* In the Box & Warranty */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                        Package & Warranty
+                      </h4>
+                      <div className="bg-indigo-50 rounded-lg p-4">
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <span className="text-sm font-medium text-gray-900">In the Box</span>
+                            <span className="text-sm text-gray-700 text-right">iPhone with iOS 18, USB‑C Cable (1m), Documentation</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-sm font-medium text-gray-900">Warranty</span>
+                            <span className="text-sm text-gray-700 text-right">One-Year Limited Warranty</span>
+                          </div>
                         </div>
                       </div>
                     </div>
