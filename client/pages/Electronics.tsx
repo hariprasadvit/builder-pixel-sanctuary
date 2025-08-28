@@ -147,16 +147,23 @@ export default function Electronics() {
             </div>
 
             {/* Subcategories Grid */}
-            <div className="grid grid-cols-1 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {subcategories.map((subcategory) => (
                 <Card
                   key={subcategory.id}
-                  className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white"
-                  onClick={() => setSelectedSubcategory(subcategory.name)}
+                  className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white h-full"
+                  onClick={() => {
+                    if (subcategory.name === 'Computers') {
+                      // Will handle navigation to laptops here
+                      setSelectedSubcategory(subcategory.name);
+                    } else {
+                      setSelectedSubcategory(subcategory.name);
+                    }
+                  }}
                 >
-                  <CardContent className="p-4 sm:p-6">
+                  <CardContent className="p-4 sm:p-6 h-full">
                     {/* Mobile Layout */}
-                    <div className="flex flex-col sm:hidden">
+                    <div className="flex flex-col sm:hidden h-full">
                       {/* Image centered on mobile */}
                       <div className="w-24 h-24 mx-auto mb-4 bg-gray-50 rounded-lg overflow-hidden flex-shrink-0">
                         <img
@@ -167,7 +174,7 @@ export default function Electronics() {
                       </div>
 
                       {/* Content centered on mobile */}
-                      <div className="text-center">
+                      <div className="text-center flex-1 flex flex-col">
                         <div className="flex items-center justify-center gap-2 mb-3">
                           <h3 className="font-semibold text-lg text-gray-900">
                             {subcategory.name}
@@ -180,7 +187,7 @@ export default function Electronics() {
                         </div>
 
                         {/* Items List */}
-                        <div className="space-y-1 mb-3">
+                        <div className="space-y-1 mb-3 flex-1">
                           {subcategory.items.slice(0, 3).map((item, index) => (
                             <p key={index} className="text-sm text-gray-600">
                               {item}
@@ -194,54 +201,55 @@ export default function Electronics() {
                         </div>
 
                         {/* Product Count */}
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge variant="secondary" className="text-xs mt-auto">
                           {subcategory.productCount.toLocaleString()} items
                         </Badge>
                       </div>
                     </div>
 
                     {/* Desktop Layout */}
-                    <div className="hidden sm:flex items-start gap-4">
-                      {/* Image */}
-                      <div className="w-20 h-20 flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden">
-                        <img
-                          src={subcategory.image}
-                          alt={subcategory.name}
-                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
-                        />
+                    <div className="hidden sm:flex flex-col h-full">
+                      {/* Header with Image and Title */}
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-16 h-16 flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden">
+                          <img
+                            src={subcategory.image}
+                            alt={subcategory.name}
+                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                          />
+                        </div>
+
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-semibold text-lg text-gray-900">
+                              {subcategory.name}
+                            </h3>
+                            {subcategory.badge && (
+                              <Badge className="bg-orange-500 text-white text-xs">
+                                {subcategory.badge}
+                              </Badge>
+                            )}
+                          </div>
+                          <Badge variant="secondary" className="text-xs">
+                            {subcategory.productCount.toLocaleString()} items
+                          </Badge>
+                        </div>
                       </div>
 
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-lg text-gray-900">
-                            {subcategory.name}
-                          </h3>
-                          {subcategory.badge && (
-                            <Badge className="bg-orange-500 text-white text-xs">
-                              {subcategory.badge}
-                            </Badge>
-                          )}
-                        </div>
-
-                        {/* Items List */}
-                        <div className="space-y-1 mb-3">
-                          {subcategory.items.map((item, index) => (
-                            <p key={index} className="text-sm text-gray-600">
-                              {item}
-                            </p>
-                          ))}
-                          {subcategory.items.length > 4 && (
-                            <p className="text-sm text-brand-blue font-medium cursor-pointer">
-                              More ▼
-                            </p>
-                          )}
-                        </div>
-
-                        {/* Product Count */}
-                        <Badge variant="secondary" className="text-xs">
-                          {subcategory.productCount.toLocaleString()} items
-                        </Badge>
+                      {/* Items List */}
+                      <div className="space-y-2 flex-1">
+                        {subcategory.items.map((item, index) => (
+                          <div key={index} className="flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                            <span className="w-2 h-2 bg-gray-300 rounded-full mr-3 flex-shrink-0"></span>
+                            {item}
+                          </div>
+                        ))}
+                        {subcategory.items.length > 4 && (
+                          <p className="text-sm text-brand-blue font-medium cursor-pointer flex items-center">
+                            <span className="w-2 h-2 bg-brand-blue rounded-full mr-3 flex-shrink-0"></span>
+                            More ▼
+                          </p>
+                        )}
                       </div>
                     </div>
                   </CardContent>
