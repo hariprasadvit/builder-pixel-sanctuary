@@ -98,17 +98,17 @@ export default function Cart() {
 
   const handlePaymentSuccess = () => {
     setShowStripeCheckout(false);
-    triggerFireworks();
-    // Clear cart after successful payment
-    setTimeout(() => {
-      clearCart();
-      navigate("/orders", {
-        state: {
-          orderPlaced: true,
-          orderTotal: overallTotals.total
-        }
-      });
-    }, 2000);
+
+    // Clear cart and navigate to success page
+    clearCart();
+    navigate("/payment-success", {
+      state: {
+        orderNumber: `ORD-${Date.now()}`,
+        amount: overallTotals.total,
+        currency: currency,
+        customerEmail: "customer@example.com"
+      }
+    });
   };
 
   const CartItemCard = ({ item }: { item: CartItem }) => (
