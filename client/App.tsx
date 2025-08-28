@@ -31,21 +31,30 @@ const App = () => (
       <BrowserRouter>
         <MarketplaceProvider>
           <LocationProvider>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/categories" element={<Categories />} />
-                <Route path="/electronics" element={<Electronics />} />
-                <Route path="/laptops" element={<Laptops />} />
-                <Route path="/videos" element={<Videos />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/product/:id" element={<ProductDetail />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Layout>
+            <Routes>
+              {/* Authentication routes without Layout */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+
+              {/* Main app routes with Layout */}
+              <Route path="/*" element={
+                <Layout>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/categories" element={<Categories />} />
+                    <Route path="/electronics" element={<Electronics />} />
+                    <Route path="/laptops" element={<Laptops />} />
+                    <Route path="/videos" element={<Videos />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/product/:id" element={<ProductDetail />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Layout>
+              } />
+            </Routes>
           </LocationProvider>
         </MarketplaceProvider>
       </BrowserRouter>
