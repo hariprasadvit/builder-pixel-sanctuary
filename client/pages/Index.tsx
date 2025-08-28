@@ -22,49 +22,49 @@ export default function Index() {
   const { currentMarketplace, getDeliveryTime, getCurrencySymbol } =
     useMarketplace();
 
-  // Mock data with realistic product images
+  // Top 6 selling items with updated images
   const categories = [
     {
       id: "1",
-      name: "Electronics",
+      name: "Smart Watches",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc6001bf2a08e4f5d8f6f64acceaba8f1?format=webp&width=800",
-      subcategories: ["Computers", "Mobile Phones", "Audio", "Wearables"],
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4444064dbe514c3ea39494880ee0eedd?format=webp&width=800",
+      subcategories: ["Fitness Trackers", "Smart Watches", "Wearables"],
     },
     {
       id: "2",
-      name: "TVs / Video",
+      name: "Pet Accessories",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Febf594d6a2184a96acd8cfb15383b1a8?format=webp&width=800",
-      subcategories: ["Smart TVs", "Streaming Devices", "Projectors"],
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9186d63f23f54c87b840ba9bf2b76731?format=webp&width=800",
+      subcategories: ["Training Collars", "Pet Care", "Accessories"],
     },
     {
       id: "3",
-      name: "Video Games",
+      name: "Gaming Controllers",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F29d21051a0914626a49de19684e9befd?format=webp&width=800",
-      subcategories: ["Consoles", "Games", "Accessories"],
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf0007c350e64f1cb675c9fa56c8c6cc?format=webp&width=800",
+      subcategories: ["Controllers", "Gaming Gear", "Accessories"],
     },
     {
       id: "4",
-      name: "Cameras & Photo",
+      name: "Bicycles",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F798dd616ad5a4f9092588913656e1a41?format=webp&width=800",
-      subcategories: ["Digital Cameras", "Lenses", "Accessories"],
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F83bd11634aff48988b2cd202ed37472c?format=webp&width=800",
+      subcategories: ["Mountain Bikes", "Road Bikes", "Accessories"],
     },
     {
       id: "5",
-      name: "Cell Phones",
+      name: "Kitchen Appliances",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5580a7f4d84c4fd5b5757cc8dfeae1b4?format=webp&width=800",
-      subcategories: ["Smartphones", "Cases", "Chargers"],
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F530577c64eac4a5aae827ee06cd1c1d5?format=webp&width=800",
+      subcategories: ["Mixers", "Blenders", "Small Appliances"],
     },
     {
       id: "6",
-      name: "Sports & Outdoors",
+      name: "Beverages",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbcec0ac8b5ee4411bc8e33e0bd6c0cc3?format=webp&width=800",
-      subcategories: ["Fitness", "Cycling", "Camping"],
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02a4c749d1aa481aae948af8a5bdd6f1?format=webp&width=800",
+      subcategories: ["Energy Drinks", "Soft Drinks", "Non-Alcoholic"],
     },
     {
       id: "7",
