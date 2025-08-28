@@ -527,21 +527,21 @@ export default function Index() {
 
       {/* Recently Viewed */}
       {recentlyViewedProducts.length > 0 && (
-        <section className="py-8 bg-gray-50">
+        <section className="py-6 md:py-8 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 md:mb-6">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold">Recently Viewed</h2>
-                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200">
+                <h2 className="text-lg md:text-xl font-bold">Recently Viewed</h2>
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 text-xs">
                   <Heart className="w-3 h-3 mr-1" />
-                  Continue Shopping
+                  <span className="hidden sm:inline">Continue Shopping</span>
                 </Badge>
               </div>
-              <Button variant="ghost" className="text-brand-blue">
+              <Button variant="ghost" className="text-brand-blue text-sm md:text-base">
                 Clear History
               </Button>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {recentlyViewedProducts.slice(0, 4).map((product) => (
                 <ProductCard
                   key={product.id}
