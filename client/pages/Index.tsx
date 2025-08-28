@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
+import { ChevronRight, Play, Volume2, VolumeX, Filter, Star, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ProductCard from "@/components/ProductCard";
 import HeroCarousel from "@/components/HeroCarousel";
+import { useMarketplace } from "@/contexts/MarketplaceContext";
 
 export default function Index() {
   const [isMuted, setIsMuted] = useState(true);
+  const { currentMarketplace, getDeliveryTime, getCurrencySymbol } = useMarketplace();
 
   // Mock data with realistic product images
   const categories = [
@@ -61,7 +63,8 @@ export default function Index() {
     },
   ];
 
-  const trendingProducts = [
+  // Enhanced product data with marketplace filtering
+  const allProducts = [
     {
       id: '1',
       image: '/placeholder.svg',
@@ -71,8 +74,12 @@ export default function Index() {
       rating: 4.8,
       reviewCount: 2847,
       origin: 'UK' as const,
-      deliveryEta: 'Tomorrow',
+      deliveryEta: getDeliveryTime('uk'),
       hasVideo: true,
+      marketplaces: ['nearbuy', 'uk'],
+      category: 'Electronics',
+      isPersonalized: true,
+      recentlyViewed: false,
     },
     {
       id: '2',
@@ -83,8 +90,12 @@ export default function Index() {
       rating: 4.5,
       reviewCount: 1234,
       origin: 'China' as const,
-      deliveryEta: '3-5 days',
+      deliveryEta: getDeliveryTime('china'),
       hasVideo: false,
+      marketplaces: ['nearbuy', 'china'],
+      category: 'Electronics',
+      isPersonalized: false,
+      recentlyViewed: true,
     },
     {
       id: '3',
@@ -94,8 +105,12 @@ export default function Index() {
       rating: 4.7,
       reviewCount: 567,
       origin: 'UK' as const,
-      deliveryEta: 'Today',
+      deliveryEta: getDeliveryTime('uk'),
       hasVideo: true,
+      marketplaces: ['nearbuy', 'uk'],
+      category: 'Sports & Outdoors',
+      isPersonalized: true,
+      recentlyViewed: false,
     },
     {
       id: '4',
@@ -105,10 +120,54 @@ export default function Index() {
       rating: 4.9,
       reviewCount: 892,
       origin: 'UK' as const,
-      deliveryEta: 'Tomorrow',
+      deliveryEta: getDeliveryTime('uk'),
       hasVideo: false,
+      marketplaces: ['nearbuy', 'uk'],
+      category: 'Home & Garden',
+      isPersonalized: false,
+      recentlyViewed: true,
+    },
+    {
+      id: '5',
+      image: '/placeholder.svg',
+      title: 'Xiaomi Mi 13 Ultra 512GB Smartphone',
+      price: 649.99,
+      originalPrice: 799.99,
+      rating: 4.6,
+      reviewCount: 1567,
+      origin: 'China' as const,
+      deliveryEta: getDeliveryTime('china'),
+      hasVideo: true,
+      marketplaces: ['china'],
+      category: 'Electronics',
+      isPersonalized: true,
+      recentlyViewed: false,
+    },
+    {
+      id: '6',
+      image: '/placeholder.svg',
+      title: 'Local Artisan Coffee Beans 1kg',
+      price: 24.99,
+      rating: 4.8,
+      reviewCount: 234,
+      origin: 'UK' as const,
+      deliveryEta: getDeliveryTime('nearbuy'),
+      hasVideo: false,
+      marketplaces: ['nearbuy'],
+      category: 'Food & Beverages',
+      isPersonalized: false,
+      recentlyViewed: false,
     },
   ];
+
+  // Filter products based on current marketplace
+  const getFilteredProducts = () => {
+    return allProducts.filter(product =>
+      product.marketplaces.includes(currentMarketplace)
+    );
+  };
+
+  const trendingProducts = getFilteredProducts().slice(0, 4);
 
   const ukProducts = [
     {
