@@ -330,7 +330,128 @@ export default function ProductDetail() {
           <span className="text-gray-900">{product.title}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-6">
+        {/* Mobile Layout - CTA in top fold */}
+        <div className="lg:hidden mb-6">
+          <div className="grid grid-cols-2 gap-4">
+            {/* Product Image */}
+            <div className="space-y-2">
+              <div className="aspect-square bg-white rounded-lg overflow-hidden shadow-md border">
+                <img
+                  src={product.images[selectedImage]}
+                  alt={product.title}
+                  className="w-full h-full object-contain p-2"
+                />
+              </div>
+              <div className="flex gap-1 overflow-x-auto">
+                {product.images.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`flex-shrink-0 w-12 h-12 bg-white rounded-md overflow-hidden cursor-pointer border ${
+                      selectedImage === index ? "border-brand-blue" : "border-gray-200"
+                    }`}
+                    onClick={() => setSelectedImage(index)}
+                  >
+                    <img
+                      src={image}
+                      alt={`${product.title} ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Compact Product Info & CTA */}
+            <div className="space-y-3">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Badge className="bg-blue-600 text-white text-xs">{product.origin}</Badge>
+                  <Badge variant="outline" className="text-xs">{product.brand}</Badge>
+                </div>
+                <h1 className="text-lg font-bold text-gray-900 leading-tight line-clamp-2">
+                  {product.title}
+                </h1>
+
+                {/* Rating */}
+                <div className="flex items-center gap-1 mb-2">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-3 h-3 ${
+                          i < Math.floor(product.rating)
+                            ? "text-yellow-400 fill-current"
+                            : "text-gray-300"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs text-gray-600">
+                    {product.rating} ({product.reviewCount})
+                  </span>
+                </div>
+
+                {/* Price */}
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-xl font-bold text-gray-900">
+                    {getCurrencySymbol()}{product.price.toFixed(2)}
+                  </span>
+                  {product.originalPrice && (
+                    <span className="text-sm text-gray-500 line-through">
+                      {getCurrencySymbol()}{product.originalPrice.toFixed(2)}
+                    </span>
+                  )}
+                  {product.originalPrice && (
+                    <Badge className="bg-red-100 text-red-700 text-xs">
+                      Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}
+                    </Badge>
+                  )}
+                </div>
+              </div>
+
+              {/* Stock Status */}
+              <div className="flex items-center gap-1">
+                {product.inStock ? (
+                  <>
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-green-700 font-medium text-xs">
+                      In Stock ({product.stockCount})
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <span className="text-red-700 font-medium text-xs">Out of Stock</span>
+                  </>
+                )}
+              </div>
+
+              {/* Quick CTA Buttons */}
+              <div className="space-y-2">
+                <Button
+                  size="sm"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-sm h-10"
+                  onClick={handleBuyNow}
+                  disabled={!product.inStock}
+                >
+                  Buy Now - {getCurrencySymbol()}{(product.price * quantity).toFixed(2)}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium text-sm h-10"
+                  onClick={handleAddToCart}
+                  disabled={!product.inStock}
+                >
+                  Add to Cart
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid grid-cols-3 gap-6 mb-6">
           {/* Product Images */}
           <div className="space-y-4">
             <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
