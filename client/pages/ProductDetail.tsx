@@ -33,7 +33,7 @@ export default function ProductDetail() {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [newReview, setNewReview] = useState("");
   const [newRating, setNewRating] = useState(5);
-  const [showComparison, setShowComparison] = useState(false);
+  const [showComparison, setShowComparison] = useState(true);
   const [selectedColor, setSelectedColor] = useState("Black Titanium");
   const [selectedStorage, setSelectedStorage] = useState("256GB");
 
@@ -153,7 +153,8 @@ export default function ProductDetail() {
       camera: "48MP Main + 12MP Ultra Wide",
       battery: "Up to 22h video",
       storage: "128GB, 256GB, 512GB",
-      features: ["Camera Control", "Action Button", "USB-C"]
+      features: ["Camera Control", "Action Button", "USB-C"],
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1ab7beef708241a5ac8b96c09e63146f?format=webp&width=800"
     },
     {
       model: "iPhone 16 Plus",
@@ -163,7 +164,8 @@ export default function ProductDetail() {
       camera: "48MP Main + 12MP Ultra Wide",
       battery: "Up to 27h video",
       storage: "128GB, 256GB, 512GB",
-      features: ["Camera Control", "Action Button", "USB-C"]
+      features: ["Camera Control", "Action Button", "USB-C"],
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8d8deb9d54e746b78bdf029fb2782ff4?format=webp&width=800"
     },
     {
       model: "iPhone 16 Pro",
@@ -173,7 +175,8 @@ export default function ProductDetail() {
       camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
       battery: "Up to 27h video",
       storage: "128GB, 256GB, 512GB, 1TB",
-      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"]
+      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"],
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1fbe373ae20c4f26b1e4495ec55024c7?format=webp&width=800"
     },
     {
       model: "iPhone 16 Pro Max",
@@ -183,7 +186,8 @@ export default function ProductDetail() {
       camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
       battery: "Up to 33h video",
       storage: "256GB, 512GB, 1TB",
-      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"]
+      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"],
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F109505a1bf1c4911b1c720697e773970?format=webp&width=800"
     }
   ];
 
@@ -997,6 +1001,13 @@ export default function ProductDetail() {
                       >
                         <div className="space-y-3">
                           <div className="text-center">
+                            <div className="w-20 h-20 mx-auto mb-3 bg-white border rounded-lg overflow-hidden">
+                              <img
+                                src={phone.image}
+                                alt={phone.model}
+                                className="w-full h-full object-contain p-2"
+                              />
+                            </div>
                             <h3 className="font-bold text-lg">{phone.model}</h3>
                             <p className="text-xl font-bold text-green-600">{phone.price}</p>
                           </div>
