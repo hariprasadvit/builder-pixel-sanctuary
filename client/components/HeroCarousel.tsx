@@ -62,8 +62,10 @@ export default function HeroCarousel() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 cursor-pointer ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-1000 cursor-pointer ${
+              index === currentSlide
+                ? 'opacity-100 z-10'
+                : 'opacity-0 z-0'
             }`}
             onClick={() => handleSlideClick(slide)}
           >
@@ -71,8 +73,9 @@ export default function HeroCarousel() {
               src={slide.image}
               alt={slide.alt}
               className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
             />
-            
+
             {/* Overlay for better text readability if needed */}
             <div className="absolute inset-0 bg-black/10" />
           </div>
