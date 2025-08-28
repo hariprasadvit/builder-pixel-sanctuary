@@ -833,15 +833,15 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-4">
-                  <div className="text-sm font-semibold text-gray-900 mb-2 line-clamp-2">
+                <div className="p-3 md:p-4">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-2 line-clamp-2">
                     {item.title}
                   </div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-lg font-bold text-emerald-600">£{item.price}</span>
-                    <span className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">Launch Price</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3">
+                    <span className="text-sm sm:text-lg font-bold text-emerald-600">£{item.price}</span>
+                    <span className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full self-start">Launch Price</span>
                   </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm">
                     Shop Now
                   </Button>
                 </div>
