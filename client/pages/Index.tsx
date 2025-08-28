@@ -588,7 +588,7 @@ export default function Index() {
                     <ProductCard
                       {...product}
                       onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                      onAddToCart={(id) => console.log("Add to cart:", id)}
+                      onAddToCart={handleAddToCart}
                     />
                   </div>
                 </div>
