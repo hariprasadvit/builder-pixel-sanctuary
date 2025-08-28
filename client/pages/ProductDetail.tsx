@@ -608,23 +608,23 @@ export default function ProductDetail() {
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  A18 Bionic chip for lightning-fast performance
+                  A18 Pro chip for pro-level performance
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  Camera Control for professional photography
+                  Pro camera system with 5x telephoto lens
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  All-day battery life up to 22 hours
+                  Extended battery life up to 33 hours video
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  Titanium design - aerospace grade material
+                  Premium titanium design - aerospace grade
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  Advanced dual-camera system
+                  6.9″ largest iPhone display ever
                 </li>
               </ul>
             </div>
@@ -635,7 +635,7 @@ export default function ProductDetail() {
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div>
                   <span className="text-gray-600">Display</span>
-                  <div className="font-medium">6.1″ Super Retina XDR</div>
+                  <div className="font-medium">6.9″ Super Retina XDR</div>
                 </div>
                 <div>
                   <span className="text-gray-600">Storage</span>
@@ -647,7 +647,7 @@ export default function ProductDetail() {
                 </div>
                 <div>
                   <span className="text-gray-600">Camera</span>
-                  <div className="font-medium">48MP Main</div>
+                  <div className="font-medium">Pro 48MP + 5x Telephoto</div>
                 </div>
               </div>
             </div>
