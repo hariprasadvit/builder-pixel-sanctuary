@@ -403,11 +403,11 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">Electronics Collection</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Home Appliances</div>
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-red-600">From £199</span>
+                    <span className="text-lg font-bold text-red-600">50% OFF</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">Premium tech essentials</p>
+                  <p className="text-xs text-gray-500 mt-1">Flash Sale on appliances</p>
                 </div>
               </div>
             </div>
@@ -478,11 +478,11 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">Fashion Collection</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Women's Fashion</div>
                   <div className="flex items-center gap-2">
                     <span className="text-lg font-bold text-green-600">Up to 50% OFF</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">100% Organic Cotton</p>
+                  <p className="text-xs text-gray-500 mt-1">Special fashion collection</p>
                 </div>
               </div>
             </div>
