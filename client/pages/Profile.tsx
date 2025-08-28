@@ -118,7 +118,7 @@ export default function Profile() {
                 <div className="relative">
                   <Avatar className="w-20 h-20">
                     <AvatarImage src={userData.avatar} alt={userData.firstName} />
-                    <AvatarFallback className="text-2xl">
+                    <AvatarFallback className="text-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white">
                       {userData.firstName[0]}{userData.lastName[0]}
                     </AvatarFallback>
                   </Avatar>
