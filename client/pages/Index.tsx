@@ -297,24 +297,38 @@ export default function Index() {
   const videoProducts = [
     {
       id: "v1",
-      image: "/placeholder.svg",
-      title: 'MacBook Pro 14" M3 Chip',
-      price: 1699.99,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8ceaa469e146ff9bea81806abc63a1?format=webp&width=800",
+      title: "LEGO Building Sets & Collectibles",
+      price: 49.99,
       origin: "UK" as const,
     },
     {
       id: "v2",
-      image: "/placeholder.svg",
-      title: "Sony WH-1000XM5 Headphones",
-      price: 349.99,
-      origin: "China" as const,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F431d2d8b01494ad1b9b8be2de5a424e1?format=webp&width=800",
+      title: "Suspense & Thriller Books Collection",
+      price: 14.99,
+      origin: "UK" as const,
     },
     {
       id: "v3",
-      image: "/placeholder.svg",
-      title: 'iPad Pro 12.9" 1TB',
-      price: 1449.99,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa6a27f8d49eb4361a224932f357cf1af?format=webp&width=800",
+      title: "The Silent Patient - Bestseller",
+      price: 12.99,
       origin: "UK" as const,
+    },
+    {
+      id: "v4",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F72eafa068f604ba993e614497f0a4379?format=webp&width=800",
+      title: "Summer Fashion Collection",
+      price: 89.99,
+      origin: "China" as const,
+    },
+    {
+      id: "v5",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4cf15493113a458da87690389a322da7?format=webp&width=800",
+      title: "Designer Scarves & Accessories",
+      price: 39.99,
+      origin: "China" as const,
     },
   ];
 
@@ -531,7 +545,7 @@ export default function Index() {
                   {index < 2 && (
                     <div className="absolute top-3 left-3 z-10">
                       <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-lg">
-                        🔥 Hot
+                        ���� Hot
                       </div>
                     </div>
                   )}
