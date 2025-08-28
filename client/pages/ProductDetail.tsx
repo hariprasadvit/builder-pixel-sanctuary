@@ -493,10 +493,12 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:grid grid-cols-3 gap-6 mb-6">
-          {/* Product Images */}
-          <div className="space-y-4">
+        {/* Desktop Layout - Improved responsive design */}
+        <div className="hidden lg:block mb-6">
+          <div className="max-w-7xl mx-auto px-2">
+            <div className="grid grid-cols-12 gap-6">
+              {/* Product Images */}
+              <div className="col-span-4 space-y-4">
             <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
               <img
                 src={product.images[selectedImage]}
@@ -523,8 +525,8 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Product Info */}
-          <div className="space-y-4">
+              {/* Product Info */}
+              <div className="col-span-5 space-y-4">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <Badge className="bg-blue-600 text-white">{product.origin}</Badge>
@@ -761,8 +763,8 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Product Highlights & Summary - Third Column */}
-          <div className="space-y-4">
+              {/* Product Highlights & Summary - Third Column */}
+              <div className="col-span-3 space-y-4">
             {/* Quick Summary */}
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-100">
               <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
@@ -844,6 +846,8 @@ export default function ProductDetail() {
                   <Truck className="w-4 h-4 text-green-600" />
                   <span>Free next-day delivery available</span>
                 </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>
