@@ -163,7 +163,7 @@ export default function Profile() {
 
           {/* Personal Information */}
           <TabsContent value="personal">
-            <Card>
+            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader>
                 <CardTitle>Personal Information</CardTitle>
               </CardHeader>
