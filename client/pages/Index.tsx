@@ -366,6 +366,89 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Deals of the Day - Limited Time Offers */}
+      <section className="py-8 md:py-10 bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-red-600 to-orange-600 rounded-full"></div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  ⚡ Deals of the Day
+                  <span className="bg-red-600 text-white text-sm px-2 py-1 rounded-full animate-pulse">LIVE</span>
+                </h2>
+                <p className="text-sm text-gray-600">Limited time offers - Don't miss out!</p>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-sm text-gray-600">Ends in</div>
+              <div className="text-red-600 font-bold font-mono">23:59:42</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Main Deal Card */}
+            <div className="md:col-span-2 lg:col-span-2">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-red-200 relative">
+                <div className="absolute top-4 left-4 z-10">
+                  <div className="bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                    60% OFF
+                  </div>
+                </div>
+                <div className="aspect-[4/3] bg-gray-100">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F68d763e3135547ed9fd68f6c12a33286?format=webp&width=800"
+                    alt="Deal of the Day"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Today's Mega Deal</h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl font-bold text-red-600">£299.99</span>
+                    <span className="text-lg text-gray-500 line-through">£749.99</span>
+                  </div>
+                  <Button className="w-full bg-red-600 hover:bg-red-700 font-semibold">
+                    Claim Deal Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Deals */}
+            <div className="space-y-4">
+              <div className="bg-white rounded-xl p-4 shadow-lg border border-orange-200">
+                <div className="aspect-square bg-gray-100 rounded-lg mb-3">
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    [Product Image]
+                  </div>
+                </div>
+                <div className="text-sm font-semibold text-gray-900 mb-1">Quick Deal #1</div>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-bold text-orange-600">£89.99</span>
+                  <span className="text-xs text-gray-500 line-through">£129.99</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-white rounded-xl p-4 shadow-lg border border-orange-200">
+                <div className="aspect-square bg-gray-100 rounded-lg mb-3">
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    [Product Image]
+                  </div>
+                </div>
+                <div className="text-sm font-semibold text-gray-900 mb-1">Quick Deal #2</div>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-bold text-orange-600">£149.99</span>
+                  <span className="text-xs text-gray-500 line-through">£199.99</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trending Near You - Enhanced Design */}
       <section className="py-8 md:py-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
         {/* Background Pattern */}
