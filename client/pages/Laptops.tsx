@@ -329,6 +329,119 @@ export default function Laptops() {
               </div>
             </div>
 
+            {/* Intel Laptops Banner */}
+            <section className="mb-8">
+              <div className="w-full">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf9b8871c6484a6ab0d18b4ba9c9cad7?format=webp&width=800"
+                  alt="Best deals on Intel powered AI laptops"
+                  className="w-full h-auto rounded-lg shadow-sm"
+                />
+              </div>
+            </section>
+
+            {/* Featured Brands */}
+            <section className="mb-8">
+              <h2 className="text-2xl font-bold mb-6">Featured Brands</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {[
+                  { name: 'Dell', logo: '/placeholder.svg', description: 'Trusted Performance' },
+                  { name: 'HP', logo: '/placeholder.svg', description: 'Innovation & Quality' },
+                  { name: 'Lenovo', logo: '/placeholder.svg', description: 'ThinkPad Excellence' },
+                  { name: 'ASUS', logo: '/placeholder.svg', description: 'Gaming & Creative' },
+                  { name: 'Apple', logo: '/placeholder.svg', description: 'Premium MacBooks' },
+                  { name: 'Acer', logo: '/placeholder.svg', description: 'Value & Performance' },
+                ].map((brand, index) => (
+                  <Card key={index} className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white">
+                    <CardContent className="p-4 text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <img
+                          src={brand.logo}
+                          alt={brand.name}
+                          className="w-8 h-8 object-contain group-hover:scale-105 transition-transform duration-200"
+                        />
+                      </div>
+                      <h3 className="font-semibold text-sm text-gray-900 mb-1">{brand.name}</h3>
+                      <p className="text-xs text-gray-600">{brand.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
+            {/* Browse by Curated Selection */}
+            <section className="mb-8">
+              <div className="w-full mb-6">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf27e57904c3414788f14f228398df05?format=webp&width=800"
+                  alt="Browse by Curated Selection for every use"
+                  className="w-full h-auto rounded-lg shadow-sm"
+                />
+              </div>
+
+              <h2 className="text-2xl font-bold mb-6">Browse by Curated Selection for Every Use</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {[
+                  {
+                    title: 'Laptops for school',
+                    image: '/placeholder.svg',
+                    badge: 'Amazon Choice',
+                    description: 'Perfect for students'
+                  },
+                  {
+                    title: 'Multitasking laptops',
+                    image: '/placeholder.svg',
+                    badge: 'Amazon Choice',
+                    description: 'Productivity focused'
+                  },
+                  {
+                    title: 'Laptops for professionals',
+                    image: '/placeholder.svg',
+                    badge: 'Amazon Choice',
+                    description: 'Business ready'
+                  },
+                  {
+                    title: 'Entry Gaming',
+                    image: '/placeholder.svg',
+                    badge: 'Amazon Choice',
+                    description: 'Gaming on budget'
+                  },
+                  {
+                    title: 'E-sports Gaming',
+                    image: '/placeholder.svg',
+                    badge: 'Amazon Choice',
+                    description: 'Pro gaming'
+                  },
+                ].map((selection, index) => (
+                  <Card key={index} className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white">
+                    <CardContent className="p-4 text-center">
+                      <div className="relative mb-4">
+                        <div className="w-full h-32 bg-gray-100 rounded-lg overflow-hidden">
+                          <img
+                            src={selection.image}
+                            alt={selection.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                          />
+                        </div>
+                        <Badge className="absolute top-2 left-2 bg-orange-600 text-white text-xs">
+                          {selection.badge}
+                        </Badge>
+                      </div>
+                      <h3 className="font-semibold text-sm text-gray-900 mb-2">{selection.title}</h3>
+                      <p className="text-xs text-gray-600 mb-3">{selection.description}</p>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="w-full text-xs border-orange-500 text-orange-600 hover:bg-orange-50"
+                      >
+                        Shop now
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
           </>
         ) : (
           <>
