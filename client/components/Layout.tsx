@@ -423,7 +423,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Mobile Search and Location */}
-          <div className="md:hidden pb-3 pt-2">
+          <div className={`md:hidden pb-3 pt-2 transition-all duration-300 ${isScrolled ? 'opacity-0 max-h-0 overflow-hidden py-0' : 'opacity-100 max-h-32'}`}>
             <div className="relative mb-3">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
