@@ -325,20 +325,20 @@ export default function Index() {
       </section>
 
       {/* Quick Categories */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-6 md:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold">Shop by Category</h2>
-            <Button variant="ghost" className="text-brand-blue">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold">Shop by Category</h2>
+            <Button variant="ghost" className="text-brand-blue text-sm md:text-base">
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6">
             {categories.map((category) => (
               <Card key={category.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white">
-                <CardContent className="p-4">
+                <CardContent className="p-3 md:p-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-full h-32 flex items-center justify-center mb-4 bg-gray-50 rounded-lg overflow-hidden">
+                    <div className="w-full h-24 md:h-32 flex items-center justify-center mb-2 md:mb-4 bg-gray-50 rounded-lg overflow-hidden">
                       <img
                         src={category.image}
                         alt={category.name}
@@ -346,8 +346,8 @@ export default function Index() {
                       />
                     </div>
                     <div className="text-center">
-                      <h3 className="font-semibold text-sm text-gray-900 mb-1">{category.name}</h3>
-                      <p className="text-gray-600 text-xs">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-900 mb-1 line-clamp-2">{category.name}</h3>
+                      <p className="text-gray-600 text-xs hidden md:block">
                         {category.subcategories.slice(0, 2).join(' • ')}
                       </p>
                     </div>
