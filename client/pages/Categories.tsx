@@ -1,24 +1,8 @@
 import { useState } from "react";
-import { Search, Filter, Menu, X, Star, Heart, TrendingUp, Award, Tag, Users, Phone } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import ProductCard from "@/components/ProductCard";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 
