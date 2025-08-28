@@ -806,6 +806,108 @@ export default function ProductDetail() {
           </div>
         </div>
 
+        {/* Mobile Detail Sections - Below the fold */}
+        <div className="lg:hidden space-y-4 mb-6">
+          {/* Color Selection */}
+          <div>
+            <h3 className="font-medium text-gray-900 mb-2">
+              Colour: <span className="font-semibold">{selectedColor}</span>
+            </h3>
+            <div className="grid grid-cols-4 gap-2">
+              {colorOptions.map((color) => (
+                <div
+                  key={color.name}
+                  className={`cursor-pointer rounded-lg border-2 p-2 transition-all ${
+                    selectedColor === color.name
+                      ? "border-blue-600 bg-blue-50"
+                      : "border-gray-200 hover:border-gray-300"
+                  }`}
+                  onClick={() => setSelectedColor(color.name)}
+                >
+                  <div className="aspect-square w-12 mx-auto mb-1 bg-white rounded-md overflow-hidden">
+                    <img
+                      src={color.image}
+                      alt={color.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xs font-medium text-gray-900">
+                      £{color.price.toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Storage Selection */}
+          <div>
+            <h3 className="font-medium text-gray-900 mb-2">
+              Size: <span className="font-semibold">{selectedStorage}</span>
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {storageOptions.map((storage) => (
+                <button
+                  key={storage.size}
+                  className={`px-3 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
+                    selectedStorage === storage.size
+                      ? "border-blue-600 bg-blue-600 text-white"
+                      : storage.available
+                      ? "border-gray-300 text-gray-900 hover:border-gray-400"
+                      : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
+                  } ${!storage.available ? "border-dashed" : ""}`}
+                  onClick={() => storage.available && setSelectedStorage(storage.size)}
+                  disabled={!storage.available}
+                >
+                  {storage.size}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Delivery Info */}
+          <Card>
+            <CardContent className="p-3">
+              <div className="flex items-center gap-3">
+                <Truck className="w-4 h-4 text-brand-blue" />
+                <div>
+                  <div className="font-medium text-sm">Delivery: {product.deliveryEta}</div>
+                  <div className="text-xs text-gray-600">
+                    Free delivery on orders over {getCurrencySymbol()}50
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quantity Selector */}
+          <div className="flex items-center gap-4">
+            <span className="font-medium text-gray-900">Quantity:</span>
+            <div className="flex items-center border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 hover:bg-blue-50"
+                onClick={() => handleQuantityChange(false)}
+                disabled={quantity <= 1}
+              >
+                <Minus className="w-3 h-3" />
+              </Button>
+              <span className="w-8 text-center font-semibold">{quantity}</span>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 hover:bg-blue-50"
+                onClick={() => handleQuantityChange(true)}
+                disabled={quantity >= product.stockCount}
+              >
+                <Plus className="w-3 h-3" />
+              </Button>
+            </div>
+          </div>
+        </div>
+
         {/* Marketing Images - Single Column Scroll Layout */}
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-6">Why iPhone 16?</h2>
