@@ -24,6 +24,31 @@ export default function Index() {
     useMarketplace();
   const { addToCart } = useCart();
 
+  const handleAddToCart = (productId: string) => {
+    // Find the product in all products arrays
+    const allProductsData = [...allProducts, ...ukProducts, ...chinaProducts];
+    const product = allProductsData.find(p => p.id === productId);
+
+    if (product) {
+      const vendorMap: Record<string, any> = {
+        "UK": "uk",
+        "China": "china"
+      };
+
+      addToCart({
+        id: product.id,
+        name: product.title,
+        price: product.price,
+        originalPrice: product.originalPrice,
+        image: product.image,
+        vendor: vendorMap[product.origin] || "nearbuy",
+        vendorName: `${product.origin} Marketplace`,
+        category: (product as any).category || "General",
+        shippingWeight: 1.0 // Default weight
+      });
+    }
+  };
+
   // Mock data with realistic product images
   const categories = [
     {
