@@ -414,7 +414,7 @@ export default function Index() {
 
             {/* Deal Card 2 */}
             <div className="">
-              <div className="bg-white rounded-xl shadow-lg border border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-white rounded-xl shadow-lg border border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300 group relative">
                 <div className="absolute top-3 left-3 z-10">
                   <div className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                     70% OFF
@@ -439,7 +439,7 @@ export default function Index() {
 
             {/* Deal Card 3 */}
             <div className="">
-              <div className="bg-white rounded-xl shadow-lg border border-purple-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-white rounded-xl shadow-lg border border-purple-200 overflow-hidden hover:shadow-xl transition-all duration-300 group relative">
                 <div className="absolute top-3 left-3 z-10">
                   <div className="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                     25% OFF
@@ -464,7 +464,7 @@ export default function Index() {
 
             {/* Deal Card 4 */}
             <div className="">
-              <div className="bg-white rounded-xl shadow-lg border border-green-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-white rounded-xl shadow-lg border border-green-200 overflow-hidden hover:shadow-xl transition-all duration-300 group relative">
                 <div className="absolute top-3 left-3 z-10">
                   <div className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                     50% OFF
