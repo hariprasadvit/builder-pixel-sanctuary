@@ -185,6 +185,65 @@ export default function ProductDetail() {
 
   const aiSummary = "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
 
+  const frequentlyBoughtTogether = [
+    {
+      id: "fbt1",
+      title: "Apple 20W USB-C Power Adapter for iPhone, iPad & AirPod...",
+      price: 25.99,
+      rating: 4.6,
+      reviewCount: 3014,
+      image: "https://m.media-amazon.com/images/I/61DlUjkdgYL._AC_SX569_.jpg",
+      savings: "12% off"
+    },
+    {
+      id: "fbt2",
+      title: "Spigen Ultra Hybrid MagFit Back Cover for Apple iPhone 15 Plus",
+      price: 25.99,
+      rating: 3.8,
+      reviewCount: 67,
+      image: "https://m.media-amazon.com/images/I/61RNHLL1wKL._AC_SX569_.jpg"
+    }
+  ];
+
+  const recommendedProducts = [
+    {
+      id: "rec1",
+      title: "iPhone 15 Pro Max 256GB Natural Titanium",
+      price: 1299.99,
+      originalPrice: 1399.99,
+      rating: 4.7,
+      reviewCount: 1542,
+      image: "https://m.media-amazon.com/images/I/81SigpJN1KL._AC_SX569_.jpg",
+      badge: "Best Seller"
+    },
+    {
+      id: "rec2",
+      title: "Samsung Galaxy S24 Ultra 256GB",
+      price: 1199.99,
+      rating: 4.5,
+      reviewCount: 892,
+      image: "https://m.media-amazon.com/images/I/71A8sA7RIDL._AC_SX569_.jpg"
+    },
+    {
+      id: "rec3",
+      title: "AirPods Pro (2nd generation) with MagSafe Case",
+      price: 229.99,
+      originalPrice: 249.99,
+      rating: 4.8,
+      reviewCount: 2156,
+      image: "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SX569_.jpg"
+    },
+    {
+      id: "rec4",
+      title: "Apple Watch Series 9 GPS 45mm",
+      price: 399.99,
+      rating: 4.6,
+      reviewCount: 567,
+      image: "https://m.media-amazon.com/images/I/71c9I5cEuRL._AC_SX569_.jpg",
+      badge: "New"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-6">
@@ -706,6 +765,142 @@ export default function ProductDetail() {
                 </div>
               </div>
               <Button variant="outline">View Store</Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Frequently Bought Together */}
+        <Card className="mt-8">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-bold mb-6">Frequently bought together</h2>
+            <div className="flex flex-col lg:flex-row items-start gap-6">
+              {/* Main Product */}
+              <div className="flex-shrink-0">
+                <div className="w-24 h-24 bg-white border rounded-lg overflow-hidden">
+                  <img
+                    src={product.images[0]}
+                    alt={product.title}
+                    className="w-full h-full object-contain p-2"
+                  />
+                </div>
+                <div className="mt-2 text-sm font-medium">This item</div>
+                <div className="text-sm text-gray-600">£{product.price.toFixed(2)}</div>
+              </div>
+
+              {/* Plus Icons and Additional Products */}
+              <div className="flex flex-wrap items-start gap-4">
+                {frequentlyBoughtTogether.map((item, index) => (
+                  <div key={item.id} className="flex items-center gap-4">
+                    <div className="text-2xl text-gray-400 font-light">+</div>
+                    <div className="flex-shrink-0">
+                      <div className="w-24 h-24 bg-white border rounded-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-contain p-2"
+                        />
+                      </div>
+                      <div className="mt-2 text-sm text-blue-600 hover:underline cursor-pointer line-clamp-2 max-w-24">
+                        {item.title}
+                      </div>
+                      <div className="flex items-center gap-1 mt-1">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-3 h-3 ${
+                                i < Math.floor(item.rating)
+                                  ? "text-yellow-400 fill-current"
+                                  : "text-gray-300"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-gray-600">({item.reviewCount.toLocaleString()})</span>
+                      </div>
+                      <div className="text-sm font-semibold">£{item.price.toFixed(2)}</div>
+                      {item.savings && (
+                        <div className="text-xs text-green-600">{item.savings}</div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Total Price and Add to Cart */}
+            <div className="mt-6 pt-4 border-t">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm text-gray-600">Total price:</div>
+                  <div className="text-xl font-bold">
+                    £{(product.price + frequentlyBoughtTogether.reduce((sum, item) => sum + item.price, 0)).toFixed(2)}
+                  </div>
+                </div>
+                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6">
+                  Add all to Cart
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Recommended Products */}
+        <Card className="mt-8">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold">Customers who viewed this item also viewed</h2>
+              <Button variant="ghost" className="text-blue-600 hover:underline">
+                View more
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {recommendedProducts.map((item) => (
+                <div key={item.id} className="group cursor-pointer">
+                  <div className="relative bg-white border rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                    {item.badge && (
+                      <Badge className="absolute top-2 left-2 bg-orange-500 text-white text-xs z-10">
+                        {item.badge}
+                      </Badge>
+                    )}
+                    <div className="aspect-square p-4">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="p-3">
+                      <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-blue-600">
+                        {item.title}
+                      </h3>
+                      <div className="flex items-center gap-1 mb-2">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-3 h-3 ${
+                                i < Math.floor(item.rating)
+                                  ? "text-yellow-400 fill-current"
+                                  : "text-gray-300"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-gray-600">({item.reviewCount.toLocaleString()})</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-gray-900">£{item.price.toFixed(2)}</span>
+                        {item.originalPrice && (
+                          <span className="text-sm text-gray-500 line-through">
+                            £{item.originalPrice.toFixed(2)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
