@@ -680,6 +680,113 @@ export default function Index() {
         </div>
       </section>
 
+      {/* New Arrivals */}
+      <section className="py-8 md:py-10 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-emerald-600 to-teal-600 rounded-full"></div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  🆕 New Arrivals
+                  <span className="bg-emerald-100 text-emerald-700 text-sm px-2 py-1 rounded-full">Fresh</span>
+                </h2>
+                <p className="text-sm text-gray-600">Just landed - Be the first to shop</p>
+              </div>
+            </div>
+            <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700">
+              View All <ChevronRight className="w-4 h-4 ml-1" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {/* Featured New Product */}
+            <div className="md:col-span-2 md:row-span-2">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full border border-emerald-200">
+                <div className="aspect-[4/3] bg-gradient-to-br from-emerald-100 to-teal-100 relative">
+                  <div className="absolute top-4 right-4">
+                    <div className="bg-emerald-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                      NEW
+                    </div>
+                  </div>
+                  <div className="w-full h-full flex items-center justify-center text-emerald-600 font-bold text-xl">
+                    [Featured New Product]
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Revolutionary New Product</h3>
+                  <p className="text-gray-600 mb-3">The latest innovation that's changing the game</p>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl font-bold text-emerald-600">£399.99</span>
+                    <span className="bg-red-100 text-red-700 text-sm px-2 py-1 rounded-full">Launch Price</span>
+                  </div>
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Pre-Order Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Small New Items */}
+            {[1, 2, 3, 4].map((item) => (
+              <div key={item} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 overflow-hidden">
+                <div className="aspect-square bg-gray-100 relative">
+                  <div className="absolute top-2 right-2">
+                    <div className="bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      NEW
+                    </div>
+                  </div>
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    [New {item}]
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="text-sm font-semibold text-gray-900 mb-1">New Product {item}</div>
+                  <div className="text-emerald-600 font-bold">£{129 + item * 20}.99</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Flash Sale Banner */}
+      <section className="py-6">
+        <div className="container mx-auto px-4">
+          <div className="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 rounded-2xl overflow-hidden relative">
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="relative z-10 py-8 px-6 text-center text-white">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-3">
+                ⚡ FLASH SALE ⚡
+                <span className="bg-yellow-400 text-black text-lg px-3 py-1 rounded-full animate-bounce">
+                  NOW ON
+                </span>
+              </h2>
+              <p className="text-xl mb-6">Up to 80% OFF on selected items - Limited quantity!</p>
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold">02</div>
+                  <div className="text-sm">Hours</div>
+                </div>
+                <div className="text-2xl">:</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">45</div>
+                  <div className="text-sm">Minutes</div>
+                </div>
+                <div className="text-2xl">:</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">30</div>
+                  <div className="text-sm">Seconds</div>
+                </div>
+              </div>
+              <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-lg px-8 py-3">
+                Shop Flash Sale Now
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Short Video Rail */}
       <section className="py-8 bg-gradient-to-br from-slate-100 via-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
