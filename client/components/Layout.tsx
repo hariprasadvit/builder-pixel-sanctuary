@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/select";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 import { useLocation as useLocationContext } from "@/contexts/LocationContext";
+import { useCart } from "@/contexts/CartContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
