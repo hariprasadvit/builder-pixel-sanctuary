@@ -606,25 +606,25 @@ export default function ProductDetail() {
                 Product Highlights
               </h3>
               <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  A18 Pro chip for pro-level performance
+                <li className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>A18 Pro chip for pro-level performance</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  Pro camera system with 5x telephoto lens
+                <li className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>Pro camera system with 5x telephoto lens</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  Extended battery life up to 33 hours video
+                <li className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>Extended battery life up to 33 hours video</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  Premium titanium design - aerospace grade
+                <li className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>Premium titanium design - aerospace grade</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  6.9″ largest iPhone display ever
+                <li className="flex items-start gap-3 py-1">
+                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span>6.9″ largest iPhone display ever</span>
                 </li>
               </ul>
             </div>
@@ -805,10 +805,8 @@ export default function ProductDetail() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {product.features.map((feature, index) => (
                         <div key={index} className="group hover:shadow-md transition-shadow duration-200 p-4 bg-white border border-gray-200 rounded-xl hover:border-blue-300">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <div className="w-3 h-3 bg-white rounded-full"></div>
-                            </div>
+                          <div className="flex items-start gap-3">
+                            <span className="text-blue-600 font-bold text-xl leading-none mt-0.5">✓</span>
                             <span className="text-gray-800 font-medium">{feature}</span>
                           </div>
                         </div>
@@ -833,11 +831,10 @@ export default function ProductDetail() {
                   <div className="p-6 space-y-8">
                     {/* Display Section */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-blue-500 pl-3">
                         Display
                       </h4>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         <div className="bg-blue-50 rounded-lg p-3">
                           <div className="flex justify-between items-start">
                             <span className="text-sm font-medium text-gray-900">Screen Size</span>
@@ -867,11 +864,10 @@ export default function ProductDetail() {
 
                     {/* Camera System */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-purple-500 pl-3">
                         Pro Camera System
                       </h4>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         <div className="bg-purple-50 rounded-lg p-3">
                           <div className="flex justify-between items-start">
                             <span className="text-sm font-medium text-gray-900">Main Camera</span>
@@ -913,11 +909,10 @@ export default function ProductDetail() {
 
                     {/* Performance & Storage */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-green-500 pl-3">
                         Performance & Storage
                       </h4>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         <div className="bg-green-50 rounded-lg p-3">
                           <div className="flex justify-between items-start">
                             <span className="text-sm font-medium text-gray-900">Processor</span>
@@ -947,11 +942,10 @@ export default function ProductDetail() {
 
                     {/* Battery & Charging */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-orange-500 pl-3">
                         Battery & Charging
                       </h4>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         <div className="bg-orange-50 rounded-lg p-3">
                           <div className="flex justify-between items-start">
                             <span className="text-sm font-medium text-gray-900">Video Playback</span>
@@ -981,11 +975,10 @@ export default function ProductDetail() {
 
                     {/* Durability & Physical */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-gray-500 pl-3">
                         Durability & Physical
                       </h4>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         <div className="bg-gray-50 rounded-lg p-3">
                           <div className="flex justify-between items-start">
                             <span className="text-sm font-medium text-gray-900">Water Resistance</span>
@@ -1006,6 +999,18 @@ export default function ProductDetail() {
                         </div>
                         <div className="bg-gray-50 rounded-lg p-3">
                           <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Weight</span>
+                            <span className="text-sm text-gray-700 text-right">227 g</span>
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Dimensions</span>
+                            <span className="text-sm text-gray-700 text-right">8 x 78 x 163 mm</span>
+                          </div>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
                             <span className="text-sm font-medium text-gray-900">Color</span>
                             <span className="text-sm text-gray-700 text-right font-semibold text-blue-700">{selectedColor}</span>
                           </div>
@@ -1013,14 +1018,58 @@ export default function ProductDetail() {
                       </div>
                     </div>
 
-                    {/* In the Box & Warranty */}
+                    {/* Manufacturer & Product Info */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-red-500 pl-3">
+                        Manufacturer & Product Information
+                      </h4>
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div className="bg-red-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Manufacturer</span>
+                            <span className="text-sm text-gray-700 text-right">Apple Inc, Cupertino, CA</span>
+                          </div>
+                        </div>
+                        <div className="bg-red-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Importer</span>
+                            <span className="text-sm text-gray-700 text-right">Apple India Pvt Ltd, Bangalore</span>
+                          </div>
+                        </div>
+                        <div className="bg-red-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Net Quantity</span>
+                            <span className="text-sm text-gray-700 text-right">1 Count</span>
+                          </div>
+                        </div>
+                        <div className="bg-red-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Included Components</span>
+                            <span className="text-sm text-gray-700 text-right">USB Cable</span>
+                          </div>
+                        </div>
+                        <div className="bg-red-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Generic Name</span>
+                            <span className="text-sm text-gray-700 text-right">iPhone 16 Pro Max</span>
+                          </div>
+                        </div>
+                        <div className="bg-red-50 rounded-lg p-3">
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm font-medium text-gray-900">Packer</span>
+                            <span className="text-sm text-gray-700 text-right">Not Applicable for Apple</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Package & Warranty */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4 border-l-4 border-indigo-500 pl-3">
                         Package & Warranty
                       </h4>
                       <div className="bg-indigo-50 rounded-lg p-4">
-                        <div className="space-y-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           <div className="flex justify-between">
                             <span className="text-sm font-medium text-gray-900">In the Box</span>
                             <span className="text-sm text-gray-700 text-right">iPhone with iOS 18, USB‑C Cable (1m), Documentation</span>
