@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { MarketplaceProvider } from "@/contexts/MarketplaceContext";
 import { LocationProvider } from "@/contexts/LocationContext";
+import { CartProvider } from "@/contexts/CartContext";
 import Index from "./pages/Index";
 import Categories from "./pages/Categories";
 import Electronics from "./pages/Electronics";
