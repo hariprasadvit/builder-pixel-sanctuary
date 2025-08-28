@@ -122,7 +122,7 @@ export default function Profile() {
                       {userData.firstName[0]}{userData.lastName[0]}
                     </AvatarFallback>
                   </Avatar>
-                  <Button size="icon" variant="outline" className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full">
+                  <Button size="icon" variant="outline" className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white border-white">
                     <Camera className="w-4 h-4" />
                   </Button>
                 </div>
@@ -233,7 +233,7 @@ export default function Profile() {
                           <div className="flex items-center gap-2 mb-2">
                             <h3 className="font-semibold">{address.type}</h3>
                             {address.isDefault && (
-                              <Badge variant="default" className="text-xs">Default</Badge>
+                              <Badge variant="default" className="text-xs bg-blue-600 hover:bg-blue-700">Default</Badge>
                             )}
                           </div>
                           <p className="text-gray-600">{address.name}</p>
@@ -280,7 +280,7 @@ export default function Profile() {
                             <p className="text-sm text-gray-600">Expires {payment.expiry}</p>
                           </div>
                           {payment.isDefault && (
-                            <Badge variant="default" className="text-xs">Default</Badge>
+                            <Badge variant="default" className="text-xs bg-blue-600 hover:bg-blue-700">Default</Badge>
                           )}
                         </div>
                         <div className="flex gap-2">
@@ -322,7 +322,7 @@ export default function Profile() {
                         </div>
                         <div className="text-right">
                           <p className="font-semibold">{order.total}</p>
-                          <Badge variant={order.status === "Delivered" ? "default" : "secondary"}>
+                          <Badge variant={order.status === "Delivered" ? "default" : "secondary"} className={order.status === "Delivered" ? "bg-blue-600 hover:bg-blue-700" : ""}>
                             {order.status}
                           </Badge>
                         </div>
