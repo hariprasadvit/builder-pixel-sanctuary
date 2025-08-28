@@ -64,18 +64,22 @@ export default function Cart() {
 
   const handleApplyCoupon = async () => {
     if (!couponCode.trim()) return;
-    
+
     setCouponLoading(true);
     setCouponError("");
-    
+
     const success = await applyCoupon(couponCode.trim());
-    
+
     if (success) {
       setCouponCode("");
+      // Trigger fireworks for the special 1234 code
+      if (couponCode.trim() === "1234") {
+        triggerFireworks();
+      }
     } else {
       setCouponError("Invalid coupon code or coupon already applied");
     }
-    
+
     setCouponLoading(false);
   };
 
