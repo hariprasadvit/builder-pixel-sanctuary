@@ -40,7 +40,7 @@ export default function ProductDetail() {
   // Mock product data - in real app this would be fetched based on the ID
   const product = {
     id: "1",
-    title: "iPhone 16 128GB with Camera Control",
+    title: "iPhone 16 Pro Max 256GB with Camera Control",
     price: 999.99,
     originalPrice: 1099.99,
     rating: 4.8,
@@ -59,14 +59,14 @@ export default function ProductDetail() {
     storage: "128GB",
     color: "Natural Titanium",
     features: [
-      "6.1-inch Super Retina XDR display",
-      "A18 Bionic chip",
-      "Advanced dual-camera system",
+      "6.9-inch Super Retina XDR display",
+      "A18 Pro Bionic chip",
+      "Pro camera system with 5x telephoto",
       "Camera Control button",
-      "Face ID",
+      "Titanium design",
       "5G connectivity"
     ],
-    description: "The iPhone 16 features the powerful A18 chip, enhanced camera capabilities with the new Camera Control, and comes in stunning colors. Experience next-level performance and photography.",
+    description: "The iPhone 16 Pro Max features the powerful A18 Pro chip, advanced Pro camera system with 5x telephoto, and comes in premium titanium finishes. Experience professional-grade performance and photography with the largest iPhone display.",
     specifications: {
       // Display
       "Display Type": "Super Retina XDR OLED",
@@ -87,7 +87,7 @@ export default function ProductDetail() {
       "Main Camera": "48MP Fusion (24mm, ƒ/1.78)",
       "Telephoto 2x": "12MP (52mm, ƒ/1.6)",
       "Ultra Wide": "48MP (13mm, ƒ/2.2, 120° FOV)",
-      "Telephoto 5x": "12MP (120mm, ƒ/2.8, 20° FOV)",
+      "Telephoto 5x": "12MP (120mm, ��/2.8, 20° FOV)",
       "Optical Zoom": "5x zoom in, 2x zoom out, 10x range",
       "Digital Zoom": "Up to 25x",
       "Front Camera": "12MP (ƒ/1.9, Autofocus)",
