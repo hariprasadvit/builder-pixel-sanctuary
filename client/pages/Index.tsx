@@ -1177,38 +1177,38 @@ export default function Index() {
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 md:p-12 items-center">
               {/* Left side - Content */}
-              <div className="text-white">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-xl mb-6 backdrop-blur-sm border border-white/20">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-gray-800">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/80 rounded-xl mb-6 backdrop-blur-sm border border-gray-200 shadow-sm">
+                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Products Compare
                 </h3>
 
-                <p className="mb-6 text-white/80 text-lg leading-relaxed">
+                <p className="mb-6 text-gray-700 text-lg leading-relaxed">
                   Your customers can make better buying decisions on products they want and need
                 </p>
 
-                {/* Feature list */}
-                <div className="space-y-3 mb-8">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-white/90">Side-by-side comparison</span>
+                {/* Enhanced feature list */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-4 bg-white/60 rounded-lg p-3 border border-gray-200">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Side-by-side comparison</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-white/90">Price and feature analysis</span>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-lg p-3 border border-gray-200">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Price and feature analysis</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                    <span className="text-white/90">Customer reviews comparison</span>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-lg p-3 border border-gray-200">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Customer reviews comparison</span>
                   </div>
                 </div>
 
-                <Button className="bg-white text-gray-800 hover:bg-white/90 font-semibold text-lg px-8 py-3 transition-all duration-300 rounded-xl group hover:scale-105">
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg px-8 py-3 transition-all duration-300 rounded-xl group hover:scale-105 shadow-lg">
                   <span className="mr-2">Start Comparing</span>
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -1216,53 +1216,57 @@ export default function Index() {
                 </Button>
               </div>
 
-              {/* Right side - Visual mockup */}
+              {/* Right side - Enhanced Visual mockup */}
               <div className="hidden lg:block">
                 <div className="relative">
-                  {/* Phone mockup with comparison */}
-                  <div className="w-64 h-80 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 p-4 mx-auto">
-                    <div className="h-full bg-white/5 rounded-xl p-3 space-y-3">
-                      <div className="text-center text-white/70 text-sm font-medium">Compare</div>
+                  {/* Device mockup with comparison */}
+                  <div className="w-72 h-96 bg-white/90 rounded-2xl backdrop-blur-sm border border-gray-200 p-4 mx-auto shadow-xl">
+                    <div className="h-full bg-gray-50 rounded-xl p-4 space-y-4">
+                      <div className="text-center text-gray-700 text-sm font-semibold">Compare Products</div>
 
                       {/* Product comparison cards */}
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-white/10 rounded-lg p-2 space-y-2">
-                          <div className="w-full h-16 bg-white/20 rounded"></div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-white rounded-lg p-3 space-y-2 border border-gray-200 shadow-sm">
+                          <div className="w-full h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded"></div>
                           <div className="space-y-1">
-                            <div className="w-full h-2 bg-white/30 rounded"></div>
-                            <div className="w-3/4 h-2 bg-white/20 rounded"></div>
+                            <div className="w-full h-2 bg-gray-300 rounded"></div>
+                            <div className="w-3/4 h-2 bg-gray-200 rounded"></div>
+                            <div className="w-1/2 h-3 bg-green-400 rounded font-bold"></div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-2 space-y-2">
-                          <div className="w-full h-16 bg-white/20 rounded"></div>
+                        <div className="bg-white rounded-lg p-3 space-y-2 border border-gray-200 shadow-sm">
+                          <div className="w-full h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded"></div>
                           <div className="space-y-1">
-                            <div className="w-full h-2 bg-white/30 rounded"></div>
-                            <div className="w-3/4 h-2 bg-white/20 rounded"></div>
+                            <div className="w-full h-2 bg-gray-300 rounded"></div>
+                            <div className="w-3/4 h-2 bg-gray-200 rounded"></div>
+                            <div className="w-1/2 h-3 bg-orange-400 rounded"></div>
                           </div>
                         </div>
                       </div>
 
-                      {/* Comparison features */}
-                      <div className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-white/60 text-xs">Price</span>
-                          <div className="flex gap-1">
-                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      {/* Enhanced comparison features */}
+                      <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
+                        <div className="space-y-3">
+                          <div className="flex justify-between items-center">
+                            <span className="text-gray-600 text-sm font-medium">Price</span>
+                            <div className="flex gap-2">
+                              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                              <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-white/60 text-xs">Rating</span>
-                          <div className="flex gap-1">
-                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-gray-600 text-sm font-medium">Rating</span>
+                            <div className="flex gap-2">
+                              <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                              <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-white/60 text-xs">Features</span>
-                          <div className="flex gap-1">
-                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-gray-600 text-sm font-medium">Features</span>
+                            <div className="flex gap-2">
+                              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                              <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                            </div>
                           </div>
                         </div>
                       </div>
