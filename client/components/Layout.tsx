@@ -27,6 +27,15 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Top Marketplace Banner */}
+      <div className="bg-gradient-to-r from-brand-blue to-brand-blue/80 text-white py-2 text-center text-sm">
+        <div className="container mx-auto px-4">
+          {currentMarketplace === 'nearbuy' && "🚀 Shopping locally - Same day delivery available"}
+          {currentMarketplace === 'uk' && "🇬🇧 UK Marketplace - Fast shipping from trusted UK sellers"}
+          {currentMarketplace === 'china' && "🌏 China Marketplace - Great value with worldwide shipping"}
+        </div>
+      </div>
+
       {/* Top Bar - Sticky */}
       <header className="sticky top-0 z-50 bg-white border-b border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
