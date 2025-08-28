@@ -278,56 +278,48 @@ export default function Index() {
       <HeroCarousel />
 
       {/* Advanced Search Section */}
-      <section className="py-4 bg-white border-b">
+      <section className="py-3 md:py-4 bg-white border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="flex-1 flex items-center gap-2">
-              <div className="relative flex-1">
-                <input
-                  type="text"
-                  placeholder={`Search products in ${currentMarketplace === 'nearbuy' ? 'your area' : currentMarketplace.toUpperCase()}...`}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
-                />
-                <Button size="sm" className="absolute right-1 top-1 bg-brand-blue hover:bg-brand-blue/90">
-                  Search
+          <div className="flex flex-col gap-3 md:gap-4">
+            {/* Search and controls */}
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center">
+              <div className="flex-1 flex items-center gap-2">
+                <div className="relative flex-1">
+                  <input
+                    type="text"
+                    placeholder={`Search products in ${currentMarketplace === 'nearbuy' ? 'your area' : currentMarketplace.toUpperCase()}...`}
+                    className="w-full px-4 py-2.5 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-sm md:text-base"
+                  />
+                  <Button size="sm" className="absolute right-1 top-1 bg-brand-blue hover:bg-brand-blue/90 h-8 md:h-8">
+                    Search
+                  </Button>
+                </div>
+              </div>
+
+              {/* Filters - Stack on mobile */}
+              <div className="flex items-center gap-2 justify-end sm:justify-start">
+                <Button variant="outline" size="sm" className="flex items-center gap-2 text-xs md:text-sm">
+                  <Filter className="w-4 h-4" />
+                  Filters
+                </Button>
+                <Button variant="outline" size="sm" className="text-xs md:text-sm">
+                  Sort: Popular
                 </Button>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" className="flex items-center gap-2">
-                <Filter className="w-4 h-4" />
-                Filters
-              </Button>
-              <Button variant="outline" size="sm">
-                Sort by: Popular
-              </Button>
+
+            {/* Quick filters based on marketplace */}
+            <div className="flex gap-2 overflow-x-auto pb-1">
+              <Badge variant="secondary" className="whitespace-nowrap text-xs">
+                {currentMarketplace === 'nearbuy' ? 'Same Day Delivery' :
+                 currentMarketplace === 'uk' ? 'Fast UK Shipping' :
+                 'Best Value from China'}
+              </Badge>
+              <Badge variant="outline" className="whitespace-nowrap text-xs">Free Shipping</Badge>
+              <Badge variant="outline" className="whitespace-nowrap text-xs">4+ Stars</Badge>
+              <Badge variant="outline" className="whitespace-nowrap text-xs">On Sale</Badge>
+              <Badge variant="outline" className="whitespace-nowrap text-xs">Video Reviews</Badge>
             </div>
-          </div>
-
-          {/* Quick filters based on marketplace */}
-          <div className="flex gap-2 mt-3 overflow-x-auto">
-            <Badge variant="secondary" className="whitespace-nowrap">
-              {currentMarketplace === 'nearbuy' ? 'Same Day Delivery' :
-               currentMarketplace === 'uk' ? 'Fast UK Shipping' :
-               'Best Value from China'}
-            </Badge>
-            <Badge variant="outline" className="whitespace-nowrap">Free Shipping</Badge>
-            <Badge variant="outline" className="whitespace-nowrap">4+ Stars</Badge>
-            <Badge variant="outline" className="whitespace-nowrap">On Sale</Badge>
-            <Badge variant="outline" className="whitespace-nowrap">Video Reviews</Badge>
-          </div>
-        </div>
-      </section>
-
-      {/* Marketplace Info Banner */}
-      <section className="py-3 bg-gradient-to-r from-brand-blue/10 to-brand-blue/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-sm text-brand-dark">
-              {currentMarketplace === 'nearbuy' && "🚀 Shopping locally - Supporting your community with fast delivery"}
-              {currentMarketplace === 'uk' && "🇬🇧 UK Marketplace - Premium quality with trusted UK sellers"}
-              {currentMarketplace === 'china' && "🌏 China Marketplace - Amazing deals with worldwide shipping"}
-            </p>
           </div>
         </div>
       </section>
