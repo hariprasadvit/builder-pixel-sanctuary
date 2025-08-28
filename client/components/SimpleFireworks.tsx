@@ -105,14 +105,15 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
       {particles.map(particle => (
         <div
           key={particle.id}
-          className="absolute w-2 h-2 rounded-full"
+          className="absolute w-3 h-3 rounded-full animate-pulse"
           style={{
             left: particle.x,
             top: particle.y,
             backgroundColor: particle.color,
             opacity: particle.life / particle.maxLife,
             transform: 'translate(-50%, -50%)',
-            boxShadow: `0 0 6px ${particle.color}`,
+            boxShadow: `0 0 12px ${particle.color}, 0 0 24px ${particle.color}`,
+            animation: `sparkle 0.5s ease-in-out infinite alternate`,
           }}
         />
       ))}
