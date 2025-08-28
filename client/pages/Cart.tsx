@@ -300,7 +300,10 @@ export default function Cart() {
                   <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 bg-blue-50">
                     <p className="text-sm font-medium text-blue-800 mb-2">Test the firework effect:</p>
                     <Button
-                      onClick={triggerFireworks}
+                      onClick={() => {
+                        console.log('Manual firework test triggered from Cart page');
+                        triggerFireworks();
+                      }}
                       className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold"
                     >
                       🎆 Launch Fireworks! 🎆
