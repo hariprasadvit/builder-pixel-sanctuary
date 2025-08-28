@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './fireworks.css';
+
 @layer base {
   /**
    * Tailwind CSS theme
