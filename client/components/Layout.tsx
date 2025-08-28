@@ -209,7 +209,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Right section */}
-            <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-2 md:gap-4 ml-auto">
               {/* Marketplace Toggle - Always visible */}
               <Select value={currentMarketplace} onValueChange={setMarketplace}>
                 <SelectTrigger className="w-[100px] md:w-[130px] flex">
