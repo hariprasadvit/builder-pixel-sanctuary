@@ -169,6 +169,12 @@ export default function Index() {
 
   const trendingProducts = getFilteredProducts().slice(0, 4);
 
+  // Personalized recommendations based on user behavior
+  const personalizedProducts = getFilteredProducts().filter(product => product.isPersonalized);
+
+  // Recently viewed products
+  const recentlyViewedProducts = getFilteredProducts().filter(product => product.recentlyViewed);
+
   const ukProducts = [
     {
       id: '5',
@@ -270,6 +276,61 @@ export default function Index() {
     <div className="min-h-screen">
       {/* Hero Carousel */}
       <HeroCarousel />
+
+      {/* Advanced Search Section */}
+      <section className="py-4 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="flex-1 flex items-center gap-2">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  placeholder={`Search products in ${currentMarketplace === 'nearbuy' ? 'your area' : currentMarketplace.toUpperCase()}...`}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+                />
+                <Button size="sm" className="absolute right-1 top-1 bg-brand-blue hover:bg-brand-blue/90">
+                  Search
+                </Button>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" className="flex items-center gap-2">
+                <Filter className="w-4 h-4" />
+                Filters
+              </Button>
+              <Button variant="outline" size="sm">
+                Sort by: Popular
+              </Button>
+            </div>
+          </div>
+
+          {/* Quick filters based on marketplace */}
+          <div className="flex gap-2 mt-3 overflow-x-auto">
+            <Badge variant="secondary" className="whitespace-nowrap">
+              {currentMarketplace === 'nearbuy' ? 'Same Day Delivery' :
+               currentMarketplace === 'uk' ? 'Fast UK Shipping' :
+               'Best Value from China'}
+            </Badge>
+            <Badge variant="outline" className="whitespace-nowrap">Free Shipping</Badge>
+            <Badge variant="outline" className="whitespace-nowrap">4+ Stars</Badge>
+            <Badge variant="outline" className="whitespace-nowrap">On Sale</Badge>
+            <Badge variant="outline" className="whitespace-nowrap">Video Reviews</Badge>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Info Banner */}
+      <section className="py-3 bg-gradient-to-r from-brand-blue/10 to-brand-blue/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-sm text-brand-dark">
+              {currentMarketplace === 'nearbuy' && "🚀 Shopping locally - Supporting your community with fast delivery"}
+              {currentMarketplace === 'uk' && "🇬🇧 UK Marketplace - Premium quality with trusted UK sellers"}
+              {currentMarketplace === 'china' && "🌏 China Marketplace - Amazing deals with worldwide shipping"}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Quick Categories */}
       <section className="py-8 bg-gray-50">
@@ -439,6 +500,83 @@ export default function Index() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Personalized Recommendations */}
+      {personalizedProducts.length > 0 && (
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl font-bold">Recommended for You</h2>
+                <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200">
+                  <Star className="w-3 h-3 mr-1" />
+                  Personalized
+                </Badge>
+              </div>
+              <Button variant="ghost" className="text-brand-blue">
+                View All <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {personalizedProducts.slice(0, 4).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  onWishlistToggle={(id) => console.log('Toggle wishlist:', id)}
+                  onAddToCart={(id) => console.log('Add to cart:', id)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Recently Viewed */}
+      {recentlyViewedProducts.length > 0 && (
+        <section className="py-8 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl font-bold">Recently Viewed</h2>
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200">
+                  <Heart className="w-3 h-3 mr-1" />
+                  Continue Shopping
+                </Badge>
+              </div>
+              <Button variant="ghost" className="text-brand-blue">
+                Clear History
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {recentlyViewedProducts.slice(0, 4).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  onWishlistToggle={(id) => console.log('Toggle wishlist:', id)}
+                  onAddToCart={(id) => console.log('Add to cart:', id)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Product Comparison CTA */}
+      <section className="py-8">
+        <div className="container mx-auto px-4">
+          <Card className="bg-gradient-to-r from-brand-blue to-brand-blue/80 text-white">
+            <CardContent className="p-6 text-center">
+              <h3 className="text-xl font-bold mb-2">Compare Products</h3>
+              <p className="mb-4 text-white/90">
+                Found similar products? Compare features, prices, and reviews side by side.
+              </p>
+              <Button className="bg-white text-brand-blue hover:bg-white/90">
+                Start Comparing
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
