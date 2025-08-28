@@ -556,15 +556,15 @@ export default function Index() {
       )}
 
       {/* Product Comparison CTA */}
-      <section className="py-8">
+      <section className="py-6 md:py-8">
         <div className="container mx-auto px-4">
           <Card className="bg-gradient-to-r from-brand-blue to-brand-blue/80 text-white">
-            <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">Compare Products</h3>
-              <p className="mb-4 text-white/90">
+            <CardContent className="p-4 md:p-6 text-center">
+              <h3 className="text-lg md:text-xl font-bold mb-2">Compare Products</h3>
+              <p className="mb-4 text-white/90 text-sm md:text-base">
                 Found similar products? Compare features, prices, and reviews side by side.
               </p>
-              <Button className="bg-white text-brand-blue hover:bg-white/90">
+              <Button className="bg-white text-brand-blue hover:bg-white/90 text-sm md:text-base">
                 Start Comparing
               </Button>
             </CardContent>
