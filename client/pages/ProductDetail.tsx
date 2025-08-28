@@ -35,7 +35,7 @@ export default function ProductDetail() {
   const [newRating, setNewRating] = useState(5);
   const [showComparison, setShowComparison] = useState(false);
   const [selectedColor, setSelectedColor] = useState("Black Titanium");
-  const [selectedStorage, setSelectedStorage] = useState("128GB");
+  const [selectedStorage, setSelectedStorage] = useState("256GB");
 
   // Mock product data - in real app this would be fetched based on the ID
   const product = {
@@ -87,7 +87,7 @@ export default function ProductDetail() {
       "Main Camera": "48MP Fusion (24mm, ƒ/1.78)",
       "Telephoto 2x": "12MP (52mm, ƒ/1.6)",
       "Ultra Wide": "48MP (13mm, ƒ/2.2, 120° FOV)",
-      "Telephoto 5x": "12MP (120mm, ��/2.8, 20° FOV)",
+      "Telephoto 5x": "12MP (120mm, ƒ/2.8, 20° FOV)",
       "Optical Zoom": "5x zoom in, 2x zoom out, 10x range",
       "Digital Zoom": "Up to 25x",
       "Front Camera": "12MP (ƒ/1.9, Autofocus)",
@@ -244,10 +244,9 @@ export default function ProductDetail() {
   ];
 
   const storageOptions = [
-    { size: "128GB", price: 999.99, available: true },
-    { size: "256GB", price: 1099.99, available: true },
-    { size: "512GB", price: 1299.99, available: true },
-    { size: "1TB", price: 1499.99, available: false }
+    { size: "256GB", price: 1199.99, available: true },
+    { size: "512GB", price: 1399.99, available: true },
+    { size: "1TB", price: 1599.99, available: true }
   ];
 
   const frequentlyBoughtTogether = [
