@@ -187,25 +187,6 @@ export default function Categories() {
               ))}
             </div>
 
-            {/* Featured Products */}
-            <div className="mt-12">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold">Featured Products</h2>
-                <Button variant="ghost" className="text-brand-blue">
-                  View All
-                </Button>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {sampleProducts.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    {...product}
-                    onWishlistToggle={(id) => console.log('Toggle wishlist:', id)}
-                    onAddToCart={(id) => console.log('Add to cart:', id)}
-                  />
-                ))}
-              </div>
-            </div>
           </>
         ) : (
           <>
