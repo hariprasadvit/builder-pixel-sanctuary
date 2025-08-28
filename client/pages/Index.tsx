@@ -209,6 +209,17 @@ export default function Index() {
       deliveryEta: 'Today',
       hasVideo: false,
     },
+    {
+      id: '11',
+      image: '/placeholder.svg',
+      title: 'Burberry Classic Trench Coat',
+      price: 1890.99,
+      rating: 4.9,
+      reviewCount: 89,
+      origin: 'UK' as const,
+      deliveryEta: 'Next week',
+      hasVideo: false,
+    },
   ];
 
   const chinaProducts = [
@@ -245,6 +256,18 @@ export default function Index() {
       origin: 'China' as const,
       deliveryEta: '3-5 days',
       hasVideo: false,
+    },
+    {
+      id: '12',
+      image: '/placeholder.svg',
+      title: 'OnePlus 11 5G 256GB Smartphone',
+      price: 549.99,
+      originalPrice: 699.99,
+      rating: 4.7,
+      reviewCount: 1203,
+      origin: 'China' as const,
+      deliveryEta: '5-8 days',
+      hasVideo: true,
     },
   ];
 
