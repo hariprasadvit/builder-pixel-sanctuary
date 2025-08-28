@@ -71,15 +71,24 @@ export default function Cart() {
 
     setCouponLoading(true);
     setCouponError("");
+    setCouponSuccess("");
 
     const success = await applyCoupon(couponCode.trim());
 
     if (success) {
+      const code = couponCode.trim();
       setCouponCode("");
+
       // Trigger fireworks for the special 1234 code
-      if (couponCode.trim() === "1234") {
+      if (code === "1234") {
+        setCouponSuccess("🎆 Firework discount applied! Enjoy £50 off!");
         triggerFireworks();
+      } else {
+        setCouponSuccess("✅ Coupon applied successfully!");
       }
+
+      // Clear success message after 5 seconds
+      setTimeout(() => setCouponSuccess(""), 5000);
     } else {
       setCouponError("Invalid coupon code or coupon already applied");
     }
