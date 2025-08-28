@@ -85,6 +85,21 @@ export default function Cart() {
     setCouponLoading(false);
   };
 
+  const handlePaymentSuccess = () => {
+    setShowStripeCheckout(false);
+    triggerFireworks();
+    // Clear cart after successful payment
+    setTimeout(() => {
+      clearCart();
+      navigate("/orders", {
+        state: {
+          orderPlaced: true,
+          orderTotal: overallTotals.total
+        }
+      });
+    }, 2000);
+  };
+
   const CartItemCard = ({ item }: { item: CartItem }) => (
     <Card className="mb-4 bg-gradient-to-br from-white via-blue-50/20 to-purple-50/20">
       <CardContent className="p-4">
