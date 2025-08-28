@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import { useMarketplace } from "@/contexts/MarketplaceContext";
 export default function Electronics() {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const { currentMarketplace, getCurrencySymbol } = useMarketplace();
+  const navigate = useNavigate();
 
   const subcategories = [
     {
@@ -154,8 +156,7 @@ export default function Electronics() {
                   className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white h-full"
                   onClick={() => {
                     if (subcategory.name === 'Computers') {
-                      // Will handle navigation to laptops here
-                      setSelectedSubcategory(subcategory.name);
+                      navigate('/laptops');
                     } else {
                       setSelectedSubcategory(subcategory.name);
                     }
