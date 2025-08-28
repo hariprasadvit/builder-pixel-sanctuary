@@ -52,6 +52,8 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
       return;
     }
 
+    console.log('Starting fireworks animation');
+
     // Create multiple firework bursts
     const bursts = [
       { x: window.innerWidth * 0.3, y: window.innerHeight * 0.3, delay: 0 },
@@ -61,10 +63,13 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
       { x: window.innerWidth * 0.8, y: window.innerHeight * 0.3, delay: 1200 },
     ];
 
+    const burstTimeouts: NodeJS.Timeout[] = [];
+
     bursts.forEach((burst, index) => {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         setParticles(prev => [...prev, ...createParticles(burst.x, burst.y)]);
       }, burst.delay);
+      burstTimeouts.push(timeout);
     });
 
     // Animation loop
@@ -79,7 +84,7 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
             life: particle.life - 1
           }))
           .filter(particle => particle.life > 0);
-        
+
         return updated;
       });
     };
@@ -87,16 +92,19 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
     const interval = setInterval(animationFrame, 16); // ~60fps
 
     // Clean up after 3 seconds
-    const timeout = setTimeout(() => {
+    const cleanupTimeout = setTimeout(() => {
+      console.log('Cleaning up fireworks animation');
       setParticles([]);
       onComplete?.();
     }, 3000);
 
     return () => {
+      console.log('Fireworks effect cleanup');
       clearInterval(interval);
-      clearTimeout(timeout);
+      clearTimeout(cleanupTimeout);
+      burstTimeouts.forEach(clearTimeout);
     };
-  }, [isActive, onComplete]);
+  }, [isActive]); // Remove onComplete from dependencies to prevent re-triggers
 
   if (!isActive && particles.length === 0) return null;
 
