@@ -400,19 +400,53 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Marketing Images */}
-        <div className="mb-8">
-          <h2 className="text-xl font-bold mb-6">Why iPhone 16?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            {marketingImages.map((image, index) => (
-              <div key={index} className="overflow-hidden">
-                <img
-                  src={image}
-                  alt={`iPhone 16 Marketing ${index + 1}`}
-                  className="w-full h-auto object-cover block"
-                />
-              </div>
-            ))}
+        {/* Marketing Images - Amazon Style Desktop Layout */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-8 text-center">Why iPhone 16?</h2>
+
+          {/* Desktop: Single row horizontal layout */}
+          <div className="hidden lg:block">
+            <div className="grid grid-cols-4 gap-1">
+              {marketingImages.map((image, index) => (
+                <div key={index} className="overflow-hidden rounded-lg">
+                  <img
+                    src={image}
+                    alt={`iPhone 16 Marketing ${index + 1}`}
+                    className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tablet: 2x2 grid */}
+          <div className="hidden md:block lg:hidden">
+            <div className="grid grid-cols-2 gap-2">
+              {marketingImages.map((image, index) => (
+                <div key={index} className="overflow-hidden rounded-lg">
+                  <img
+                    src={image}
+                    alt={`iPhone 16 Marketing ${index + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: Single column */}
+          <div className="block md:hidden">
+            <div className="space-y-4">
+              {marketingImages.map((image, index) => (
+                <div key={index} className="overflow-hidden rounded-lg">
+                  <img
+                    src={image}
+                    alt={`iPhone 16 Marketing ${index + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
