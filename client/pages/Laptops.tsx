@@ -371,14 +371,7 @@ export default function Laptops() {
 
             {/* Browse by Curated Selection */}
             <section className="mb-8">
-              <div className="w-full mb-6">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf27e57904c3414788f14f228398df05?format=webp&width=800"
-                  alt="Browse by Curated Selection for every use"
-                  className="w-full h-auto rounded-lg shadow-sm"
-                />
-              </div>
-
+              <h2 className="text-2xl font-bold mb-6">Browse by Curated Selection for Every Use</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {[
                   {
