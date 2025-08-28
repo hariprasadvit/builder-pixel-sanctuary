@@ -7,9 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 
 export default function Categories() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState("popular");
   const { currentMarketplace, getCurrencySymbol } = useMarketplace();
 
   const categories = [
