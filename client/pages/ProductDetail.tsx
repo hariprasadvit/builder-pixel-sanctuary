@@ -228,55 +228,55 @@ export default function ProductDetail() {
       price: 25.99,
       rating: 4.6,
       reviewCount: 3014,
-      image: "https://m.media-amazon.com/images/I/61DlUjkdgYL._AC_SX569_.jpg",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb14c18fed8f2414098886fb619e2aa61?format=webp&width=800",
       savings: "12% off"
     },
     {
       id: "fbt2",
-      title: "Spigen Ultra Hybrid MagFit Back Cover for Apple iPhone 15 Plus",
+      title: "Spigen Ultra Hybrid MagFit Back Cover for Apple iPhone 16",
       price: 25.99,
       rating: 3.8,
       reviewCount: 67,
-      image: "https://m.media-amazon.com/images/I/61RNHLL1wKL._AC_SX569_.jpg"
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa9652edad11144bdb94228eb2683f050?format=webp&width=800"
     }
   ];
 
   const recommendedProducts = [
     {
       id: "rec1",
-      title: "iPhone 15 Pro Max 256GB Natural Titanium",
-      price: 1299.99,
-      originalPrice: 1399.99,
-      rating: 4.7,
-      reviewCount: 1542,
-      image: "https://m.media-amazon.com/images/I/81SigpJN1KL._AC_SX569_.jpg",
+      title: "Samsung Galaxy S24 Ultra 256GB - No.1 Selling Android",
+      price: 1199.99,
+      originalPrice: 1299.99,
+      rating: 4.5,
+      reviewCount: 892,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faa983f0020c6415b9f5ce51ad181afc2?format=webp&width=800",
       badge: "Best Seller"
     },
     {
       id: "rec2",
-      title: "Samsung Galaxy S24 Ultra 256GB",
-      price: 1199.99,
-      rating: 4.5,
-      reviewCount: 892,
-      image: "https://m.media-amazon.com/images/I/71A8sA7RIDL._AC_SX569_.jpg"
-    },
-    {
-      id: "rec3",
-      title: "AirPods Pro (2nd generation) with MagSafe Case",
-      price: 229.99,
-      originalPrice: 249.99,
-      rating: 4.8,
-      reviewCount: 2156,
-      image: "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SX569_.jpg"
-    },
-    {
-      id: "rec4",
-      title: "Apple Watch Series 9 GPS 45mm",
+      title: "Apple Watch Series 9 GPS 45mm Aluminum Case",
       price: 399.99,
       rating: 4.6,
       reviewCount: 567,
-      image: "https://m.media-amazon.com/images/I/71c9I5cEuRL._AC_SX569_.jpg",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0c0d110594234678a2d95d775bccee17?format=webp&width=800",
       badge: "New"
+    },
+    {
+      id: "rec3",
+      title: "Apple 20W USB-C Power Adapter - Fast Charging",
+      price: 29.99,
+      originalPrice: 35.99,
+      rating: 4.8,
+      reviewCount: 2156,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb14c18fed8f2414098886fb619e2aa61?format=webp&width=800"
+    },
+    {
+      id: "rec4",
+      title: "Spigen MagSafe Compatible iPhone 16 Case",
+      price: 34.99,
+      rating: 4.7,
+      reviewCount: 1847,
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa9652edad11144bdb94228eb2683f050?format=webp&width=800"
     }
   ];
 
@@ -302,9 +302,9 @@ export default function ProductDetail() {
           <span className="text-gray-900">{product.title}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-6">
           {/* Product Images */}
-          <div className="space-y-4 lg:space-y-6">
+          <div className="space-y-4">
             <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
               <img
                 src={product.images[selectedImage]}
@@ -316,7 +316,7 @@ export default function ProductDetail() {
               {product.images.map((image, index) => (
                 <div
                   key={index}
-                  className={`flex-shrink-0 w-20 h-20 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
+                  className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
                     selectedImage === index ? "border-brand-blue" : "border-gray-200"
                   }`}
                   onClick={() => setSelectedImage(index)}
@@ -332,7 +332,7 @@ export default function ProductDetail() {
           </div>
 
           {/* Product Info */}
-          <div className="space-y-4 lg:space-y-6">
+          <div className="space-y-4">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <Badge className="bg-blue-600 text-white">{product.origin}</Badge>
