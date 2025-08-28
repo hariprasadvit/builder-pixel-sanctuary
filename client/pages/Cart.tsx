@@ -318,7 +318,7 @@ export default function Cart() {
   return (
     <>
       <FireworksComponent />
-      <StripeCheckout
+      <EnhancedStripeCheckout
         amount={overallTotals.total}
         currency={currency}
         isOpen={showStripeCheckout}
