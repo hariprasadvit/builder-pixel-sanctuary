@@ -407,13 +407,15 @@ export default function Layout({ children }: LayoutProps) {
               </Select>
 
               {/* Wishlist - Hidden on very small screens */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="relative hidden xs:flex"
-              >
-                <Heart className="w-5 h-5" />
-              </Button>
+              <Link to="/wishlist">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="relative hidden xs:flex"
+                >
+                  <Heart className="w-5 h-5" />
+                </Button>
+              </Link>
 
               {/* Cart */}
               <Link to="/cart">
