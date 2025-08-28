@@ -246,10 +246,12 @@ export default function Cart() {
   const vendors = Array.from(new Set(items.map(item => item.vendor)));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
+    <>
+      <FireworksComponent />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
           <p className="text-gray-600">{totalItems} {totalItems === 1 ? "item" : "items"} in your cart</p>
         </div>
 
@@ -433,5 +435,6 @@ export default function Cart() {
         </div>
       </div>
     </div>
+    </>
   );
 }
