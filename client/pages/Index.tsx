@@ -420,12 +420,12 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">Home Appliances</div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-red-600">50% OFF</span>
+                <div className="p-2 md:p-3">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Home Appliances</div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-red-600">50% OFF</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">Flash Sale on appliances</p>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">Flash Sale on appliances</p>
                 </div>
               </div>
             </div>
@@ -445,12 +445,12 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">Prime Day Deals</div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-orange-600">Up to 70% OFF</span>
+                <div className="p-2 md:p-3">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Prime Day Deals</div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-orange-600">Up to 70% OFF</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">Limited time only</p>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">Limited time only</p>
                 </div>
               </div>
             </div>
@@ -470,12 +470,12 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">Biggest Deals</div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-purple-600">Save Extra 25%</span>
+                <div className="p-2 md:p-3">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Biggest Deals</div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-purple-600">Save Extra 25%</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">On 1 Lakh+ styles</p>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">On 1 Lakh+ styles</p>
                 </div>
               </div>
             </div>
@@ -495,12 +495,12 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">Women's Fashion</div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-green-600">Up to 50% OFF</span>
+                <div className="p-2 md:p-3">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Women's Fashion</div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-green-600">Up to 50% OFF</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">Special fashion collection</p>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">Special fashion collection</p>
                 </div>
               </div>
             </div>
@@ -580,22 +580,24 @@ export default function Index() {
       {/* Best Sellers This Week */}
       <section className="py-8 md:py-10 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
             <div className="flex items-center gap-3">
               <div className="w-1 h-8 bg-gradient-to-b from-yellow-500 to-orange-500 rounded-full"></div>
-              <div>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
+              <div className="min-w-0 flex-1">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                   🏆 Best Sellers This Week
                 </h2>
                 <p className="text-sm text-gray-600">Most popular items in your area</p>
               </div>
             </div>
-            <Button variant="ghost" className="text-orange-600 hover:text-orange-700">
-              View All <ChevronRight className="w-4 h-4 ml-1" />
+            <Button variant="ghost" className="text-orange-600 hover:text-orange-700 shrink-0 self-start sm:self-center">
+              <span className="hidden sm:inline">View All</span>
+              <span className="sm:hidden">View</span>
+              <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
             {[
               { id: 1, title: "Smart Fitness Watch", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4444064dbe514c3ea39494880ee0eedd?format=webp&width=800", price: 199.99 },
               { id: 2, title: "Pet Training Collar", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9186d63f23f54c87b840ba9bf2b76731?format=webp&width=800", price: 149.99 },
@@ -619,17 +621,17 @@ export default function Index() {
                     />
                   </div>
                 </div>
-                <div className="p-3">
-                  <div className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
+                <div className="p-2 md:p-3">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
                     {item.title}
                   </div>
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
+                      <Star key={i} className="w-2 h-2 sm:w-3 sm:h-3 text-yellow-400 fill-current" />
                     ))}
                     <span className="text-xs text-gray-500">(4.8)</span>
                   </div>
-                  <div className="text-lg font-bold text-gray-900">£{item.price}</div>
+                  <div className="text-sm sm:text-lg font-bold text-gray-900">£{item.price}</div>
                 </div>
               </div>
             ))}
@@ -640,16 +642,18 @@ export default function Index() {
       {/* Top from UK */}
       <section className="py-6 md:py-8 bg-gradient-to-br from-blue-50 via-white to-slate-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 md:mb-6 gap-3">
+            <div className="flex items-center gap-2 flex-wrap">
               <h2 className="text-lg md:text-xl font-bold">Top from UK</h2>
-              <Badge className="bg-blue-600 text-xs">Fast Delivery</Badge>
+              <Badge className="bg-blue-600 text-xs whitespace-nowrap">Fast Delivery</Badge>
             </div>
             <Button
               variant="ghost"
-              className="text-brand-blue text-sm md:text-base"
+              className="text-brand-blue text-sm md:text-base shrink-0 self-start sm:self-center"
             >
-              View All <ChevronRight className="w-4 h-4 ml-1" />
+              <span className="hidden sm:inline">View All</span>
+              <span className="sm:hidden">View</span>
+              <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
