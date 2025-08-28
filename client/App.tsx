@@ -11,6 +11,7 @@ import { MarketplaceProvider } from "@/contexts/MarketplaceContext";
 import { LocationProvider } from "@/contexts/LocationContext";
 import Index from "./pages/Index";
 import Categories from "./pages/Categories";
+import Electronics from "./pages/Electronics";
 import Videos from "./pages/Videos";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
@@ -31,6 +32,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/categories" element={<Categories />} />
+              <Route path="/electronics" element={<Electronics />} />
               <Route path="/videos" element={<Videos />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/orders" element={<Orders />} />
