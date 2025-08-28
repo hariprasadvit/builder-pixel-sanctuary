@@ -1,0 +1,112 @@
+/* Firework Animation Styles */
+.pyro > .before, .pyro > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
+  animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+}
+    
+.pyro > .after {
+  animation-delay: 1.25s, 1.25s, 1.25s;
+  animation-duration: 1.25s, 1.25s, 6.25s;
+}
+
+.pyro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+        
+@keyframes bang {
+  to {
+    box-shadow: 
+      -156px 120px hsl(200, 100%, 50%),
+      -189px 144px hsl(340, 100%, 50%),
+      -234px 89px hsl(120, 100%, 50%),
+      -198px 234px hsl(30, 100%, 50%),
+      -345px 123px hsl(260, 100%, 50%),
+      -123px 345px hsl(80, 100%, 50%),
+      -234px 176px hsl(300, 100%, 50%),
+      -567px 234px hsl(160, 100%, 50%),
+      -123px 456px hsl(220, 100%, 50%),
+      -345px 567px hsl(40, 100%, 50%),
+      234px 120px hsl(200, 100%, 50%),
+      189px 144px hsl(340, 100%, 50%),
+      134px 89px hsl(120, 100%, 50%),
+      198px 234px hsl(30, 100%, 50%),
+      345px 123px hsl(260, 100%, 50%),
+      223px 345px hsl(80, 100%, 50%),
+      234px 176px hsl(300, 100%, 50%),
+      167px 234px hsl(160, 100%, 50%),
+      323px 456px hsl(220, 100%, 50%),
+      145px 567px hsl(40, 100%, 50%),
+      -89px 267px hsl(90, 100%, 50%),
+      178px -123px hsl(270, 100%, 50%),
+      -234px 345px hsl(180, 100%, 50%),
+      267px 189px hsl(350, 100%, 50%),
+      -345px 234px hsl(60, 100%, 50%),
+      234px -167px hsl(240, 100%, 50%),
+      345px 289px hsl(100, 100%, 50%),
+      -178px 456px hsl(320, 100%, 50%),
+      189px 234px hsl(140, 100%, 50%),
+      123px -345px hsl(200, 100%, 50%);
+  }
+}
+    
+@keyframes gravity {
+  to {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+    
+@keyframes position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+  40%, 59.9% {  
+    margin-top: 20%;
+    margin-left: 70%
+  }
+  60%, 79.9% {  
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  80%, 99.9% {  
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
+
+/* Firework success overlay */
+.firework-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.firework-overlay.active {
+  animation: firework-show 3s ease-in-out;
+}
+
+@keyframes firework-show {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
