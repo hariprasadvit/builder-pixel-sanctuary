@@ -558,6 +558,93 @@ export default function ProductDetail() {
               </div>
             </div>
           </div>
+
+          {/* Product Highlights & Summary - Third Column */}
+          <div className="space-y-4">
+            {/* Quick Summary */}
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-100">
+              <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                Product Highlights
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                  A18 Bionic chip for lightning-fast performance
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                  Camera Control for professional photography
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                  All-day battery life up to 22 hours
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                  Titanium design - aerospace grade material
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                  Advanced dual-camera system
+                </li>
+              </ul>
+            </div>
+
+            {/* Quick Specs */}
+            <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">Quick Specs</h3>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <span className="text-gray-600">Display</span>
+                  <div className="font-medium">6.1″ Super Retina XDR</div>
+                </div>
+                <div>
+                  <span className="text-gray-600">Storage</span>
+                  <div className="font-medium">{selectedStorage}</div>
+                </div>
+                <div>
+                  <span className="text-gray-600">Color</span>
+                  <div className="font-medium">{selectedColor}</div>
+                </div>
+                <div>
+                  <span className="text-gray-600">Camera</span>
+                  <div className="font-medium">48MP Main</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Value Proposition */}
+            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
+              <div className="flex items-center gap-2 mb-2">
+                <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
+                <span className="text-sm font-medium text-gray-900">Save £100.00</span>
+              </div>
+              <p className="text-sm text-gray-700">
+                Get the latest iPhone 16 with free delivery and 1-year warranty.
+                Limited time offer - save £100 on all storage variants.
+              </p>
+            </div>
+
+            {/* Why Choose This */}
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">Why Choose iPhone 16?</h4>
+              <div className="space-y-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-blue-600" />
+                  <span>Industry-leading security & privacy</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-yellow-500" />
+                  <span>4.8/5 rating from 2,847 customers</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Truck className="w-4 h-4 text-green-600" />
+                  <span>Free next-day delivery available</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Marketing Images - Single Column Scroll Layout */}
