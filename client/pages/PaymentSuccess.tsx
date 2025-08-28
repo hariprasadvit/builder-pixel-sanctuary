@@ -39,9 +39,11 @@ export default function PaymentSuccess() {
   } = location.state || {};
 
   useEffect(() => {
-    // Trigger fireworks immediately
-    triggerFireworks();
-    
+    // Trigger fireworks once after a small delay to ensure page is ready
+    const fireworkTimeout = setTimeout(() => {
+      triggerFireworks();
+    }, 200);
+
     // Staggered animation entrance
     const timeouts = [
       setTimeout(() => setShowContent(true), 500),
@@ -51,8 +53,11 @@ export default function PaymentSuccess() {
       setTimeout(() => setAnimationStep(4), 2500),
     ];
 
-    return () => timeouts.forEach(clearTimeout);
-  }, [triggerFireworks]);
+    return () => {
+      clearTimeout(fireworkTimeout);
+      timeouts.forEach(clearTimeout);
+    };
+  }, []); // Remove triggerFireworks dependency to prevent re-triggers
 
   const features = [
     {
