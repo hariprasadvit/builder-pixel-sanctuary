@@ -691,7 +691,7 @@ export default function Index() {
                 key={product.id}
                 {...product}
                 onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                onAddToCart={(id) => console.log("Add to cart:", id)}
+                onAddToCart={handleAddToCart}
               />
             ))}
           </div>
@@ -791,7 +791,7 @@ export default function Index() {
                 key={product.id}
                 {...product}
                 onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                onAddToCart={(id) => console.log("Add to cart:", id)}
+                onAddToCart={handleAddToCart}
               />
             ))}
           </div>
@@ -1071,7 +1071,7 @@ export default function Index() {
                   key={product.id}
                   {...product}
                   onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                  onAddToCart={(id) => console.log("Add to cart:", id)}
+                  onAddToCart={handleAddToCart}
                 />
               ))}
             </div>
@@ -1106,7 +1106,7 @@ export default function Index() {
                   key={product.id}
                   {...product}
                   onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
-                  onAddToCart={(id) => console.log("Add to cart:", id)}
+                  onAddToCart={handleAddToCart}
                 />
               ))}
             </div>
