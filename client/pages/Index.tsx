@@ -15,7 +15,7 @@ export default function Index() {
     { id: '3', name: 'Home & Garden', icon: '🏡', color: 'bg-green-50' },
     { id: '4', name: 'Beauty', icon: '💄', color: 'bg-purple-50' },
     { id: '5', name: 'Sports', icon: '⚽', color: 'bg-orange-50' },
-    { id: '6', name: 'Books', icon: '��', color: 'bg-yellow-50' },
+    { id: '6', name: 'Books', icon: '📚', color: 'bg-yellow-50' },
     { id: '7', name: 'Toys', icon: '🧸', color: 'bg-red-50' },
     { id: '8', name: 'Automotive', icon: '🚗', color: 'bg-gray-50' },
   ];
@@ -186,7 +186,7 @@ export default function Index() {
               <Button size="lg" className="bg-white text-brand-blue hover:bg-white/90">
                 Shop UK Products
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue backdrop-blur-sm">
+              <Button size="lg" variant="outline" className="border-white/80 text-white bg-white/10 hover:bg-white hover:text-brand-blue backdrop-blur-sm">
                 Explore China Collection
               </Button>
             </div>
