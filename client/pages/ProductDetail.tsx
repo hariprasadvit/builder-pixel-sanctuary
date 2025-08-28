@@ -210,11 +210,11 @@ export default function ProductDetail() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Product Images */}
           <div className="space-y-4">
-            <div className="aspect-square bg-white rounded-lg overflow-hidden">
+            <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
               <img
                 src={product.images[selectedImage]}
                 alt={product.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain p-4"
               />
             </div>
             <div className="flex gap-2 overflow-x-auto">
@@ -343,20 +343,20 @@ export default function ProductDetail() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="space-y-3">
                 <Button
                   size="lg"
-                  className="flex-1 bg-brand-blue hover:bg-brand-blue/90"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200"
                   onClick={handleBuyNow}
                   disabled={!product.inStock}
                 >
                   <CreditCard className="w-5 h-5 mr-2" />
-                  Buy Now
+                  Buy Now - {getCurrencySymbol()}{(product.price * quantity).toFixed(2)}
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="flex-1"
+                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg transition-all duration-200"
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
                 >
@@ -402,14 +402,14 @@ export default function ProductDetail() {
 
         {/* Marketing Images */}
         <div className="mb-8">
-          <h2 className="text-xl font-bold mb-4">Why iPhone 16?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <h2 className="text-xl font-bold mb-6">Why iPhone 16?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {marketingImages.map((image, index) => (
-              <div key={index} className="rounded-lg overflow-hidden">
+              <div key={index} className="overflow-hidden">
                 <img
                   src={image}
                   alt={`iPhone 16 Marketing ${index + 1}`}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover block"
                 />
               </div>
             ))}
@@ -419,7 +419,7 @@ export default function ProductDetail() {
         {/* iPhone Comparison */}
         <Card className="mb-8">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold">Compare iPhone Models</h2>
               <Button
                 variant="outline"
@@ -431,76 +431,107 @@ export default function ProductDetail() {
               </Button>
             </div>
             {showComparison && (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left p-3 font-semibold">Model</th>
-                      <th className="text-left p-3 font-semibold">Price</th>
-                      <th className="text-left p-3 font-semibold">Display</th>
-                      <th className="text-left p-3 font-semibold">Chip</th>
-                      <th className="text-left p-3 font-semibold">Camera</th>
-                      <th className="text-left p-3 font-semibold">Battery</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+              <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                <div className="min-w-[800px]">
+                  <div className="grid grid-cols-4 gap-4">
                     {iPhoneComparison.map((phone, index) => (
-                      <tr key={index} className={`border-b ${phone.model === 'iPhone 16' ? 'bg-blue-50' : ''}`}>
-                        <td className="p-3">
-                          <div className="font-medium">{phone.model}</div>
-                          <div className="text-xs text-gray-600">
-                            {phone.features.slice(0, 2).join(", ")}
+                      <div
+                        key={index}
+                        className={`border rounded-lg p-4 ${
+                          phone.model === 'iPhone 16'
+                            ? 'border-blue-500 bg-blue-50 shadow-md'
+                            : 'border-gray-200 bg-white'
+                        }`}
+                      >
+                        <div className="space-y-3">
+                          <div className="text-center">
+                            <h3 className="font-bold text-lg">{phone.model}</h3>
+                            <p className="text-xl font-bold text-green-600">{phone.price}</p>
                           </div>
-                        </td>
-                        <td className="p-3 font-semibold text-green-600">{phone.price}</td>
-                        <td className="p-3 text-sm">{phone.display}</td>
-                        <td className="p-3 text-sm">{phone.chip}</td>
-                        <td className="p-3 text-sm">{phone.camera}</td>
-                        <td className="p-3 text-sm">{phone.battery}</td>
-                      </tr>
+                          <div className="space-y-2 text-sm">
+                            <div>
+                              <span className="font-medium text-gray-600">Display:</span>
+                              <p className="text-gray-800">{phone.display}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-600">Chip:</span>
+                              <p className="text-gray-800">{phone.chip}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-600">Camera:</span>
+                              <p className="text-gray-800">{phone.camera}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-600">Battery:</span>
+                              <p className="text-gray-800">{phone.battery}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-600">Features:</span>
+                              <div className="flex flex-wrap gap-1 mt-1">
+                                {phone.features.map((feature, i) => (
+                                  <Badge key={i} variant="secondary" className="text-xs">
+                                    {feature}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     ))}
-                  </tbody>
-                </table>
+                  </div>
+                </div>
               </div>
             )}
           </CardContent>
         </Card>
 
         {/* Product Details Tabs */}
-        <Card>
+        <Card className="relative z-10">
           <CardContent className="p-6">
-            <Tabs defaultValue="description">
+            <Tabs defaultValue="description" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="description">Description</TabsTrigger>
                 <TabsTrigger value="specifications">Specifications</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews & AI Summary</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="description" className="mt-6">
-                <div className="space-y-4">
-                  <p className="text-gray-700">{product.description}</p>
+              <TabsContent value="description" className="mt-6 relative z-0">
+                <div className="space-y-6">
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <p className="text-gray-700 text-lg leading-relaxed">{product.description}</p>
+                  </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Key Features:</h4>
-                    <ul className="space-y-1">
+                    <h4 className="font-bold text-lg mb-4">Key Features:</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {product.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-brand-blue rounded-full"></div>
-                          <span className="text-gray-700">{feature}</span>
-                        </li>
+                        <div key={index} className="flex items-center gap-3 p-3 bg-white border rounded-lg">
+                          <div className="w-2 h-2 bg-brand-blue rounded-full flex-shrink-0"></div>
+                          <span className="text-gray-700 font-medium">{feature}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               </TabsContent>
               
-              <TabsContent value="specifications" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {Object.entries(product.specifications).map(([key, value]) => (
-                    <div key={key} className="flex justify-between py-2 border-b">
-                      <span className="font-medium">{key}:</span>
-                      <span className="text-gray-700">{value}</span>
-                    </div>
-                  ))}
+              <TabsContent value="specifications" className="mt-6 relative z-0">
+                <div className="bg-white rounded-lg">
+                  <div className="grid grid-cols-1 gap-0">
+                    {Object.entries(product.specifications).map(([key, value], index) => (
+                      <div
+                        key={key}
+                        className={`flex justify-between items-center py-4 px-6 ${
+                          index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+                        } ${index === 0 ? 'rounded-t-lg' : ''} ${
+                          index === Object.entries(product.specifications).length - 1 ? 'rounded-b-lg' : ''
+                        }`}
+                      >
+                        <span className="font-semibold text-gray-900">{key}</span>
+                        <span className="text-gray-700 font-medium">{value}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </TabsContent>
               
