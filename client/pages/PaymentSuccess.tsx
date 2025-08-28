@@ -41,6 +41,7 @@ export default function PaymentSuccess() {
   useEffect(() => {
     // Trigger fireworks once after a small delay to ensure page is ready
     const fireworkTimeout = setTimeout(() => {
+      console.log('Triggering fireworks from PaymentSuccess page');
       triggerFireworks();
     }, 200);
 
