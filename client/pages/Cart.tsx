@@ -82,6 +82,7 @@ export default function Cart() {
       // Trigger fireworks for the special 1234 code
       if (code === "1234") {
         setCouponSuccess("🎆 Firework discount applied! Enjoy £50 off!");
+        console.log('Triggering fireworks for coupon 1234');
         triggerFireworks();
       } else {
         setCouponSuccess("✅ Coupon applied successfully!");
