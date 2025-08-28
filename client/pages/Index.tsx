@@ -248,8 +248,8 @@ export default function Index() {
   const chinaProducts = [
     {
       id: "8",
-      image: "/placeholder.svg",
-      title: "Xiaomi Mi 13 Ultra 512GB Smartphone",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1da87ba82b9f4805abefe907cda741de?format=webp&width=800",
+      title: "Xiaomi 14 Ultra Premium Collection",
       price: 649.99,
       originalPrice: 799.99,
       rating: 4.6,
@@ -260,8 +260,8 @@ export default function Index() {
     },
     {
       id: "9",
-      image: "/placeholder.svg",
-      title: "DJI Mini 3 Pro Drone with Controller",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5f0d3e3daf6a4ee488235a304a431df4?format=webp&width=800",
+      title: "DJI Mini 4 Pro Drone with Controller",
       price: 429.99,
       rating: 4.8,
       reviewCount: 987,
@@ -271,8 +271,8 @@ export default function Index() {
     },
     {
       id: "10",
-      image: "/placeholder.svg",
-      title: "Anker PowerCore 26800 Portable Charger",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3433b18277c24cc6a3a43bf43493561a?format=webp&width=800",
+      title: "Anker PowerCore+ Fast Charging Hub",
       price: 45.99,
       rating: 4.5,
       reviewCount: 2234,
@@ -282,8 +282,8 @@ export default function Index() {
     },
     {
       id: "12",
-      image: "/placeholder.svg",
-      title: "OnePlus 11 5G 256GB Smartphone",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f7694c23254419d8717465c559dae2f?format=webp&width=800",
+      title: "OnePlus 12 Pro 5G Collection",
       price: 549.99,
       originalPrice: 699.99,
       rating: 4.7,
