@@ -1,21 +1,27 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { 
-  Star, 
-  Heart, 
-  Share2, 
-  ShoppingCart, 
-  Plus, 
-  Minus, 
-  Truck, 
-  Shield, 
-  RotateCcw, 
-  CreditCard 
+import {
+  Star,
+  Heart,
+  Share2,
+  ShoppingCart,
+  Plus,
+  Minus,
+  Truck,
+  Shield,
+  RotateCcw,
+  CreditCard,
+  Send,
+  Bot,
+  User,
+  ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { Avatar, AvatarContent, AvatarFallback } from "@/components/ui/avatar";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 
 export default function ProductDetail() {
@@ -25,6 +31,9 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [newReview, setNewReview] = useState("");
+  const [newRating, setNewRating] = useState(5);
+  const [showComparison, setShowComparison] = useState(false);
 
   // Mock product data - in real app this would be fetched based on the ID
   const product = {
@@ -39,9 +48,9 @@ export default function ProductDetail() {
     inStock: true,
     stockCount: 12,
     images: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5580a7f4d84c4fd5b5757cc8dfeae1b4?format=webp&width=800",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5580a7f4d84c4fd5b5757cc8dfeae1b4?format=webp&width=800",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5580a7f4d84c4fd5b5757cc8dfeae1b4?format=webp&width=800",
+      "https://m.media-amazon.com/images/I/61135j8fPJL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51UIlT-iiML._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71kahbX9OlL._SX679_.jpg",
     ],
     brand: "Apple",
     model: "iPhone 16",
@@ -88,6 +97,93 @@ export default function ProductDetail() {
     console.log(`Buy now: ${quantity} x ${product.title}`);
     // In real app, this would navigate to checkout
   };
+
+  const handleSubmitReview = () => {
+    if (newReview.trim()) {
+      console.log(`New review: ${newReview}, Rating: ${newRating}`);
+      setNewReview("");
+      setNewRating(5);
+    }
+  };
+
+  const marketingImages = [
+    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_01._CB547243914_.jpg",
+    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_02._CB547243914_.jpg",
+    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_03._CB547243914_.jpg",
+    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_04._CB547243914_.jpg",
+  ];
+
+  const iPhoneComparison = [
+    {
+      model: "iPhone 16",
+      price: "£999.99",
+      display: "6.1\" Super Retina XDR",
+      chip: "A18 Bionic",
+      camera: "48MP Main + 12MP Ultra Wide",
+      battery: "Up to 22h video",
+      storage: "128GB, 256GB, 512GB",
+      features: ["Camera Control", "Action Button", "USB-C"]
+    },
+    {
+      model: "iPhone 16 Plus",
+      price: "£1,099.99",
+      display: "6.7\" Super Retina XDR",
+      chip: "A18 Bionic",
+      camera: "48MP Main + 12MP Ultra Wide",
+      battery: "Up to 27h video",
+      storage: "128GB, 256GB, 512GB",
+      features: ["Camera Control", "Action Button", "USB-C"]
+    },
+    {
+      model: "iPhone 16 Pro",
+      price: "£1,199.99",
+      display: "6.3\" Super Retina XDR ProMotion",
+      chip: "A18 Pro",
+      camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
+      battery: "Up to 27h video",
+      storage: "128GB, 256GB, 512GB, 1TB",
+      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"]
+    },
+    {
+      model: "iPhone 16 Pro Max",
+      price: "£1,399.99",
+      display: "6.9\" Super Retina XDR ProMotion",
+      chip: "A18 Pro",
+      camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
+      battery: "Up to 33h video",
+      storage: "256GB, 512GB, 1TB",
+      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"]
+    }
+  ];
+
+  const mockReviews = [
+    {
+      id: 1,
+      user: "John D.",
+      rating: 5,
+      date: "2 days ago",
+      comment: "Amazing phone! The camera quality is outstanding and the battery life is excellent. Camera Control is a game-changer for photography.",
+      helpful: 24
+    },
+    {
+      id: 2,
+      user: "Sarah M.",
+      rating: 4,
+      date: "1 week ago",
+      comment: "Great upgrade from my iPhone 14. The A18 chip is incredibly fast and the new features are useful. Only wish it had better zoom capabilities.",
+      helpful: 18
+    },
+    {
+      id: 3,
+      user: "Mike R.",
+      rating: 5,
+      date: "2 weeks ago",
+      comment: "Perfect phone for content creators. The video quality is cinema-grade and the new Action Button is so convenient for quick access to camera.",
+      helpful: 32
+    }
+  ];
+
+  const aiSummary = "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
 
   return (
     <div className="min-h-screen bg-gray-50">
