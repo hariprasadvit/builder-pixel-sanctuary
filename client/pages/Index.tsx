@@ -517,6 +517,57 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Best Sellers This Week */}
+      <section className="py-8 md:py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-yellow-500 to-orange-500 rounded-full"></div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  🏆 Best Sellers This Week
+                </h2>
+                <p className="text-sm text-gray-600">Most popular items in your area</p>
+              </div>
+            </div>
+            <Button variant="ghost" className="text-orange-600 hover:text-orange-700">
+              View All <ChevronRight className="w-4 h-4 ml-1" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div key={item} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
+                <div className="relative">
+                  <div className="absolute top-2 left-2 z-10">
+                    <div className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      #{item}
+                    </div>
+                  </div>
+                  <div className="aspect-square bg-gray-100">
+                    <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-300">
+                      [Product {item}]
+                    </div>
+                  </div>
+                </div>
+                <div className="p-3">
+                  <div className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
+                    Best Seller #{item}
+                  </div>
+                  <div className="flex items-center gap-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
+                    ))}
+                    <span className="text-xs text-gray-500">(4.8)</span>
+                  </div>
+                  <div className="text-lg font-bold text-gray-900">£{99 + item * 50}.99</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Top from UK */}
       <section className="py-6 md:py-8 bg-gradient-to-br from-blue-50 via-white to-slate-50">
         <div className="container mx-auto px-4">
