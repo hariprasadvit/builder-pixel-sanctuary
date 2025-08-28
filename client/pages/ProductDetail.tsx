@@ -505,8 +505,9 @@ export default function ProductDetail() {
               </TabsContent>
               
               <TabsContent value="reviews" className="mt-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
+                <div className="space-y-6">
+                  {/* Overall Rating */}
+                  <div className="flex items-center gap-4 pb-4 border-b">
                     <div className="text-3xl font-bold">{product.rating}</div>
                     <div>
                       <div className="flex items-center mb-1">
@@ -526,8 +527,97 @@ export default function ProductDetail() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-gray-600">
-                    Customer reviews and ratings would be displayed here in a real application.
+
+                  {/* AI Summary */}
+                  <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Bot className="w-5 h-5 text-purple-600" />
+                        <h3 className="font-semibold text-purple-900">AI Review Summary</h3>
+                        <Badge className="bg-purple-100 text-purple-700 text-xs">Powered by AI</Badge>
+                      </div>
+                      <p className="text-sm text-gray-700 leading-relaxed">{aiSummary}</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Write a Review */}
+                  <div className="border rounded-lg p-4">
+                    <h3 className="font-semibold mb-3">Write a Review</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium">Rating:</span>
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-5 h-5 cursor-pointer ${
+                                i < newRating
+                                  ? "text-yellow-400 fill-current"
+                                  : "text-gray-300"
+                              }`}
+                              onClick={() => setNewRating(i + 1)}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <Textarea
+                        placeholder="Share your experience with this product..."
+                        value={newReview}
+                        onChange={(e) => setNewReview(e.target.value)}
+                        className="min-h-[80px]"
+                      />
+                      <Button
+                        onClick={handleSubmitReview}
+                        disabled={!newReview.trim()}
+                        className="flex items-center gap-2"
+                      >
+                        <Send className="w-4 h-4" />
+                        Post Review
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Customer Reviews */}
+                  <div className="space-y-4">
+                    <h3 className="font-semibold">Customer Reviews</h3>
+                    {mockReviews.map((review) => (
+                      <div key={review.id} className="border rounded-lg p-4">
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex items-center gap-3">
+                            <Avatar className="w-8 h-8">
+                              <AvatarFallback className="bg-blue-100 text-blue-600">
+                                {review.user.charAt(0)}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <div className="font-medium text-sm">{review.user}</div>
+                              <div className="flex items-center gap-2">
+                                <div className="flex items-center">
+                                  {[...Array(5)].map((_, i) => (
+                                    <Star
+                                      key={i}
+                                      className={`w-3 h-3 ${
+                                        i < review.rating
+                                          ? "text-yellow-400 fill-current"
+                                          : "text-gray-300"
+                                      }`}
+                                    />
+                                  ))}
+                                </div>
+                                <span className="text-xs text-gray-500">{review.date}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-700 mb-2">{review.comment}</p>
+                        <div className="flex items-center gap-4 text-xs text-gray-500">
+                          <button className="hover:text-brand-blue">
+                            Helpful ({review.helpful})
+                          </button>
+                          <button className="hover:text-brand-blue">Reply</button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </TabsContent>
