@@ -208,6 +208,97 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
+            {/* Desktop Navigation Links */}
+            <div className="hidden md:flex items-center gap-6">
+              <Link
+                to="/categories"
+                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
+                  isActiveTab('/categories') ? 'text-brand-blue' : 'text-muted-foreground'
+                }`}
+              >
+                Categories
+              </Link>
+              <Link
+                to="/videos"
+                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
+                  isActiveTab('/videos') ? 'text-brand-blue' : 'text-muted-foreground'
+                }`}
+              >
+                Videos
+              </Link>
+              <Link
+                to="/orders"
+                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
+                  isActiveTab('/orders') ? 'text-brand-blue' : 'text-muted-foreground'
+                }`}
+              >
+                Orders
+              </Link>
+
+              {/* Desktop Menu Button */}
+              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                    <Menu className="w-4 h-4" />
+                    <span className="text-sm">Menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-80 p-0">
+                  <SheetHeader className="p-6 border-b">
+                    <SheetTitle className="text-left">Menu</SheetTitle>
+                    <SheetDescription className="text-left">
+                      Browse categories and options
+                    </SheetDescription>
+                  </SheetHeader>
+
+                  <div className="p-0">
+                    {/* Main Menu Items */}
+                    <div className="py-4">
+                      {menuItems.map((item) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
+                            onClick={() => {
+                              console.log(`Selected: ${item.label}`);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            <IconComponent className={`w-5 h-5 ${item.color}`} />
+                            <span className="font-medium text-gray-900">{item.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Separator */}
+                    <div className="border-t border-gray-200 my-2" />
+
+                    {/* Secondary Menu Items */}
+                    <div className="py-4">
+                      {secondaryMenuItems.map((item) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
+                            onClick={() => {
+                              console.log(`Selected: ${item.label}`);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            <IconComponent className={`w-5 h-5 ${item.color}`} />
+                            <span className="font-medium text-gray-900">{item.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+
             {/* Right section */}
             <div className="flex items-center gap-2 md:gap-4 ml-auto">
               {/* Marketplace Toggle - Always visible */}
