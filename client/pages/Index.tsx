@@ -8,16 +8,56 @@ import ProductCard from "@/components/ProductCard";
 export default function Index() {
   const [isMuted, setIsMuted] = useState(true);
 
-  // Mock data
+  // Mock data with realistic product images
   const categories = [
-    { id: '1', name: 'Electronics', icon: '📱', color: 'bg-blue-50' },
-    { id: '2', name: 'Fashion', icon: '👕', color: 'bg-pink-50' },
-    { id: '3', name: 'Home & Garden', icon: '🏡', color: 'bg-green-50' },
-    { id: '4', name: 'Beauty', icon: '💄', color: 'bg-purple-50' },
-    { id: '5', name: 'Sports', icon: '⚽', color: 'bg-orange-50' },
-    { id: '6', name: 'Books', icon: '📚', color: 'bg-yellow-50' },
-    { id: '7', name: 'Toys', icon: '🧸', color: 'bg-red-50' },
-    { id: '8', name: 'Automotive', icon: '🚗', color: 'bg-gray-50' },
+    {
+      id: '1',
+      name: 'Electronics',
+      image: 'https://images.unsplash.com/photo-1593640408182-31c5089b25c8?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Computers', 'Mobile Phones', 'Audio', 'Wearables']
+    },
+    {
+      id: '2',
+      name: 'TVs / Video',
+      image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Smart TVs', 'Streaming Devices', 'Projectors']
+    },
+    {
+      id: '3',
+      name: 'Video Games',
+      image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Consoles', 'Games', 'Accessories']
+    },
+    {
+      id: '4',
+      name: 'Cameras & Photo',
+      image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Digital Cameras', 'Lenses', 'Accessories']
+    },
+    {
+      id: '5',
+      name: 'Cell Phones',
+      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Smartphones', 'Cases', 'Chargers']
+    },
+    {
+      id: '6',
+      name: 'Sports & Outdoors',
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Fitness', 'Cycling', 'Camping']
+    },
+    {
+      id: '7',
+      name: 'Apparel',
+      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Mens Clothing', 'Womens Clothing', 'Shoes']
+    },
+    {
+      id: '8',
+      name: 'Car Electronics',
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center',
+      subcategories: ['Audio Systems', 'GPS', 'Dash Cams']
+    },
   ];
 
   const trendingProducts = [
@@ -203,14 +243,24 @@ export default function Index() {
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {categories.map((category) => (
-              <Card key={category.id} className="hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="p-4 text-center">
-                  <div className={`w-12 h-12 mx-auto mb-2 rounded-lg ${category.color} flex items-center justify-center text-2xl`}>
-                    {category.icon}
+              <Card key={category.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                      <h3 className="text-white font-semibold text-sm">{category.name}</h3>
+                      <p className="text-white/80 text-xs">
+                        {category.subcategories.slice(0, 2).join(' • ')}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs font-medium line-clamp-2">{category.name}</p>
                 </CardContent>
               </Card>
             ))}
