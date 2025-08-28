@@ -22,6 +22,7 @@ export default function Index() {
   const navigate = useNavigate();
   const { currentMarketplace, getDeliveryTime, getCurrencySymbol } =
     useMarketplace();
+  const { addToCart } = useCart();
 
   // Mock data with realistic product images
   const categories = [
