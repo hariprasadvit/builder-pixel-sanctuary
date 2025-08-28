@@ -512,6 +512,140 @@ export default function Layout({ children }: LayoutProps) {
       {/* Main Content */}
       <main className="pb-20 md:pb-0">{children}</main>
 
+      {/* Desktop Footer - Hidden on Mobile */}
+      <footer className="hidden md:block bg-slate-800 text-white">
+        {/* Back to Top */}
+        <div className="bg-slate-700 py-4 text-center hover:bg-slate-600 cursor-pointer transition-colors">
+          <span className="text-sm font-medium">Back to top</span>
+        </div>
+
+        {/* Main Footer Content */}
+        <div className="bg-slate-800 py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-4 gap-8">
+              {/* Get to Know Us */}
+              <div>
+                <h3 className="text-white font-bold text-sm mb-4">Get to Know Us</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">About Riky</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Careers</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Press Releases</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Science</a></li>
+                </ul>
+              </div>
+
+              {/* Connect with Us */}
+              <div>
+                <h3 className="text-white font-bold text-sm mb-4">Connect with Us</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Facebook</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Twitter</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Instagram</a></li>
+                </ul>
+              </div>
+
+              {/* Make Money with Us */}
+              <div>
+                <h3 className="text-white font-bold text-sm mb-4">Make Money with Us</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Sell on Riky</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Sell under Riky Accelerator</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Protect and Build Your Brand</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Global Selling</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Supply to Riky</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Become an Affiliate</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Fulfilment by Riky</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Advertise Your Products</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Pay on Merchants</a></li>
+                </ul>
+              </div>
+
+              {/* Let Us Help You */}
+              <div>
+                <h3 className="text-white font-bold text-sm mb-4">Let Us Help You</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Your Account</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Returns Centre</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Recalls and Product Safety Alerts</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">100% Purchase Protection</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky App Download</a></li>
+                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Help</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Logo and Language Selector */}
+        <div className="bg-slate-800 border-t border-slate-700 py-8">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-center gap-6">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa74e56e283d44231b5a2ba37cfcd2c4b?format=webp&width=800"
+                alt="RIKY Logo"
+                className="h-8 w-auto brightness-0 invert"
+              />
+              <div className="flex items-center gap-4">
+                <button className="border border-slate-600 rounded px-3 py-1 text-sm text-slate-300 hover:text-white hover:border-slate-500 transition-colors flex items-center gap-2">
+                  🌐 English
+                </button>
+                <button className="border border-slate-600 rounded px-3 py-1 text-sm text-slate-300 hover:text-white hover:border-slate-500 transition-colors flex items-center gap-2">
+                  🇮🇳 India
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Services */}
+        <div className="bg-slate-900 py-8">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-7 gap-6 text-center">
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">RikyBooks</h4>
+                <p className="text-slate-400 text-xs">Books, art & collectibles</p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">Riky Web Services</h4>
+                <p className="text-slate-400 text-xs">Scalable Cloud Computing Services</p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">Audible</h4>
+                <p className="text-slate-400 text-xs">Download Audio Books</p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">IMDb</h4>
+                <p className="text-slate-400 text-xs">Movies, TV & Celebrities</p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">Shopping</h4>
+                <p className="text-slate-400 text-xs">Fashion Brands</p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">Prime Now</h4>
+                <p className="text-slate-400 text-xs">2-Hour Delivery on Everyday Items</p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-xs mb-2">Riky Prime Music</h4>
+                <p className="text-slate-400 text-xs">100 million songs, ad-free</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright and Legal */}
+        <div className="bg-slate-900 border-t border-slate-800 py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-center items-center gap-6 text-xs text-slate-400">
+              <a href="#" className="hover:text-white transition-colors">Conditions of Use & Sale</a>
+              <a href="#" className="hover:text-white transition-colors">Privacy Notice</a>
+              <a href="#" className="hover:text-white transition-colors">Interest-Based Ads</a>
+              <span>© 2024, Riky.com, Inc. or its affiliates</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       {/* Mobile Bottom Tab Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
         <div className="grid grid-cols-5 h-16">
