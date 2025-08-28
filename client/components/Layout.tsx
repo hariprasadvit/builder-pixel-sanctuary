@@ -413,7 +413,7 @@ export default function Layout({ children }: LayoutProps) {
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
         <div className="grid grid-cols-5 h-16">
           <Link
-            href="/"
+            to="/"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/')
                 ? 'text-brand-blue'
@@ -425,7 +425,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
           
           <Link
-            href="/categories"
+            to="/categories"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/categories')
                 ? 'text-brand-blue'
@@ -437,7 +437,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
 
           <Link
-            href="/videos"
+            to="/videos"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/videos')
                 ? 'text-brand-blue'
@@ -449,7 +449,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
 
           <Link
-            href="/orders"
+            to="/orders"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/orders')
                 ? 'text-brand-blue'
@@ -461,7 +461,7 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
           
           <Link
-            href="/profile"
+            to="/profile"
             className={`flex flex-col items-center justify-center gap-1 ${
               isActiveTab('/profile') 
                 ? 'text-brand-blue' 
