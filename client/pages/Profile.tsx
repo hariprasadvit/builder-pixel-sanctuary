@@ -111,7 +111,7 @@ export default function Profile() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Profile Header */}
-        <Card className="mb-8 border-2 border-gradient-to-r from-blue-200 to-purple-200 shadow-lg">
+        <Card className="mb-8 border-2 border-blue-200 shadow-lg bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40">
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-6">
