@@ -796,11 +796,6 @@ export default function Index() {
             ].map((item) => (
               <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 overflow-hidden group">
                 <div className="aspect-square bg-gray-100 relative overflow-hidden">
-                  <div className="absolute top-3 right-3 z-10">
-                    <div className="bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                      NEW
-                    </div>
-                  </div>
                   <img
                     src={item.image}
                     alt={item.title}
@@ -815,7 +810,7 @@ export default function Index() {
                     <span className="text-lg font-bold text-emerald-600">£{item.price}</span>
                     <span className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">Launch Price</span>
                   </div>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
                     Shop Now
                   </Button>
                 </div>
