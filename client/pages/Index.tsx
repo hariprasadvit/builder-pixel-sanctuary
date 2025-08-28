@@ -761,50 +761,63 @@ export default function Index() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {/* Featured New Product */}
-            <div className="md:col-span-2 md:row-span-2">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full border border-emerald-200">
-                <div className="aspect-[4/3] bg-gradient-to-br from-emerald-100 to-teal-100 relative">
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-emerald-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
+            {[
+              {
+                id: 1,
+                title: "Premium Fashion Collection",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9ae770758b504c06abfd7b6ed7035552?format=webp&width=800",
+                price: 299.99
+              },
+              {
+                id: 2,
+                title: "Sustainable Grocery Essentials",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff1642fcfd99c43728eb57521166201df?format=webp&width=800",
+                price: 189.99
+              },
+              {
+                id: 3,
+                title: "Ergonomic Office Solutions",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F969cf7d59aef4d58aefcf41f55dd25ae?format=webp&width=800",
+                price: 449.99
+              },
+              {
+                id: 4,
+                title: "Tropical Home Decor",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F12cf36128d7947609a98a09da23bcd6d?format=webp&width=800",
+                price: 159.99
+              },
+              {
+                id: 5,
+                title: "Educational Science Kits",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcb19c34fdf5046e3be0aaa118adb5760?format=webp&width=800",
+                price: 79.99
+              }
+            ].map((item) => (
+              <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 overflow-hidden group">
+                <div className="aspect-square bg-gray-100 relative overflow-hidden">
+                  <div className="absolute top-3 right-3 z-10">
+                    <div className="bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                       NEW
                     </div>
                   </div>
-                  <div className="w-full h-full flex items-center justify-center text-emerald-600 font-bold text-xl">
-                    [Featured New Product]
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">Revolutionary New Product</h3>
-                  <p className="text-gray-600 mb-3">The latest innovation that's changing the game</p>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-2xl font-bold text-emerald-600">£399.99</span>
-                    <span className="bg-red-100 text-red-700 text-sm px-2 py-1 rounded-full">Launch Price</span>
-                  </div>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    Pre-Order Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Small New Items */}
-            {[1, 2, 3, 4].map((item) => (
-              <div key={item} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 overflow-hidden">
-                <div className="aspect-square bg-gray-100 relative">
-                  <div className="absolute top-2 right-2">
-                    <div className="bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                      NEW
-                    </div>
-                  </div>
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    [New {item}]
-                  </div>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="p-4">
-                  <div className="text-sm font-semibold text-gray-900 mb-1">New Product {item}</div>
-                  <div className="text-emerald-600 font-bold">£{129 + item * 20}.99</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-2 line-clamp-2">
+                    {item.title}
+                  </div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg font-bold text-emerald-600">£{item.price}</span>
+                    <span className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">Launch Price</span>
+                  </div>
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm">
+                    Shop Now
+                  </Button>
                 </div>
               </div>
             ))}
