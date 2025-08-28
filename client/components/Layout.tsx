@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle } from "lucide-react";
+import { Search, Heart, ShoppingCart, User, Home, Grid3X3, Package, UserCircle, Play } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -107,7 +107,7 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Mobile Bottom Tab Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
-        <div className="grid grid-cols-5 h-16">
+        <div className="grid grid-cols-6 h-16">
           <Link
             to="/"
             className={`flex flex-col items-center justify-center gap-1 ${
@@ -123,15 +123,27 @@ export default function Layout({ children }: LayoutProps) {
           <Link
             to="/categories"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab('/categories') 
-                ? 'text-brand-blue' 
+              isActiveTab('/categories')
+                ? 'text-brand-blue'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             <Grid3X3 className="w-5 h-5" />
             <span className="text-xs">Categories</span>
           </Link>
-          
+
+          <Link
+            to="/videos"
+            className={`flex flex-col items-center justify-center gap-1 ${
+              isActiveTab('/videos')
+                ? 'text-brand-blue'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            <Play className="w-5 h-5" />
+            <span className="text-xs">Videos</span>
+          </Link>
+
           <Link
             to="/cart"
             className={`flex flex-col items-center justify-center gap-1 relative ${
