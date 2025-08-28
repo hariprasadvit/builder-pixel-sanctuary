@@ -72,77 +72,80 @@ export default function Layout({ children }: LayoutProps) {
       {/* Top Bar - Sticky */}
       <header className="sticky top-0 z-50 bg-white border-b border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Hamburger Menu */}
-            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="w-5 h-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-80 p-0">
-                <SheetHeader className="p-6 border-b">
-                  <SheetTitle className="text-left">Menu</SheetTitle>
-                  <SheetDescription className="text-left">
-                    Browse categories and options
-                  </SheetDescription>
-                </SheetHeader>
+          <div className="flex items-center h-16">
+            {/* Left section with Hamburger and Logo */}
+            <div className="flex items-center gap-3">
+              {/* Hamburger Menu */}
+              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="md:hidden">
+                    <Menu className="w-5 h-5" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-80 p-0">
+                  <SheetHeader className="p-6 border-b">
+                    <SheetTitle className="text-left">Menu</SheetTitle>
+                    <SheetDescription className="text-left">
+                      Browse categories and options
+                    </SheetDescription>
+                  </SheetHeader>
 
-                <div className="p-0">
-                  {/* Main Menu Items */}
-                  <div className="py-4">
-                    {menuItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <button
-                          key={item.id}
-                          className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
-                          onClick={() => {
-                            console.log(`Selected: ${item.label}`);
-                            setIsMenuOpen(false);
-                          }}
-                        >
-                          <IconComponent className={`w-5 h-5 ${item.color}`} />
-                          <span className="font-medium text-gray-900">{item.label}</span>
-                        </button>
-                      );
-                    })}
+                  <div className="p-0">
+                    {/* Main Menu Items */}
+                    <div className="py-4">
+                      {menuItems.map((item) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
+                            onClick={() => {
+                              console.log(`Selected: ${item.label}`);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            <IconComponent className={`w-5 h-5 ${item.color}`} />
+                            <span className="font-medium text-gray-900">{item.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Separator */}
+                    <div className="border-t border-gray-200 my-2" />
+
+                    {/* Secondary Menu Items */}
+                    <div className="py-4">
+                      {secondaryMenuItems.map((item) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
+                            onClick={() => {
+                              console.log(`Selected: ${item.label}`);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            <IconComponent className={`w-5 h-5 ${item.color}`} />
+                            <span className="font-medium text-gray-900">{item.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
+                </SheetContent>
+              </Sheet>
 
-                  {/* Separator */}
-                  <div className="border-t border-gray-200 my-2" />
-
-                  {/* Secondary Menu Items */}
-                  <div className="py-4">
-                    {secondaryMenuItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <button
-                          key={item.id}
-                          className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
-                          onClick={() => {
-                            console.log(`Selected: ${item.label}`);
-                            setIsMenuOpen(false);
-                          }}
-                        >
-                          <IconComponent className={`w-5 h-5 ${item.color}`} />
-                          <span className="font-medium text-gray-900">{item.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa74e56e283d44231b5a2ba37cfcd2c4b?format=webp&width=800"
-                alt="RIKY Logo"
-                className="h-8 w-auto"
-              />
-            </Link>
+              {/* Logo */}
+              <Link to="/" className="flex items-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa74e56e283d44231b5a2ba37cfcd2c4b?format=webp&width=800"
+                  alt="RIKY Logo"
+                  className="h-8 w-auto"
+                />
+              </Link>
+            </div>
 
             {/* Location Selector */}
             <div className="hidden md:flex items-center">
