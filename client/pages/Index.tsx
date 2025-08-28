@@ -386,7 +386,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Main Deal Card */}
             <div className="md:col-span-2 lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-red-200 relative">
@@ -395,53 +395,62 @@ export default function Index() {
                     60% OFF
                   </div>
                 </div>
-                <div className="aspect-[4/3] bg-gray-100">
+                <div className="aspect-[4/3] bg-gray-100 overflow-hidden">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F68d763e3135547ed9fd68f6c12a33286?format=webp&width=800"
-                    alt="Deal of the Day"
-                    className="w-full h-full object-cover"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3ce07e8de00a454f8e978a46d3a72308?format=webp&width=800"
+                    alt="Electronics Mega Deal Collection"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">Today's Mega Deal</h3>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-2xl font-bold text-red-600">£299.99</span>
-                    <span className="text-lg text-gray-500 line-through">£749.99</span>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold mb-2">Electronics Collection</h3>
+                  <p className="text-sm text-gray-600 mb-3">Premium tech essentials</p>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl font-bold text-red-600">From £199</span>
+                    <span className="text-sm text-gray-500 line-through">£499</span>
                   </div>
-                  <Button className="w-full bg-red-600 hover:bg-red-700 font-semibold">
-                    Claim Deal Now
+                  <Button className="w-full bg-red-600 hover:bg-red-700 font-semibold text-sm py-2">
+                    Shop Collection
                   </Button>
                 </div>
               </div>
             </div>
 
             {/* Quick Deals */}
-            <div className="space-y-4">
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-orange-200">
-                <div className="aspect-square bg-gray-100 rounded-lg mb-3">
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    [Product Image]
-                  </div>
+            <div className="">
+              <div className="bg-white rounded-xl shadow-lg border border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square bg-gray-100 overflow-hidden">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F199d372cf11f426bbd41c4f81a31c348?format=webp&width=800"
+                    alt="Prime Day Deals Collection"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="text-sm font-semibold text-gray-900 mb-1">Quick Deal #1</div>
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-orange-600">£89.99</span>
-                  <span className="text-xs text-gray-500 line-through">£129.99</span>
+                <div className="p-3">
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Prime Day Deals</div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-bold text-orange-600">Up to 70% OFF</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">Limited time only</p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-orange-200">
-                <div className="aspect-square bg-gray-100 rounded-lg mb-3">
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    [Product Image]
-                  </div>
+            <div className="">
+              <div className="bg-white rounded-xl shadow-lg border border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square bg-gray-100 overflow-hidden">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2fdc4ff712c742b48b5f10e46b15af5a?format=webp&width=800"
+                    alt="Biggest Deals Sale"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="text-sm font-semibold text-gray-900 mb-1">Quick Deal #2</div>
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-orange-600">£149.99</span>
-                  <span className="text-xs text-gray-500 line-through">£199.99</span>
+                <div className="p-3">
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Biggest Deals</div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-bold text-orange-600">Save Extra 25%</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">On 1 Lakh+ styles</p>
                 </div>
               </div>
             </div>
