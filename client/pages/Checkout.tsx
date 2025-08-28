@@ -218,12 +218,14 @@ export default function Checkout() {
       
       // Clear cart and redirect to success page
       clearCart();
-      navigate("/orders", { 
-        state: { 
-          orderPlaced: true, 
-          orderTotal: totals.total,
-          orderAddress: selectedAddress 
-        } 
+      navigate("/payment-success", {
+        state: {
+          orderNumber: `ORD-${Date.now()}`,
+          amount: totals.total,
+          currency: currency,
+          customerEmail: "customer@example.com",
+          orderAddress: selectedAddress
+        }
       });
       
     } catch (error) {
