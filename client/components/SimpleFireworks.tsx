@@ -119,12 +119,15 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
       
       {/* Success message overlay */}
       {isActive && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-2xl animate-bounce">
+        <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in duration-500">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl p-8 shadow-2xl animate-pulse">
             <div className="text-center">
-              <div className="text-4xl mb-2">🎉</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-1">Success!</h3>
-              <p className="text-gray-600">Your action was completed successfully</p>
+              <div className="text-6xl mb-4 animate-bounce">🎆</div>
+              <h3 className="text-3xl font-bold mb-2">Amazing!</h3>
+              <p className="text-xl opacity-90">Special discount applied!</p>
+              <div className="mt-4 text-sm opacity-75">
+                ✨ Enjoy your savings! ✨
+              </div>
             </div>
           </div>
         </div>
