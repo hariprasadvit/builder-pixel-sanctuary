@@ -130,7 +130,7 @@ export default function Layout({ children }: LayoutProps) {
               </Sheet>
 
               {/* Logo */}
-              <Link href="/" className="flex items-center">
+              <Link to="/" className="flex items-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa74e56e283d44231b5a2ba37cfcd2c4b?format=webp&width=800"
                   alt="RIKY Logo"
@@ -203,7 +203,7 @@ export default function Layout({ children }: LayoutProps) {
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-6">
               <Link
-                href="/categories"
+                to="/categories"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
                   isActiveTab('/categories') ? 'text-brand-blue' : 'text-muted-foreground'
                 }`}
@@ -211,7 +211,7 @@ export default function Layout({ children }: LayoutProps) {
                 Categories
               </Link>
               <Link
-                href="/videos"
+                to="/videos"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
                   isActiveTab('/videos') ? 'text-brand-blue' : 'text-muted-foreground'
                 }`}
@@ -219,7 +219,7 @@ export default function Layout({ children }: LayoutProps) {
                 Videos
               </Link>
               <Link
-                href="/orders"
+                to="/orders"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
                   isActiveTab('/orders') ? 'text-brand-blue' : 'text-muted-foreground'
                 }`}
@@ -327,7 +327,7 @@ export default function Layout({ children }: LayoutProps) {
               </Button>
 
               {/* Cart */}
-              <Link href="/cart">
+              <Link to="/cart">
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="w-5 h-5" />
                   <Badge className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center p-0 text-xs bg-brand-red">
@@ -337,7 +337,7 @@ export default function Layout({ children }: LayoutProps) {
               </Link>
 
               {/* User Profile - Always visible on desktop and larger mobile */}
-              <Link href="/profile">
+              <Link to="/profile">
                 <Button variant="ghost" size="icon" className="hidden sm:flex">
                   <User className="w-5 h-5" />
                 </Button>
