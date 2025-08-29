@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,7 +14,6 @@ import {
   Truck,
   Calendar
 } from "lucide-react";
-import { useFireworks } from "@/hooks/useFireworks";
 
 interface PaymentSuccessProps {
   orderNumber?: string;
@@ -25,7 +25,6 @@ interface PaymentSuccessProps {
 export default function PaymentSuccess() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { triggerFireworks, FireworksComponent } = useFireworks();
   
   const [showContent, setShowContent] = useState(false);
   const [animationStep, setAnimationStep] = useState(0);
@@ -40,12 +39,6 @@ export default function PaymentSuccess() {
   } = location.state || {};
 
   useEffect(() => {
-    // Trigger fireworks once after a small delay to ensure page is ready
-    const fireworkTimeout = setTimeout(() => {
-      console.log('Triggering fireworks from PaymentSuccess page');
-      triggerFireworks();
-    }, 200);
-
     // Staggered animation entrance
     const timeouts = [
       setTimeout(() => setShowContent(true), 500),
@@ -56,10 +49,9 @@ export default function PaymentSuccess() {
     ];
 
     return () => {
-      clearTimeout(fireworkTimeout);
       timeouts.forEach(clearTimeout);
     };
-  }, []); // Remove triggerFireworks dependency to prevent re-triggers
+  }, []);
 
   const features = [
     {
@@ -84,7 +76,6 @@ export default function PaymentSuccess() {
 
   return (
     <>
-      <FireworksComponent />
       <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
         <div className="w-full max-w-2xl space-y-8">
           
