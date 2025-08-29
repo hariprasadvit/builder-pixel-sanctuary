@@ -29,12 +29,30 @@ export default function BrandDetail() {
         <p className="text-gray-600 max-w-3xl">{BRAND_DESCRIPTIONS[brand] || `${brand} products available on Riky.`}</p>
       </div>
 
-      {/* Stacked banners with no gaps */}
+      {/* Apple banners: first full-width, then 2x2 grid cards */}
       {brand === "Apple" && (
         <section className="space-y-0">
-          {APPLE_BANNERS.map((src) => (
-            <img key={src} src={src} alt="Apple" className="w-full block" />
-          ))}
+          {/* First hero banner full width */}
+          <img src={APPLE_BANNERS[0]} alt="Apple" className="w-full block" />
+          {/* Next four as 2x2 cards */}
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            {[APPLE_BANNERS[1], APPLE_BANNERS[2], APPLE_BANNERS[3], APPLE_BANNERS[4]].map((src, idx) => {
+              const labels = ["iPhone", "iPad", "Watch", "AirPods"] as const;
+              const targets = ["#iphone-watch", "#ipad-mac", "#iphone-watch", "#iphone-watch"] as const;
+              const label = labels[idx];
+              const target = targets[idx];
+              return (
+                <a key={src} href={target} className="relative overflow-hidden rounded-lg block group">
+                  <img src={src} alt={label} className="w-full h-full object-cover block" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+                  <div className="absolute top-6 left-6">
+                    <div className="text-3xl font-bold text-black drop-shadow-sm">{label}</div>
+                    <span className="inline-flex items-center px-4 py-2 mt-3 rounded-full border border-black/20 text-black text-sm bg-white/70 backdrop-blur group-hover:bg-white transition-colors">View all</span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
         </section>
       )}
 
