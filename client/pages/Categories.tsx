@@ -171,6 +171,8 @@ export default function Categories() {
                   onClick={() => {
                     if (category.name === "Electronics") {
                       navigate("/electronics");
+                    } else if (category.name === "Cell Phones") {
+                      navigate("/cellphones");
                     } else {
                       setSelectedCategory(category.name);
                     }
