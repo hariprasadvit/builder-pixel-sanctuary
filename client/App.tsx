@@ -31,6 +31,8 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 import SearchResults from "./pages/SearchResults";
 import Brands from "./pages/Brands";
 import BrandDetail from "./pages/BrandDetail";
+import Newest from "./pages/Newest";
+import Bestsellers from "./pages/Bestsellers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -70,6 +72,8 @@ const App = () => (
                     <Route path="/wishlist" element={<Wishlist />} />
                     <Route path="/brands" element={<Brands />} />
                     <Route path="/brands/:brand" element={<BrandDetail />} />
+                    <Route path="/newest" element={<Newest />} />
+                    <Route path="/bestsellers" element={<Bestsellers />} />
                     <Route path="/search" element={<SearchResults />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
