@@ -914,7 +914,7 @@ export default function Index() {
                   <div className="text-sm">Seconds</div>
                 </div>
               </div>
-              <Button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-3 backdrop-blur-sm transition-all duration-300">
+              <Button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-3 backdrop-blur-sm transition-all duration-300" onClick={() => navigate('/flashsale')}>
                 Shop Flash Sale Now
               </Button>
             </div>

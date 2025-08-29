@@ -84,7 +84,7 @@ export default function Layout({ children }: LayoutProps) {
   const [notifications, setNotifications] = useState<{id:string; title:string; description:string; time:string; type:NoticeType; read:boolean}[]>([
     { id: '1', title: 'Out for delivery', description: 'Order ORD-2024-002 is on its way. Expect today 2–6pm.', time: '2h ago', type: 'order', read: false },
     { id: '2', title: 'Price dropped', description: 'Nike Air Max in your wishlist is now £20 off.', time: 'Yesterday', type: 'promo', read: false },
-    { id: '3', title: 'Return scheduled', description: 'Pickup booked for tomorrow 10:00��12:00. Keep OTP handy.', time: '2d ago', type: 'order', read: true },
+    { id: '3', title: 'Return scheduled', description: 'Pickup booked for tomorrow 10:00–12:00. Keep OTP handy.', time: '2d ago', type: 'order', read: true },
   ]);
   const unseenCount = useMemo(() => notifications.filter(n=>!n.read).length, [notifications]);
 
@@ -132,7 +132,7 @@ export default function Layout({ children }: LayoutProps) {
   }, []);
 
   const menuItems = [
-    { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600" },
+    { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600", to: "/flashsale" },
     { id: "brands", label: "Brands", icon: Award, color: "text-purple-600", to: "/brands" },
     { id: "newest", label: "Newest", icon: Star, color: "text-blue-600", to: "/newest" },
     {
