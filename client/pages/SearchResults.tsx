@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Filter, SortAsc, Mic, ScanLine } from "lucide-react";
+import { Filter, SortAsc } from "lucide-react";
 
 function useQuery() {
   const { search } = useLocation();
@@ -32,8 +32,6 @@ export default function SearchResults() {
           <div className="flex gap-2">
             <Button variant="outline"><Filter className="w-4 h-4 mr-2" /> Filters</Button>
             <Button variant="outline"><SortAsc className="w-4 h-4 mr-2" /> Sort</Button>
-            <Button variant="outline" onClick={() => navigate(`/search?q=${encodeURIComponent(keyword)}`)}><Mic className="w-4 h-4 mr-2"/> Voice</Button>
-            <Button variant="outline" onClick={() => navigate(`/search?q=${encodeURIComponent(keyword)}`)}><ScanLine className="w-4 h-4 mr-2"/> Scan</Button>
           </div>
         </div>
 
