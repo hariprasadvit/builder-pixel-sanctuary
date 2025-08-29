@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { searchCatalog, highlight } from "@/lib/search";
+import { searchCatalog, splitHighlight } from "@/lib/search";
 import { CATALOG } from "@/lib/catalog";
 import { Mic, ScanLine, Search, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -121,7 +121,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
                   <button key={p.id} className="w-full flex items-center gap-3 p-2 rounded hover:bg-gray-50 text-left" onClick={() => submit(p.title)}>
                     <img src={p.image} className="w-10 h-10 rounded object-cover" />
                     <div className="flex-1">
-                      <div className="text-sm">{highlight(p.title, query)}</div>
+                      <div className="text-sm">{(() => { const parts = splitHighlight(p.title, query); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</div>
                       <div className="text-xs text-gray-600">£{p.price.toFixed(2)} • {p.brand}</div>
                     </div>
                   </button>
@@ -132,7 +132,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
                   <h4 className="text-sm font-semibold">Categories</h4>
                   {results!.categories.length > 0 ? results!.categories.map((c) => (
                     <button key={c.name} className="block w-full text-left p-2 rounded hover:bg-gray-50 text-sm" onClick={() => submit(c.name)}>
-                      {highlight(c.name, query)} <span className="text-xs text-gray-500">({c.count})</span>
+                      {(() => { const parts = splitHighlight(c.name, query); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()} <span className="text-xs text-gray-500">({c.count})</span>
                     </button>
                   )) : <p className="text-sm text-gray-600">—</p>}
                 </div>
@@ -140,7 +140,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
                   <h4 className="text-sm font-semibold">Brands</h4>
                   {results!.brands.length > 0 ? results!.brands.map((b) => (
                     <button key={b} className="block w-full text-left p-2 rounded hover:bg-gray-50 text-sm" onClick={() => submit(b)}>
-                      {highlight(b, query)}
+                      {(() => { const parts = splitHighlight(b, query); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}
                     </button>
                   )) : <p className="text-sm text-gray-600">—</p>}
                 </div>
