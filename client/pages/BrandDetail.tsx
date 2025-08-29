@@ -42,13 +42,8 @@ export default function BrandDetail() {
               const label = labels[idx];
               const target = targets[idx];
               return (
-                <a key={src} href={target} className="relative overflow-hidden rounded-lg block group">
+                <a key={src} href={target} aria-label={`Browse ${label}`} className="relative overflow-hidden rounded-lg block">
                   <img src={src} alt={label} className="w-full h-full object-cover block" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                  <div className="absolute top-6 left-6">
-                    <div className="text-3xl font-bold text-black drop-shadow-sm">{label}</div>
-                    <span className="inline-flex items-center px-4 py-2 mt-3 rounded-full border border-black/20 text-black text-sm bg-white/70 backdrop-blur group-hover:bg-white transition-colors">View all</span>
-                  </div>
                 </a>
               );
             })}
