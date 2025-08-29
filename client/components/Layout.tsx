@@ -244,7 +244,7 @@ export default function Layout({ children }: LayoutProps) {
       color: "text-indigo-600",
       to: "/sell",
     },
-    { id: "contact", label: "Contact Us", icon: Phone, color: "text-gray-600" },
+    { id: "contact", label: "Contact Us", icon: Phone, color: "text-gray-600", to: "/contact" },
   ];
 
   const isActiveTab = (path: string) => {
