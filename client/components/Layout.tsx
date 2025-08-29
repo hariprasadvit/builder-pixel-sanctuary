@@ -80,10 +80,11 @@ export default function Layout({ children }: LayoutProps) {
   const [mobileQuery, setMobileQuery] = useState("");
   const mobileResults = useMemo(() => (mobileQuery ? searchCatalog(mobileQuery, 8) : null), [mobileQuery]);
   const [addressModalOpen, setAddressModalOpen] = useState(false);
-  const [notifications, setNotifications] = useState<{id:string; text:string; read:boolean}[]>([
-    { id: "1", text: "Order ORD-2024-002 is out for delivery", read: false },
-    { id: "2", text: "Price drop on items in your wishlist", read: false },
-    { id: "3", text: "Your return pickup is scheduled for today", read: true },
+  type NoticeType = 'order'|'promo'|'system';
+  const [notifications, setNotifications] = useState<{id:string; title:string; description:string; time:string; type:NoticeType; read:boolean}[]>([
+    { id: '1', title: 'Out for delivery', description: 'Order ORD-2024-002 is on its way. Expect today 2–6pm.', time: '2h ago', type: 'order', read: false },
+    { id: '2', title: 'Price dropped', description: 'Nike Air Max in your wishlist is now £20 off.', time: 'Yesterday', type: 'promo', read: false },
+    { id: '3', title: 'Return scheduled', description: 'Pickup booked for tomorrow 10:00��12:00. Keep OTP handy.', time: '2d ago', type: 'order', read: true },
   ]);
   const unseenCount = useMemo(() => notifications.filter(n=>!n.read).length, [notifications]);
 
@@ -498,17 +499,32 @@ export default function Layout({ children }: LayoutProps) {
                     )}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-80">
-                  <div className="px-3 py-2 flex items-center justify-between">
-                    <span className="text-sm font-medium">Notifications</span>
-                    <button className="text-xs text-brand-blue" onClick={() => setNotifications(prev=>prev.map(n=>({...n, read:true})))}>Mark all read</button>
+                <DropdownMenuContent align="end" className="w-96 p-0 overflow-hidden">
+                  <div className="px-4 py-3 border-b flex items-center justify-between bg-white">
+                    <div className="font-medium">Notifications</div>
+                    <div className="flex items-center gap-3">
+                      <button className="text-xs text-brand-blue" onClick={() => setNotifications(prev=>prev.map(n=>({...n, read:true})))}>Mark all read</button>
+                    </div>
                   </div>
-                  <div className="max-h-80 overflow-auto">
+                  <div className="max-h-96 overflow-auto divide-y">
                     {notifications.map(n => (
-                      <button key={n.id} className={`w-full text-left px-3 py-2 text-sm ${n.read? 'text-gray-600' : 'bg-blue-50'}`} onClick={()=> setNotifications(prev=>prev.map(x=> x.id===n.id? {...x, read:true}: x))}>
-                        {n.text}
+                      <button key={n.id} className={`w-full text-left px-4 py-3 hover:bg-gray-50 ${n.read? '' : 'bg-blue-50/60'}`} onClick={()=> setNotifications(prev=>prev.map(x=> x.id===n.id? {...x, read:true}: x))}>
+                        <div className="flex items-start gap-3">
+                          <div className={`w-9 h-9 rounded-full flex items-center justify-center text-white ${n.type==='order'?'bg-blue-600': n.type==='promo'?'bg-amber-500':'bg-gray-600'}`}>{n.type==='order'?'📦': n.type==='promo'?'🏷️':'ℹ️'}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium truncate">{n.title}</span>
+                              {!n.read && <span className="w-2 h-2 rounded-full bg-blue-600" />}
+                              <span className="ml-auto text-xs text-gray-500 whitespace-nowrap">{n.time}</span>
+                            </div>
+                            <p className="text-sm text-gray-600 line-clamp-2">{n.description}</p>
+                          </div>
+                        </div>
                       </button>
                     ))}
+                  </div>
+                  <div className="px-4 py-2 border-t bg-gray-50 text-right">
+                    <Link to="/orders" className="text-xs text-brand-blue">View all</Link>
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
