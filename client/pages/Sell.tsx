@@ -28,7 +28,7 @@ export default function Sell() {
             <div className="absolute -top-8 -left-6 w-40 h-40 rounded-full bg-blue-200/60 blur-2xl" />
             <div className="absolute -bottom-10 -right-6 w-48 h-48 rounded-full bg-purple-200/60 blur-2xl" />
             <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-xl">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75816dd02f8047909d3ab1256a324bc8?format=webp&width=1200" alt="British small business owner" className="w-full h-full object-cover" />
+              <img src="https://images.pexels.com/photos/3906984/pexels-photo-3906984.jpeg" alt="British small business owner in a café" className="w-full h-full object-cover" />
             </div>
             <Card className="absolute left-4 top-4 shadow-lg">
               <CardContent className="p-3 text-xs">
