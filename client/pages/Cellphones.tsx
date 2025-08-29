@@ -251,9 +251,9 @@ export default function Cellphones() {
                 {/* Ratings */}
                 <div>
                   <h4 className="font-medium mb-2">Customer Ratings</h4>
-                  <div className="flex gap-2 flex-wrap">
+                  <div className="grid grid-cols-2 gap-2">
                     {[4,3,2,1,0].map(r=> (
-                      <Button key={r} variant="outline" size="sm" className={minRating===r ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
+                      <Button key={r} variant="outline" size="sm" className={`${minRating===r ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} ${r===0?"col-span-2 w-full justify-center":""}`} onClick={()=>setMinRating(r)}>{r===0 ? (<>All</>) : (<><span>{r}</span><span className="text-yellow-500">★</span><span>&nbsp;&amp; above</span></>)}</Button>
                     ))}
                   </div>
                 </div>
@@ -379,9 +379,9 @@ export default function Cellphones() {
               {/* Ratings */}
               <div>
                 <h4 className="font-semibold mb-2">Customer Ratings</h4>
-                <div className="flex gap-2 flex-wrap">
+                <div className="grid grid-cols-2 gap-2">
                   {[4,3,2,1,0].map(r=> (
-                    <Button key={r} variant="outline" size="sm" className={minRating===r ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
+                    <Button key={r} variant="outline" size="sm" className={`${minRating===r ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} ${r===0?"col-span-2 w-full justify-center":""}`} onClick={()=>setMinRating(r)}>{r===0 ? (<>All</>) : (<><span>{r}</span><span className="text-yellow-500">★</span><span>&nbsp;&amp; above</span></>)}</Button>
                   ))}
                 </div>
               </div>
