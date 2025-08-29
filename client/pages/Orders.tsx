@@ -477,10 +477,6 @@ export default function Orders() {
                           <Package className="w-4 h-4 mr-2" />
                           Need Help?
                         </Button>
-                        <Button variant="outline">
-                          <Package className="w-4 h-4 mr-2" />
-                          Reorder Items
-                        </Button>
                       </div>
                     </div>
                   </TabsContent>
