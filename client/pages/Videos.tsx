@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Heart, Share, MessageCircle, Volume2, VolumeX, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel } from "@/components/ui/alert-dialog";
 
 export default function Videos() {
   const [currentVideo, setCurrentVideo] = useState(0);
