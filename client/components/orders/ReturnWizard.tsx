@@ -35,6 +35,8 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
   const [slotWindow, setSlotWindow] = useState("10:00–12:00");
   const [refund, setRefund] = useState<'original'|'wallet'>('original');
   const [submitted, setSubmitted] = useState(false);
+  const [hubCode, setHubCode] = useState("");
+  const [qrNonce, setQrNonce] = useState(0);
 
   const progress = (step / 5) * 100;
 
@@ -59,6 +61,20 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
   };
 
   const slotLabel = slotDay === 'select' && slotDate ? new Date(slotDate).toDateString() : (slotDay === 'today' ? 'Today' : 'Tomorrow');
+
+  useEffect(() => {
+    if (open && method === 'hub') {
+      const code = `RIKI-${orderId.replace(/[^A-Za-z0-9]/g, '').slice(-8)}-${Math.random().toString(36).slice(2,8).toUpperCase()}`;
+      setHubCode(code);
+    }
+  }, [open, method, orderId, qrNonce]);
+
+  const qrPayload = useMemo(() => {
+    const count = Object.values(selected).reduce((a,b)=>a+(b||0),0);
+    return JSON.stringify({ t: 'RikiReturn', orderId, code: hubCode, items: count });
+  }, [orderId, hubCode, selected]);
+
+  const qrUrl = useMemo(() => `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrPayload)}&qzone=2&margin=0&format=png&_=${qrNonce}`, [qrPayload, qrNonce]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -142,7 +158,21 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
                     </div>
                   </div>
                 ) : (
-                  <p className="text-xs text-gray-600">You’ll receive a QR/Code. Drop at nearest Riki Hub during working hours.</p>
+                  <div className="space-y-2">
+                    <p className="text-xs text-gray-600">Show this QR at the Riki Hub counter. They’ll scan and accept your return.</p>
+                    <div className="flex items-center gap-3">
+                      <img src={qrUrl} alt="Riki Hub Drop QR" className="w-32 h-32 border rounded bg-white" />
+                      <div className="flex-1">
+                        <p className="text-xs text-gray-600">Code</p>
+                        <p className="font-mono text-sm">{hubCode || '—'}</p>
+                        <div className="flex gap-2 mt-2">
+                          <Button variant="outline" size="sm" onClick={()=>setQrNonce(n=>n+1)}>Refresh QR</Button>
+                          <a href={qrUrl} download={`Riki-Return-${orderId}.png`} className="inline-flex h-9 items-center rounded-md border px-3 text-sm">Download</a>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-gray-600">No printer needed. Keep accessories included. Agent will verify with OTP for pickups.</p>
+                  </div>
                 )}
                 <div className="flex gap-2">
                   <Button variant="outline" className="flex-1" onClick={()=>setStep(2)}>Back</Button>
@@ -177,7 +207,7 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-600">Method: {method==='pickup' ? `Doorstep Pickup — ${slotLabel} ${slotWindow}` : 'Drop at Riki Hub'}</p>
+                <p className="text-xs text-gray-600">Method: {method==='pickup' ? `Doorstep Pickup — ${slotLabel} ${slotWindow}` : `Drop at Riki Hub — Code ${hubCode || ''}`}</p>
                 <p className="text-xs text-gray-600">Refund: {refund==='wallet' ? 'Riki Wallet' : 'Original method'}</p>
                 <div className="flex gap-2">
                   <Button variant="outline" className="flex-1" onClick={()=>setStep(4)}>Back</Button>
