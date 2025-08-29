@@ -42,9 +42,13 @@ export default function BrandDetail() {
               const label = labels[idx];
               const target = targets[idx];
               return (
-                <a key={src} href={target} aria-label={`Browse ${label}`} className="relative overflow-hidden rounded-lg block">
-                  <img src={src} alt={label} className="w-full h-full object-cover block" />
-                </a>
+                <a
+                  key={src}
+                  href={target}
+                  aria-label={`Browse ${label}`}
+                  className="relative overflow-hidden rounded-lg block aspect-[3/2] bg-cover bg-center"
+                  style={{ backgroundImage: `url(${src})` }}
+                />
               );
             })}
           </div>
