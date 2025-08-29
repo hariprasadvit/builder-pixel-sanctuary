@@ -74,6 +74,34 @@ export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  async function detectMyLocation() {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      const { latitude, longitude } = pos.coords;
+      try {
+        const resp = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
+        const data = await resp.json();
+        const addr = data.address || {};
+        const pincode = addr.postcode || "";
+        const city = addr.city || addr.town || addr.village || "";
+        const state = addr.state || "";
+        const line = data.display_name || `${city}, ${state}`;
+        const label = window.prompt("Label this address (e.g., Home, Office)", "Detected");
+        addAddress({ type: "other", label: label || "Detected", address: line, pincode, city, state, isDefault: false });
+        setCurrentAddress({ id: "temp", type: "other", label: label || "Detected", address: line, pincode, city, state, isDefault: false });
+      } catch (e) {
+        alert("Failed to resolve address");
+      }
+    }, () => alert("Permission denied for location"));
+  }
+
+  const setDefault = (id: string) => {
+    savedAddresses.forEach(a => updateAddress(a.id, { isDefault: a.id === id }));
+  };
+
   // Track scroll position to hide mobile search/delivery on scroll
   useEffect(() => {
     const handleScroll = () => {
