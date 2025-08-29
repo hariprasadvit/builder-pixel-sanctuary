@@ -37,6 +37,7 @@ export default function Orders() {
       status: "delivered",
       total: 299.99,
       currency: "£",
+      shippingType: "local",
       estimatedDelivery: "2024-12-18",
       actualDelivery: "2024-12-17",
       trackingNumber: "TRK123456789",
@@ -69,6 +70,7 @@ export default function Orders() {
       status: "in-transit",
       total: 149.99,
       currency: "£",
+      shippingType: "china",
       estimatedDelivery: "2024-12-16",
       trackingNumber: "TRK987654321",
       items: [
@@ -100,6 +102,7 @@ export default function Orders() {
       status: "processing",
       total: 89.99,
       currency: "£",
+      shippingType: "china",
       estimatedDelivery: "2024-12-15",
       items: [
         {
@@ -130,6 +133,7 @@ export default function Orders() {
       status: "cancelled",
       total: 199.99,
       currency: "£",
+      shippingType: "china",
       items: [
         {
           id: 4,
