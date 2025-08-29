@@ -81,11 +81,11 @@ export default function Videos() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-gray-50 relative">
+    <div className="h-[calc(100dvh-4rem)] bg-gray-50 relative">
       {/* Video Feed */}
-      <div className="h-[calc(100vh-4rem)] snap-y snap-mandatory overflow-y-auto scrollbar-hide flex flex-col items-center">
+      <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
-          <div key={video.id} className="h-[calc(100vh-4rem)] w-full snap-start relative flex items-center justify-center">
+          <div key={video.id} className="h-full w-full snap-start relative flex items-center justify-center">
             {/* Video Frame with controls/info */}
             <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 h-full aspect-[9/16]">
               {video.youtubeId ? (
