@@ -35,7 +35,8 @@ export default function PaymentSuccess() {
     orderNumber = `ORD-${Date.now()}`,
     amount = 999.99,
     currency = "£",
-    customerEmail = "customer@example.com"
+    customerEmail = "customer@example.com",
+    deliveryType = "china"
   } = location.state || {};
 
   useEffect(() => {
@@ -172,20 +173,28 @@ export default function PaymentSuccess() {
                     <Truck className="w-6 h-6 text-blue-600" />
                     <h3 className="text-lg font-semibold text-gray-800">Estimated Delivery</h3>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <Calendar className="w-4 h-4 text-gray-600" />
-                    <p className="text-gray-700">
-                      {new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </p>
-                  </div>
-                  <Badge className="mt-2 bg-green-100 text-green-700 border-green-300">
-                    Free Shipping Applied
-                  </Badge>
+                  {deliveryType === 'local' ? (
+                    <div className="text-center">
+                      <p className="text-xl font-semibold text-gray-800">Arriving in 20–30 minutes</p>
+                      <p className="text-sm text-gray-600 mt-1">Real-time courier tracking available</p>
+                      <Badge className="mt-3 bg-green-100 text-green-700 border-green-300">Local delivery</Badge>
+                    </div>
+                  ) : (
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-2">
+                        <Calendar className="w-4 h-4 text-gray-600" />
+                        <p className="text-gray-700">
+                          {new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </p>
+                      </div>
+                      <Badge className="mt-3 bg-blue-100 text-blue-700 border-blue-300">International shipping</Badge>
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>
@@ -195,22 +204,33 @@ export default function PaymentSuccess() {
           <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-1000 ${
             animationStep >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <Button 
+            <Button
               onClick={() => navigate("/orders")}
               className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white h-12 font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
             >
               <Package className="w-4 h-4 mr-2" />
               Track Your Order
             </Button>
-            <Button 
+            <Button
               variant="outline"
-              onClick={() => navigate("/")}
+              onClick={() => {
+                const html = `<!doctype html><html><head><meta charset=\"utf-8\" /><title>Invoice ${orderNumber}</title></head><body><h1>Invoice ${orderNumber}</h1><p>Amount: ${currency}${amount.toFixed(2)}</p><p>Date: ${new Date().toLocaleString()}</p><p>Email: ${customerEmail}</p></body></html>`;
+                const blob = new Blob([html], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${orderNumber}-invoice.html`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+              }}
               className="flex-1 h-12 font-semibold border-2 hover:bg-gray-50 transition-all transform hover:scale-105"
             >
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Continue Shopping
+              <Download className="w-4 h-4 mr-2" />
+              Download Invoice
             </Button>
-            <Button 
+            <Button
               variant="outline"
               onClick={() => navigate("/")}
               className="flex-1 h-12 font-semibold border-2 hover:bg-gray-50 transition-all transform hover:scale-105"
