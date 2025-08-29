@@ -135,17 +135,13 @@ export default function Videos() {
             </div>
             {/* Side action panel */}
             <div className="hidden md:flex flex-col gap-2 ml-4">
-              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>toggleLike(video.id)}>
-                <Heart className="w-4 h-4 mr-2" />
-                {formatCount(video.likes)}
+              <Button variant="secondary" className={`rounded-full shadow px-3 py-2 hover:bg-gray-50 ${reactions[video.id]?.liked ? 'bg-red-50 text-red-600' : 'bg-white text-gray-700'}`} onClick={()=>toggleLike(video.id)}>
+                <Heart className={`w-4 h-4 mr-2 ${reactions[video.id]?.liked ? 'fill-red-600 text-red-600' : ''}`} />
+                {formatCount(reactions[video.id]?.likes ?? video.likes)}
               </Button>
-              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
-                <ThumbsDown className="w-4 h-4 mr-2" />
-                Dislike
-              </Button>
-              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>openComments(video.id)}>
                 <MessageCircle className="w-4 h-4 mr-2" />
-                {formatCount(video.comments)}
+                {formatCount(reactions[video.id]?.comments ?? video.comments)}
               </Button>
               <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>handleShare(video.id)}>
                 <Share className="w-4 h-4 mr-2" />
