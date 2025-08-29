@@ -18,6 +18,7 @@ interface SimpleFireworksProps {
 
 export default function SimpleFireworks({ isActive, onComplete }: SimpleFireworksProps) {
   const [particles, setParticles] = useState<FireworkParticle[]>([]);
+  const idRef = useRef(0);
 
   const colors = [
     '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7',
@@ -32,7 +33,7 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
       const velocity = Math.random() * 3 + 2;
       
       newParticles.push({
-        id: i,
+        id: idRef.current++,
         x: centerX,
         y: centerY,
         vx: Math.cos(angle) * velocity,
