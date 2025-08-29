@@ -32,6 +32,116 @@ import { useCart } from "@/contexts/CartContext";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 import { useToast } from "@/hooks/use-toast";
 
+function ProfileWishlist() {
+  const { items, toggle } = useWishlist();
+  const { addToCart } = useCart();
+  const { getCurrencySymbol } = useMarketplace();
+  const { toast } = useToast();
+  const currency = getCurrencySymbol();
+
+  if (items.length === 0) {
+    return (
+      <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Heart className="w-5 h-5" />
+            Wishlist & Favorites
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-12">
+            <Heart className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+            <h3 className="text-lg font-semibold mb-2">Your wishlist is empty</h3>
+            <p className="text-gray-600 mb-4">Save items you love for later</p>
+            <Link to="/">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white">Start Shopping</Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Heart className="w-5 h-5" />
+          Wishlist & Favorites
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {items.map((it) => {
+            const percentDrop = it.originalPrice && it.originalPrice > it.price
+              ? Math.round(((it.originalPrice - it.price) / it.originalPrice) * 100)
+              : 0;
+            const dropAmt = it.originalPrice && it.originalPrice > it.price
+              ? it.originalPrice - it.price
+              : 0;
+            return (
+              <div key={it.id} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <div className="flex gap-3">
+                  <img src={it.image} alt={it.name} className="w-20 h-20 object-cover rounded" />
+                  <div className="flex-1">
+                    <p className="font-medium text-sm line-clamp-2">{it.name}</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="font-semibold">{currency}{it.price.toFixed(2)}</span>
+                      {it.originalPrice && it.originalPrice > it.price && (
+                        <span className="text-xs text-gray-500 line-through">{currency}{it.originalPrice.toFixed(2)}</span>
+                      )}
+                    </div>
+                    {dropAmt > 0 && (
+                      <p className="text-xs text-green-700">Price dropped by {currency}{dropAmt.toFixed(2)}</p>
+                    )}
+                    {it.inStock === false && (
+                      <Badge className="mt-1 bg-gray-600">Currently unavailable</Badge>
+                    )}
+                    <div className="flex gap-2 mt-3">
+                      <Button size="sm" disabled={it.inStock === false} onClick={() => {
+                        addToCart({
+                          id: it.id,
+                          name: it.name,
+                          price: it.price,
+                          originalPrice: it.originalPrice || undefined,
+                          image: it.image,
+                          vendor: it.vendor || "nearbuy",
+                          vendorName: "Wishlist",
+                          category: it.category || "General",
+                          shippingWeight: 1.0,
+                        });
+                        toggle(it);
+                        toast({ title: "Moved to Cart" });
+                      }}>
+                        <ShoppingCart className="w-4 h-4 mr-2" /> Move to Cart
+                      </Button>
+                      <Button variant="outline" size="sm" onClick={() => { toggle(it); toast({ title: "Removed from Wishlist." }); }}>
+                        <Trash2 className="w-4 h-4 mr-2" /> Remove
+                      </Button>
+                      <Button variant="outline" size="sm" onClick={async () => {
+                        const url = `${window.location.origin}/product/${it.id}`;
+                        const text = `Check this out on Riki: ${it.name} - ${currency}${it.price.toFixed(2)}\n${url}`;
+                        if ((navigator as any).share) {
+                          try { await (navigator as any).share({ title: it.name, text, url }); } catch {}
+                        } else {
+                          await navigator.clipboard.writeText(text);
+                          toast({ title: "Link copied to clipboard" });
+                        }
+                      }}>
+                        <Share2 className="w-4 h-4 mr-2" /> Share
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function Profile() {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
