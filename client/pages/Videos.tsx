@@ -84,7 +84,13 @@ export default function Videos() {
   };
 
   const handleShare = (videoId: string) => {
-    console.log("Share video:", videoId);
+    setActiveVideo(videoId);
+    setShareOpen(true);
+  };
+
+  const openComments = (videoId: string) => {
+    setActiveVideo(videoId);
+    setCommentsOpen(true);
   };
 
   const addToCart = (videoId: string) => {
