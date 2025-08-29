@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, Share, MessageCircle, ThumbsDown, Volume2, VolumeX } from "lucide-react";
+import { Heart, Share, MessageCircle, Volume2, VolumeX, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
