@@ -13,16 +13,37 @@ export default function Sell() {
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-3">Become a seller on Riky</h1>
             <p className="text-gray-600 mb-6">Start, manage and grow your business with powerful tools, nationwide delivery, and secure payments. Join thousands of sellers building their brand with Riky.</p>
             <div className="flex gap-3">
-              <Button className="bg-brand-blue hover:bg-brand-blue/90 h-11 px-6">Start selling</Button>
-              <Button variant="outline" className="h-11 px-6">Talk to sales</Button>
+              <Button className="h-11 px-6 rounded-full text-white font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 shadow-lg shadow-purple-500/20">Register for free</Button>
+              <Button variant="outline" className="h-11 px-6 rounded-full">Talk to sales</Button>
             </div>
             <div className="mt-4 text-xs text-gray-500">No long-term contracts • Low fees • Support in English/Hindi</div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-3"><Store className="w-6 h-6 text-brand-blue"/><div><div className="font-semibold">Create your store</div><div className="text-xs text-gray-600">Set up in minutes</div></div></CardContent></Card>
-            <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-3"><Package className="w-6 h-6 text-brand-blue"/><div><div className="font-semibold">Ship with Riky</div><div className="text-xs text-gray-600">Doorstep pickup</div></div></CardContent></Card>
-            <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-3"><CreditCard className="w-6 h-6 text-brand-blue"/><div><div className="font-semibold">Secure payments</div><div className="text-xs text-gray-600">Fast settlements</div></div></CardContent></Card>
-            <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-3"><Globe2 className="w-6 h-6 text-brand-blue"/><div><div className="font-semibold">Reach new customers</div><div className="text-xs text-gray-600">Nationwide discovery</div></div></CardContent></Card>
+          {/* Illustration */}
+          <div className="relative aspect-[4/3]">
+            <div className="absolute -top-8 -left-6 w-40 h-40 rounded-full bg-blue-200/60 blur-2xl" />
+            <div className="absolute -bottom-10 -right-6 w-48 h-48 rounded-full bg-purple-200/60 blur-2xl" />
+            <Card className="absolute inset-6 shadow-xl">
+              <CardContent className="p-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <Store className="w-6 h-6 text-brand-blue"/>
+                  <div className="font-semibold">Your storefront</div>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-2"><Package className="w-5 h-5 text-brand-blue"/><span className="text-sm">Inventory</span></CardContent></Card>
+                  <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-2"><CreditCard className="w-5 h-5 text-brand-blue"/><span className="text-sm">Payments</span></CardContent></Card>
+                  <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-2"><Globe2 className="w-5 h-5 text-brand-blue"/><span className="text-sm">Reach</span></CardContent></Card>
+                </div>
+                <div className="mt-4 flex items-center justify-between bg-gray-50 rounded-md p-3">
+                  <div className="text-sm">
+                    <div className="font-semibold">First payout</div>
+                    <div className="text-gray-600">In 7 days</div>
+                  </div>
+                  <Button className="rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white">Start</Button>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="absolute -right-3 -top-3 w-28 rotate-6 shadow-lg"><CardContent className="p-3 text-xs flex items-center gap-2"><TrendingUp className="w-4 h-4 text-green-600"/>+34% sales</CardContent></Card>
+            <Card className="absolute -left-4 bottom-8 w-32 -rotate-6 shadow-lg"><CardContent className="p-3 text-xs flex items-center gap-2"><Shield className="w-4 h-4 text-blue-600"/>Protected</CardContent></Card>
           </div>
         </div>
       </section>
@@ -89,11 +110,15 @@ export default function Sell() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-brand-blue/10 to-purple-500/10">
-        <div className="container mx-auto px-4 py-10 md:py-14 text-center">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10" />
+        <div className="container relative mx-auto px-4 py-10 md:py-14 text-center">
           <h3 className="text-2xl font-bold mb-2">Ready to start?</h3>
-          <p className="text-gray-600 mb-4">Launch your store today. It only takes a few minutes.</p>
-          <Button className="bg-brand-blue hover:bg-brand-blue/90 h-11 px-8">Start selling</Button>
+          <p className="text-gray-600 mb-5">Launch your store today. It only takes a few minutes.</p>
+          <div className="flex items-center justify-center gap-3">
+            <Button className="h-11 px-8 rounded-full text-white font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 shadow-lg shadow-purple-500/20">Register now</Button>
+            <Button variant="outline" className="h-11 px-8 rounded-full">Schedule a demo</Button>
+          </div>
         </div>
       </section>
     </div>
