@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from "react";
 
 interface MapTrackerProps {
   status?: string;
+  backgroundImage?: string;
 }
 
-export default function MapTracker({ status = "Courier en route" }: MapTrackerProps) {
+export default function MapTracker({ status = "Courier en route", backgroundImage = "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75750016a6ad406da4059886b10be4f1?format=webp&width=800" }: MapTrackerProps) {
   const bikeRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
@@ -23,9 +24,10 @@ export default function MapTracker({ status = "Courier en route" }: MapTrackerPr
   }, []);
 
   return (
-    <div className="w-full h-56 rounded-xl border bg-[linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:20px_20px] relative overflow-hidden">
+    <div className="w-full h-56 rounded-xl border relative overflow-hidden">
+      <img src={backgroundImage} alt="Map background" className="absolute inset-0 w-full h-full object-cover opacity-90" />
       <div className="absolute inset-0 pointer-events-none">
-        <svg viewBox="0 0 100 100" className="w-full h-full text-brand-blue">
+        <svg viewBox="0 0 100 100" className="w-full h-full text-brand-blue mix-blend-multiply">
           <path d="M10 70 C 40 10, 60 10, 90 70" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="4 4" />
         </svg>
       </div>
