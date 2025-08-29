@@ -20,6 +20,7 @@ interface ProductCardProps {
   isWishlisted?: boolean;
   onWishlistToggle?: (id: string) => void;
   onAddToCart?: (id: string) => void;
+  badge?: string;
 }
 
 export default function ProductCard({
@@ -36,6 +37,7 @@ export default function ProductCard({
   isWishlisted,
   onWishlistToggle,
   onAddToCart,
+  badge,
 }: ProductCardProps) {
   const { isWishlisted: ctxIsWishlisted, toggle } = useWishlist();
   const { toast } = useToast();
@@ -71,6 +73,13 @@ export default function ProductCard({
           >
             {origin}
           </Badge>
+
+          {/* Optional Badge */}
+          {badge && (
+            <Badge className="absolute top-2 right-2 text-xs font-medium bg-brand-blue hover:bg-brand-blue/90">
+              {badge}
+            </Badge>
+          )}
 
           {/* Video Icon */}
           {hasVideo && (
