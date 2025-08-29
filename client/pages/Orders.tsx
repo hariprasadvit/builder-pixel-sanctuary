@@ -113,7 +113,8 @@ export default function Orders() {
           name: "Samsung Galaxy Buds Pro",
           image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F71434f1b6c444921b1f60218c7258242?format=webp&width=200",
           quantity: 1,
-          price: 149.99
+          price: 149.99,
+          category: "electronics"
         }
       ],
       shippingAddress: {
@@ -144,7 +145,8 @@ export default function Orders() {
           name: "Nike Air Max Running Shoes",
           image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F840cbc4d5c6c45b891684ac95917a774?format=webp&width=200",
           quantity: 1,
-          price: 89.99
+          price: 89.99,
+          category: "apparel"
         }
       ],
       shippingAddress: {
@@ -183,10 +185,16 @@ export default function Orders() {
 
   const getStatusBadge = (status: string) => {
     const statusConfig = {
-      delivered: { color: "bg-green-100 text-green-800", icon: CheckCircle },
-      "in-transit": { color: "bg-blue-100 text-blue-800", icon: Truck },
+      placed: { color: "bg-gray-100 text-gray-800", icon: Clock },
       processing: { color: "bg-yellow-100 text-yellow-800", icon: Clock },
-      cancelled: { color: "bg-red-100 text-red-800", icon: XCircle }
+      packed: { color: "bg-amber-100 text-amber-800", icon: Package },
+      shipped: { color: "bg-blue-100 text-blue-800", icon: Truck },
+      "out-for-delivery": { color: "bg-indigo-100 text-indigo-800", icon: Truck },
+      delivered: { color: "bg-green-100 text-green-800", icon: CheckCircle },
+      cancelled: { color: "bg-red-100 text-red-800", icon: XCircle },
+      "return-in-progress": { color: "bg-purple-100 text-purple-800", icon: RotateCcw },
+      refunded: { color: "bg-emerald-100 text-emerald-800", icon: CheckCircle },
+      "in-transit": { color: "bg-blue-100 text-blue-800", icon: Truck }
     };
 
     const config = statusConfig[status as keyof typeof statusConfig];
