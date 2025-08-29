@@ -301,6 +301,16 @@ export default function Layout({ children }: LayoutProps) {
               >
                 Orders
               </Link>
+              <Link
+                to="/support"
+                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
+                  isActiveTab("/support")
+                    ? "text-brand-blue"
+                    : "text-muted-foreground"
+                }`}
+              >
+                Support
+              </Link>
 
               {/* Desktop Menu Button */}
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -680,15 +690,15 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
 
           <Link
-            to="/videos"
+            to="/support"
             className={`flex flex-col items-center justify-center gap-1 ${
-              isActiveTab("/videos")
+              isActiveTab("/support")
                 ? "text-brand-blue"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            <Play className="w-5 h-5" />
-            <span className="text-xs">Videos</span>
+            <HelpCircle className="w-5 h-5" />
+            <span className="text-xs">Support</span>
           </Link>
 
           <Link
