@@ -195,23 +195,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const calculateDeliveryFee = (vendor: MarketplaceType, subtotal: number): number => {
-    const baseRates = {
+    const baseRates: Record<string, number> = {
       nearbuy: 2.99,
       uk: 4.99,
       china: 9.99
     };
-    
-    const freeDeliveryThresholds = {
+    const freeDeliveryThresholds: Record<string, number> = {
       nearbuy: 25,
       uk: 50,
       china: 100
     };
-    
-    if (subtotal >= freeDeliveryThresholds[vendor]) {
-      return 0;
-    }
-    
-    return baseRates[vendor];
+    const v = vendor || 'nearbuy';
+    if (subtotal >= (freeDeliveryThresholds[v] ?? 25)) return 0;
+    return baseRates[v] ?? 0;
   };
 
   const calculateTax = (subtotal: number): number => {
