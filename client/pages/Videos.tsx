@@ -81,7 +81,7 @@ export default function Videos() {
   };
 
   return (
-    <div className="h-[calc(100dvh-4rem)] bg-gray-50 relative">
+    <div className="fixed inset-x-0 top-16 bottom-0 bg-gray-50">
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
