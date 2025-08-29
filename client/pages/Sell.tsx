@@ -16,7 +16,7 @@ export default function Sell() {
               <Button className="h-11 px-6 rounded-full text-white font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 shadow-lg shadow-purple-500/20">Register for free</Button>
               <Button variant="outline" className="h-11 px-6 rounded-full">Talk to sales</Button>
             </div>
-            <div className="mt-4 text-xs text-gray-500">No long-term contracts • Low fees • Support in English/Hindi</div>
+            <div className="mt-4 text-xs text-gray-500">No long-term contracts • Low fees • UK‑based support</div>
           </div>
           {/* Illustration */}
           <div className="relative aspect-[4/3]">
@@ -80,7 +80,7 @@ export default function Sell() {
                 <CardContent className="p-5">
                   <div className="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold mb-3">{i+1}</div>
                   <div className="font-semibold mb-1">{s}</div>
-                  <div className="text-sm text-gray-600">{i===0?"Register your business and verify GST/PAN.":i===1?"Use our tools or CSV to publish products.":i===2?"Use Riky Logistics or your own courier.":"Weekly settlements to your bank account."}</div>
+                  <div className="text-sm text-gray-600">{i===0?"Register your business and verify UK company/VAT details.":i===1?"Use our tools or CSV to publish products.":i===2?"Use Royal Mail, DPD, Evri or your own courier.":"Fast payouts to your UK bank via Faster Payments."}</div>
                 </CardContent>
               </Card>
             ))}
@@ -88,11 +88,36 @@ export default function Sell() {
         </div>
       </section>
 
+      {/* UK Benefits */}
+      <section className="container mx-auto px-4 py-10 md:py-14">
+        <h2 className="text-2xl font-bold mb-6">Built for UK sellers</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Card>
+            <CardContent className="p-5">
+              <div className="font-semibold mb-1">GBP payouts</div>
+              <div className="text-sm text-gray-600">Next‑business‑day transfers to UK bank accounts via Faster Payments.</div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-5">
+              <div className="font-semibold mb-1">VAT‑ready invoices</div>
+              <div className="text-sm text-gray-600">Automatically add VAT and export records for HMRC.</div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-5">
+              <div className="font-semibold mb-1">UK shipping partners</div>
+              <div className="text-sm text-gray-600">Royal Mail, DPD, Evri and more with negotiated rates.</div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="container mx-auto px-4 py-10 md:py-14">
         <h2 className="text-2xl font-bold mb-6">Simple pricing</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          {[{name:"Starter", price:"0% + ₹10/order", features:["No monthly fees","Up to 50 orders/month","Basic analytics"]}, {name:"Growth", price:"5% + ₹5/order", features:["Priority placements","Coupons & ads","Chat support"]}, {name:"Pro", price:"8% flat", features:["Lower shipping rates","Advanced analytics","Dedicated manager"]}].map((plan)=> (
+          {[{name:"Starter", price:"0% + £0.20/order", features:["No monthly fees","Up to 50 orders/month","Basic analytics"]}, {name:"Growth", price:"5% + £0.10/order", features:["Priority placements","Coupons & ads","Chat support"]}, {name:"Pro", price:"8% flat", features:["Lower shipping rates","Advanced analytics","Dedicated manager"]}].map((plan)=> (
             <Card key={plan.name} className="relative">
               <CardHeader>
                 <CardTitle>{plan.name}</CardTitle>
