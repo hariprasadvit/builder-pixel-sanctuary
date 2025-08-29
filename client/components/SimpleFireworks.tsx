@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 
+import React, { useEffect, useRef, useState } from "react";
+
 interface FireworkParticle {
   id: number;
   x: number;
