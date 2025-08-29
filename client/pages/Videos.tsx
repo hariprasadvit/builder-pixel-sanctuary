@@ -83,7 +83,7 @@ export default function Videos() {
   return (
     <div className="fixed inset-x-0 top-16 bottom-0 bg-gray-50">
       {/* Video Feed */}
-      <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
+      <div className="h-full snap-y snap-mandatory overflow-y-auto scrollbar-hide flex flex-col items-center justify-start">
         {videos.map((video, index) => (
           <div key={video.id} className="snap-start flex-none h-full w-full flex items-center justify-center">
             {/* Video Frame with controls/info */}
