@@ -358,16 +358,6 @@ export default function Layout({ children }: LayoutProps) {
               >
                 Support
               </Link>
-              <Link
-                to="/coupons"
-                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
-                  isActiveTab("/coupons")
-                    ? "text-brand-blue"
-                    : "text-muted-foreground"
-                }`}
-              >
-                Coupons
-              </Link>
 
               {/* Desktop Menu Button */}
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
