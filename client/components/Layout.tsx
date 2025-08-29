@@ -333,16 +333,6 @@ export default function Layout({ children }: LayoutProps) {
                 Videos
               </Link>
               <Link
-                to="/brands"
-                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
-                  isActiveTab("/brands")
-                    ? "text-brand-blue"
-                    : "text-muted-foreground"
-                }`}
-              >
-                Brands
-              </Link>
-              <Link
                 to="/orders"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
                   isActiveTab("/orders")
