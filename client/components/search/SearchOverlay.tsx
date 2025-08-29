@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { searchCatalog, splitHighlight } from "@/lib/search";
 import { SAMPLE_CATALOG } from "@/lib/catalog";
-import { Mic, ScanLine, Search, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const RECENT_KEY = "recent:searches:v1";
@@ -57,6 +57,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
     navigate(`/search?q=${encodeURIComponent(s)}`);
   };
 
+  /* removed voice search */
   const startVoice = () => {
     const SR: any = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
     if (!SR) {
@@ -73,6 +74,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
     rec.start();
   };
 
+  /* removed barcode scan */
   const openScanner = () => {
     // Simple fallback: navigate to results with placeholder query
     onOpenChange(false);
@@ -89,10 +91,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input ref={inputRef} placeholder="Search products, categories, brands" value={query} onChange={(e) => setQuery(e.target.value)} className="pl-10 h-11 rounded-full shadow-sm" onKeyDown={(e) => { if (e.key === 'Enter') submit(); }} />
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
-              <Button variant="ghost" size="icon" onClick={startVoice}><Mic className="w-4 h-4" /></Button>
-              <Button variant="ghost" size="icon" onClick={openScanner}><ScanLine className="w-4 h-4" /></Button>
-            </div>
+            {/* voice and scan removed */}
           </div>
           <Button onClick={() => submit()} className="rounded-full">Search</Button>
         </div>
