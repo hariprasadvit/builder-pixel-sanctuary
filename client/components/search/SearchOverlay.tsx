@@ -3,7 +3,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { searchCatalog, splitHighlight } from "@/lib/search";
-import { CATALOG } from "@/lib/catalog";
+import { SAMPLE_CATALOG } from "@/lib/catalog";
 import { Mic, ScanLine, Search, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -152,7 +152,7 @@ export default function SearchOverlay({ open, onOpenChange }: Props) {
             <div className="space-y-2">
               <h4 className="text-sm font-semibold">Popular</h4>
               <div className="flex flex-wrap gap-2">
-                {CATALOG.slice(0, 6).map((p) => (
+                {SAMPLE_CATALOG.slice(0, 6).map((p) => (
                   <button key={p.id} className="px-3 py-1 rounded-full border text-sm" onClick={() => submit(p.title)}>{p.title.split(" ").slice(0,3).join(" ")}</button>
                 ))}
               </div>
