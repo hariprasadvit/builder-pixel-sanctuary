@@ -89,143 +89,57 @@ export default function Videos() {
       <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
           <div key={video.id} className="h-full w-full snap-start relative flex items-center justify-center">
-            {/* Video Frame */}
+            {/* Video Frame with controls/info */}
             <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5" style={{ height: '80vh', width: 'calc(80vh * 9 / 16)' }}>
               {video.youtubeId ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&mute=1&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
+                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=${playing?1:0}&mute=${isMuted?1:0}&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
                   title={video.title}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               ) : (
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <img src={video.thumbnail} alt={video.title} className="absolute inset-0 w-full h-full object-cover" />
               )}
 
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <Play className="w-8 h-8 text-white fill-white ml-1" />
+              {!playing && (
+                <button className="absolute inset-0 flex items-center justify-center" onClick={()=>setPlaying(true)}>
+                  <div className="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <Play className="w-8 h-8 text-white fill-white ml-1" />
+                  </div>
+                </button>
+              )}
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+              <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-3">
+                <Button variant="ghost" size="icon" className={`w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm ${video.isLiked?'text-brand-red':'text-white'}`} onClick={()=>toggleLike(video.id)}>
+                  <Heart className={`w-5 h-5 ${video.isLiked?'fill-current':''}`} />
+                </Button>
+                <Button variant="ghost" size="icon" className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white" onClick={()=>handleShare(video.id)}>
+                  <Share className="w-5 h-5" />
+                </Button>
+                <Button variant="ghost" size="icon" className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white">
+                  <MoreHorizontal className="w-5 h-5" />
+                </Button>
+              </div>
+
+              <div className="absolute left-3 right-3 bottom-16">
+                <Badge className={`${video.origin==='UK'?'bg-blue-600 hover:bg-blue-700':'bg-red-600 hover:bg-red-700'} mb-2`}>{video.origin}</Badge>
+                <p className="text-white font-semibold mb-1">@{video.vendor}</p>
+                <p className="text-white text-sm mb-2 line-clamp-2">{video.title}</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-white font-bold">£{video.price.toFixed(2)}</span>
+                  <Button size="sm" className="bg-brand-blue hover:bg-brand-blue/90 text-white" onClick={()=>addToCart(video.id)}>Add to Cart</Button>
                 </div>
               </div>
 
-              {/* Overlay for readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-            </div>
-
-            {/* Video Controls - Right Side */}
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-6">
-              {/* Like Button */}
-              <div className="flex flex-col items-center">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={`w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm ${
-                    video.isLiked ? "text-brand-red" : "text-white"
-                  }`}
-                  onClick={() => toggleLike(video.id)}
-                >
-                  <Heart
-                    className={`w-6 h-6 ${video.isLiked ? "fill-current" : ""}`}
-                  />
-                </Button>
-                <span className="text-white text-xs mt-1">
-                  {video.likes.toLocaleString()}
-                </span>
-              </div>
-
-              {/* Comments */}
-              <div className="flex flex-col items-center">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white"
-                >
-                  <MessageCircle className="w-6 h-6" />
-                </Button>
-                <span className="text-white text-xs mt-1">
-                  {video.comments}
-                </span>
-              </div>
-
-              {/* Share */}
-              <div className="flex flex-col items-center">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white"
-                  onClick={() => handleShare(video.id)}
-                >
-                  <Share className="w-6 h-6" />
-                </Button>
-                <span className="text-white text-xs mt-1">{video.shares}</span>
-              </div>
-
-              {/* More Options */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white"
-              >
-                <MoreHorizontal className="w-6 h-6" />
+              <Button variant="ghost" size="icon" className="absolute top-2 right-2 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm text-white" onClick={()=>setIsMuted(!isMuted)}>
+                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </Button>
             </div>
-
-            {/* Video Info - Bottom Left */}
-            <div className="absolute left-4 bottom-20 right-20">
-              {/* Origin Badge */}
-              <Badge
-                className={`mb-3 ${
-                  video.origin === "UK"
-                    ? "bg-blue-600 hover:bg-blue-700"
-                    : "bg-red-600 hover:bg-red-700"
-                }`}
-              >
-                {video.origin}
-              </Badge>
-
-              {/* Vendor */}
-              <p className="text-white font-semibold mb-2">@{video.vendor}</p>
-
-              {/* Title */}
-              <p className="text-white text-sm mb-3 line-clamp-2">
-                {video.title}
-              </p>
-
-              {/* Price & Add to Cart */}
-              <div className="flex items-center gap-3">
-                <span className="text-white text-lg font-bold">
-                  £{video.price.toFixed(2)}
-                </span>
-                <Button
-                  size="sm"
-                  className="bg-brand-blue hover:bg-brand-blue/90 text-white"
-                  onClick={() => addToCart(video.id)}
-                >
-                  Add to Cart
-                </Button>
-              </div>
-            </div>
-
-            {/* Mute/Unmute Button - Top Right */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white"
-              onClick={() => setIsMuted(!isMuted)}
-            >
-              {isMuted ? (
-                <VolumeX className="w-5 h-5" />
-              ) : (
-                <Volume2 className="w-5 h-5" />
-              )}
-            </Button>
           </div>
         ))}
       </div>
