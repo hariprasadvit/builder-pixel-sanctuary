@@ -231,20 +231,6 @@ export default function PaymentSuccess() {
               </a>
             </p>
 
-            {/* Debug: Manual firework trigger */}
-            <div className="pt-4 border-t border-gray-200">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  console.log('Manual celebrate again button clicked');
-                  triggerFireworks();
-                }}
-                className="text-xs text-gray-500 hover:text-gray-700"
-              >
-                🎆 Celebrate Again
-              </Button>
-            </div>
           </div>
         </div>
       </div>
