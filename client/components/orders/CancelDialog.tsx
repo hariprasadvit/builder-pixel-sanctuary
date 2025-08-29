@@ -89,7 +89,7 @@ export default function CancelDialog({ open, onOpenChange, orderId, status, item
                   </div>
                 ))}
               </RadioGroup>
-              <p className="text-xs text-gray-600 mt-2">Refunds: Prepaid → original method/Riki Wallet; COD → bank/UPI/Riki Wallet. Refund 3–7 business days.</p>
+              <p className="text-xs text-gray-600 mt-2">Refunds: Prepaid → original method; COD → bank/UPI. Refund 3–7 business days.</p>
             </div>
           ) : (
             <div className="space-y-2">
