@@ -125,13 +125,14 @@ export default function Layout({ children }: LayoutProps) {
 
   const menuItems = [
     { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600" },
-    { id: "brands", label: "Brands", icon: Award, color: "text-purple-600" },
-    { id: "newest", label: "Newest", icon: Star, color: "text-blue-600" },
+    { id: "brands", label: "Brands", icon: Award, color: "text-purple-600", to: "/brands" },
+    { id: "newest", label: "Newest", icon: Star, color: "text-blue-600", to: "/newest" },
     {
       id: "bestsellers",
       label: "Bestsellers",
       icon: TrendingUp,
       color: "text-green-600",
+      to: "/bestsellers",
     },
     { id: "sale", label: "On sale", icon: Tag, color: "text-orange-600" },
   ];
