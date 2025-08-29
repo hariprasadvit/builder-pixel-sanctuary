@@ -62,6 +62,7 @@ export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const { currentMarketplace, setMarketplace, getMarketplaceLabel } =
     useMarketplace();
+  const navigate = useNavigate();
   const {
     currentAddress,
     savedAddresses,
