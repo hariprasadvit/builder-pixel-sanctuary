@@ -134,6 +134,7 @@ export default function Layout({ children }: LayoutProps) {
       color: "text-green-600",
       to: "/bestsellers",
     },
+    { id: "coupons", label: "Coupons", icon: Tag, color: "text-amber-600", to: "/coupons" },
     { id: "sale", label: "On sale", icon: Tag, color: "text-orange-600" },
   ];
 
@@ -356,6 +357,16 @@ export default function Layout({ children }: LayoutProps) {
                 }`}
               >
                 Support
+              </Link>
+              <Link
+                to="/coupons"
+                className={`text-sm font-medium transition-colors hover:text-brand-blue ${
+                  isActiveTab("/coupons")
+                    ? "text-brand-blue"
+                    : "text-muted-foreground"
+                }`}
+              >
+                Coupons
               </Link>
 
               {/* Desktop Menu Button */}

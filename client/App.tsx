@@ -34,6 +34,7 @@ import BrandDetail from "./pages/BrandDetail";
 import Newest from "./pages/Newest";
 import Bestsellers from "./pages/Bestsellers";
 import Sell from "./pages/Sell";
+import Coupons from "./pages/Coupons";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -76,6 +77,7 @@ const App = () => (
                     <Route path="/newest" element={<Newest />} />
                     <Route path="/bestsellers" element={<Bestsellers />} />
                     <Route path="/sell" element={<Sell />} />
+                    <Route path="/coupons" element={<Coupons />} />
                     <Route path="/search" element={<SearchResults />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

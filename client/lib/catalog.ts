@@ -118,7 +118,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "iPad Air 11‑inch (M2)",
     price: 599.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2fdc4ff712c742b48b5f10e46b15af5a?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F94fe3d4c825842839ba8c6cf6af93776?format=webp&width=800",
     category: "Tablets",
     brand: "Apple",
     rating: 4.8,
@@ -130,7 +130,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "iPad Pro 13‑inch (M4)",
     price: 999.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F319deb5bd62f44adbe76dee2d2c91558?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F96af323704e7492b9197d97f91f71bfb?format=webp&width=800",
     category: "Tablets",
     brand: "Apple",
     rating: 4.9,
@@ -142,7 +142,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "MacBook Air 13‑inch (M3)",
     price: 1099.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8ceaa469e146ff9bea81806abc63a1?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2109e9ea1ecc479aa336ac515f8c5a8d?format=webp&width=800",
     category: "Laptops",
     brand: "Apple",
     rating: 4.8,
@@ -154,7 +154,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "MacBook Pro 14‑inch (M3)",
     price: 1899.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa6a27f8d49eb4361a224932f357cf1af?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F408e8b67e72c44d6808e704cdb0ad1e8?format=webp&width=800",
     category: "Laptops",
     brand: "Apple",
     rating: 4.9,
