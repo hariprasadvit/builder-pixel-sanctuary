@@ -20,7 +20,8 @@ export default function Videos() {
   const videos = [
     {
       id: "1",
-      thumbnail: "/placeholder.svg",
+      youtubeId: "HfiEy9Rh2cQ",
+      thumbnail: "https://img.youtube.com/vi/HfiEy9Rh2cQ/hqdefault.jpg",
       title: "iPhone 15 Pro Max Unboxing & First Look",
       vendor: "TechStore UK",
       price: 1199.99,
@@ -32,7 +33,8 @@ export default function Videos() {
     },
     {
       id: "2",
-      thumbnail: "/placeholder.svg",
+      youtubeId: "O3oFfbIXTOA",
+      thumbnail: "https://img.youtube.com/vi/O3oFfbIXTOA/hqdefault.jpg",
       title: "Xiaomi Smart Home Setup in 60 Seconds",
       vendor: "Smart Living China",
       price: 89.99,
@@ -44,7 +46,8 @@ export default function Videos() {
     },
     {
       id: "3",
-      thumbnail: "/placeholder.svg",
+      youtubeId: "asaqTyqU9hU",
+      thumbnail: "https://img.youtube.com/vi/asaqTyqU9hU/hqdefault.jpg",
       title: "Nike Air Max Custom Design Process",
       vendor: "Sneaker Hub UK",
       price: 159.99,
@@ -81,18 +84,29 @@ export default function Videos() {
   };
 
   return (
-    <div className="h-screen bg-black overflow-hidden relative">
+    <div className="h-screen bg-amber-50 overflow-hidden relative">
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
           <div key={video.id} className="h-full w-full snap-start relative flex items-center justify-center">
             {/* Video Frame */}
-            <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-xl w-full max-w-[420px] aspect-[9/16]">
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 w-full max-w-[420px] aspect-[9/16]">
+              {video.youtubeId ? (
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&mute=1&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
 
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -101,8 +115,8 @@ export default function Videos() {
                 </div>
               </div>
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              {/* Subtle overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Video Controls - Right Side */}
