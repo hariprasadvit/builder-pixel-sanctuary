@@ -69,8 +69,28 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>(() => {
-    const saved = localStorage.getItem("cartItems");
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem("cartItems");
+      if (!saved) return [] as CartItem[];
+      const parsed = JSON.parse(saved);
+      if (!Array.isArray(parsed)) return [] as CartItem[];
+      const validVendors = new Set(["nearbuy","uk","china"]);
+      return parsed.filter((it: any) => it && typeof it === 'object' && typeof it.id === 'string' && typeof it.name === 'string' && typeof it.price === 'number' && typeof it.image === 'string' && validVendors.has(it.vendor || 'nearbuy')).map((it: any) => ({
+        id: it.id,
+        name: it.name,
+        price: it.price,
+        originalPrice: typeof it.originalPrice === 'number' ? it.originalPrice : undefined,
+        image: it.image,
+        vendor: validVendors.has(it.vendor) ? it.vendor : 'nearbuy',
+        vendorName: it.vendorName || 'Nearbuy Marketplace',
+        quantity: Math.max(1, Number(it.quantity) || 1),
+        attributes: it.attributes || undefined,
+        shippingWeight: typeof it.shippingWeight === 'number' ? it.shippingWeight : undefined,
+        category: typeof it.category === 'string' ? it.category : 'General',
+      })) as CartItem[];
+    } catch {
+      return [] as CartItem[];
+    }
   });
   
   const [appliedCoupons, setAppliedCoupons] = useState<AppliedCoupon[]>(() => {
