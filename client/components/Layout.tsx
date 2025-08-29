@@ -550,6 +550,11 @@ export default function Layout({ children }: LayoutProps) {
                     <div className="text-sm text-muted-foreground">
                       {address.pincode} {address.city}, {address.state}
                     </div>
+                    <div className="mt-2 flex gap-2">
+                      {!address.isDefault && (
+                        <Button variant="outline" size="sm" onClick={(e)=>{ e.stopPropagation(); setDefault(address.id); }}>Set default</Button>
+                      )}
+                    </div>
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
