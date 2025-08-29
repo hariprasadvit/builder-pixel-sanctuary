@@ -19,6 +19,7 @@ import {
   Users,
   Phone,
   HelpCircle,
+  Bell,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SearchOverlay from "@/components/search/SearchOverlay";
@@ -79,6 +80,12 @@ export default function Layout({ children }: LayoutProps) {
   const [mobileQuery, setMobileQuery] = useState("");
   const mobileResults = useMemo(() => (mobileQuery ? searchCatalog(mobileQuery, 8) : null), [mobileQuery]);
   const [addressModalOpen, setAddressModalOpen] = useState(false);
+  const [notifications, setNotifications] = useState<{id:string; text:string; read:boolean}[]>([
+    { id: "1", text: "Order ORD-2024-002 is out for delivery", read: false },
+    { id: "2", text: "Price drop on items in your wishlist", read: false },
+    { id: "3", text: "Your return pickup is scheduled for today", read: true },
+  ]);
+  const unseenCount = useMemo(() => notifications.filter(n=>!n.read).length, [notifications]);
 
   async function detectMyLocation() {
     if (!navigator.geolocation) {
@@ -481,6 +488,31 @@ export default function Layout({ children }: LayoutProps) {
                 </Button>
               </Link>
 
+              {/* Notifications */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="relative">
+                    <Bell className="w-5 h-5" />
+                    {unseenCount > 0 && (
+                      <Badge className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center p-0 text-xs bg-red-500 text-white">{unseenCount}</Badge>
+                    )}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-80">
+                  <div className="px-3 py-2 flex items-center justify-between">
+                    <span className="text-sm font-medium">Notifications</span>
+                    <button className="text-xs text-brand-blue" onClick={() => setNotifications(prev=>prev.map(n=>({...n, read:true})))}>Mark all read</button>
+                  </div>
+                  <div className="max-h-80 overflow-auto">
+                    {notifications.map(n => (
+                      <button key={n.id} className={`w-full text-left px-3 py-2 text-sm ${n.read? 'text-gray-600' : 'bg-blue-50'}`} onClick={()=> setNotifications(prev=>prev.map(x=> x.id===n.id? {...x, read:true}: x))}>
+                        {n.text}
+                      </button>
+                    ))}
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               {/* Cart */}
               <Link to="/cart">
                 <Button variant="ghost" size="icon" className="relative">
@@ -639,8 +671,6 @@ export default function Layout({ children }: LayoutProps) {
                 <ul className="space-y-2">
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">About Riky</a></li>
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Careers</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Press Releases</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Science</a></li>
                 </ul>
               </div>
 
@@ -663,10 +693,8 @@ export default function Layout({ children }: LayoutProps) {
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Protect and Build Your Brand</a></li>
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Global Selling</a></li>
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Supply to Riky</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Become an Affiliate</a></li>
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Fulfilment by Riky</a></li>
                   <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Advertise Your Products</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Pay on Merchants</a></li>
                 </ul>
               </div>
 
