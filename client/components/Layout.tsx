@@ -263,7 +263,7 @@ export default function Layout({ children }: LayoutProps) {
 
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-6 ml-auto">
               <Link
                 to="/categories"
                 className={`text-sm font-medium transition-colors hover:text-brand-blue ${
