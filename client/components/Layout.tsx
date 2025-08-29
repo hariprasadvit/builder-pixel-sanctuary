@@ -184,7 +184,8 @@ export default function Layout({ children }: LayoutProps) {
                             key={item.id}
                             className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
                             onClick={() => {
-                              console.log(`Selected: ${item.label}`);
+                              // @ts-ignore
+                              if (item.to) navigate(item.to);
                               setIsMenuOpen(false);
                             }}
                           >
@@ -211,7 +212,8 @@ export default function Layout({ children }: LayoutProps) {
                             key={item.id}
                             className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
                             onClick={() => {
-                              console.log(`Selected: ${item.label}`);
+                              // @ts-ignore
+                              if (item.to) navigate(item.to);
                               setIsMenuOpen(false);
                             }}
                           >
@@ -385,7 +387,8 @@ export default function Layout({ children }: LayoutProps) {
                             key={item.id}
                             className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
                             onClick={() => {
-                              console.log(`Selected: ${item.label}`);
+                              // @ts-ignore
+                              if (item.to) navigate(item.to);
                               setIsMenuOpen(false);
                             }}
                           >
@@ -412,7 +415,8 @@ export default function Layout({ children }: LayoutProps) {
                             key={item.id}
                             className="w-full flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors text-left"
                             onClick={() => {
-                              console.log(`Selected: ${item.label}`);
+                              // @ts-ignore
+                              if (item.to) navigate(item.to);
                               setIsMenuOpen(false);
                             }}
                           >
