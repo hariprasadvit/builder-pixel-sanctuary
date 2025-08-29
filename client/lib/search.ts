@@ -1,6 +1,6 @@
-import { CATALOG, CatalogProduct } from "./catalog";
+import { SAMPLE_CATALOG, CatalogProduct } from "./catalog";
 
-import { CATALOG, CatalogProduct } from "./catalog";
+import { SAMPLE_CATALOG, CatalogProduct } from "./catalog";
 
 export interface SearchResult {
   products: CatalogProduct[];
@@ -10,7 +10,7 @@ export interface SearchResult {
 
 export function searchCatalog(query: string, limit = 20): SearchResult {
   const q = query.trim().toLowerCase();
-  const products = CATALOG.filter(
+  const products = SAMPLE_CATALOG.filter(
     (p) =>
       p.title.toLowerCase().includes(q) ||
       p.category.toLowerCase().includes(q) ||
