@@ -17,6 +17,7 @@ import Laptops from "./pages/Laptops";
 import Cellphones from "./pages/Cellphones";
 import Videos from "./pages/Videos";
 import Support from "./pages/Support";
+import Contact from "./pages/Contact";
 import SupportChat from "./pages/SupportChat";
 import HelpCenter from "./pages/HelpCenter";
 import Cart from "./pages/Cart";
@@ -72,6 +73,7 @@ const App = () => (
                           <Route path="/videos" element={<Videos />} />
                           <Route path="/Videos" element={<Videos />} />
                           <Route path="/support" element={<Support />} />
+                          <Route path="/contact" element={<Contact />} />
                           <Route
                             path="/support/chat"
                             element={<SupportChat />}
