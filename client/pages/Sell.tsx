@@ -17,33 +17,31 @@ export default function Sell() {
               <Button variant="outline" className="h-11 px-6 rounded-full">Talk to sales</Button>
             </div>
             <div className="mt-4 text-xs text-gray-500">No long-term contracts • Low fees • UK‑based support</div>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+              <span className="px-2 py-1 rounded-full bg-green-100 text-green-700">VAT‑ready invoices</span>
+              <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-700">GBP payouts</span>
+              <span className="px-2 py-1 rounded-full bg-purple-100 text-purple-700">UK shipping partners</span>
+            </div>
           </div>
-          {/* Illustration */}
-          <div className="relative aspect-[4/3]">
+          {/* Hero Image */}
+          <div className="relative">
             <div className="absolute -top-8 -left-6 w-40 h-40 rounded-full bg-blue-200/60 blur-2xl" />
             <div className="absolute -bottom-10 -right-6 w-48 h-48 rounded-full bg-purple-200/60 blur-2xl" />
-            <Card className="absolute inset-6 shadow-xl">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-3 mb-4">
-                  <Store className="w-6 h-6 text-brand-blue"/>
-                  <div className="font-semibold">Your storefront</div>
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-2"><Package className="w-5 h-5 text-brand-blue"/><span className="text-sm">Inventory</span></CardContent></Card>
-                  <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-2"><CreditCard className="w-5 h-5 text-brand-blue"/><span className="text-sm">Payments</span></CardContent></Card>
-                  <Card className="shadow-sm"><CardContent className="p-4 flex items-center gap-2"><Globe2 className="w-5 h-5 text-brand-blue"/><span className="text-sm">Reach</span></CardContent></Card>
-                </div>
-                <div className="mt-4 flex items-center justify-between bg-gray-50 rounded-md p-3">
-                  <div className="text-sm">
-                    <div className="font-semibold">First payout</div>
-                    <div className="text-gray-600">In 7 days</div>
-                  </div>
-                  <Button className="rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white">Start</Button>
-                </div>
+            <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-xl">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75816dd02f8047909d3ab1256a324bc8?format=webp&width=1200" alt="British small business owner" className="w-full h-full object-cover" />
+            </div>
+            <Card className="absolute left-4 top-4 shadow-lg">
+              <CardContent className="p-3 text-xs">
+                <div className="font-semibold">GBP payouts</div>
+                <div className="text-gray-600">Next‑day to UK banks</div>
               </CardContent>
             </Card>
-            <Card className="absolute -right-3 -top-3 w-28 rotate-6 shadow-lg"><CardContent className="p-3 text-xs flex items-center gap-2"><TrendingUp className="w-4 h-4 text-green-600"/>+34% sales</CardContent></Card>
-            <Card className="absolute -left-4 bottom-8 w-32 -rotate-6 shadow-lg"><CardContent className="p-3 text-xs flex items-center gap-2"><Shield className="w-4 h-4 text-blue-600"/>Protected</CardContent></Card>
+            <Card className="absolute right-4 bottom-4 shadow-lg">
+              <CardContent className="p-3 text-xs">
+                <div className="font-semibold">Low shipping rates</div>
+                <div className="text-gray-600">Royal Mail • DPD • Evri</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
