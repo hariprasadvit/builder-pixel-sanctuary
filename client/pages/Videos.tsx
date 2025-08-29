@@ -85,7 +85,7 @@ export default function Videos() {
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
-          <div key={video.id} className="h-full w-full snap-start flex items-center justify-center">
+          <div key={video.id} className="snap-start flex-none h-full w-full flex items-center justify-center">
             {/* Video Frame with controls/info */}
             <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 h-full aspect-[9/16]">
               {video.youtubeId ? (
