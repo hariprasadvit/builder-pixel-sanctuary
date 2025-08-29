@@ -21,6 +21,7 @@ interface ProductCardProps {
   onWishlistToggle?: (id: string) => void;
   onAddToCart?: (id: string) => void;
   badge?: string;
+  saleEndsAt?: number;
 }
 
 export default function ProductCard({
