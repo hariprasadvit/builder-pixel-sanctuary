@@ -52,6 +52,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import AddAddressModal from "@/components/addresses/AddAddressModal";
 
 interface LayoutProps {
   children: ReactNode;
@@ -76,6 +77,7 @@ export default function Layout({ children }: LayoutProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileQuery, setMobileQuery] = useState("");
   const mobileResults = useMemo(() => (mobileQuery ? searchCatalog(mobileQuery, 8) : null), [mobileQuery]);
+  const [addressModalOpen, setAddressModalOpen] = useState(false);
 
   async function detectMyLocation() {
     if (!navigator.geolocation) {
@@ -106,14 +108,7 @@ export default function Layout({ children }: LayoutProps) {
   };
 
   function addNewAddressManual() {
-    const label = window.prompt("Label (Home, Office, etc.)", "Home") || "Home";
-    const address = window.prompt("Address line", "123 Main Street") || "";
-    const pincode = window.prompt("Postal code", "400001") || "";
-    const city = window.prompt("City", "Mumbai") || "";
-    const state = window.prompt("State", "Maharashtra") || "";
-    if (!address || !pincode || !city) return;
-    const created = addAddress({ type: "other", label, address, pincode, city, state, isDefault: false });
-    setCurrentAddress(created);
+    setAddressModalOpen(true);
   }
 
   // Track scroll position to hide mobile search/delivery on scroll
@@ -617,6 +612,7 @@ export default function Layout({ children }: LayoutProps) {
       <main className="pb-20 md:pb-0">{children}</main>
 
       <SearchOverlay open={searchOpen} onOpenChange={setSearchOpen} />
+      <AddAddressModal open={addressModalOpen} onOpenChange={setAddressModalOpen} />
 
       {/* Desktop Footer - Hidden on Mobile */}
       <footer className="hidden md:block bg-slate-800 text-white">
