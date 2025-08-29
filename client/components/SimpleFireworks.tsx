@@ -50,6 +50,7 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
   useEffect(() => {
     if (!isActive) {
       setParticles([]);
+      idRef.current = 0;
       return;
     }
 
