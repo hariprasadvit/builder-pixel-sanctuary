@@ -1,7 +1,5 @@
 import { SAMPLE_CATALOG, CatalogProduct } from "./catalog";
 
-import { SAMPLE_CATALOG, CatalogProduct } from "./catalog";
-
 export interface SearchResult {
   products: CatalogProduct[];
   categories: { name: string; count: number }[];
