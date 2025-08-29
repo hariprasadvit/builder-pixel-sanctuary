@@ -43,28 +43,41 @@ export default function ProductCard({
 }: ProductCardProps) {
   const { isWishlisted: ctxIsWishlisted, toggle } = useWishlist();
   const { toast } = useToast();
-  const wishlisted = (typeof isWishlisted === 'boolean' ? isWishlisted : ctxIsWishlisted(id));
+  const wishlisted =
+    typeof isWishlisted === "boolean" ? isWishlisted : ctxIsWishlisted(id);
   const handleWishlistToggle = () => {
-    const payload = { id, name: title, price, originalPrice, image, category: undefined, inStock: true };
+    const payload = {
+      id,
+      name: title,
+      price,
+      originalPrice,
+      image,
+      category: undefined,
+      inStock: true,
+    };
     if (onWishlistToggle) {
       onWishlistToggle(id);
     } else {
       toggle(payload);
     }
     const nowWishlisted = !wishlisted;
-    toast({ title: nowWishlisted ? 'Added to Wishlist.' : 'Removed from Wishlist.' });
+    toast({
+      title: nowWishlisted ? "Added to Wishlist." : "Removed from Wishlist.",
+    });
   };
   const [now, setNow] = React.useState(Date.now());
-  React.useEffect(()=>{
-    if(!saleEndsAt) return;
-    const id = setInterval(()=> setNow(Date.now()), 1000);
+  React.useEffect(() => {
+    if (!saleEndsAt) return;
+    const id = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(id);
   }, [saleEndsAt]);
   const timeLeft = saleEndsAt ? Math.max(0, saleEndsAt - now) : 0;
-  const hh = Math.floor(timeLeft/3600000);
-  const mm = Math.floor((timeLeft%3600000)/60000);
-  const ss = Math.floor((timeLeft%60000)/1000);
-  const timerLabel = saleEndsAt ? `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}` : null;
+  const hh = Math.floor(timeLeft / 3600000);
+  const mm = Math.floor((timeLeft % 3600000) / 60000);
+  const ss = Math.floor((timeLeft % 60000) / 1000);
+  const timerLabel = saleEndsAt
+    ? `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`
+    : null;
   return (
     <Card className="group relative overflow-hidden hover:shadow-lg transition-shadow duration-200">
       <CardContent className="p-0">
@@ -120,9 +133,7 @@ export default function ProductCard({
               handleWishlistToggle();
             }}
           >
-            <Heart
-              className={`w-4 h-4 ${wishlisted ? "fill-current" : ""}`}
-            />
+            <Heart className={`w-4 h-4 ${wishlisted ? "fill-current" : ""}`} />
           </Button>
 
           {/* Delivery ETA Pill */}

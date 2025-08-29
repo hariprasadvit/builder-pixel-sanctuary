@@ -17,7 +17,7 @@ import {
   Search,
   Trash2,
   CheckSquare,
-  Square
+  Square,
 } from "lucide-react";
 
 export default function Wishlist() {
@@ -34,9 +34,9 @@ export default function Wishlist() {
       items.filter(
         (i) =>
           i.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          (i.category || "").toLowerCase().includes(searchQuery.toLowerCase())
+          (i.category || "").toLowerCase().includes(searchQuery.toLowerCase()),
       ),
-    [items, searchQuery]
+    [items, searchQuery],
   );
 
   const currency = getCurrencySymbol();
@@ -73,7 +73,7 @@ export default function Wishlist() {
     toast({ title: "Moved to Cart." });
   };
 
-  const shareItem = async (it: typeof items[number]) => {
+  const shareItem = async (it: (typeof items)[number]) => {
     const url = `${window.location.origin}/product/${it.id}`;
     const text = `Check this out on Riki: ${it.name} - ${currency}${it.price.toFixed(2)}\n${url}`;
     if ((navigator as any).share) {
@@ -88,16 +88,17 @@ export default function Wishlist() {
 
   const RecommendationBanner = () => {
     if (items.length === 0) return null;
-    const topCategory =
-      items
-        .map((i) => i.category)
-        .filter(Boolean)
-        .reduce<Record<string, number>>((acc, c) => {
-          if (!c) return acc;
-          acc[c] = (acc[c] || 0) + 1;
-          return acc;
-        }, {});
-    const best = Object.entries(topCategory).sort((a, b) => b[1] - a[1])[0]?.[0];
+    const topCategory = items
+      .map((i) => i.category)
+      .filter(Boolean)
+      .reduce<Record<string, number>>((acc, c) => {
+        if (!c) return acc;
+        acc[c] = (acc[c] || 0) + 1;
+        return acc;
+      }, {});
+    const best = Object.entries(topCategory).sort(
+      (a, b) => b[1] - a[1],
+    )[0]?.[0];
     return (
       <Card className="mb-6">
         <CardContent className="p-4 flex items-center justify-between">
@@ -107,20 +108,24 @@ export default function Wishlist() {
             </p>
           </div>
           <Link to="/categories">
-            <Button variant="outline" size="sm">Explore</Button>
+            <Button variant="outline" size="sm">
+              Explore
+            </Button>
           </Link>
         </CardContent>
       </Card>
     );
   };
 
-  const ItemCard = ({ it }: { it: typeof items[number] }) => {
-    const percentDrop = it.originalPrice && it.originalPrice > it.price
-      ? Math.round(((it.originalPrice - it.price) / it.originalPrice) * 100)
-      : 0;
-    const dropAmt = it.originalPrice && it.originalPrice > it.price
-      ? it.originalPrice - it.price
-      : 0;
+  const ItemCard = ({ it }: { it: (typeof items)[number] }) => {
+    const percentDrop =
+      it.originalPrice && it.originalPrice > it.price
+        ? Math.round(((it.originalPrice - it.price) / it.originalPrice) * 100)
+        : 0;
+    const dropAmt =
+      it.originalPrice && it.originalPrice > it.price
+        ? it.originalPrice - it.price
+        : 0;
 
     const checked = !!selected[it.id];
 
@@ -128,50 +133,84 @@ export default function Wishlist() {
       <Card className="group hover:shadow-lg transition-all">
         <CardContent className="p-0">
           <div className="relative">
-            <img src={it.image} alt={it.name} className="w-full h-40 object-cover rounded-t-lg" />
+            <img
+              src={it.image}
+              alt={it.name}
+              className="w-full h-40 object-cover rounded-t-lg"
+            />
             {percentDrop > 0 && (
-              <Badge className="absolute top-2 left-2 bg-red-600">-{percentDrop}%</Badge>
+              <Badge className="absolute top-2 left-2 bg-red-600">
+                -{percentDrop}%
+              </Badge>
             )}
             {!it.inStock && (
-              <Badge className="absolute top-2 right-2 bg-gray-600">Currently unavailable</Badge>
+              <Badge className="absolute top-2 right-2 bg-gray-600">
+                Currently unavailable
+              </Badge>
             )}
             <button
               className="absolute bottom-2 left-2 w-8 h-8 rounded bg-white/90 border flex items-center justify-center"
               onClick={() => setSelected((s) => ({ ...s, [it.id]: !checked }))}
             >
-              {checked ? <CheckSquare className="w-4 h-4" /> : <Square className="w-4 h-4" />}
+              {checked ? (
+                <CheckSquare className="w-4 h-4" />
+              ) : (
+                <Square className="w-4 h-4" />
+              )}
             </button>
           </div>
           <div className="p-4">
-            <h3 className="font-medium text-sm line-clamp-2 min-h-[2.5rem]">{it.name}</h3>
+            <h3 className="font-medium text-sm line-clamp-2 min-h-[2.5rem]">
+              {it.name}
+            </h3>
             <div className="flex items-center gap-2 mt-1">
-              <span className="font-semibold">{currency}{it.price.toFixed(2)}</span>
+              <span className="font-semibold">
+                {currency}
+                {it.price.toFixed(2)}
+              </span>
               {it.originalPrice && it.originalPrice > it.price && (
-                <span className="text-xs text-gray-500 line-through">{currency}{it.originalPrice.toFixed(2)}</span>
+                <span className="text-xs text-gray-500 line-through">
+                  {currency}
+                  {it.originalPrice.toFixed(2)}
+                </span>
               )}
             </div>
             {dropAmt > 0 && (
-              <p className="text-xs text-green-700 mt-1">Price dropped by {currency}{dropAmt.toFixed(2)}</p>
+              <p className="text-xs text-green-700 mt-1">
+                Price dropped by {currency}
+                {dropAmt.toFixed(2)}
+              </p>
             )}
             <div className="flex gap-2 mt-3">
-              <Button size="sm" disabled={it.inStock === false} onClick={() => {
-                addToCart({
-                  id: it.id,
-                  name: it.name,
-                  price: it.price,
-                  originalPrice: it.originalPrice || undefined,
-                  image: it.image,
-                  vendor: it.vendor || "nearbuy",
-                  vendorName: "Wishlist",
-                  category: it.category || "General",
-                  shippingWeight: 1.0,
-                });
-                toggle(it);
-                toast({ title: "Moved to Cart" });
-              }}>
+              <Button
+                size="sm"
+                disabled={it.inStock === false}
+                onClick={() => {
+                  addToCart({
+                    id: it.id,
+                    name: it.name,
+                    price: it.price,
+                    originalPrice: it.originalPrice || undefined,
+                    image: it.image,
+                    vendor: it.vendor || "nearbuy",
+                    vendorName: "Wishlist",
+                    category: it.category || "General",
+                    shippingWeight: 1.0,
+                  });
+                  toggle(it);
+                  toast({ title: "Moved to Cart" });
+                }}
+              >
                 <ShoppingCart className="w-4 h-4 mr-2" /> Move to Cart
               </Button>
-              <Button variant="outline" size="sm" onClick={() => { toggle(it); toast({ title: "Removed from Wishlist." }); }}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  toggle(it);
+                  toast({ title: "Removed from Wishlist." });
+                }}
+              >
                 <Trash2 className="w-4 h-4 mr-2" /> Remove
               </Button>
               <Button variant="outline" size="sm" onClick={() => shareItem(it)}>
@@ -191,7 +230,9 @@ export default function Wishlist() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
             <Heart className="w-8 h-8 text-red-500" /> My Wishlist
           </h1>
-          <p className="text-gray-600">{items.length} {items.length === 1 ? "item" : "items"} saved</p>
+          <p className="text-gray-600">
+            {items.length} {items.length === 1 ? "item" : "items"} saved
+          </p>
         </div>
 
         {items.length > 0 ? (
@@ -201,19 +242,52 @@ export default function Wishlist() {
                 <div className="flex gap-2 items-center w-full md:w-auto">
                   <div className="relative flex-1 md:w-80">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-                    <Input placeholder="Search wishlist..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" />
+                    <Input
+                      placeholder="Search wishlist..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10"
+                    />
                   </div>
-                  <Button variant={view === "grid" ? "default" : "outline"} size="icon" onClick={() => setView("grid")}>
+                  <Button
+                    variant={view === "grid" ? "default" : "outline"}
+                    size="icon"
+                    onClick={() => setView("grid")}
+                  >
                     <Grid3X3 className="w-4 h-4" />
                   </Button>
-                  <Button variant={view === "list" ? "default" : "outline"} size="icon" onClick={() => setView("list")}>
+                  <Button
+                    variant={view === "list" ? "default" : "outline"}
+                    size="icon"
+                    onClick={() => setView("list")}
+                  >
                     <List className="w-4 h-4" />
                   </Button>
                 </div>
                 <div className="flex gap-2 w-full md:w-auto">
-                  <Button variant="outline" disabled={!anySelected} onClick={bulkMoveToCart}>Move Selected to Cart</Button>
-                  <Button variant="outline" disabled={!anySelected} onClick={bulkRemove}><Trash2 className="w-4 h-4 mr-2" /> Remove Selected</Button>
-                  <Button variant="outline" onClick={() => { clear(); toast({ title: 'Cleared Wishlist.' }); }}>Clear All</Button>
+                  <Button
+                    variant="outline"
+                    disabled={!anySelected}
+                    onClick={bulkMoveToCart}
+                  >
+                    Move Selected to Cart
+                  </Button>
+                  <Button
+                    variant="outline"
+                    disabled={!anySelected}
+                    onClick={bulkRemove}
+                  >
+                    <Trash2 className="w-4 h-4 mr-2" /> Remove Selected
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      clear();
+                      toast({ title: "Cleared Wishlist." });
+                    }}
+                  >
+                    Clear All
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -239,7 +313,9 @@ export default function Wishlist() {
                 <CardContent className="text-center py-12">
                   <Search className="w-16 h-16 mx-auto text-gray-300 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">No items found</h3>
-                  <p className="text-gray-600">Try adjusting your search terms</p>
+                  <p className="text-gray-600">
+                    Try adjusting your search terms
+                  </p>
                 </CardContent>
               </Card>
             )}
@@ -248,7 +324,9 @@ export default function Wishlist() {
           <Card>
             <CardContent className="text-center py-16">
               <Heart className="w-24 h-24 mx-auto text-gray-300 mb-6" />
-              <h2 className="text-2xl font-bold mb-4">Your Wishlist is empty</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                Your Wishlist is empty
+              </h2>
               <p className="text-gray-600 mb-8 max-w-md mx-auto">
                 Your Wishlist is empty. Start adding favorites!
               </p>

@@ -5,10 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @keyframes sparkle {
-  0% { transform: translate(-50%, -50%) scale(0.8); }
-  100% { transform: translate(-50%, -50%) scale(1.2); }
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
 }
 
 @keyframes slideInFromLeft {
@@ -90,7 +93,9 @@
 
 .card-hover:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 @layer base {

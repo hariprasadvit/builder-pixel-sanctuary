@@ -12,7 +12,7 @@ export function searchCatalog(query: string, limit = 20): SearchResult {
     (p) =>
       p.title.toLowerCase().includes(q) ||
       p.category.toLowerCase().includes(q) ||
-      p.brand.toLowerCase().includes(q)
+      p.brand.toLowerCase().includes(q),
   ).slice(0, limit);
 
   const categoriesMap = new Map<string, number>();

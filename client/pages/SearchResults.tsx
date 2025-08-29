@@ -21,28 +21,45 @@ export default function SearchResults() {
   const pageSize = 8;
   const visible = products.slice(0, page * pageSize);
 
-  useEffect(() => { setPage(1); }, [keyword]);
+  useEffect(() => {
+    setPage(1);
+  }, [keyword]);
 
   return (
     <div className="min-h-screen bg-gray-50 py-6">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Controls */}
         <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center justify-between mb-4">
-          <div className="text-sm text-gray-700">Results for <strong>“{keyword}”</strong> • {products.length} items</div>
+          <div className="text-sm text-gray-700">
+            Results for <strong>“{keyword}”</strong> • {products.length} items
+          </div>
           <div className="flex gap-2">
-            <Button variant="outline"><Filter className="w-4 h-4 mr-2" /> Filters</Button>
-            <Button variant="outline"><SortAsc className="w-4 h-4 mr-2" /> Sort</Button>
+            <Button variant="outline">
+              <Filter className="w-4 h-4 mr-2" /> Filters
+            </Button>
+            <Button variant="outline">
+              <SortAsc className="w-4 h-4 mr-2" /> Sort
+            </Button>
           </div>
         </div>
 
         {products.length === 0 ? (
           <Card>
             <CardContent className="text-center py-16">
-              <h3 className="text-lg font-semibold mb-2">No results for “{keyword}”.</h3>
-              <p className="text-gray-600">Try different spelling or explore categories below.</p>
+              <h3 className="text-lg font-semibold mb-2">
+                No results for “{keyword}”.
+              </h3>
+              <p className="text-gray-600">
+                Try different spelling or explore categories below.
+              </p>
               <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                {["Electronics","Home","Sports","Fashion"].map((c) => (
-                  <Badge key={c} className="bg-blue-100 text-blue-700 border-blue-200">{c}</Badge>
+                {["Electronics", "Home", "Sports", "Fashion"].map((c) => (
+                  <Badge
+                    key={c}
+                    className="bg-blue-100 text-blue-700 border-blue-200"
+                  >
+                    {c}
+                  </Badge>
                 ))}
               </div>
             </CardContent>
@@ -61,7 +78,7 @@ export default function SearchResults() {
                   rating={p.rating}
                   reviewCount={p.reviewCount}
                   origin={p.origin}
-                  deliveryEta={p.origin === 'UK' ? 'Tomorrow' : '5-10 days'}
+                  deliveryEta={p.origin === "UK" ? "Tomorrow" : "5-10 days"}
                 />
               ))}
             </div>

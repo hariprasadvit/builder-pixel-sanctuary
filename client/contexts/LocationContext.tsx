@@ -78,15 +78,15 @@ export function LocationProvider({ children }: { children: ReactNode }) {
   };
 
   const addAddress = (newAddress: Omit<Address, "id">): Address => {
-  const address: Address = {
-    ...newAddress,
-    id: Date.now().toString(),
+    const address: Address = {
+      ...newAddress,
+      id: Date.now().toString(),
+    };
+    const updated = [...savedAddresses, address];
+    setSavedAddresses(updated);
+    localStorage.setItem("savedAddresses", JSON.stringify(updated));
+    return address;
   };
-  const updated = [...savedAddresses, address];
-  setSavedAddresses(updated);
-  localStorage.setItem("savedAddresses", JSON.stringify(updated));
-  return address;
-};
 
   const removeAddress = (id: string) => {
     const updated = savedAddresses.filter((addr) => addr.id !== id);

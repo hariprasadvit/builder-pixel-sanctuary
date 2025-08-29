@@ -4,7 +4,8 @@ import { SAMPLE_CATALOG } from "@/lib/catalog";
 import ProductCard from "@/components/ProductCard";
 
 const BRAND_DESCRIPTIONS: Record<string, string> = {
-  Apple: "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert",
+  Apple:
+    "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert",
 };
 
 const APPLE_BANNERS = [
@@ -17,16 +18,36 @@ const APPLE_BANNERS = [
 
 export default function BrandDetail() {
   const { brand: brandParam } = useParams();
-  const brand = useMemo(() => (brandParam || "").replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()), [brandParam]);
-  const products = useMemo(() => SAMPLE_CATALOG.filter(p => p.brand.toLowerCase() === brand.toLowerCase()), [brand]);
-  const phonesAndWatch = useMemo(() => products.filter(p => /iphone|watch/i.test(p.title)), [products]);
-  const ipadAndMac = useMemo(() => products.filter(p => /ipad|mac/i.test(p.title)), [products]);
+  const brand = useMemo(
+    () =>
+      (brandParam || "")
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, (m) => m.toUpperCase()),
+    [brandParam],
+  );
+  const products = useMemo(
+    () =>
+      SAMPLE_CATALOG.filter(
+        (p) => p.brand.toLowerCase() === brand.toLowerCase(),
+      ),
+    [brand],
+  );
+  const phonesAndWatch = useMemo(
+    () => products.filter((p) => /iphone|watch/i.test(p.title)),
+    [products],
+  );
+  const ipadAndMac = useMemo(
+    () => products.filter((p) => /ipad|mac/i.test(p.title)),
+    [products],
+  );
 
   return (
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-6 md:py-8">
         <h1 className="text-2xl md:text-3xl font-bold mb-2">{brand}</h1>
-        <p className="text-gray-600 max-w-3xl">{BRAND_DESCRIPTIONS[brand] || `${brand} products available on Riky.`}</p>
+        <p className="text-gray-600 max-w-3xl">
+          {BRAND_DESCRIPTIONS[brand] || `${brand} products available on Riky.`}
+        </p>
       </div>
 
       {/* Apple banners: first full-width, then 2x2 grid cards */}

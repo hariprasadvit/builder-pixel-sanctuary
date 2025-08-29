@@ -50,46 +50,67 @@ const App = () => (
           <LocationProvider>
             <CartProvider>
               <WishlistProvider>
-              <Routes>
-              {/* Authentication routes without Layout */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+                <Routes>
+                  {/* Authentication routes without Layout */}
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
 
-              {/* Main app routes with Layout */}
-              <Route path="/*" element={
-                <Layout>
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/categories" element={<Categories />} />
-                    <Route path="/electronics" element={<Electronics />} />
-                    <Route path="/cellphones" element={<Cellphones />} />
-                    <Route path="/laptops" element={<Laptops />} />
-                    <Route path="/videos" element={<Videos />} />
-                    <Route path="/Videos" element={<Videos />} />
-                    <Route path="/support" element={<Support />} />
-                    <Route path="/support/chat" element={<SupportChat />} />
-                    <Route path="/help-center" element={<HelpCenter />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/checkout" element={<Checkout />} />
-                    <Route path="/payment-success" element={<PaymentSuccess />} />
-                    <Route path="/orders" element={<Orders />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/wishlist" element={<Wishlist />} />
-                    <Route path="/brands" element={<Brands />} />
-                    <Route path="/brands/:brand" element={<BrandDetail />} />
-                    <Route path="/newest" element={<Newest />} />
-                    <Route path="/bestsellers" element={<Bestsellers />} />
-                    <Route path="/sell" element={<Sell />} />
-                    <Route path="/coupons" element={<Coupons />} />
-                    <Route path="/flashsale" element={<FlashSale />} />
-                    <Route path="/search" element={<SearchResults />} />
-                    <Route path="/product/:id" element={<ProductDetail />} />
-                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Layout>
-              } />
-              </Routes>
+                  {/* Main app routes with Layout */}
+                  <Route
+                    path="/*"
+                    element={
+                      <Layout>
+                        <Routes>
+                          <Route path="/" element={<Index />} />
+                          <Route path="/categories" element={<Categories />} />
+                          <Route
+                            path="/electronics"
+                            element={<Electronics />}
+                          />
+                          <Route path="/cellphones" element={<Cellphones />} />
+                          <Route path="/laptops" element={<Laptops />} />
+                          <Route path="/videos" element={<Videos />} />
+                          <Route path="/Videos" element={<Videos />} />
+                          <Route path="/support" element={<Support />} />
+                          <Route
+                            path="/support/chat"
+                            element={<SupportChat />}
+                          />
+                          <Route path="/help-center" element={<HelpCenter />} />
+                          <Route path="/cart" element={<Cart />} />
+                          <Route path="/checkout" element={<Checkout />} />
+                          <Route
+                            path="/payment-success"
+                            element={<PaymentSuccess />}
+                          />
+                          <Route path="/orders" element={<Orders />} />
+                          <Route path="/profile" element={<Profile />} />
+                          <Route path="/wishlist" element={<Wishlist />} />
+                          <Route path="/brands" element={<Brands />} />
+                          <Route
+                            path="/brands/:brand"
+                            element={<BrandDetail />}
+                          />
+                          <Route path="/newest" element={<Newest />} />
+                          <Route
+                            path="/bestsellers"
+                            element={<Bestsellers />}
+                          />
+                          <Route path="/sell" element={<Sell />} />
+                          <Route path="/coupons" element={<Coupons />} />
+                          <Route path="/flashsale" element={<FlashSale />} />
+                          <Route path="/search" element={<SearchResults />} />
+                          <Route
+                            path="/product/:id"
+                            element={<ProductDetail />}
+                          />
+                          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                          <Route path="*" element={<NotFound />} />
+                        </Routes>
+                      </Layout>
+                    }
+                  />
+                </Routes>
               </WishlistProvider>
             </CartProvider>
           </LocationProvider>

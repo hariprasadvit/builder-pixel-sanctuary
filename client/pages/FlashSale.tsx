@@ -19,7 +19,12 @@ function applyDiscount(p: CatalogProduct) {
   const d = CATEGORY_DISCOUNTS[p.category] ?? CATEGORY_DISCOUNTS.default;
   const original = p.price;
   const discounted = Math.max(0.01, Math.round(original * (1 - d) * 100) / 100);
-  return { ...p, price: discounted, originalPrice: original, badge: `-${Math.round(d * 100)}%` } as any;
+  return {
+    ...p,
+    price: discounted,
+    originalPrice: original,
+    badge: `-${Math.round(d * 100)}%`,
+  } as any;
 }
 
 function useCountdown(endTs: number) {
@@ -33,26 +38,48 @@ function useCountdown(endTs: number) {
   const mm = Math.floor((diff % 3600000) / 60000);
   const ss = Math.floor((diff % 60000) / 1000);
   const ended = diff <= 0;
-  const label = ended ? "Ended" : `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
+  const label = ended
+    ? "Ended"
+    : `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
   return { diff, label, ended };
 }
 
 export default function FlashSale() {
-  const saleEndsAt = useMemo(() => Date.now() + 2 * 60 * 60 * 1000 + 45 * 60 * 1000 + 30 * 1000, []); // ~2:45:30
+  const saleEndsAt = useMemo(
+    () => Date.now() + 2 * 60 * 60 * 1000 + 45 * 60 * 1000 + 30 * 1000,
+    [],
+  ); // ~2:45:30
   const { label, ended } = useCountdown(saleEndsAt);
 
-  const categories = useMemo(() => ["All", ...Array.from(new Set(SAMPLE_CATALOG.map(p => p.category)))], []);
+  const categories = useMemo(
+    () => [
+      "All",
+      ...Array.from(new Set(SAMPLE_CATALOG.map((p) => p.category))),
+    ],
+    [],
+  );
   const [tab, setTab] = useState("All");
 
   const discounted = useMemo(() => SAMPLE_CATALOG.map(applyDiscount), []);
-  const filtered = useMemo(() => tab === "All" ? discounted : discounted.filter(p => p.category === tab), [tab, discounted]);
+  const filtered = useMemo(
+    () =>
+      tab === "All" ? discounted : discounted.filter((p) => p.category === tab),
+    [tab, discounted],
+  );
 
   return (
     <div className="min-h-screen bg-white">
       <section className="bg-gradient-to-br from-slate-700 via-blue-600 to-indigo-700 text-white">
         <div className="container mx-auto px-4 py-10 md:py-14 text-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold mb-2 flex items-center justify-center gap-3">⚡ Flash Sale <span className="bg-yellow-400 text-black text-base px-2 py-1 rounded-full">LIVE</span></h1>
-          <p className="opacity-90 mb-4">Hurry! Prices drop across categories. Sale ends in:</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-2 flex items-center justify-center gap-3">
+            ⚡ Flash Sale{" "}
+            <span className="bg-yellow-400 text-black text-base px-2 py-1 rounded-full">
+              LIVE
+            </span>
+          </h1>
+          <p className="opacity-90 mb-4">
+            Hurry! Prices drop across categories. Sale ends in:
+          </p>
           <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20 backdrop-blur">
             <span className="font-mono text-2xl">{label}</span>
           </div>
@@ -63,8 +90,10 @@ export default function FlashSale() {
       <section className="container mx-auto px-4 py-6">
         <Tabs value={tab} onValueChange={setTab}>
           <TabsList className="flex flex-wrap gap-2 p-1">
-            {categories.map(c => (
-              <TabsTrigger key={c} value={c} className="capitalize">{c}</TabsTrigger>
+            {categories.map((c) => (
+              <TabsTrigger key={c} value={c} className="capitalize">
+                {c}
+              </TabsTrigger>
             ))}
           </TabsList>
           <TabsContent value={tab}>

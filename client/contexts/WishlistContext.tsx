@@ -1,4 +1,11 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 export interface WishlistItem {
   id: string;
@@ -20,7 +27,9 @@ interface WishlistContextValue {
   clear: () => void;
 }
 
-const WishlistContext = createContext<WishlistContextValue | undefined>(undefined);
+const WishlistContext = createContext<WishlistContextValue | undefined>(
+  undefined,
+);
 
 const STORAGE_KEY = "wishlist:v1";
 
@@ -54,25 +63,41 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  const isWishlisted = useCallback((id: string) => items.some(i => i.id === id), [items]);
+  const isWishlisted = useCallback(
+    (id: string) => items.some((i) => i.id === id),
+    [items],
+  );
 
   const add = useCallback((item: WishlistItem) => {
-    setItems(prev => (prev.some(i => i.id === item.id) ? prev : [item, ...prev]));
+    setItems((prev) =>
+      prev.some((i) => i.id === item.id) ? prev : [item, ...prev],
+    );
   }, []);
 
   const remove = useCallback((id: string) => {
-    setItems(prev => prev.filter(i => i.id !== id));
+    setItems((prev) => prev.filter((i) => i.id !== id));
   }, []);
 
   const toggle = useCallback((item: WishlistItem) => {
-    setItems(prev => (prev.some(i => i.id === item.id) ? prev.filter(i => i.id !== item.id) : [item, ...prev]));
+    setItems((prev) =>
+      prev.some((i) => i.id === item.id)
+        ? prev.filter((i) => i.id !== item.id)
+        : [item, ...prev],
+    );
   }, []);
 
   const clear = useCallback(() => setItems([]), []);
 
-  const value = useMemo(() => ({ items, isWishlisted, add, remove, toggle, clear }), [items, isWishlisted, add, remove, toggle, clear]);
+  const value = useMemo(
+    () => ({ items, isWishlisted, add, remove, toggle, clear }),
+    [items, isWishlisted, add, remove, toggle, clear],
+  );
 
-  return <WishlistContext.Provider value={value}>{children}</WishlistContext.Provider>;
+  return (
+    <WishlistContext.Provider value={value}>
+      {children}
+    </WishlistContext.Provider>
+  );
 }
 
 export function useWishlist() {

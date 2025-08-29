@@ -16,22 +16,33 @@ interface SimpleFireworksProps {
   onComplete?: () => void;
 }
 
-export default function SimpleFireworks({ isActive, onComplete }: SimpleFireworksProps) {
+export default function SimpleFireworks({
+  isActive,
+  onComplete,
+}: SimpleFireworksProps) {
   const [particles, setParticles] = useState<FireworkParticle[]>([]);
   const idRef = useRef(0);
 
   const colors = [
-    '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7',
-    '#dda0dd', '#98d8c8', '#f7dc6f', '#bb8fce', '#85c1e9'
+    "#ff6b6b",
+    "#4ecdc4",
+    "#45b7d1",
+    "#96ceb4",
+    "#ffeaa7",
+    "#dda0dd",
+    "#98d8c8",
+    "#f7dc6f",
+    "#bb8fce",
+    "#85c1e9",
   ];
 
   const createParticles = (centerX: number, centerY: number) => {
     const newParticles: FireworkParticle[] = [];
-    
+
     for (let i = 0; i < 30; i++) {
       const angle = (Math.PI * 2 * i) / 30;
       const velocity = Math.random() * 3 + 2;
-      
+
       newParticles.push({
         id: idRef.current++,
         x: centerX,
@@ -40,10 +51,10 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
         vy: Math.sin(angle) * velocity,
         color: colors[Math.floor(Math.random() * colors.length)],
         life: 60,
-        maxLife: 60
+        maxLife: 60,
       });
     }
-    
+
     return newParticles;
   };
 
@@ -54,7 +65,7 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
       return;
     }
 
-    console.log('Starting fireworks animation');
+    console.log("Starting fireworks animation");
 
     // Create multiple firework bursts
     const bursts = [
@@ -69,23 +80,23 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
 
     bursts.forEach((burst, index) => {
       const timeout = setTimeout(() => {
-        setParticles(prev => [...prev, ...createParticles(burst.x, burst.y)]);
+        setParticles((prev) => [...prev, ...createParticles(burst.x, burst.y)]);
       }, burst.delay);
       burstTimeouts.push(timeout);
     });
 
     // Animation loop
     const animationFrame = () => {
-      setParticles(prev => {
+      setParticles((prev) => {
         const updated = prev
-          .map(particle => ({
+          .map((particle) => ({
             ...particle,
             x: particle.x + particle.vx,
             y: particle.y + particle.vy,
             vy: particle.vy + 0.1, // gravity
-            life: particle.life - 1
+            life: particle.life - 1,
           }))
-          .filter(particle => particle.life > 0);
+          .filter((particle) => particle.life > 0);
 
         return updated;
       });
@@ -95,13 +106,13 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
 
     // Clean up after 3 seconds
     const cleanupTimeout = setTimeout(() => {
-      console.log('Cleaning up fireworks animation');
+      console.log("Cleaning up fireworks animation");
       setParticles([]);
       onComplete?.();
     }, 3000);
 
     return () => {
-      console.log('Fireworks effect cleanup');
+      console.log("Fireworks effect cleanup");
       clearInterval(interval);
       clearTimeout(cleanupTimeout);
       burstTimeouts.forEach(clearTimeout);
@@ -111,8 +122,11 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
   if (!isActive && particles.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9999]" style={{ zIndex: 9999 }}>
-      {particles.map(particle => (
+    <div
+      className="fixed inset-0 pointer-events-none z-[9999]"
+      style={{ zIndex: 9999 }}
+    >
+      {particles.map((particle) => (
         <div
           key={particle.id}
           className="absolute w-3 h-3 rounded-full animate-pulse"
@@ -121,13 +135,13 @@ export default function SimpleFireworks({ isActive, onComplete }: SimpleFirework
             top: particle.y,
             backgroundColor: particle.color,
             opacity: particle.life / particle.maxLife,
-            transform: 'translate(-50%, -50%)',
+            transform: "translate(-50%, -50%)",
             boxShadow: `0 0 12px ${particle.color}, 0 0 24px ${particle.color}`,
             animation: `sparkle 0.5s ease-in-out infinite alternate`,
           }}
         />
       ))}
-      
+
       {/* Success message overlay */}
       {isActive && (
         <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in duration-500">

@@ -1,8 +1,23 @@
 import { useState } from "react";
-import { Heart, Share, MessageCircle, Volume2, VolumeX, Copy } from "lucide-react";
+import {
+  Heart,
+  Share,
+  MessageCircle,
+  Volume2,
+  VolumeX,
+  Copy,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel } from "@/components/ui/alert-dialog";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog";
 
 export default function Videos() {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -66,7 +81,16 @@ export default function Videos() {
     },
   ];
 
-  const [reactions, setReactions] = useState<Record<string, { liked: boolean; likes: number; comments: number }>>(() => Object.fromEntries(videos.map(v => [v.id, { liked: v.isLiked, likes: v.likes, comments: v.comments }])));
+  const [reactions, setReactions] = useState<
+    Record<string, { liked: boolean; likes: number; comments: number }>
+  >(() =>
+    Object.fromEntries(
+      videos.map((v) => [
+        v.id,
+        { liked: v.isLiked, likes: v.likes, comments: v.comments },
+      ]),
+    ),
+  );
 
   const formatCount = (n: number) => {
     if (n >= 1_000_000) return `${Math.round(n / 100_000) / 10}M`;
@@ -75,7 +99,7 @@ export default function Videos() {
   };
 
   const toggleLike = (videoId: string) => {
-    setReactions(prev => {
+    setReactions((prev) => {
       const r = prev[videoId];
       const liked = !r.liked;
       const likes = r.likes + (liked ? 1 : -1);
@@ -102,54 +126,94 @@ export default function Videos() {
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-auto scrollbar-hide flex flex-col items-center justify-start">
         {videos.map((video, index) => (
-          <div key={video.id} className="snap-start flex-none h-full w-full relative flex items-center justify-center">
+          <div
+            key={video.id}
+            className="snap-start flex-none h-full w-full relative flex items-center justify-center"
+          >
             {/* Video Frame with controls/info */}
             <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 h-full min-h-full aspect-[9/16]">
               {video.youtubeId ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&mute=${isMuted?1:0}&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
+                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&mute=${isMuted ? 1 : 0}&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
                   title={video.title}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               ) : (
-                <img src={video.thumbnail} alt={video.title} className="absolute inset-0 w-full h-full object-cover" />
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               )}
-
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-
               <div className="absolute left-3 right-3 bottom-16">
-                <Badge className={`${video.origin==='UK'?'bg-blue-600 hover:bg-blue-700':'bg-red-600 hover:bg-red-700'} mb-2`}>{video.origin}</Badge>
+                <Badge
+                  className={`${video.origin === "UK" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"} mb-2`}
+                >
+                  {video.origin}
+                </Badge>
                 <p className="text-white font-semibold mb-1">@{video.vendor}</p>
-                <p className="text-white text-sm mb-2 line-clamp-2">{video.title}</p>
+                <p className="text-white text-sm mb-2 line-clamp-2">
+                  {video.title}
+                </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-white font-bold">£{video.price.toFixed(2)}</span>
-                  <Button size="sm" className="bg-brand-blue hover:bg-brand-blue/90 text-white" onClick={()=>addToCart(video.id)}>Add to Cart</Button>
+                  <span className="text-white font-bold">
+                    £{video.price.toFixed(2)}
+                  </span>
+                  <Button
+                    size="sm"
+                    className="bg-brand-blue hover:bg-brand-blue/90 text-white"
+                    onClick={() => addToCart(video.id)}
+                  >
+                    Add to Cart
+                  </Button>
                 </div>
               </div>
-
             </div>
             {/* Side action panel */}
             <div className="hidden md:flex flex-col gap-2 ml-4">
-              <Button variant="secondary" className={`rounded-full shadow px-3 py-2 hover:bg-gray-50 ${reactions[video.id]?.liked ? 'bg-red-50 text-red-600' : 'bg-white text-gray-700'}`} onClick={()=>toggleLike(video.id)}>
-                <Heart className={`w-4 h-4 mr-2 ${reactions[video.id]?.liked ? 'fill-red-600 text-red-600' : ''}`} />
+              <Button
+                variant="secondary"
+                className={`rounded-full shadow px-3 py-2 hover:bg-gray-50 ${reactions[video.id]?.liked ? "bg-red-50 text-red-600" : "bg-white text-gray-700"}`}
+                onClick={() => toggleLike(video.id)}
+              >
+                <Heart
+                  className={`w-4 h-4 mr-2 ${reactions[video.id]?.liked ? "fill-red-600 text-red-600" : ""}`}
+                />
                 {formatCount(reactions[video.id]?.likes ?? video.likes)}
               </Button>
-              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>openComments(video.id)}>
+              <Button
+                variant="secondary"
+                className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50"
+                onClick={() => openComments(video.id)}
+              >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 {formatCount(reactions[video.id]?.comments ?? video.comments)}
               </Button>
-              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>handleShare(video.id)}>
+              <Button
+                variant="secondary"
+                className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50"
+                onClick={() => handleShare(video.id)}
+              >
                 <Share className="w-4 h-4 mr-2" />
                 Share
               </Button>
-              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>setIsMuted(!isMuted)}>
-                {isMuted ? <VolumeX className="w-4 h-4 mr-2" /> : <Volume2 className="w-4 h-4 mr-2" />}
-                {isMuted ? 'Unmute' : 'Mute'}
+              <Button
+                variant="secondary"
+                className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50"
+                onClick={() => setIsMuted(!isMuted)}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4 mr-2" />
+                ) : (
+                  <Volume2 className="w-4 h-4 mr-2" />
+                )}
+                {isMuted ? "Unmute" : "Mute"}
               </Button>
             </div>
           </div>
@@ -161,22 +225,57 @@ export default function Videos() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Share</AlertDialogTitle>
-            <AlertDialogDescription>Share this video via the options below.</AlertDialogDescription>
+            <AlertDialogDescription>
+              Share this video via the options below.
+            </AlertDialogDescription>
           </AlertDialogHeader>
           <div className="space-y-3">
             {(() => {
               const id = activeVideo || videos[0]?.id;
-              const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/videos#${id}` : `/videos#${id}`;
+              const shareUrl =
+                typeof window !== "undefined"
+                  ? `${window.location.origin}/videos#${id}`
+                  : `/videos#${id}`;
               return (
                 <div className="space-y-2">
                   <div className="flex gap-2">
-                    <a className="px-3 py-2 rounded bg-blue-600 text-white text-sm" href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer">Facebook</a>
-                    <a className="px-3 py-2 rounded bg-sky-500 text-white text-sm" href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer">Twitter/X</a>
-                    <a className="px-3 py-2 rounded bg-green-500 text-white text-sm" href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer">WhatsApp</a>
+                    <a
+                      className="px-3 py-2 rounded bg-blue-600 text-white text-sm"
+                      href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Facebook
+                    </a>
+                    <a
+                      className="px-3 py-2 rounded bg-sky-500 text-white text-sm"
+                      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Twitter/X
+                    </a>
+                    <a
+                      className="px-3 py-2 rounded bg-green-500 text-white text-sm"
+                      href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareUrl)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      WhatsApp
+                    </a>
                   </div>
                   <div className="flex items-center gap-2">
-                    <input readOnly value={shareUrl} className="flex-1 border rounded px-2 py-1 text-sm" />
-                    <Button size="sm" onClick={() => { navigator.clipboard?.writeText(shareUrl); }}>
+                    <input
+                      readOnly
+                      value={shareUrl}
+                      className="flex-1 border rounded px-2 py-1 text-sm"
+                    />
+                    <Button
+                      size="sm"
+                      onClick={() => {
+                        navigator.clipboard?.writeText(shareUrl);
+                      }}
+                    >
                       <Copy className="w-4 h-4 mr-2" /> Copy
                     </Button>
                   </div>
@@ -199,16 +298,34 @@ export default function Videos() {
           <div className="max-h-64 overflow-auto space-y-3 text-sm">
             <div className="p-2 rounded bg-gray-50">Great video!</div>
             <div className="p-2 rounded bg-gray-50">Love this product.</div>
-            <div className="p-2 rounded bg-gray-50">How is the battery life?</div>
+            <div className="p-2 rounded bg-gray-50">
+              How is the battery life?
+            </div>
           </div>
           <div className="mt-3 flex gap-2">
-            <input className="flex-1 border rounded px-2 h-9 text-sm" placeholder="Write a comment" onKeyDown={(e)=>{
-              if(e.key==='Enter' && e.currentTarget.value.trim() && activeVideo){
-                setReactions(prev => ({...prev, [activeVideo]: {...prev[activeVideo], comments: prev[activeVideo].comments + 1}}));
-                e.currentTarget.value='';
-              }
-            }} />
-            <Button size="sm" onClick={()=>setCommentsOpen(false)}>Done</Button>
+            <input
+              className="flex-1 border rounded px-2 h-9 text-sm"
+              placeholder="Write a comment"
+              onKeyDown={(e) => {
+                if (
+                  e.key === "Enter" &&
+                  e.currentTarget.value.trim() &&
+                  activeVideo
+                ) {
+                  setReactions((prev) => ({
+                    ...prev,
+                    [activeVideo]: {
+                      ...prev[activeVideo],
+                      comments: prev[activeVideo].comments + 1,
+                    },
+                  }));
+                  e.currentTarget.value = "";
+                }
+              }}
+            />
+            <Button size="sm" onClick={() => setCommentsOpen(false)}>
+              Done
+            </Button>
           </div>
         </AlertDialogContent>
       </AlertDialog>

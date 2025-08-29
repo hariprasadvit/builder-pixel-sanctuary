@@ -1,5 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -12,7 +18,10 @@ interface AddAddressModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export default function AddAddressModal({ open, onOpenChange }: AddAddressModalProps) {
+export default function AddAddressModal({
+  open,
+  onOpenChange,
+}: AddAddressModalProps) {
   const { addAddress, setCurrentAddress } = useLocation();
 
   const [type, setType] = useState<"home" | "office" | "other">("home");
@@ -36,7 +45,11 @@ export default function AddAddressModal({ open, onOpenChange }: AddAddressModalP
     }
   }, [open]);
 
-  const canSave = useMemo(() => address.trim() !== "" && (city.trim() !== "" || pincode.trim() !== ""), [address, city, pincode]);
+  const canSave = useMemo(
+    () =>
+      address.trim() !== "" && (city.trim() !== "" || pincode.trim() !== ""),
+    [address, city, pincode],
+  );
 
   async function detectMyLocation() {
     if (!navigator.geolocation) {
@@ -44,28 +57,47 @@ export default function AddAddressModal({ open, onOpenChange }: AddAddressModalP
       return;
     }
     setLoadingLocate(true);
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-      const { latitude, longitude } = pos.coords;
-      try {
-        const resp = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
-        const data = await resp.json();
-        const addr = data.address || {};
-        setPincode(addr.postcode || "");
-        setCity(addr.city || addr.town || addr.village || "");
-        setState(addr.state || "");
-        setAddress(data.display_name || `${addr.road || "Pinned"}, ${addr.suburb || addr.city || ""}`);
-      } catch (e) {
-        console.error(e);
-        alert("Failed to resolve address");
-      } finally {
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        try {
+          const resp = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`,
+          );
+          const data = await resp.json();
+          const addr = data.address || {};
+          setPincode(addr.postcode || "");
+          setCity(addr.city || addr.town || addr.village || "");
+          setState(addr.state || "");
+          setAddress(
+            data.display_name ||
+              `${addr.road || "Pinned"}, ${addr.suburb || addr.city || ""}`,
+          );
+        } catch (e) {
+          console.error(e);
+          alert("Failed to resolve address");
+        } finally {
+          setLoadingLocate(false);
+        }
+      },
+      () => {
         setLoadingLocate(false);
-      }
-    }, () => { setLoadingLocate(false); alert("Permission denied for location"); });
+        alert("Permission denied for location");
+      },
+    );
   }
 
   function save() {
     if (!canSave) return;
-    const created = addAddress({ type, label, address, pincode, city, state, isDefault: false });
+    const created = addAddress({
+      type,
+      label,
+      address,
+      pincode,
+      city,
+      state,
+      isDefault: false,
+    });
     setCurrentAddress(created);
     onOpenChange(false);
   }
@@ -75,19 +107,51 @@ export default function AddAddressModal({ open, onOpenChange }: AddAddressModalP
       <DialogContent className="sm:max-w-lg p-0 overflow-hidden">
         <DialogHeader className="p-6 pb-3">
           <DialogTitle>Add new address</DialogTitle>
-          <DialogDescription>Select how you want to add your address</DialogDescription>
+          <DialogDescription>
+            Select how you want to add your address
+          </DialogDescription>
         </DialogHeader>
 
         <div className="px-6">
           {/* Type chips */}
           <div className="flex gap-2 mb-4">
-            <Button variant={type === "home" ? "default" : "outline"} className={type === "home" ? "bg-brand-blue hover:bg-brand-blue/90" : ""} size="sm" onClick={() => { setType("home"); setLabel("Home"); }}>
+            <Button
+              variant={type === "home" ? "default" : "outline"}
+              className={
+                type === "home" ? "bg-brand-blue hover:bg-brand-blue/90" : ""
+              }
+              size="sm"
+              onClick={() => {
+                setType("home");
+                setLabel("Home");
+              }}
+            >
               <Home className="w-4 h-4 mr-2" /> Home
             </Button>
-            <Button variant={type === "office" ? "default" : "outline"} className={type === "office" ? "bg-brand-blue hover:bg-brand-blue/90" : ""} size="sm" onClick={() => { setType("office"); setLabel("Office"); }}>
+            <Button
+              variant={type === "office" ? "default" : "outline"}
+              className={
+                type === "office" ? "bg-brand-blue hover:bg-brand-blue/90" : ""
+              }
+              size="sm"
+              onClick={() => {
+                setType("office");
+                setLabel("Office");
+              }}
+            >
               <Building2 className="w-4 h-4 mr-2" /> Office
             </Button>
-            <Button variant={type === "other" ? "default" : "outline"} className={type === "other" ? "bg-brand-blue hover:bg-brand-blue/90" : ""} size="sm" onClick={() => { setType("other"); setLabel("Other"); }}>
+            <Button
+              variant={type === "other" ? "default" : "outline"}
+              className={
+                type === "other" ? "bg-brand-blue hover:bg-brand-blue/90" : ""
+              }
+              size="sm"
+              onClick={() => {
+                setType("other");
+                setLabel("Other");
+              }}
+            >
               <MapPin className="w-4 h-4 mr-2" /> Other
             </Button>
           </div>
@@ -115,32 +179,55 @@ export default function AddAddressModal({ open, onOpenChange }: AddAddressModalP
                 </div>
               </div>
               <div className="absolute left-3 bottom-3 flex gap-2">
-                <Button size="sm" onClick={detectMyLocation} disabled={loadingLocate} className="bg-brand-blue hover:bg-brand-blue/90">
-                  <Crosshair className="w-4 h-4 mr-2" /> {loadingLocate ? "Locating..." : "Use my location"}
+                <Button
+                  size="sm"
+                  onClick={detectMyLocation}
+                  disabled={loadingLocate}
+                  className="bg-brand-blue hover:bg-brand-blue/90"
+                >
+                  <Crosshair className="w-4 h-4 mr-2" />{" "}
+                  {loadingLocate ? "Locating..." : "Use my location"}
                 </Button>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-3">
               <div>
                 <Label>Label</Label>
-                <Input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Home / Office / Friend's place" />
+                <Input
+                  value={label}
+                  onChange={(e) => setLabel(e.target.value)}
+                  placeholder="Home / Office / Friend's place"
+                />
               </div>
               <div>
                 <Label>Address</Label>
-                <Input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Detected or pinned location" />
+                <Input
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Detected or pinned location"
+                />
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div>
                   <Label>Pincode</Label>
-                  <Input value={pincode} onChange={(e) => setPincode(e.target.value)} />
+                  <Input
+                    value={pincode}
+                    onChange={(e) => setPincode(e.target.value)}
+                  />
                 </div>
                 <div>
                   <Label>City</Label>
-                  <Input value={city} onChange={(e) => setCity(e.target.value)} />
+                  <Input
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                  />
                 </div>
                 <div>
                   <Label>State</Label>
-                  <Input value={state} onChange={(e) => setState(e.target.value)} />
+                  <Input
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                  />
                 </div>
               </div>
             </div>
@@ -150,24 +237,41 @@ export default function AddAddressModal({ open, onOpenChange }: AddAddressModalP
             <div className="grid grid-cols-1 gap-3">
               <div>
                 <Label>Label</Label>
-                <Input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Home / Office / Other" />
+                <Input
+                  value={label}
+                  onChange={(e) => setLabel(e.target.value)}
+                  placeholder="Home / Office / Other"
+                />
               </div>
               <div>
                 <Label>Address</Label>
-                <Input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Flat, Street, Area" />
+                <Input
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Flat, Street, Area"
+                />
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div>
                   <Label>Pincode</Label>
-                  <Input value={pincode} onChange={(e) => setPincode(e.target.value)} />
+                  <Input
+                    value={pincode}
+                    onChange={(e) => setPincode(e.target.value)}
+                  />
                 </div>
                 <div>
                   <Label>City</Label>
-                  <Input value={city} onChange={(e) => setCity(e.target.value)} />
+                  <Input
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                  />
                 </div>
                 <div>
                   <Label>State</Label>
-                  <Input value={state} onChange={(e) => setState(e.target.value)} />
+                  <Input
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                  />
                 </div>
               </div>
             </div>
@@ -176,9 +280,16 @@ export default function AddAddressModal({ open, onOpenChange }: AddAddressModalP
 
         <div className="p-6 pt-4 flex items-center justify-between border-t mt-4">
           <div className="text-xs text-muted-foreground flex items-center gap-2">
-            <Map className="w-4 h-4" /> Your address is used to show availability and delivery options
+            <Map className="w-4 h-4" /> Your address is used to show
+            availability and delivery options
           </div>
-          <Button onClick={save} disabled={!canSave} className="bg-brand-blue hover:bg-brand-blue/90">Save address</Button>
+          <Button
+            onClick={save}
+            disabled={!canSave}
+            className="bg-brand-blue hover:bg-brand-blue/90"
+          >
+            Save address
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

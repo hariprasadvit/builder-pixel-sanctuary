@@ -27,12 +27,12 @@ export default function Index() {
   const handleAddToCart = (productId: string) => {
     // Find the product in all products arrays
     const allProductsData = [...allProducts, ...ukProducts, ...chinaProducts];
-    const product = allProductsData.find(p => p.id === productId);
+    const product = allProductsData.find((p) => p.id === productId);
 
     if (product) {
       const vendorMap: Record<string, any> = {
-        "UK": "uk",
-        "China": "china"
+        UK: "uk",
+        China: "china",
       };
 
       addToCart({
@@ -44,7 +44,7 @@ export default function Index() {
         vendor: vendorMap[product.origin] || "nearbuy",
         vendorName: `${product.origin} Marketplace`,
         category: (product as any).category || "General",
-        shippingWeight: 1.0 // Default weight
+        shippingWeight: 1.0, // Default weight
       });
     }
   };
@@ -113,7 +113,8 @@ export default function Index() {
   const allProducts = [
     {
       id: "1",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5af4fad80ff4399a6d668145b207b6e?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5af4fad80ff4399a6d668145b207b6e?format=webp&width=800",
       title: "iPhone 16 Pro Max 256GB with Camera Control",
       price: 999.99,
       originalPrice: 1099.99,
@@ -129,7 +130,8 @@ export default function Index() {
     },
     {
       id: "2",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F71434f1b6c444921b1f60218c7258242?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F71434f1b6c444921b1f60218c7258242?format=webp&width=800",
       title: "Samsung Galaxy Buds Pro Wireless Earbuds",
       price: 89.99,
       originalPrice: 149.99,
@@ -145,7 +147,8 @@ export default function Index() {
     },
     {
       id: "3",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F840cbc4d5c6c45b891684ac95917a774?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F840cbc4d5c6c45b891684ac95917a774?format=webp&width=800",
       title: "Nike Air Max Plus Running Shoes",
       price: 119.99,
       rating: 4.7,
@@ -160,7 +163,8 @@ export default function Index() {
     },
     {
       id: "4",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbc0b172ea8124ff1b3a0d4c65468556e?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbc0b172ea8124ff1b3a0d4c65468556e?format=webp&width=800",
       title: "Dyson V15 Detect Absolute Cordless Vacuum",
       price: 549.99,
       rating: 4.9,
@@ -228,7 +232,8 @@ export default function Index() {
   const ukProducts = [
     {
       id: "5",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8887b09d9bf34ca59cea9a5134a30613?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8887b09d9bf34ca59cea9a5134a30613?format=webp&width=800",
       title: "Women's Casual Fashion Collection",
       price: 159.99,
       rating: 4.6,
@@ -239,7 +244,8 @@ export default function Index() {
     },
     {
       id: "6",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F553f83079d584f98b998ffbf332afc0d?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F553f83079d584f98b998ffbf332afc0d?format=webp&width=800",
       title: "Premium Bedding & Home Decor",
       price: 89.99,
       rating: 4.8,
@@ -250,7 +256,8 @@ export default function Index() {
     },
     {
       id: "7",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4d0382344ba241c7b444ca142bd885df?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4d0382344ba241c7b444ca142bd885df?format=webp&width=800",
       title: "Artisan Coffee Collection",
       price: 24.99,
       rating: 4.7,
@@ -261,7 +268,8 @@ export default function Index() {
     },
     {
       id: "11",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F77bcae8814be429ba5ad9507b8c55021?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F77bcae8814be429ba5ad9507b8c55021?format=webp&width=800",
       title: "Designer Fashion Collection",
       price: 1890.99,
       rating: 4.9,
@@ -275,7 +283,8 @@ export default function Index() {
   const chinaProducts = [
     {
       id: "8",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1da87ba82b9f4805abefe907cda741de?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1da87ba82b9f4805abefe907cda741de?format=webp&width=800",
       title: "Xiaomi 14 Ultra Premium Collection",
       price: 649.99,
       originalPrice: 799.99,
@@ -287,7 +296,8 @@ export default function Index() {
     },
     {
       id: "9",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5f0d3e3daf6a4ee488235a304a431df4?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5f0d3e3daf6a4ee488235a304a431df4?format=webp&width=800",
       title: "DJI Mini 4 Pro Drone with Controller",
       price: 429.99,
       rating: 4.8,
@@ -298,7 +308,8 @@ export default function Index() {
     },
     {
       id: "10",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3433b18277c24cc6a3a43bf43493561a?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3433b18277c24cc6a3a43bf43493561a?format=webp&width=800",
       title: "Anker PowerCore+ Fast Charging Hub",
       price: 45.99,
       rating: 4.5,
@@ -309,7 +320,8 @@ export default function Index() {
     },
     {
       id: "12",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f7694c23254419d8717465c559dae2f?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f7694c23254419d8717465c559dae2f?format=webp&width=800",
       title: "OnePlus 12 Pro 5G Collection",
       price: 549.99,
       originalPrice: 699.99,
@@ -324,35 +336,40 @@ export default function Index() {
   const videoProducts = [
     {
       id: "v1",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8ceaa469e146ff9bea81806abc63a1?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8ceaa469e146ff9bea81806abc63a1?format=webp&width=800",
       title: "LEGO Building Sets & Collectibles",
       price: 49.99,
       origin: "UK" as const,
     },
     {
       id: "v2",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F431d2d8b01494ad1b9b8be2de5a424e1?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F431d2d8b01494ad1b9b8be2de5a424e1?format=webp&width=800",
       title: "Suspense & Thriller Books Collection",
       price: 14.99,
       origin: "UK" as const,
     },
     {
       id: "v3",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa6a27f8d49eb4361a224932f357cf1af?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa6a27f8d49eb4361a224932f357cf1af?format=webp&width=800",
       title: "The Silent Patient - Bestseller",
       price: 12.99,
       origin: "UK" as const,
     },
     {
       id: "v4",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F72eafa068f604ba993e614497f0a4379?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F72eafa068f604ba993e614497f0a4379?format=webp&width=800",
       title: "Summer Fashion Collection",
       price: 89.99,
       origin: "China" as const,
     },
     {
       id: "v5",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4cf15493113a458da87690389a322da7?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4cf15493113a458da87690389a322da7?format=webp&width=800",
       title: "Designer Scarves & Accessories",
       price: 39.99,
       origin: "China" as const,
@@ -422,14 +439,20 @@ export default function Index() {
                   <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                     ⚡ Deals of the Day
                   </h2>
-                  <span className="bg-red-600 text-white text-xs sm:text-sm px-2 py-1 rounded-full animate-pulse self-start">LIVE</span>
+                  <span className="bg-red-600 text-white text-xs sm:text-sm px-2 py-1 rounded-full animate-pulse self-start">
+                    LIVE
+                  </span>
                 </div>
-                <p className="text-sm text-gray-600">Limited time offers - Don't miss out!</p>
+                <p className="text-sm text-gray-600">
+                  Limited time offers - Don't miss out!
+                </p>
               </div>
             </div>
             <div className="text-left sm:text-right shrink-0">
               <div className="text-sm text-gray-600">Ends in</div>
-              <div className="text-red-600 font-bold font-mono text-lg">23:59:42</div>
+              <div className="text-red-600 font-bold font-mono text-lg">
+                23:59:42
+              </div>
             </div>
           </div>
 
@@ -450,11 +473,17 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-2 md:p-3">
-                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Home Appliances</div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm sm:text-lg font-bold text-red-600">50% OFF</span>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">
+                    Home Appliances
                   </div>
-                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">Flash Sale on appliances</p>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-red-600">
+                      50% OFF
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">
+                    Flash Sale on appliances
+                  </p>
                 </div>
               </div>
             </div>
@@ -475,11 +504,17 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-2 md:p-3">
-                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Prime Day Deals</div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm sm:text-lg font-bold text-orange-600">Up to 70% OFF</span>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">
+                    Prime Day Deals
                   </div>
-                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">Limited time only</p>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-orange-600">
+                      Up to 70% OFF
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">
+                    Limited time only
+                  </p>
                 </div>
               </div>
             </div>
@@ -500,11 +535,17 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-2 md:p-3">
-                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Biggest Deals</div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm sm:text-lg font-bold text-purple-600">Save Extra 25%</span>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">
+                    Biggest Deals
                   </div>
-                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">On 1 Lakh+ styles</p>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-purple-600">
+                      Save Extra 25%
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">
+                    On 1 Lakh+ styles
+                  </p>
                 </div>
               </div>
             </div>
@@ -525,11 +566,17 @@ export default function Index() {
                   />
                 </div>
                 <div className="p-2 md:p-3">
-                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">Women's Fashion</div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm sm:text-lg font-bold text-green-600">Up to 50% OFF</span>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1">
+                    Women's Fashion
                   </div>
-                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">Special fashion collection</p>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-lg font-bold text-green-600">
+                      Up to 50% OFF
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1 hidden sm:block">
+                    Special fashion collection
+                  </p>
                 </div>
               </div>
             </div>
@@ -551,8 +598,12 @@ export default function Index() {
             <div className="flex items-center gap-3">
               <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
               <div>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Trending Near You</h2>
-                <p className="text-sm text-gray-600 mt-1">Discover what's popular in your area</p>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+                  Trending Near You
+                </h2>
+                <p className="text-sm text-gray-600 mt-1">
+                  Discover what's popular in your area
+                </p>
               </div>
             </div>
             <Button
@@ -568,7 +619,11 @@ export default function Index() {
               <div
                 key={product.id}
                 className={`group relative ${index === 0 ? "cursor-pointer" : ""}`}
-                onClick={index === 0 ? () => navigate(`/product/${product.id}`) : undefined}
+                onClick={
+                  index === 0
+                    ? () => navigate(`/product/${product.id}`)
+                    : undefined
+                }
               >
                 {/* Enhanced Card with Gradient Background */}
                 <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] overflow-hidden border border-gray-100">
@@ -587,7 +642,9 @@ export default function Index() {
                   <div className="relative z-10">
                     <ProductCard
                       {...product}
-                      onWishlistToggle={(id) => console.log("Toggle wishlist:", id)}
+                      onWishlistToggle={(id) =>
+                        console.log("Toggle wishlist:", id)
+                      }
                       onAddToCart={handleAddToCart}
                     />
                   </div>
@@ -600,7 +657,9 @@ export default function Index() {
           <div className="mt-8 text-center">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-gray-700">Live trends updated every hour</span>
+              <span className="text-sm font-medium text-gray-700">
+                Live trends updated every hour
+              </span>
             </div>
           </div>
         </div>
@@ -616,10 +675,15 @@ export default function Index() {
                 <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                   🏆 Best Sellers This Week
                 </h2>
-                <p className="text-sm text-gray-600">Most popular items in your area</p>
+                <p className="text-sm text-gray-600">
+                  Most popular items in your area
+                </p>
               </div>
             </div>
-            <Button variant="ghost" className="text-orange-600 hover:text-orange-700 shrink-0 self-start sm:self-center">
+            <Button
+              variant="ghost"
+              className="text-orange-600 hover:text-orange-700 shrink-0 self-start sm:self-center"
+            >
               <span className="hidden sm:inline">View All</span>
               <span className="sm:hidden">View</span>
               <ChevronRight className="w-4 h-4 ml-1" />
@@ -628,14 +692,53 @@ export default function Index() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
             {[
-              { id: 1, title: "Smart Fitness Watch", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4444064dbe514c3ea39494880ee0eedd?format=webp&width=800", price: 199.99 },
-              { id: 2, title: "Pet Training Collar", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9186d63f23f54c87b840ba9bf2b76731?format=webp&width=800", price: 149.99 },
-              { id: 3, title: "Gaming Controller", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf0007c350e64f1cb675c9fa56c8c6cc?format=webp&width=800", price: 299.99 },
-              { id: 4, title: "Mountain Bicycle", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F83bd11634aff48988b2cd202ed37472c?format=webp&width=800", price: 399.99 },
-              { id: 5, title: "Kitchen Mixer", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F530577c64eac4a5aae827ee06cd1c1d5?format=webp&width=800", price: 449.99 },
-              { id: 6, title: "Energy Drinks Pack", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02a4c749d1aa481aae948af8a5bdd6f1?format=webp&width=800", price: 549.99 }
+              {
+                id: 1,
+                title: "Smart Fitness Watch",
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4444064dbe514c3ea39494880ee0eedd?format=webp&width=800",
+                price: 199.99,
+              },
+              {
+                id: 2,
+                title: "Pet Training Collar",
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9186d63f23f54c87b840ba9bf2b76731?format=webp&width=800",
+                price: 149.99,
+              },
+              {
+                id: 3,
+                title: "Gaming Controller",
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf0007c350e64f1cb675c9fa56c8c6cc?format=webp&width=800",
+                price: 299.99,
+              },
+              {
+                id: 4,
+                title: "Mountain Bicycle",
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F83bd11634aff48988b2cd202ed37472c?format=webp&width=800",
+                price: 399.99,
+              },
+              {
+                id: 5,
+                title: "Kitchen Mixer",
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F530577c64eac4a5aae827ee06cd1c1d5?format=webp&width=800",
+                price: 449.99,
+              },
+              {
+                id: 6,
+                title: "Energy Drinks Pack",
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02a4c749d1aa481aae948af8a5bdd6f1?format=webp&width=800",
+                price: 549.99,
+              },
             ].map((item) => (
-              <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
+              <div
+                key={item.id}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group"
+              >
                 <div className="relative">
                   <div className="absolute top-2 left-2 z-10">
                     <div className="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
@@ -656,11 +759,16 @@ export default function Index() {
                   </div>
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-2 h-2 sm:w-3 sm:h-3 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="w-2 h-2 sm:w-3 sm:h-3 text-yellow-400 fill-current"
+                      />
                     ))}
                     <span className="text-xs text-gray-500">(4.8)</span>
                   </div>
-                  <div className="text-sm sm:text-lg font-bold text-gray-900">£{item.price}</div>
+                  <div className="text-sm sm:text-lg font-bold text-gray-900">
+                    £{item.price}
+                  </div>
                 </div>
               </div>
             ))}
@@ -674,7 +782,9 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 md:mb-6 gap-3">
             <div className="flex items-center gap-2 flex-wrap">
               <h2 className="text-lg md:text-xl font-bold">Top from UK</h2>
-              <Badge className="bg-blue-600 text-xs whitespace-nowrap">Fast Delivery</Badge>
+              <Badge className="bg-blue-600 text-xs whitespace-nowrap">
+                Fast Delivery
+              </Badge>
             </div>
             <Button
               variant="ghost"
@@ -706,8 +816,12 @@ export default function Index() {
         </div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">✨ Brand Spotlight</h2>
-            <p className="text-gray-600">Featured brands and exclusive collections</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              ✨ Brand Spotlight
+            </h2>
+            <p className="text-gray-600">
+              Featured brands and exclusive collections
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -722,7 +836,9 @@ export default function Index() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">🔊 Monstrous Sound</h3>
-                <p className="text-gray-600 mb-4">14W Stereo Speakers • IPX5 Water & Dust Resistant</p>
+                <p className="text-gray-600 mb-4">
+                  14W Stereo Speakers • IPX5 Water & Dust Resistant
+                </p>
                 <Button className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white">
                   Shop Audio Collection
                 </Button>
@@ -739,8 +855,12 @@ export default function Index() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">🎁 Bombay Shaving Co.</h3>
-                <p className="text-gray-600 mb-4">Premium Men's Grooming • Gift Him Something Dope</p>
+                <h3 className="text-xl font-bold mb-2">
+                  🎁 Bombay Shaving Co.
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Premium Men's Grooming • Gift Him Something Dope
+                </p>
                 <Button className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white">
                   Explore Grooming
                 </Button>
@@ -758,7 +878,9 @@ export default function Index() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">✨ Selected Luxury</h3>
-                <p className="text-gray-600 mb-4">A Glamorous Touch • Extra 12% OFF Designer Bags</p>
+                <p className="text-gray-600 mb-4">
+                  A Glamorous Touch • Extra 12% OFF Designer Bags
+                </p>
                 <Button className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white">
                   Shop Luxury Now
                 </Button>
@@ -811,12 +933,19 @@ export default function Index() {
               <div>
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
                   �� New Arrivals
-                  <span className="bg-emerald-100 text-emerald-700 text-sm px-2 py-1 rounded-full">Fresh</span>
+                  <span className="bg-emerald-100 text-emerald-700 text-sm px-2 py-1 rounded-full">
+                    Fresh
+                  </span>
                 </h2>
-                <p className="text-sm text-gray-600">Just landed - Be the first to shop</p>
+                <p className="text-sm text-gray-600">
+                  Just landed - Be the first to shop
+                </p>
               </div>
             </div>
-            <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700">
+            <Button
+              variant="ghost"
+              className="text-emerald-600 hover:text-emerald-700"
+            >
               View All <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
@@ -826,35 +955,43 @@ export default function Index() {
               {
                 id: 1,
                 title: "Premium Fashion Collection",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9ae770758b504c06abfd7b6ed7035552?format=webp&width=800",
-                price: 299.99
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9ae770758b504c06abfd7b6ed7035552?format=webp&width=800",
+                price: 299.99,
               },
               {
                 id: 2,
                 title: "Sustainable Grocery Essentials",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff1642fcfd99c43728eb57521166201df?format=webp&width=800",
-                price: 189.99
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff1642fcfd99c43728eb57521166201df?format=webp&width=800",
+                price: 189.99,
               },
               {
                 id: 3,
                 title: "Ergonomic Office Solutions",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F969cf7d59aef4d58aefcf41f55dd25ae?format=webp&width=800",
-                price: 449.99
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F969cf7d59aef4d58aefcf41f55dd25ae?format=webp&width=800",
+                price: 449.99,
               },
               {
                 id: 4,
                 title: "Tropical Home Decor",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F12cf36128d7947609a98a09da23bcd6d?format=webp&width=800",
-                price: 159.99
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F12cf36128d7947609a98a09da23bcd6d?format=webp&width=800",
+                price: 159.99,
               },
               {
                 id: 5,
                 title: "Educational Science Kits",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcb19c34fdf5046e3be0aaa118adb5760?format=webp&width=800",
-                price: 79.99
-              }
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcb19c34fdf5046e3be0aaa118adb5760?format=webp&width=800",
+                price: 79.99,
+              },
             ].map((item) => (
-              <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 overflow-hidden group">
+              <div
+                key={item.id}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 overflow-hidden group"
+              >
                 <div className="aspect-square bg-gray-100 relative overflow-hidden">
                   <img
                     src={item.image}
@@ -867,8 +1004,12 @@ export default function Index() {
                     {item.title}
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3">
-                    <span className="text-sm sm:text-lg font-bold text-emerald-600">£{item.price}</span>
-                    <span className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full self-start">Launch Price</span>
+                    <span className="text-sm sm:text-lg font-bold text-emerald-600">
+                      £{item.price}
+                    </span>
+                    <span className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full self-start">
+                      Launch Price
+                    </span>
                   </div>
                   <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm">
                     Shop Now
@@ -897,7 +1038,9 @@ export default function Index() {
                   NOW ON
                 </span>
               </h2>
-              <p className="text-xl mb-6">Up to 80% OFF on selected items - Limited quantity!</p>
+              <p className="text-xl mb-6">
+                Up to 80% OFF on selected items - Limited quantity!
+              </p>
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold">02</div>
@@ -914,7 +1057,10 @@ export default function Index() {
                   <div className="text-sm">Seconds</div>
                 </div>
               </div>
-              <Button className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-3 backdrop-blur-sm transition-all duration-300" onClick={() => navigate('/flashsale')}>
+              <Button
+                className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-3 backdrop-blur-sm transition-all duration-300"
+                onClick={() => navigate("/flashsale")}
+              >
                 Shop Flash Sale Now
               </Button>
             </div>
@@ -1000,7 +1146,9 @@ export default function Index() {
         </div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🍂 Autumn Collection</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              🍂 Autumn Collection
+            </h2>
             <p className="text-gray-600">Cozy up with our seasonal favorites</p>
           </div>
 
@@ -1009,20 +1157,24 @@ export default function Index() {
             {[
               {
                 name: "Colorful Sweaters",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2a6787b80b14476a80db21ea67609b51?format=webp&width=800"
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2a6787b80b14476a80db21ea67609b51?format=webp&width=800",
               },
               {
                 name: "Winter Outerwear",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9a9188694a1e45d7a8e4b7d2c406244a?format=webp&width=800"
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9a9188694a1e45d7a8e4b7d2c406244a?format=webp&width=800",
               },
               {
                 name: "Warm Accessories",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fee98e92f2e164d8f828cb6845ee08747?format=webp&width=800"
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fee98e92f2e164d8f828cb6845ee08747?format=webp&width=800",
               },
               {
                 name: "Home & Decor",
-                image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F50e4544c4ce0496b9970dc48aff7cf1f?format=webp&width=800"
-              }
+                image:
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F50e4544c4ce0496b9970dc48aff7cf1f?format=webp&width=800",
+              },
             ].map((category, index) => (
               <div key={index} className="group cursor-pointer">
                 <div className="aspect-square bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 relative overflow-hidden border border-gray-100">
@@ -1122,8 +1274,14 @@ export default function Index() {
             <div className="absolute inset-0">
               {/* Simple floating dots */}
               <div className="absolute top-4 right-8 w-2 h-2 bg-blue-300/30 rounded-full animate-pulse"></div>
-              <div className="absolute bottom-4 left-8 w-2 h-2 bg-purple-300/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-              <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-pink-300/40 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+              <div
+                className="absolute bottom-4 left-8 w-2 h-2 bg-purple-300/30 rounded-full animate-pulse"
+                style={{ animationDelay: "1s" }}
+              ></div>
+              <div
+                className="absolute top-1/2 right-1/4 w-1 h-1 bg-pink-300/40 rounded-full animate-pulse"
+                style={{ animationDelay: "2s" }}
+              ></div>
 
               {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
@@ -1133,8 +1291,18 @@ export default function Index() {
               {/* Left side - Compact content */}
               <div className="flex items-center gap-6">
                 <div className="flex items-center justify-center w-12 h-12 bg-white/80 rounded-lg backdrop-blur-sm border border-gray-200 shadow-sm">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <svg
+                    className="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
                   </svg>
                 </div>
 
@@ -1179,8 +1347,18 @@ export default function Index() {
 
                 <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-6 py-2 transition-all duration-300 rounded-lg group hover:scale-105 shadow-md">
                   <span className="mr-2">Start Comparing</span>
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <svg
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
                   </svg>
                 </Button>
               </div>

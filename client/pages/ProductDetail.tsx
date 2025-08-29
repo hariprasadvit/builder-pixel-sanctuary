@@ -14,7 +14,7 @@ import {
   Send,
   Bot,
   User,
-  ChevronDown
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -67,14 +67,15 @@ export default function ProductDetail() {
       "Pro camera system with 5x telephoto",
       "Camera Control button",
       "Titanium design",
-      "5G connectivity"
+      "5G connectivity",
     ],
-    description: "The iPhone 16 Pro Max features the powerful A18 Pro chip, advanced Pro camera system with 5x telephoto, and comes in premium titanium finishes. Experience professional-grade performance and photography with the largest iPhone display.",
+    description:
+      "The iPhone 16 Pro Max features the powerful A18 Pro chip, advanced Pro camera system with 5x telephoto, and comes in premium titanium finishes. Experience professional-grade performance and photography with the largest iPhone display.",
     specifications: {
       // Display
       "Display Type": "Super Retina XDR OLED",
       "Screen Size": "17.43 cm / 6.9″ (diagonal)",
-      "Resolution": "2868x1320-pixel at 460 ppi",
+      Resolution: "2868x1320-pixel at 460 ppi",
       "Display Features": "All-screen OLED display",
 
       // Storage & Capacity
@@ -84,7 +85,7 @@ export default function ProductDetail() {
       // Durability
       "Water Resistance": "IP68 rated",
       "Water Depth": "Maximum 6 metres up to 30 minutes",
-      "Standard": "IEC standard 60529",
+      Standard: "IEC standard 60529",
 
       // Camera System
       "Main Camera": "48MP Fusion (24mm, ƒ/1.78)",
@@ -98,20 +99,20 @@ export default function ProductDetail() {
       // Power & Battery
       "Video Playback": "Up to 33 hours",
       "Audio Playback": "Up to 105 hours",
-      "Charging": "MagSafe up to 25W, USB-C fast charge",
+      Charging: "MagSafe up to 25W, USB-C fast charge",
       "Fast Charge": "50% in 30 minutes with 20W adapter",
 
       // Physical
-      "Height": "163 mm (6.42 inches)",
+      Height: "163 mm (6.42 inches)",
       "Operating System": "iOS 18",
-      "Processor": "A18 Pro Bionic",
-      "Warranty": "One-Year Limited Warranty"
+      Processor: "A18 Pro Bionic",
+      Warranty: "One-Year Limited Warranty",
     },
     seller: {
       name: "Apple Store",
       rating: 4.9,
-      location: "London, UK"
-    }
+      location: "London, UK",
+    },
   };
 
   const handleQuantityChange = (increment: boolean) => {
@@ -151,47 +152,61 @@ export default function ProductDetail() {
     {
       model: "iPhone 16",
       price: "£999.99",
-      display: "6.1\" Super Retina XDR",
+      display: '6.1" Super Retina XDR',
       chip: "A18 Bionic",
       camera: "48MP Main + 12MP Ultra Wide",
       battery: "Up to 22h video",
       storage: "128GB, 256GB, 512GB",
       features: ["Camera Control", "Action Button", "USB-C"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1ab7beef708241a5ac8b96c09e63146f?format=webp&width=800"
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1ab7beef708241a5ac8b96c09e63146f?format=webp&width=800",
     },
     {
       model: "iPhone 16 Plus",
       price: "£1,099.99",
-      display: "6.7\" Super Retina XDR",
+      display: '6.7" Super Retina XDR',
       chip: "A18 Bionic",
       camera: "48MP Main + 12MP Ultra Wide",
       battery: "Up to 27h video",
       storage: "128GB, 256GB, 512GB",
       features: ["Camera Control", "Action Button", "USB-C"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8d8deb9d54e746b78bdf029fb2782ff4?format=webp&width=800"
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8d8deb9d54e746b78bdf029fb2782ff4?format=webp&width=800",
     },
     {
       model: "iPhone 16 Pro",
       price: "£1,199.99",
-      display: "6.3\" Super Retina XDR ProMotion",
+      display: '6.3" Super Retina XDR ProMotion',
       chip: "A18 Pro",
       camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
       battery: "Up to 27h video",
       storage: "128GB, 256GB, 512GB, 1TB",
-      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1fbe373ae20c4f26b1e4495ec55024c7?format=webp&width=800"
+      features: [
+        "Camera Control",
+        "Action Button",
+        "Titanium Design",
+        "5x Zoom",
+      ],
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1fbe373ae20c4f26b1e4495ec55024c7?format=webp&width=800",
     },
     {
       model: "iPhone 16 Pro Max",
       price: "£1,399.99",
-      display: "6.9\" Super Retina XDR ProMotion",
+      display: '6.9" Super Retina XDR ProMotion',
       chip: "A18 Pro",
       camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
       battery: "Up to 33h video",
       storage: "256GB, 512GB, 1TB",
-      features: ["Camera Control", "Action Button", "Titanium Design", "5x Zoom"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F109505a1bf1c4911b1c720697e773970?format=webp&width=800"
-    }
+      features: [
+        "Camera Control",
+        "Action Button",
+        "Titanium Design",
+        "5x Zoom",
+      ],
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F109505a1bf1c4911b1c720697e773970?format=webp&width=800",
+    },
   ];
 
   const mockReviews = [
@@ -200,60 +215,64 @@ export default function ProductDetail() {
       user: "John D.",
       rating: 5,
       date: "2 days ago",
-      comment: "Amazing phone! The camera quality is outstanding and the battery life is excellent. Camera Control is a game-changer for photography.",
-      helpful: 24
+      comment:
+        "Amazing phone! The camera quality is outstanding and the battery life is excellent. Camera Control is a game-changer for photography.",
+      helpful: 24,
     },
     {
       id: 2,
       user: "Sarah M.",
       rating: 4,
       date: "1 week ago",
-      comment: "Great upgrade from my iPhone 14. The A18 chip is incredibly fast and the new features are useful. Only wish it had better zoom capabilities.",
-      helpful: 18
+      comment:
+        "Great upgrade from my iPhone 14. The A18 chip is incredibly fast and the new features are useful. Only wish it had better zoom capabilities.",
+      helpful: 18,
     },
     {
       id: 3,
       user: "Mike R.",
       rating: 5,
       date: "2 weeks ago",
-      comment: "Perfect phone for content creators. The video quality is cinema-grade and the new Action Button is so convenient for quick access to camera.",
-      helpful: 32
-    }
+      comment:
+        "Perfect phone for content creators. The video quality is cinema-grade and the new Action Button is so convenient for quick access to camera.",
+      helpful: 32,
+    },
   ];
 
-  const aiSummary = "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
+  const aiSummary =
+    "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
 
   const colorOptions = [
     {
       name: "Black Titanium",
       image: "https://m.media-amazon.com/images/I/61135j8fPJL._AC_SX69_.jpg",
       price: 999.99,
-      originalPrice: 1099.99
+      originalPrice: 1099.99,
     },
     {
       name: "Natural Titanium",
       image: "https://m.media-amazon.com/images/I/51UIlT-iiML._AC_SX69_.jpg",
       price: 999.99,
-      originalPrice: 1099.99
+      originalPrice: 1099.99,
     },
     {
       name: "White Titanium",
       image: "https://m.media-amazon.com/images/I/71kahbX9OlL._AC_SX69_.jpg",
       price: 1019.99,
-      originalPrice: 1099.99
+      originalPrice: 1099.99,
     },
     {
       name: "Desert Titanium",
       image: "https://m.media-amazon.com/images/I/61135j8fPJL._AC_SX69_.jpg",
       price: 1039.99,
-      originalPrice: 1099.99
-    }
+      originalPrice: 1099.99,
+    },
   ];
 
   const storageOptions = [
     { size: "256GB", price: 1199.99, available: true },
     { size: "512GB", price: 1399.99, available: true },
-    { size: "1TB", price: 1599.99, available: true }
+    { size: "1TB", price: 1599.99, available: true },
   ];
 
   const frequentlyBoughtTogether = [
@@ -263,8 +282,9 @@ export default function ProductDetail() {
       price: 25.99,
       rating: 4.6,
       reviewCount: 3014,
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb14c18fed8f2414098886fb619e2aa61?format=webp&width=800",
-      savings: "12% off"
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb14c18fed8f2414098886fb619e2aa61?format=webp&width=800",
+      savings: "12% off",
     },
     {
       id: "fbt2",
@@ -272,8 +292,9 @@ export default function ProductDetail() {
       price: 25.99,
       rating: 3.8,
       reviewCount: 67,
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa9652edad11144bdb94228eb2683f050?format=webp&width=800"
-    }
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa9652edad11144bdb94228eb2683f050?format=webp&width=800",
+    },
   ];
 
   const recommendedProducts = [
@@ -284,8 +305,9 @@ export default function ProductDetail() {
       originalPrice: 1299.99,
       rating: 4.5,
       reviewCount: 892,
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faa983f0020c6415b9f5ce51ad181afc2?format=webp&width=800",
-      badge: "Best Seller"
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faa983f0020c6415b9f5ce51ad181afc2?format=webp&width=800",
+      badge: "Best Seller",
     },
     {
       id: "rec2",
@@ -293,8 +315,9 @@ export default function ProductDetail() {
       price: 399.99,
       rating: 4.6,
       reviewCount: 567,
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0c0d110594234678a2d95d775bccee17?format=webp&width=800",
-      badge: "New"
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0c0d110594234678a2d95d775bccee17?format=webp&width=800",
+      badge: "New",
     },
     {
       id: "rec3",
@@ -303,7 +326,8 @@ export default function ProductDetail() {
       originalPrice: 35.99,
       rating: 4.8,
       reviewCount: 2156,
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb14c18fed8f2414098886fb619e2aa61?format=webp&width=800"
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb14c18fed8f2414098886fb619e2aa61?format=webp&width=800",
     },
     {
       id: "rec4",
@@ -311,8 +335,9 @@ export default function ProductDetail() {
       price: 34.99,
       rating: 4.7,
       reviewCount: 1847,
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa9652edad11144bdb94228eb2683f050?format=webp&width=800"
-    }
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa9652edad11144bdb94228eb2683f050?format=webp&width=800",
+    },
   ];
 
   return (
@@ -320,14 +345,14 @@ export default function ProductDetail() {
       <div className="container mx-auto px-4 py-6">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-600 mb-6">
-          <span 
+          <span
             className="hover:text-brand-blue cursor-pointer"
             onClick={() => navigate("/")}
           >
             Home
           </span>
           <span className="mx-2">/</span>
-          <span 
+          <span
             className="hover:text-brand-blue cursor-pointer"
             onClick={() => navigate("/electronics")}
           >
@@ -353,7 +378,9 @@ export default function ProductDetail() {
                 <div
                   key={index}
                   className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
-                    selectedImage === index ? "border-brand-blue" : "border-gray-200"
+                    selectedImage === index
+                      ? "border-brand-blue"
+                      : "border-gray-200"
                   }`}
                   onClick={() => setSelectedImage(index)}
                 >
@@ -372,8 +399,12 @@ export default function ProductDetail() {
             {/* Header Info */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-blue-600 text-white text-xs">{product.origin}</Badge>
-                <Badge variant="outline" className="text-xs">{product.brand}</Badge>
+                <Badge className="bg-blue-600 text-white text-xs">
+                  {product.origin}
+                </Badge>
+                <Badge variant="outline" className="text-xs">
+                  {product.brand}
+                </Badge>
               </div>
               <h1 className="text-xl font-bold text-gray-900 leading-tight mb-3">
                 {product.title}
@@ -401,17 +432,20 @@ export default function ProductDetail() {
               {/* Price */}
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-2xl font-bold text-gray-900">
-                  {getCurrencySymbol()}{product.price.toFixed(2)}
+                  {getCurrencySymbol()}
+                  {product.price.toFixed(2)}
                 </span>
                 {product.originalPrice && (
                   <span className="text-lg text-gray-500 line-through">
-                    {getCurrencySymbol()}{product.originalPrice.toFixed(2)}
+                    {getCurrencySymbol()}
+                    {product.originalPrice.toFixed(2)}
                   </span>
                 )}
               </div>
               {product.originalPrice && (
                 <Badge className="bg-red-100 text-red-700 mb-4 inline-block">
-                  Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}
+                  Save {getCurrencySymbol()}
+                  {(product.originalPrice - product.price).toFixed(2)}
                 </Badge>
               )}
 
@@ -427,7 +461,9 @@ export default function ProductDetail() {
                 ) : (
                   <>
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <span className="text-red-700 font-medium text-sm">Out of Stock</span>
+                    <span className="text-red-700 font-medium text-sm">
+                      Out of Stock
+                    </span>
                   </>
                 )}
               </div>
@@ -436,10 +472,14 @@ export default function ProductDetail() {
             {/* Product Description - Now visible on mobile */}
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
               <p className="text-gray-800 text-sm leading-relaxed">
-                The iPhone 16 Pro Max delivers pro-grade performance with the A18 Pro chip,
-                featuring the revolutionary Camera Control and advanced Pro camera system with 5x telephoto.
-                Built with aerospace-grade titanium and the largest iPhone display ever.
-                <span className="font-medium text-blue-700 block mt-2"> Experience professional mobile photography and videography.</span>
+                The iPhone 16 Pro Max delivers pro-grade performance with the
+                A18 Pro chip, featuring the revolutionary Camera Control and
+                advanced Pro camera system with 5x telephoto. Built with
+                aerospace-grade titanium and the largest iPhone display ever.
+                <span className="font-medium text-blue-700 block mt-2">
+                  {" "}
+                  Experience professional mobile photography and videography.
+                </span>
               </p>
             </div>
 
@@ -451,23 +491,33 @@ export default function ProductDetail() {
               </h3>
               <div className="grid grid-cols-1 gap-2 text-sm text-gray-700">
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span className="text-blue-600 font-bold text-lg leading-none">
+                    •
+                  </span>
                   <span>A18 Pro chip for pro-level performance</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span className="text-blue-600 font-bold text-lg leading-none">
+                    •
+                  </span>
                   <span>Pro camera system with 5x telephoto lens</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span className="text-blue-600 font-bold text-lg leading-none">
+                    •
+                  </span>
                   <span>Extended battery life up to 33 hours video</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span className="text-blue-600 font-bold text-lg leading-none">
+                    •
+                  </span>
                   <span>Premium titanium design - aerospace grade</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                  <span className="text-blue-600 font-bold text-lg leading-none">
+                    •
+                  </span>
                   <span>6.9″ largest iPhone display ever</span>
                 </div>
               </div>
@@ -481,7 +531,8 @@ export default function ProductDetail() {
                 onClick={handleBuyNow}
                 disabled={!product.inStock}
               >
-                Buy Now - {getCurrencySymbol()}{(product.price * quantity).toFixed(2)}
+                Buy Now - {getCurrencySymbol()}
+                {(product.price * quantity).toFixed(2)}
               </Button>
               <Button
                 variant="outline"
@@ -502,359 +553,424 @@ export default function ProductDetail() {
             <div className="grid grid-cols-12 gap-6">
               {/* Product Images */}
               <div className="col-span-4 space-y-4">
-            <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
-              <img
-                src={product.images[selectedImage]}
-                alt={product.title}
-                className="w-full h-full object-contain p-4"
-              />
-            </div>
-            <div className="flex gap-2 overflow-x-auto">
-              {product.images.map((image, index) => (
-                <div
-                  key={index}
-                  className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
-                    selectedImage === index ? "border-brand-blue" : "border-gray-200"
-                  }`}
-                  onClick={() => setSelectedImage(index)}
-                >
+                <div className="aspect-square bg-white rounded-xl overflow-hidden shadow-lg border">
                   <img
-                    src={image}
-                    alt={`${product.title} ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    src={product.images[selectedImage]}
+                    alt={product.title}
+                    className="w-full h-full object-contain p-4"
                   />
                 </div>
-              ))}
-            </div>
-          </div>
+                <div className="flex gap-2 overflow-x-auto">
+                  {product.images.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
+                        selectedImage === index
+                          ? "border-brand-blue"
+                          : "border-gray-200"
+                      }`}
+                      onClick={() => setSelectedImage(index)}
+                    >
+                      <img
+                        src={image}
+                        alt={`${product.title} ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {/* Product Info */}
               <div className="col-span-5 space-y-4">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Badge className="bg-blue-600 text-white">{product.origin}</Badge>
-                <Badge variant="outline">{product.brand}</Badge>
-              </div>
-              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
-                {product.title}
-              </h1>
-
-              {/* Rating */}
-              <div className="flex items-center gap-2">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${
-                        i < Math.floor(product.rating)
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-gray-600">
-                  {product.rating} ({product.reviewCount} reviews)
-                </span>
-              </div>
-
-              {/* Price */}
-              <div className="flex items-baseline gap-3">
-                <span className="text-3xl font-bold text-gray-900">
-                  {getCurrencySymbol()}{product.price.toFixed(2)}
-                </span>
-                {product.originalPrice && (
-                  <span className="text-xl text-gray-500 line-through">
-                    {getCurrencySymbol()}{product.originalPrice.toFixed(2)}
-                  </span>
-                )}
-                {product.originalPrice && (
-                  <Badge className="bg-red-100 text-red-700">
-                    Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}
-                  </Badge>
-                )}
-              </div>
-
-              {/* Product Description */}
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                <p className="text-gray-800 text-sm leading-relaxed">
-                  The iPhone 16 Pro Max delivers pro-grade performance with the A18 Pro chip,
-                  featuring the revolutionary Camera Control and advanced Pro camera system with 5x telephoto.
-                  Built with aerospace-grade titanium and the largest iPhone display ever.
-                  <span className="font-medium text-blue-700"> Experience professional mobile photography and videography.</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Stock Status */}
-            <div className="flex items-center gap-2">
-              {product.inStock ? (
-                <>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-green-700 font-medium">
-                    In Stock ({product.stockCount} available)
-                  </span>
-                </>
-              ) : (
-                <>
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <span className="text-red-700 font-medium">Out of Stock</span>
-                </>
-              )}
-            </div>
-
-            {/* Color Selection - 3x3 for desktop */}
-            <div className="space-y-3">
-              <div>
-                <span className="text-sm font-medium text-gray-900">
-                  Colour: <span className="font-semibold">{selectedColor}</span>
-                </span>
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                {colorOptions.map((color) => (
-                  <div
-                    key={color.name}
-                    className={`cursor-pointer rounded-lg border-2 p-3 transition-all ${
-                      selectedColor === color.name
-                        ? "border-blue-600 bg-blue-50"
-                        : "border-gray-200 hover:border-gray-300"
-                    }`}
-                    onClick={() => setSelectedColor(color.name)}
-                  >
-                    <div className="aspect-square w-16 mx-auto mb-2 bg-white rounded-lg overflow-hidden">
-                      <img
-                        src={color.image}
-                        alt={color.name}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <div className="text-xs font-medium text-gray-900 mb-1">
-                        £{color.price.toFixed(2)}
-                      </div>
-                      <div className="text-xs text-gray-500 line-through">
-                        £{color.originalPrice.toFixed(2)}
-                      </div>
-                    </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Badge className="bg-blue-600 text-white">
+                      {product.origin}
+                    </Badge>
+                    <Badge variant="outline">{product.brand}</Badge>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
+                    {product.title}
+                  </h1>
 
-            {/* Storage Selection */}
-            <div className="space-y-3">
-              <div>
-                <span className="text-sm font-medium text-gray-900">
-                  Size: <span className="font-semibold">{selectedStorage}</span>
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {storageOptions.map((storage) => (
-                  <button
-                    key={storage.size}
-                    className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
-                      selectedStorage === storage.size
-                        ? "border-blue-600 bg-blue-600 text-white"
-                        : storage.available
-                        ? "border-gray-300 text-gray-900 hover:border-gray-400"
-                        : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
-                    } ${!storage.available ? "border-dashed" : ""}`}
-                    onClick={() => storage.available && setSelectedStorage(storage.size)}
-                    disabled={!storage.available}
-                  >
-                    {storage.size}
-                  </button>
-                ))}
-              </div>
-            </div>
+                  {/* Rating */}
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-5 h-5 ${
+                            i < Math.floor(product.rating)
+                              ? "text-yellow-400 fill-current"
+                              : "text-gray-300"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-600">
+                      {product.rating} ({product.reviewCount} reviews)
+                    </span>
+                  </div>
 
-            {/* Delivery Info */}
-            <Card>
-              <CardContent className="p-4">
-                <div className="flex items-center gap-3">
-                  <Truck className="w-5 h-5 text-brand-blue" />
+                  {/* Price */}
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-3xl font-bold text-gray-900">
+                      {getCurrencySymbol()}
+                      {product.price.toFixed(2)}
+                    </span>
+                    {product.originalPrice && (
+                      <span className="text-xl text-gray-500 line-through">
+                        {getCurrencySymbol()}
+                        {product.originalPrice.toFixed(2)}
+                      </span>
+                    )}
+                    {product.originalPrice && (
+                      <Badge className="bg-red-100 text-red-700">
+                        Save {getCurrencySymbol()}
+                        {(product.originalPrice - product.price).toFixed(2)}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Product Description */}
+                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <p className="text-gray-800 text-sm leading-relaxed">
+                      The iPhone 16 Pro Max delivers pro-grade performance with
+                      the A18 Pro chip, featuring the revolutionary Camera
+                      Control and advanced Pro camera system with 5x telephoto.
+                      Built with aerospace-grade titanium and the largest iPhone
+                      display ever.
+                      <span className="font-medium text-blue-700">
+                        {" "}
+                        Experience professional mobile photography and
+                        videography.
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stock Status */}
+                <div className="flex items-center gap-2">
+                  {product.inStock ? (
+                    <>
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span className="text-green-700 font-medium">
+                        In Stock ({product.stockCount} available)
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <span className="text-red-700 font-medium">
+                        Out of Stock
+                      </span>
+                    </>
+                  )}
+                </div>
+
+                {/* Color Selection - 3x3 for desktop */}
+                <div className="space-y-3">
                   <div>
-                    <div className="font-medium">Delivery: {product.deliveryEta}</div>
-                    <div className="text-sm text-gray-600">
-                      Free delivery on orders over {getCurrencySymbol()}50
+                    <span className="text-sm font-medium text-gray-900">
+                      Colour:{" "}
+                      <span className="font-semibold">{selectedColor}</span>
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    {colorOptions.map((color) => (
+                      <div
+                        key={color.name}
+                        className={`cursor-pointer rounded-lg border-2 p-3 transition-all ${
+                          selectedColor === color.name
+                            ? "border-blue-600 bg-blue-50"
+                            : "border-gray-200 hover:border-gray-300"
+                        }`}
+                        onClick={() => setSelectedColor(color.name)}
+                      >
+                        <div className="aspect-square w-16 mx-auto mb-2 bg-white rounded-lg overflow-hidden">
+                          <img
+                            src={color.image}
+                            alt={color.name}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <div className="text-center">
+                          <div className="text-xs font-medium text-gray-900 mb-1">
+                            £{color.price.toFixed(2)}
+                          </div>
+                          <div className="text-xs text-gray-500 line-through">
+                            £{color.originalPrice.toFixed(2)}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Storage Selection */}
+                <div className="space-y-3">
+                  <div>
+                    <span className="text-sm font-medium text-gray-900">
+                      Size:{" "}
+                      <span className="font-semibold">{selectedStorage}</span>
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {storageOptions.map((storage) => (
+                      <button
+                        key={storage.size}
+                        className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
+                          selectedStorage === storage.size
+                            ? "border-blue-600 bg-blue-600 text-white"
+                            : storage.available
+                              ? "border-gray-300 text-gray-900 hover:border-gray-400"
+                              : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
+                        } ${!storage.available ? "border-dashed" : ""}`}
+                        onClick={() =>
+                          storage.available && setSelectedStorage(storage.size)
+                        }
+                        disabled={!storage.available}
+                      >
+                        {storage.size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Delivery Info */}
+                <Card>
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-3">
+                      <Truck className="w-5 h-5 text-brand-blue" />
+                      <div>
+                        <div className="font-medium">
+                          Delivery: {product.deliveryEta}
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          Free delivery on orders over {getCurrencySymbol()}50
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Quantity & Actions */}
+                <div className="space-y-5">
+                  <div className="flex items-center gap-4">
+                    <span className="font-medium text-gray-900 min-w-[80px]">
+                      Quantity:
+                    </span>
+                    <div className="flex items-center border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-10 w-10 hover:bg-blue-50"
+                        onClick={() => handleQuantityChange(false)}
+                        disabled={quantity <= 1}
+                      >
+                        <Minus className="w-4 h-4" />
+                      </Button>
+                      <span className="w-12 text-center font-semibold text-lg">
+                        {quantity}
+                      </span>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-10 w-10 hover:bg-blue-50"
+                        onClick={() => handleQuantityChange(true)}
+                        disabled={quantity >= product.stockCount}
+                      >
+                        <Plus className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <Button
+                      size="lg"
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14"
+                      onClick={handleBuyNow}
+                      disabled={!product.inStock}
+                    >
+                      <CreditCard className="w-5 h-5 mr-2" />
+                      Buy Now - {getCurrencySymbol()}
+                      {(product.price * quantity).toFixed(2)}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg transition-all duration-200 h-14"
+                      onClick={handleAddToCart}
+                      disabled={!product.inStock}
+                    >
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      Add to Cart
+                    </Button>
+                  </div>
+
+                  <div className="flex gap-3 pt-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        toggle({
+                          id: product.id,
+                          name: product.title,
+                          price: product.price,
+                          originalPrice: product.originalPrice,
+                          image: product.images[0],
+                          category: product.category,
+                          inStock: product.inStock,
+                        });
+                        const nowWishlisted = isWishlisted(product.id);
+                        toast({
+                          title: nowWishlisted
+                            ? "Added to Wishlist."
+                            : "Removed from Wishlist.",
+                        });
+                      }}
+                      className={`flex-1 h-12 ${isWishlisted(product.id) ? "text-red-600 border-red-600" : ""}`}
+                    >
+                      <Heart
+                        className={`w-4 h-4 mr-2 ${isWishlisted(product.id) ? "fill-current" : ""}`}
+                      />
+                      {isWishlisted(product.id) ? "Wishlisted" : "Wishlist"}
+                    </Button>
+                    <Button variant="outline" size="sm" className="flex-1 h-12">
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Share
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Trust Badges */}
+                <div className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t border-gray-200">
+                  <div className="text-center">
+                    <Shield className="w-6 h-6 text-brand-blue mx-auto mb-2" />
+                    <div className="text-xs font-medium text-gray-700">
+                      Secure Payment
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <RotateCcw className="w-6 h-6 text-brand-blue mx-auto mb-2" />
+                    <div className="text-xs font-medium text-gray-700">
+                      30-Day Returns
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <Truck className="w-6 h-6 text-brand-blue mx-auto mb-2" />
+                    <div className="text-xs font-medium text-gray-700">
+                      Fast Delivery
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Quantity & Actions */}
-            <div className="space-y-5">
-              <div className="flex items-center gap-4">
-                <span className="font-medium text-gray-900 min-w-[80px]">Quantity:</span>
-                <div className="flex items-center border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-10 w-10 hover:bg-blue-50"
-                    onClick={() => handleQuantityChange(false)}
-                    disabled={quantity <= 1}
-                  >
-                    <Minus className="w-4 h-4" />
-                  </Button>
-                  <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-10 w-10 hover:bg-blue-50"
-                    onClick={() => handleQuantityChange(true)}
-                    disabled={quantity >= product.stockCount}
-                  >
-                    <Plus className="w-4 h-4" />
-                  </Button>
-                </div>
               </div>
-
-              <div className="space-y-3">
-                <Button
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14"
-                  onClick={handleBuyNow}
-                  disabled={!product.inStock}
-                >
-                  <CreditCard className="w-5 h-5 mr-2" />
-                  Buy Now - {getCurrencySymbol()}{(product.price * quantity).toFixed(2)}
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg transition-all duration-200 h-14"
-                  onClick={handleAddToCart}
-                  disabled={!product.inStock}
-                >
-                  <ShoppingCart className="w-5 h-5 mr-2" />
-                  Add to Cart
-                </Button>
-              </div>
-
-              <div className="flex gap-3 pt-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    toggle({ id: product.id, name: product.title, price: product.price, originalPrice: product.originalPrice, image: product.images[0], category: product.category, inStock: product.inStock });
-                    const nowWishlisted = isWishlisted(product.id);
-                    toast({ title: nowWishlisted ? 'Added to Wishlist.' : 'Removed from Wishlist.' });
-                  }}
-                  className={`flex-1 h-12 ${isWishlisted(product.id) ? "text-red-600 border-red-600" : ""}`}
-                >
-                  <Heart className={`w-4 h-4 mr-2 ${isWishlisted(product.id) ? "fill-current" : ""}`} />
-                  {isWishlisted(product.id) ? "Wishlisted" : "Wishlist"}
-                </Button>
-                <Button variant="outline" size="sm" className="flex-1 h-12">
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Share
-                </Button>
-              </div>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t border-gray-200">
-              <div className="text-center">
-                <Shield className="w-6 h-6 text-brand-blue mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">Secure Payment</div>
-              </div>
-              <div className="text-center">
-                <RotateCcw className="w-6 h-6 text-brand-blue mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">30-Day Returns</div>
-              </div>
-              <div className="text-center">
-                <Truck className="w-6 h-6 text-brand-blue mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">Fast Delivery</div>
-              </div>
-            </div>
-          </div>
 
               {/* Product Highlights & Summary - Third Column */}
               <div className="col-span-3 space-y-4">
-            {/* Quick Summary */}
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-100">
-              <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
-                Product Highlights
-              </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
-                  <span>A18 Pro chip for pro-level performance</span>
-                </li>
-                <li className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
-                  <span>Pro camera system with 5x telephoto lens</span>
-                </li>
-                <li className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
-                  <span>Extended battery life up to 33 hours video</span>
-                </li>
-                <li className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
-                  <span>Premium titanium design - aerospace grade</span>
-                </li>
-                <li className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">•</span>
-                  <span>6.9″ largest iPhone display ever</span>
-                </li>
-              </ul>
-            </div>
+                {/* Quick Summary */}
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-100">
+                  <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    Product Highlights
+                  </h3>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-3 py-1">
+                      <span className="text-blue-600 font-bold text-lg leading-none">
+                        •
+                      </span>
+                      <span>A18 Pro chip for pro-level performance</span>
+                    </li>
+                    <li className="flex items-start gap-3 py-1">
+                      <span className="text-blue-600 font-bold text-lg leading-none">
+                        •
+                      </span>
+                      <span>Pro camera system with 5x telephoto lens</span>
+                    </li>
+                    <li className="flex items-start gap-3 py-1">
+                      <span className="text-blue-600 font-bold text-lg leading-none">
+                        •
+                      </span>
+                      <span>Extended battery life up to 33 hours video</span>
+                    </li>
+                    <li className="flex items-start gap-3 py-1">
+                      <span className="text-blue-600 font-bold text-lg leading-none">
+                        •
+                      </span>
+                      <span>Premium titanium design - aerospace grade</span>
+                    </li>
+                    <li className="flex items-start gap-3 py-1">
+                      <span className="text-blue-600 font-bold text-lg leading-none">
+                        •
+                      </span>
+                      <span>6.9″ largest iPhone display ever</span>
+                    </li>
+                  </ul>
+                </div>
 
-            {/* Quick Specs */}
-            <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-              <h3 className="font-semibold text-gray-900 mb-3">Quick Specs</h3>
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div>
-                  <span className="text-gray-600">Display</span>
-                  <div className="font-medium">6.9″ Super Retina XDR</div>
+                {/* Quick Specs */}
+                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+                  <h3 className="font-semibold text-gray-900 mb-3">
+                    Quick Specs
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div>
+                      <span className="text-gray-600">Display</span>
+                      <div className="font-medium">6.9″ Super Retina XDR</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-600">Storage</span>
+                      <div className="font-medium">{selectedStorage}</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-600">Color</span>
+                      <div className="font-medium">{selectedColor}</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-600">Camera</span>
+                      <div className="font-medium">Pro 48MP + 5x Telephoto</div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-gray-600">Storage</span>
-                  <div className="font-medium">{selectedStorage}</div>
-                </div>
-                <div>
-                  <span className="text-gray-600">Color</span>
-                  <div className="font-medium">{selectedColor}</div>
-                </div>
-                <div>
-                  <span className="text-gray-600">Camera</span>
-                  <div className="font-medium">Pro 48MP + 5x Telephoto</div>
-                </div>
-              </div>
-            </div>
 
-            {/* Value Proposition */}
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
-              <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
-                <span className="text-sm font-medium text-gray-900">Save £100.00</span>
-              </div>
-              <p className="text-sm text-gray-700">
-                Get the latest iPhone 16 with free delivery and 1-year warranty.
-                Limited time offer - save £100 on all storage variants.
-              </p>
-            </div>
+                {/* Value Proposition */}
+                <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge className="bg-red-500 text-white text-xs">
+                      LIMITED OFFER
+                    </Badge>
+                    <span className="text-sm font-medium text-gray-900">
+                      Save £100.00
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-700">
+                    Get the latest iPhone 16 with free delivery and 1-year
+                    warranty. Limited time offer - save £100 on all storage
+                    variants.
+                  </p>
+                </div>
 
-            {/* Why Choose This */}
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h4 className="font-semibold text-gray-900 mb-2">Why Choose iPhone 16?</h4>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-600" />
-                  <span>Industry-leading security & privacy</span>
+                {/* Why Choose This */}
+                <div className="bg-gray-50 rounded-xl p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Why Choose iPhone 16?
+                  </h4>
+                  <div className="space-y-2 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <Shield className="w-4 h-4 text-blue-600" />
+                      <span>Industry-leading security & privacy</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Star className="w-4 h-4 text-yellow-500" />
+                      <span>4.8/5 rating from 2,847 customers</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Truck className="w-4 h-4 text-green-600" />
+                      <span>Free next-day delivery available</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Star className="w-4 h-4 text-yellow-500" />
-                  <span>4.8/5 rating from 2,847 customers</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Truck className="w-4 h-4 text-green-600" />
-                  <span>Free next-day delivery available</span>
-                </div>
-              </div>
-            </div>
               </div>
             </div>
           </div>
@@ -911,10 +1027,12 @@ export default function ProductDetail() {
                     selectedStorage === storage.size
                       ? "border-blue-600 bg-blue-600 text-white"
                       : storage.available
-                      ? "border-gray-300 text-gray-900 hover:border-gray-400"
-                      : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
+                        ? "border-gray-300 text-gray-900 hover:border-gray-400"
+                        : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
                   } ${!storage.available ? "border-dashed" : ""}`}
-                  onClick={() => storage.available && setSelectedStorage(storage.size)}
+                  onClick={() =>
+                    storage.available && setSelectedStorage(storage.size)
+                  }
                   disabled={!storage.available}
                 >
                   {storage.size}
@@ -938,7 +1056,9 @@ export default function ProductDetail() {
                 >
                   <Minus className="w-4 h-4" />
                 </Button>
-                <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
+                <span className="w-12 text-center font-semibold text-lg">
+                  {quantity}
+                </span>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -959,9 +1079,7 @@ export default function ProductDetail() {
               </h4>
               <div className="text-sm">
                 <div className="font-medium">{product.deliveryEta}</div>
-                <div className="text-gray-600 text-xs">
-                  Free on £50+ orders
-                </div>
+                <div className="text-gray-600 text-xs">Free on £50+ orders</div>
               </div>
             </div>
           </div>
@@ -994,7 +1112,9 @@ export default function ProductDetail() {
                 className="flex items-center gap-2"
               >
                 {showComparison ? "Hide" : "Show"} Comparison
-                <ChevronDown className={`w-4 h-4 transition-transform ${showComparison ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${showComparison ? "rotate-180" : ""}`}
+                />
               </Button>
             </div>
             {showComparison && (
@@ -1005,9 +1125,9 @@ export default function ProductDetail() {
                       <div
                         key={index}
                         className={`border rounded-lg p-4 ${
-                          phone.model === 'iPhone 16'
-                            ? 'border-blue-500 bg-blue-50 shadow-md'
-                            : 'border-gray-200 bg-white'
+                          phone.model === "iPhone 16"
+                            ? "border-blue-500 bg-blue-50 shadow-md"
+                            : "border-gray-200 bg-white"
                         }`}
                       >
                         <div className="space-y-3">
@@ -1020,30 +1140,46 @@ export default function ProductDetail() {
                               />
                             </div>
                             <h3 className="font-bold text-lg">{phone.model}</h3>
-                            <p className="text-xl font-bold text-green-600">{phone.price}</p>
+                            <p className="text-xl font-bold text-green-600">
+                              {phone.price}
+                            </p>
                           </div>
                           <div className="space-y-2 text-sm">
                             <div>
-                              <span className="font-medium text-gray-600">Display:</span>
+                              <span className="font-medium text-gray-600">
+                                Display:
+                              </span>
                               <p className="text-gray-800">{phone.display}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">Chip:</span>
+                              <span className="font-medium text-gray-600">
+                                Chip:
+                              </span>
                               <p className="text-gray-800">{phone.chip}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">Camera:</span>
+                              <span className="font-medium text-gray-600">
+                                Camera:
+                              </span>
                               <p className="text-gray-800">{phone.camera}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">Battery:</span>
+                              <span className="font-medium text-gray-600">
+                                Battery:
+                              </span>
                               <p className="text-gray-800">{phone.battery}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">Features:</span>
+                              <span className="font-medium text-gray-600">
+                                Features:
+                              </span>
                               <div className="flex flex-wrap gap-1 mt-1">
                                 {phone.features.map((feature, i) => (
-                                  <Badge key={i} variant="secondary" className="text-xs">
+                                  <Badge
+                                    key={i}
+                                    variant="secondary"
+                                    className="text-xs"
+                                  >
                                     {feature}
                                   </Badge>
                                 ))}
@@ -1069,7 +1205,7 @@ export default function ProductDetail() {
                 <TabsTrigger value="specifications">Specifications</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews & AI Summary</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="description" className="mt-6 relative z-0">
                 <div className="space-y-8">
                   {/* Product Description */}
@@ -1077,8 +1213,12 @@ export default function ProductDetail() {
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-1 h-16 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">Product Overview</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">{product.description}</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                          Product Overview
+                        </h3>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                          {product.description}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1093,10 +1233,17 @@ export default function ProductDetail() {
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {product.features.map((feature, index) => (
-                        <div key={index} className="group hover:shadow-md transition-shadow duration-200 p-4 bg-white border border-gray-200 rounded-xl hover:border-blue-300">
+                        <div
+                          key={index}
+                          className="group hover:shadow-md transition-shadow duration-200 p-4 bg-white border border-gray-200 rounded-xl hover:border-blue-300"
+                        >
                           <div className="flex items-start gap-3">
-                            <span className="text-blue-600 font-bold text-xl leading-none mt-0.5">✓</span>
-                            <span className="text-gray-800 font-medium">{feature}</span>
+                            <span className="text-blue-600 font-bold text-xl leading-none mt-0.5">
+                              ✓
+                            </span>
+                            <span className="text-gray-800 font-medium">
+                              {feature}
+                            </span>
                           </div>
                         </div>
                       ))}
@@ -1104,12 +1251,16 @@ export default function ProductDetail() {
                   </div>
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="specifications" className="mt-6 relative z-0">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <h3 className="text-lg font-semibold text-gray-900">Technical Specifications</h3>
-                    <p className="text-sm text-gray-600 mt-1">Complete technical details and features</p>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Technical Specifications
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1">
+                      Complete technical details and features
+                    </p>
                   </div>
 
                   {/* Simple specifications table */}
@@ -1117,75 +1268,140 @@ export default function ProductDetail() {
                     <table className="w-full">
                       <tbody className="divide-y divide-gray-200">
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900 w-1/3">Display</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">6.9″ Super Retina XDR OLED, 2868x1320-pixel at 460 ppi</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900 w-1/3">
+                            Display
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            6.9″ Super Retina XDR OLED, 2868x1320-pixel at 460
+                            ppi
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Processor</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">A18 Pro Bionic</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Processor
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            A18 Pro Bionic
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Storage</td>
-                          <td className="px-4 py-3 text-sm text-gray-700 font-semibold text-blue-700">{selectedStorage}</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Storage
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700 font-semibold text-blue-700">
+                            {selectedStorage}
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Main Camera</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">48MP Fusion (24mm, ƒ/1.78)</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Main Camera
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            48MP Fusion (24mm, ƒ/1.78)
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Ultra Wide</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">48MP (13mm, ƒ/2.2, 120° FOV)</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Ultra Wide
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            48MP (13mm, ƒ/2.2, 120° FOV)
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Telephoto</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">12MP 5x (120mm, ƒ/2.8)</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Telephoto
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            12MP 5x (120mm, ƒ/2.8)
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Front Camera</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">12MP (ƒ/1.9, Autofocus)</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Front Camera
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            12MP (ƒ/1.9, Autofocus)
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Battery</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">Up to 33 hours video playback</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Battery
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            Up to 33 hours video playback
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Charging</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">MagSafe up to 25W, Fast charge 50% in 30 min</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Charging
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            MagSafe up to 25W, Fast charge 50% in 30 min
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Water Resistance</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">IP68 rated (6 metres up to 30 min)</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Water Resistance
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            IP68 rated (6 metres up to 30 min)
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Dimensions</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">163 x 78 x 8 mm, 227g</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Dimensions
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            163 x 78 x 8 mm, 227g
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Color</td>
-                          <td className="px-4 py-3 text-sm text-gray-700 font-semibold text-blue-700">{selectedColor}</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Color
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700 font-semibold text-blue-700">
+                            {selectedColor}
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Operating System</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">iOS 18</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Operating System
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            iOS 18
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Manufacturer</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">Apple Inc, Cupertino, CA</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Manufacturer
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            Apple Inc, Cupertino, CA
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">In the Box</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">iPhone with iOS 18, USB‑C Cable (1m), Documentation</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            In the Box
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            iPhone with iOS 18, USB‑C Cable (1m), Documentation
+                          </td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">Warranty</td>
-                          <td className="px-4 py-3 text-sm text-gray-700">One-Year Limited Warranty</td>
+                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                            Warranty
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-700">
+                            One-Year Limited Warranty
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="reviews" className="mt-6">
                 <div className="space-y-6">
                   {/* Overall Rating */}
@@ -1215,10 +1431,16 @@ export default function ProductDetail() {
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-3">
                         <Bot className="w-5 h-5 text-purple-600" />
-                        <h3 className="font-semibold text-purple-900">AI Review Summary</h3>
-                        <Badge className="bg-purple-100 text-purple-700 text-xs">Powered by AI</Badge>
+                        <h3 className="font-semibold text-purple-900">
+                          AI Review Summary
+                        </h3>
+                        <Badge className="bg-purple-100 text-purple-700 text-xs">
+                          Powered by AI
+                        </Badge>
                       </div>
-                      <p className="text-sm text-gray-700 leading-relaxed">{aiSummary}</p>
+                      <p className="text-sm text-gray-700 leading-relaxed">
+                        {aiSummary}
+                      </p>
                     </CardContent>
                   </Card>
 
@@ -1272,7 +1494,9 @@ export default function ProductDetail() {
                               </AvatarFallback>
                             </Avatar>
                             <div>
-                              <div className="font-medium text-sm">{review.user}</div>
+                              <div className="font-medium text-sm">
+                                {review.user}
+                              </div>
                               <div className="flex items-center gap-2">
                                 <div className="flex items-center">
                                   {[...Array(5)].map((_, i) => (
@@ -1286,17 +1510,23 @@ export default function ProductDetail() {
                                     />
                                   ))}
                                 </div>
-                                <span className="text-xs text-gray-500">{review.date}</span>
+                                <span className="text-xs text-gray-500">
+                                  {review.date}
+                                </span>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <p className="text-sm text-gray-700 mb-2">{review.comment}</p>
+                        <p className="text-sm text-gray-700 mb-2">
+                          {review.comment}
+                        </p>
                         <div className="flex items-center gap-4 text-xs text-gray-500">
                           <button className="hover:text-brand-blue">
                             Helpful ({review.helpful})
                           </button>
-                          <button className="hover:text-brand-blue">Reply</button>
+                          <button className="hover:text-brand-blue">
+                            Reply
+                          </button>
                         </div>
                       </div>
                     ))}
@@ -1320,10 +1550,14 @@ export default function ProductDetail() {
                 </div>
                 <div>
                   <div className="font-medium">{product.seller.name}</div>
-                  <div className="text-sm text-gray-600">{product.seller.location}</div>
+                  <div className="text-sm text-gray-600">
+                    {product.seller.location}
+                  </div>
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-sm">{product.seller.rating} seller rating</span>
+                    <span className="text-sm">
+                      {product.seller.rating} seller rating
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1335,7 +1569,9 @@ export default function ProductDetail() {
         {/* Frequently Bought Together */}
         <Card className="mt-8">
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold mb-6">Frequently bought together</h2>
+            <h2 className="text-xl font-bold mb-6">
+              Frequently bought together
+            </h2>
             {/* Mobile Layout */}
             <div className="lg:hidden">
               <div className="space-y-4">
@@ -1349,16 +1585,27 @@ export default function ProductDetail() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-medium text-gray-900">This item</div>
-                    <div className="text-sm text-gray-600 truncate">{product.title}</div>
-                    <div className="text-sm font-semibold text-gray-900">£{product.price.toFixed(2)}</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      This item
+                    </div>
+                    <div className="text-sm text-gray-600 truncate">
+                      {product.title}
+                    </div>
+                    <div className="text-sm font-semibold text-gray-900">
+                      £{product.price.toFixed(2)}
+                    </div>
                   </div>
                 </div>
 
                 {/* Additional Products - Mobile */}
                 {frequentlyBoughtTogether.map((item, index) => (
-                  <div key={item.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="text-xl text-gray-400 font-light flex-shrink-0">+</div>
+                  <div
+                    key={item.id}
+                    className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div className="text-xl text-gray-400 font-light flex-shrink-0">
+                      +
+                    </div>
                     <div className="w-20 h-20 bg-white border rounded-lg overflow-hidden flex-shrink-0">
                       <img
                         src={item.image}
@@ -1383,12 +1630,18 @@ export default function ProductDetail() {
                             />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-600">({item.reviewCount.toLocaleString()})</span>
+                        <span className="text-xs text-gray-600">
+                          ({item.reviewCount.toLocaleString()})
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 mt-1">
-                        <div className="text-sm font-semibold">£{item.price.toFixed(2)}</div>
+                        <div className="text-sm font-semibold">
+                          £{item.price.toFixed(2)}
+                        </div>
                         {item.savings && (
-                          <div className="text-xs text-green-600">{item.savings}</div>
+                          <div className="text-xs text-green-600">
+                            {item.savings}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -1409,7 +1662,9 @@ export default function ProductDetail() {
                   />
                 </div>
                 <div className="mt-2 text-sm font-medium">This item</div>
-                <div className="text-sm text-gray-600">£{product.price.toFixed(2)}</div>
+                <div className="text-sm text-gray-600">
+                  £{product.price.toFixed(2)}
+                </div>
               </div>
 
               {/* Plus Icons and Additional Products */}
@@ -1441,11 +1696,17 @@ export default function ProductDetail() {
                             />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-600">({item.reviewCount.toLocaleString()})</span>
+                        <span className="text-xs text-gray-600">
+                          ({item.reviewCount.toLocaleString()})
+                        </span>
                       </div>
-                      <div className="text-sm font-semibold">£{item.price.toFixed(2)}</div>
+                      <div className="text-sm font-semibold">
+                        £{item.price.toFixed(2)}
+                      </div>
                       {item.savings && (
-                        <div className="text-xs text-green-600">{item.savings}</div>
+                        <div className="text-xs text-green-600">
+                          {item.savings}
+                        </div>
                       )}
                     </div>
                   </div>
@@ -1459,7 +1720,14 @@ export default function ProductDetail() {
                 <div>
                   <div className="text-sm text-gray-600">Total price:</div>
                   <div className="text-xl font-bold">
-                    £{(product.price + frequentlyBoughtTogether.reduce((sum, item) => sum + item.price, 0)).toFixed(2)}
+                    £
+                    {(
+                      product.price +
+                      frequentlyBoughtTogether.reduce(
+                        (sum, item) => sum + item.price,
+                        0,
+                      )
+                    ).toFixed(2)}
                   </div>
                 </div>
                 <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6">
@@ -1474,7 +1742,9 @@ export default function ProductDetail() {
         <Card className="mt-8">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">Customers who viewed this item also viewed</h2>
+              <h2 className="text-xl font-bold">
+                Customers who viewed this item also viewed
+              </h2>
               <Button variant="ghost" className="text-blue-600 hover:underline">
                 View more
               </Button>
@@ -1512,10 +1782,14 @@ export default function ProductDetail() {
                             />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-600">({item.reviewCount.toLocaleString()})</span>
+                        <span className="text-xs text-gray-600">
+                          ({item.reviewCount.toLocaleString()})
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-gray-900">£{item.price.toFixed(2)}</span>
+                        <span className="font-bold text-gray-900">
+                          £{item.price.toFixed(2)}
+                        </span>
                         {item.originalPrice && (
                           <span className="text-sm text-gray-500 line-through">
                             £{item.originalPrice.toFixed(2)}

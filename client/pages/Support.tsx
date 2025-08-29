@@ -2,7 +2,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MessageCircle, HelpCircle, Headphones, FileQuestion, AlertCircle, CreditCard, Package, RotateCcw } from "lucide-react";
+import {
+  MessageCircle,
+  HelpCircle,
+  Headphones,
+  FileQuestion,
+  AlertCircle,
+  CreditCard,
+  Package,
+  RotateCcw,
+} from "lucide-react";
 
 export default function Support() {
   const navigate = useNavigate();
@@ -10,10 +19,28 @@ export default function Support() {
   const orderId = (location.state as any)?.orderId ?? null;
 
   const quickLinks = [
-    { label: "Cancel Order", action: () => navigate("/support/chat", { state: { intent: "cancel", orderId } }) },
-    { label: "Return Status", action: () => navigate("/support/chat", { state: { intent: "return-status", orderId } }) },
-    { label: "Refund Not Received", action: () => navigate("/support/chat", { state: { intent: "refund", orderId } }) },
-    { label: "Payment Issues", action: () => navigate("/support/chat", { state: { intent: "payment", orderId } }) },
+    {
+      label: "Cancel Order",
+      action: () =>
+        navigate("/support/chat", { state: { intent: "cancel", orderId } }),
+    },
+    {
+      label: "Return Status",
+      action: () =>
+        navigate("/support/chat", {
+          state: { intent: "return-status", orderId },
+        }),
+    },
+    {
+      label: "Refund Not Received",
+      action: () =>
+        navigate("/support/chat", { state: { intent: "refund", orderId } }),
+    },
+    {
+      label: "Payment Issues",
+      action: () =>
+        navigate("/support/chat", { state: { intent: "payment", orderId } }),
+    },
   ];
 
   return (
@@ -23,7 +50,10 @@ export default function Support() {
         <p className="text-gray-600">How can we help you today?</p>
 
         <div className="grid grid-cols-2 gap-3">
-          <Card className="cursor-pointer hover:shadow" onClick={() => navigate("/support/chat", { state: { orderId } })}>
+          <Card
+            className="cursor-pointer hover:shadow"
+            onClick={() => navigate("/support/chat", { state: { orderId } })}
+          >
             <CardContent className="p-4 flex items-center gap-3">
               <Headphones className="w-6 h-6 text-blue-600" />
               <div>
@@ -32,7 +62,10 @@ export default function Support() {
               </div>
             </CardContent>
           </Card>
-          <Card className="cursor-pointer hover:shadow" onClick={() => navigate("/help-center") }>
+          <Card
+            className="cursor-pointer hover:shadow"
+            onClick={() => navigate("/help-center")}
+          >
             <CardContent className="p-4 flex items-center gap-3">
               <FileQuestion className="w-6 h-6 text-purple-600" />
               <div>
@@ -47,8 +80,14 @@ export default function Support() {
           <h2 className="text-sm font-semibold text-gray-800">Quick links</h2>
           <div className="grid grid-cols-2 gap-2">
             {quickLinks.map((q) => (
-              <Button key={q.label} variant="outline" onClick={q.action} className="justify-start">
-                <AlertCircle className="w-4 h-4 mr-2" />{q.label}
+              <Button
+                key={q.label}
+                variant="outline"
+                onClick={q.action}
+                className="justify-start"
+              >
+                <AlertCircle className="w-4 h-4 mr-2" />
+                {q.label}
               </Button>
             ))}
           </div>

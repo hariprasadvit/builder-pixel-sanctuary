@@ -1,5 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react';
-import SimpleFireworks from '@/components/SimpleFireworks';
+import React, { useCallback, useRef, useState } from "react";
+import SimpleFireworks from "@/components/SimpleFireworks";
 
 export function useFireworks() {
   const [isActive, setIsActive] = useState(false);
@@ -11,13 +11,13 @@ export function useFireworks() {
 
     // Prevent rapid successive triggers
     if (now - lastTriggerTime.current < cooldownPeriod) {
-      console.log('Fireworks on cooldown, skipping trigger');
+      console.log("Fireworks on cooldown, skipping trigger");
       return;
     }
 
     // Don't trigger if already active
     if (isActive) {
-      console.log('Fireworks already active, skipping trigger');
+      console.log("Fireworks already active, skipping trigger");
       return;
     }
 
@@ -30,17 +30,12 @@ export function useFireworks() {
   }, []);
 
   const FireworksComponent = () => {
-    return (
-      <SimpleFireworks
-        isActive={isActive}
-        onComplete={handleComplete}
-      />
-    );
+    return <SimpleFireworks isActive={isActive} onComplete={handleComplete} />;
   };
 
   return {
     isActive,
     triggerFireworks,
-    FireworksComponent
+    FireworksComponent,
   };
 }

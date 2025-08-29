@@ -78,42 +78,96 @@ export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileQuery, setMobileQuery] = useState("");
-  const mobileResults = useMemo(() => (mobileQuery ? searchCatalog(mobileQuery, 8) : null), [mobileQuery]);
+  const mobileResults = useMemo(
+    () => (mobileQuery ? searchCatalog(mobileQuery, 8) : null),
+    [mobileQuery],
+  );
   const [addressModalOpen, setAddressModalOpen] = useState(false);
-  type NoticeType = 'order'|'promo'|'system';
-  const [notifications, setNotifications] = useState<{id:string; title:string; description:string; time:string; type:NoticeType; read:boolean}[]>([
-    { id: '1', title: 'Out for delivery', description: 'Order ORD-2024-002 is on its way. Expect today 2–6pm.', time: '2h ago', type: 'order', read: false },
-    { id: '2', title: 'Price dropped', description: 'Nike Air Max in your wishlist is now £20 off.', time: 'Yesterday', type: 'promo', read: false },
-    { id: '3', title: 'Return scheduled', description: 'Pickup booked for tomorrow 10:00–12:00. Keep OTP handy.', time: '2d ago', type: 'order', read: true },
+  type NoticeType = "order" | "promo" | "system";
+  const [notifications, setNotifications] = useState<
+    {
+      id: string;
+      title: string;
+      description: string;
+      time: string;
+      type: NoticeType;
+      read: boolean;
+    }[]
+  >([
+    {
+      id: "1",
+      title: "Out for delivery",
+      description: "Order ORD-2024-002 is on its way. Expect today 2–6pm.",
+      time: "2h ago",
+      type: "order",
+      read: false,
+    },
+    {
+      id: "2",
+      title: "Price dropped",
+      description: "Nike Air Max in your wishlist is now £20 off.",
+      time: "Yesterday",
+      type: "promo",
+      read: false,
+    },
+    {
+      id: "3",
+      title: "Return scheduled",
+      description: "Pickup booked for tomorrow 10:00–12:00. Keep OTP handy.",
+      time: "2d ago",
+      type: "order",
+      read: true,
+    },
   ]);
-  const unseenCount = useMemo(() => notifications.filter(n=>!n.read).length, [notifications]);
+  const unseenCount = useMemo(
+    () => notifications.filter((n) => !n.read).length,
+    [notifications],
+  );
 
   async function detectMyLocation() {
     if (!navigator.geolocation) {
       alert("Geolocation not supported");
       return;
     }
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-      const { latitude, longitude } = pos.coords;
-      try {
-        const resp = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
-        const data = await resp.json();
-        const addr = data.address || {};
-        const pincode = addr.postcode || "";
-        const city = addr.city || addr.town || addr.village || "";
-        const state = addr.state || "";
-        const line = data.display_name || `${city}, ${state}`;
-        const label = window.prompt("Label this address (e.g., Home, Office)", "Detected");
-        const created = addAddress({ type: "other", label: label || "Detected", address: line, pincode, city, state, isDefault: false });
-        setCurrentAddress(created);
-      } catch (e) {
-        alert("Failed to resolve address");
-      }
-    }, () => alert("Permission denied for location"));
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        try {
+          const resp = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`,
+          );
+          const data = await resp.json();
+          const addr = data.address || {};
+          const pincode = addr.postcode || "";
+          const city = addr.city || addr.town || addr.village || "";
+          const state = addr.state || "";
+          const line = data.display_name || `${city}, ${state}`;
+          const label = window.prompt(
+            "Label this address (e.g., Home, Office)",
+            "Detected",
+          );
+          const created = addAddress({
+            type: "other",
+            label: label || "Detected",
+            address: line,
+            pincode,
+            city,
+            state,
+            isDefault: false,
+          });
+          setCurrentAddress(created);
+        } catch (e) {
+          alert("Failed to resolve address");
+        }
+      },
+      () => alert("Permission denied for location"),
+    );
   }
 
   const setDefault = (id: string) => {
-    savedAddresses.forEach(a => updateAddress(a.id, { isDefault: a.id === id }));
+    savedAddresses.forEach((a) =>
+      updateAddress(a.id, { isDefault: a.id === id }),
+    );
   };
 
   function addNewAddressManual() {
@@ -127,14 +181,32 @@ export default function Layout({ children }: LayoutProps) {
       setIsScrolled(scrollTop > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const menuItems = [
-    { id: "promotions", label: "Promotions", icon: Tag, color: "text-red-600", to: "/flashsale" },
-    { id: "brands", label: "Brands", icon: Award, color: "text-purple-600", to: "/brands" },
-    { id: "newest", label: "Newest", icon: Star, color: "text-blue-600", to: "/newest" },
+    {
+      id: "promotions",
+      label: "Promotions",
+      icon: Tag,
+      color: "text-red-600",
+      to: "/flashsale",
+    },
+    {
+      id: "brands",
+      label: "Brands",
+      icon: Award,
+      color: "text-purple-600",
+      to: "/brands",
+    },
+    {
+      id: "newest",
+      label: "Newest",
+      icon: Star,
+      color: "text-blue-600",
+      to: "/newest",
+    },
     {
       id: "bestsellers",
       label: "Bestsellers",
@@ -142,8 +214,20 @@ export default function Layout({ children }: LayoutProps) {
       color: "text-green-600",
       to: "/bestsellers",
     },
-    { id: "coupons", label: "Coupons", icon: Tag, color: "text-amber-600", to: "/coupons" },
-    { id: "sale", label: "On sale", icon: Tag, color: "text-orange-600", to: "/flashsale" },
+    {
+      id: "coupons",
+      label: "Coupons",
+      icon: Tag,
+      color: "text-amber-600",
+      to: "/coupons",
+    },
+    {
+      id: "sale",
+      label: "On sale",
+      icon: Tag,
+      color: "text-orange-600",
+      to: "/flashsale",
+    },
   ];
 
   const secondaryMenuItems = [
@@ -305,24 +389,44 @@ export default function Layout({ children }: LayoutProps) {
                       </div>
                       <div className="mt-2 flex gap-2">
                         {!address.isDefault && (
-                          <Button variant="outline" size="sm" onClick={(e)=>{ e.stopPropagation(); setDefault(address.id); }}>Set default</Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setDefault(address.id);
+                            }}
+                          >
+                            Set default
+                          </Button>
                         )}
                       </div>
                     </DropdownMenuItem>
                   ))}
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); detectMyLocation(); }}>
+                  <DropdownMenuItem
+                    className="text-brand-blue"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      detectMyLocation();
+                    }}
+                  >
                     <MapPin className="w-4 h-4 mr-2" />
                     Detect My Location
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); addNewAddressManual(); }}>
+                  <DropdownMenuItem
+                    className="text-brand-blue"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      addNewAddressManual();
+                    }}
+                  >
                     <MapPin className="w-4 h-4 mr-2" />
                     Add new address
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-6 ml-auto">
@@ -448,7 +552,11 @@ export default function Layout({ children }: LayoutProps) {
             {/* Right section */}
             <div className="flex items-center gap-2 md:gap-4 ml-auto">
               {/* Marketplace Toggle - Always visible */}
-              <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setSearchOpen(true)}
+              >
                 <Search className="w-5 h-5" />
               </Button>
               <Select value={currentMarketplace} onValueChange={setMarketplace}>
@@ -495,36 +603,78 @@ export default function Layout({ children }: LayoutProps) {
                   <Button variant="ghost" size="icon" className="relative">
                     <Bell className="w-5 h-5" />
                     {unseenCount > 0 && (
-                      <Badge className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center p-0 text-xs bg-red-500 text-white">{unseenCount}</Badge>
+                      <Badge className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center p-0 text-xs bg-red-500 text-white">
+                        {unseenCount}
+                      </Badge>
                     )}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-96 p-0 overflow-hidden">
+                <DropdownMenuContent
+                  align="end"
+                  className="w-96 p-0 overflow-hidden"
+                >
                   <div className="px-4 py-3 border-b flex items-center justify-between bg-white">
                     <div className="font-medium">Notifications</div>
                     <div className="flex items-center gap-3">
-                      <button className="text-xs text-brand-blue" onClick={() => setNotifications(prev=>prev.map(n=>({...n, read:true})))}>Mark all read</button>
+                      <button
+                        className="text-xs text-brand-blue"
+                        onClick={() =>
+                          setNotifications((prev) =>
+                            prev.map((n) => ({ ...n, read: true })),
+                          )
+                        }
+                      >
+                        Mark all read
+                      </button>
                     </div>
                   </div>
                   <div className="max-h-96 overflow-auto divide-y">
-                    {notifications.map(n => (
-                      <button key={n.id} className={`w-full text-left px-4 py-3 hover:bg-gray-50 ${n.read? '' : 'bg-blue-50/60'}`} onClick={()=> setNotifications(prev=>prev.map(x=> x.id===n.id? {...x, read:true}: x))}>
+                    {notifications.map((n) => (
+                      <button
+                        key={n.id}
+                        className={`w-full text-left px-4 py-3 hover:bg-gray-50 ${n.read ? "" : "bg-blue-50/60"}`}
+                        onClick={() =>
+                          setNotifications((prev) =>
+                            prev.map((x) =>
+                              x.id === n.id ? { ...x, read: true } : x,
+                            ),
+                          )
+                        }
+                      >
                         <div className="flex items-start gap-3">
-                          <div className={`w-9 h-9 rounded-full flex items-center justify-center text-white ${n.type==='order'?'bg-blue-600': n.type==='promo'?'bg-amber-500':'bg-gray-600'}`}>{n.type==='order'?'📦': n.type==='promo'?'🏷️':'ℹ️'}</div>
+                          <div
+                            className={`w-9 h-9 rounded-full flex items-center justify-center text-white ${n.type === "order" ? "bg-blue-600" : n.type === "promo" ? "bg-amber-500" : "bg-gray-600"}`}
+                          >
+                            {n.type === "order"
+                              ? "📦"
+                              : n.type === "promo"
+                                ? "🏷️"
+                                : "ℹ️"}
+                          </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="font-medium truncate">{n.title}</span>
-                              {!n.read && <span className="w-2 h-2 rounded-full bg-blue-600" />}
-                              <span className="ml-auto text-xs text-gray-500 whitespace-nowrap">{n.time}</span>
+                              <span className="font-medium truncate">
+                                {n.title}
+                              </span>
+                              {!n.read && (
+                                <span className="w-2 h-2 rounded-full bg-blue-600" />
+                              )}
+                              <span className="ml-auto text-xs text-gray-500 whitespace-nowrap">
+                                {n.time}
+                              </span>
                             </div>
-                            <p className="text-sm text-gray-600 line-clamp-2">{n.description}</p>
+                            <p className="text-sm text-gray-600 line-clamp-2">
+                              {n.description}
+                            </p>
                           </div>
                         </div>
                       </button>
                     ))}
                   </div>
                   <div className="px-4 py-2 border-t bg-gray-50 text-right">
-                    <Link to="/orders" className="text-xs text-brand-blue">View all</Link>
+                    <Link to="/orders" className="text-xs text-brand-blue">
+                      View all
+                    </Link>
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -551,50 +701,65 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Mobile Search and Location (hidden on Videos route) */}
-          {location.pathname.toLowerCase() !== '/videos' && (
-          <div className={`md:hidden pb-3 pt-2 transition-all duration-300 ${isScrolled ? 'opacity-0 max-h-0 overflow-hidden py-0' : 'opacity-100 max-h-32'}`}>
-            <div className="relative mb-3">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <Input
-                placeholder={`Search products in ${currentMarketplace === "nearbuy" ? "your area" : currentMarketplace.toUpperCase()}...`}
-                className="pl-10 pr-4 h-10"
-                value={mobileQuery}
-                onChange={(e)=>setMobileQuery(e.target.value)}
-                onKeyDown={(e)=>{ if(e.key==='Enter' && mobileQuery.trim()) { window.location.href = `/search?q=${encodeURIComponent(mobileQuery.trim())}`; } }}
-              />
-            </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full flex items-center gap-2 justify-start h-10"
-                >
-                  <MapPin className="w-4 h-4 text-brand-blue" />
-                  <div className="flex flex-col items-start text-left flex-1">
-                    <span className="text-xs text-muted-foreground">
-                      Deliver to
-                    </span>
-                    <span className="text-sm font-medium truncate">
-                      {getCurrentLocationName()}
-                    </span>
-                  </div>
-                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[calc(100vw-2rem)]" align="start">
-                <DropdownMenuLabel>Select delivery address</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                {savedAddresses.map((address) => (
-                  <DropdownMenuItem key={address.id} onClick={() => setCurrentAddress(address)} className="flex flex-col items-start py-3">
-                    <div className="flex items-center gap-2 w-full">
-                      <span className="font-medium">{address.label}</span>
+          {location.pathname.toLowerCase() !== "/videos" && (
+            <div
+              className={`md:hidden pb-3 pt-2 transition-all duration-300 ${isScrolled ? "opacity-0 max-h-0 overflow-hidden py-0" : "opacity-100 max-h-32"}`}
+            >
+              <div className="relative mb-3">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  placeholder={`Search products in ${currentMarketplace === "nearbuy" ? "your area" : currentMarketplace.toUpperCase()}...`}
+                  className="pl-10 pr-4 h-10"
+                  value={mobileQuery}
+                  onChange={(e) => setMobileQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && mobileQuery.trim()) {
+                      window.location.href = `/search?q=${encodeURIComponent(mobileQuery.trim())}`;
+                    }
+                  }}
+                />
+              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full flex items-center gap-2 justify-start h-10"
+                  >
+                    <MapPin className="w-4 h-4 text-brand-blue" />
+                    <div className="flex flex-col items-start text-left flex-1">
+                      <span className="text-xs text-muted-foreground">
+                        Deliver to
+                      </span>
+                      <span className="text-sm font-medium truncate">
+                        {getCurrentLocationName()}
+                      </span>
                     </div>
-                    <div className="text-sm text-muted-foreground mt-1">{address.address}</div>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  className="w-[calc(100vw-2rem)]"
+                  align="start"
+                >
+                  <DropdownMenuLabel>Select delivery address</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {savedAddresses.map((address) => (
+                    <DropdownMenuItem
+                      key={address.id}
+                      onClick={() => setCurrentAddress(address)}
+                      className="flex flex-col items-start py-3"
+                    >
+                      <div className="flex items-center gap-2 w-full">
+                        <span className="font-medium">{address.label}</span>
+                      </div>
+                      <div className="text-sm text-muted-foreground mt-1">
+                        {address.address}
+                      </div>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           )}
         </div>
       </header>
@@ -603,7 +768,10 @@ export default function Layout({ children }: LayoutProps) {
       <main className="pb-20 md:pb-0">{children}</main>
 
       <SearchOverlay open={searchOpen} onOpenChange={setSearchOpen} />
-      <AddAddressModal open={addressModalOpen} onOpenChange={setAddressModalOpen} />
+      <AddAddressModal
+        open={addressModalOpen}
+        onOpenChange={setAddressModalOpen}
+      />
 
       {/* Desktop Footer - Hidden on Mobile */}
       <footer className="hidden md:block bg-slate-800 text-white">
@@ -618,47 +786,181 @@ export default function Layout({ children }: LayoutProps) {
             <div className="grid grid-cols-4 gap-8">
               {/* Get to Know Us */}
               <div>
-                <h3 className="text-white font-bold text-sm mb-4">Get to Know Us</h3>
+                <h3 className="text-white font-bold text-sm mb-4">
+                  Get to Know Us
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">About Riky</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Careers</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      About Riky
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Careers
+                    </a>
+                  </li>
                 </ul>
               </div>
 
               {/* Connect with Us */}
               <div>
-                <h3 className="text-white font-bold text-sm mb-4">Connect with Us</h3>
+                <h3 className="text-white font-bold text-sm mb-4">
+                  Connect with Us
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Facebook</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Twitter</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Instagram</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Instagram
+                    </a>
+                  </li>
                 </ul>
               </div>
 
               {/* Make Money with Us */}
               <div>
-                <h3 className="text-white font-bold text-sm mb-4">Make Money with Us</h3>
+                <h3 className="text-white font-bold text-sm mb-4">
+                  Make Money with Us
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Sell on Riky</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Sell under Riky Accelerator</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Protect and Build Your Brand</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky Global Selling</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Supply to Riky</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Fulfilment by Riky</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Advertise Your Products</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Sell on Riky
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Sell under Riky Accelerator
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Protect and Build Your Brand
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Riky Global Selling
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Supply to Riky
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Fulfilment by Riky
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Advertise Your Products
+                    </a>
+                  </li>
                 </ul>
               </div>
 
               {/* Let Us Help You */}
               <div>
-                <h3 className="text-white font-bold text-sm mb-4">Let Us Help You</h3>
+                <h3 className="text-white font-bold text-sm mb-4">
+                  Let Us Help You
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Your Account</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Returns Centre</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Recalls and Product Safety Alerts</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">100% Purchase Protection</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Riky App Download</a></li>
-                  <li><a href="#" className="text-slate-300 text-sm hover:text-white transition-colors">Help</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Your Account
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Returns Centre
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Recalls and Product Safety Alerts
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      100% Purchase Protection
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Riky App Download
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-slate-300 text-sm hover:text-white transition-colors"
+                    >
+                      Help
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -691,32 +993,54 @@ export default function Layout({ children }: LayoutProps) {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-7 gap-6 text-center">
               <div>
-                <h4 className="text-white font-semibold text-xs mb-2">RikyBooks</h4>
-                <p className="text-slate-400 text-xs">Books, art & collectibles</p>
+                <h4 className="text-white font-semibold text-xs mb-2">
+                  RikyBooks
+                </h4>
+                <p className="text-slate-400 text-xs">
+                  Books, art & collectibles
+                </p>
               </div>
               <div>
-                <h4 className="text-white font-semibold text-xs mb-2">Riky Web Services</h4>
-                <p className="text-slate-400 text-xs">Scalable Cloud Computing Services</p>
+                <h4 className="text-white font-semibold text-xs mb-2">
+                  Riky Web Services
+                </h4>
+                <p className="text-slate-400 text-xs">
+                  Scalable Cloud Computing Services
+                </p>
               </div>
               <div>
-                <h4 className="text-white font-semibold text-xs mb-2">Audible</h4>
+                <h4 className="text-white font-semibold text-xs mb-2">
+                  Audible
+                </h4>
                 <p className="text-slate-400 text-xs">Download Audio Books</p>
               </div>
               <div>
                 <h4 className="text-white font-semibold text-xs mb-2">IMDb</h4>
-                <p className="text-slate-400 text-xs">Movies, TV & Celebrities</p>
+                <p className="text-slate-400 text-xs">
+                  Movies, TV & Celebrities
+                </p>
               </div>
               <div>
-                <h4 className="text-white font-semibold text-xs mb-2">Shopping</h4>
+                <h4 className="text-white font-semibold text-xs mb-2">
+                  Shopping
+                </h4>
                 <p className="text-slate-400 text-xs">Fashion Brands</p>
               </div>
               <div>
-                <h4 className="text-white font-semibold text-xs mb-2">Prime Now</h4>
-                <p className="text-slate-400 text-xs">2-Hour Delivery on Everyday Items</p>
+                <h4 className="text-white font-semibold text-xs mb-2">
+                  Prime Now
+                </h4>
+                <p className="text-slate-400 text-xs">
+                  2-Hour Delivery on Everyday Items
+                </p>
               </div>
               <div>
-                <h4 className="text-white font-semibold text-xs mb-2">Riky Prime Music</h4>
-                <p className="text-slate-400 text-xs">100 million songs, ad-free</p>
+                <h4 className="text-white font-semibold text-xs mb-2">
+                  Riky Prime Music
+                </h4>
+                <p className="text-slate-400 text-xs">
+                  100 million songs, ad-free
+                </p>
               </div>
             </div>
           </div>
@@ -726,9 +1050,15 @@ export default function Layout({ children }: LayoutProps) {
         <div className="bg-slate-900 border-t border-slate-800 py-4">
           <div className="container mx-auto px-4">
             <div className="flex justify-center items-center gap-6 text-xs text-slate-400">
-              <a href="#" className="hover:text-white transition-colors">Conditions of Use & Sale</a>
-              <a href="#" className="hover:text-white transition-colors">Privacy Notice</a>
-              <a href="#" className="hover:text-white transition-colors">Interest-Based Ads</a>
+              <a href="#" className="hover:text-white transition-colors">
+                Conditions of Use & Sale
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Notice
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Interest-Based Ads
+              </a>
               <span>© 2024, Riky.com, Inc. or its affiliates</span>
             </div>
           </div>

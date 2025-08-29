@@ -5,7 +5,10 @@ interface MapTrackerProps {
   backgroundImage?: string;
 }
 
-export default function MapTracker({ status = "Courier en route", backgroundImage = "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75750016a6ad406da4059886b10be4f1?format=webp&width=800" }: MapTrackerProps) {
+export default function MapTracker({
+  status = "Courier en route",
+  backgroundImage = "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75750016a6ad406da4059886b10be4f1?format=webp&width=800",
+}: MapTrackerProps) {
   const bikeRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
@@ -25,10 +28,23 @@ export default function MapTracker({ status = "Courier en route", backgroundImag
 
   return (
     <div className="w-full h-56 rounded-xl border relative overflow-hidden">
-      <img src={backgroundImage} alt="Map background" className="absolute inset-0 w-full h-full object-cover opacity-90" />
+      <img
+        src={backgroundImage}
+        alt="Map background"
+        className="absolute inset-0 w-full h-full object-cover opacity-90"
+      />
       <div className="absolute inset-0 pointer-events-none">
-        <svg viewBox="0 0 100 100" className="w-full h-full text-brand-blue mix-blend-multiply">
-          <path d="M10 70 C 40 10, 60 10, 90 70" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="4 4" />
+        <svg
+          viewBox="0 0 100 100"
+          className="w-full h-full text-brand-blue mix-blend-multiply"
+        >
+          <path
+            d="M10 70 C 40 10, 60 10, 90 70"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="4 4"
+          />
         </svg>
       </div>
       <img
@@ -40,7 +56,9 @@ export default function MapTracker({ status = "Courier en route", backgroundImag
       />
       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-gray-700">
         <span className="px-2 py-1 rounded bg-white/80 border">Pickup</span>
-        <span className="px-2 py-1 rounded bg-white/80 border">Destination</span>
+        <span className="px-2 py-1 rounded bg-white/80 border">
+          Destination
+        </span>
       </div>
       <div className="absolute top-3 left-3 px-2 py-1 rounded bg-white/80 border text-xs font-medium text-gray-800">
         {status}
