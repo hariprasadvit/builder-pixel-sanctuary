@@ -380,11 +380,11 @@ export default function Index() {
             {categories.map((category) => (
               <Card
                 key={category.id}
-                className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white"
+                className="group hover:shadow-lg transition-all duration-200 cursor-pointer bg-white border border-transparent hover:border-brand-blue/40"
               >
                 <CardContent className="p-3 md:p-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-full h-24 md:h-32 flex items-center justify-center mb-2 md:mb-4 bg-gray-50 rounded-lg overflow-hidden">
+                    <div className="w-full h-24 md:h-32 flex items-center justify-center mb-2 md:mb-4 bg-gray-50 rounded-lg overflow-hidden ring-0 group-hover:ring-2 group-hover:ring-brand-blue/30 transition-all">
                       <img
                         src={category.image}
                         alt={category.name}
@@ -392,7 +392,7 @@ export default function Index() {
                       />
                     </div>
                     <div className="text-center">
-                      <h3 className="font-semibold text-xs md:text-sm text-gray-900 mb-1 line-clamp-2">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-900 group-hover:text-brand-blue mb-1 line-clamp-2 transition-colors">
                         {category.name}
                       </h3>
                       <p className="text-gray-600 text-xs hidden md:block">
