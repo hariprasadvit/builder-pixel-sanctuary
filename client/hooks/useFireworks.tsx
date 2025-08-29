@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import SimpleFireworks from '@/components/SimpleFireworks';
 
 export function useFireworks() {
