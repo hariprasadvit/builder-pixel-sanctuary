@@ -64,6 +64,8 @@ export default function Layout({ children }: LayoutProps) {
     currentAddress,
     savedAddresses,
     setCurrentAddress,
+    addAddress,
+    updateAddress,
     getCurrentLocationName,
   } = useLocationContext();
   const { getItemCount } = useCart();
