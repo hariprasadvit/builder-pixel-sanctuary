@@ -23,6 +23,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarContent, AvatarFallback } from "@/components/ui/avatar";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -30,8 +32,9 @@ export default function ProductDetail() {
   const { getCurrencySymbol } = useMarketplace();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [isWishlisted, setIsWishlisted] = useState(false);
+  const { isWishlisted, toggle } = useWishlist();
   const [newReview, setNewReview] = useState("");
+  const { toast } = useToast();
   const [newRating, setNewRating] = useState(5);
   const [showComparison, setShowComparison] = useState(true);
   const [selectedColor, setSelectedColor] = useState("Black Titanium");
@@ -733,11 +736,15 @@ export default function ProductDetail() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setIsWishlisted(!isWishlisted)}
-                  className={`flex-1 h-12 ${isWishlisted ? "text-red-600 border-red-600" : ""}`}
+                  onClick={() => {
+                    toggle({ id: product.id, name: product.title, price: product.price, originalPrice: product.originalPrice, image: product.images[0], category: product.category, inStock: product.inStock });
+                    const nowWishlisted = isWishlisted(product.id);
+                    toast({ title: nowWishlisted ? 'Added to Wishlist.' : 'Removed from Wishlist.' });
+                  }}
+                  className={`flex-1 h-12 ${isWishlisted(product.id) ? "text-red-600 border-red-600" : ""}`}
                 >
-                  <Heart className={`w-4 h-4 mr-2 ${isWishlisted ? "fill-current" : ""}`} />
-                  {isWishlisted ? "Wishlisted" : "Wishlist"}
+                  <Heart className={`w-4 h-4 mr-2 ${isWishlisted(product.id) ? "fill-current" : ""}`} />
+                  {isWishlisted(product.id) ? "Wishlisted" : "Wishlist"}
                 </Button>
                 <Button variant="outline" size="sm" className="flex-1 h-12">
                   <Share2 className="w-4 h-4 mr-2" />
