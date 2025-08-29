@@ -463,6 +463,9 @@ export default function Layout({ children }: LayoutProps) {
               <Input
                 placeholder={`Search products in ${currentMarketplace === "nearbuy" ? "your area" : currentMarketplace.toUpperCase()}...`}
                 className="pl-10 pr-4 h-10"
+                readOnly
+                onFocus={() => setSearchOpen(true)}
+                onClick={() => setSearchOpen(true)}
               />
             </div>
             <DropdownMenu>
