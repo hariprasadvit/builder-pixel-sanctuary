@@ -84,7 +84,7 @@ export default function ProductCard({
             variant="ghost"
             size="icon"
             className={`absolute bottom-2 right-2 w-8 h-8 bg-white/90 hover:bg-white shadow-sm ${
-              isWishlisted ? "text-brand-red" : "text-muted-foreground"
+              wishlisted ? "text-brand-red" : "text-muted-foreground"
             }`}
             onClick={(e) => {
               e.preventDefault();
