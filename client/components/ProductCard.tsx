@@ -94,6 +94,13 @@ export default function ProductCard({
             </Badge>
           )}
 
+          {/* Sale Timer */}
+          {timerLabel && (
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/70 text-white text-[11px] rounded-full px-2 py-0.5">
+              {timerLabel}
+            </div>
+          )}
+
           {/* Video Icon */}
           {hasVideo && (
             <div className="absolute top-2 right-2 w-6 h-6 bg-black/70 rounded-full flex items-center justify-center">
