@@ -12,7 +12,7 @@ export interface CatalogProduct {
 }
 
 // Minimal shared catalog used by search; extend/replace with real API later
-export const CATALOG: CatalogProduct[] = [
+export const SAMPLE_CATALOG: CatalogProduct[] = [
   {
     id: "1",
     title: "iPhone 16 Pro Max 256GB with Camera Control",
