@@ -28,7 +28,7 @@ const COUPONS: Coupon[] = [
 function CouponCard({ c }: { c: Coupon }) {
   const grad = c.type === "brand" ? "from-orange-500 via-amber-500 to-yellow-500" : "from-emerald-500 via-green-500 to-lime-500";
   const leftStrip = `bg-gradient-to-b ${grad}`;
-  const badge = c.type === "brand" ? "🎁" : "🛍️";
+  // no corner badge; keep clean header
   const copy = async () => {
     try { await navigator.clipboard.writeText(c.code); } catch {}
   };
@@ -37,7 +37,6 @@ function CouponCard({ c }: { c: Coupon }) {
       <Card className="relative overflow-hidden group rounded-[11px]">
         <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${leftStrip}`} />
         <div className="absolute -top-6 -right-8 w-40 h-40 bg-gradient-to-br from-purple-200/40 to-blue-200/40 rounded-full blur-2xl" aria-hidden />
-        <div className="absolute top-2 left-2 text-xl" aria-hidden>{badge}</div>
         <CardContent className="p-5 relative">
           <div className="flex items-start justify-between gap-3">
             <div>
