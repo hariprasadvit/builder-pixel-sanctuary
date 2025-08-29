@@ -31,6 +31,16 @@ interface PhoneItem {
   origin: "UK" | "China";
 }
 
+// Optional specs used by advanced filters
+interface PhoneSpecs {
+  storageGB?: number;
+  expandable?: boolean;
+  ramGB?: number;
+  batteryMAh?: number;
+  screenInches?: number;
+  connectivity?: ("4G" | "5G" | "WiFi+Cellular")[];
+}
+
 const GBP = (n: number) => `£${n.toFixed(2)}`;
 
 const PHONES: PhoneItem[] = [
@@ -63,44 +73,135 @@ const PHONES: PhoneItem[] = [
 export default function Cellphones() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // mobile filter drawer
   const [brands, setBrands] = useState<string[]>([]);
-  const [price, setPrice] = useState<[number, number]>([100, 2000]);
+  const [price, setPrice] = useState<[number, number]>([0, 2000]);
   const [minRating, setMinRating] = useState<number>(0);
   const [inStock, setInStock] = useState<boolean | null>(null);
   const [sort, setSort] = useState("popularity");
   const [page, setPage] = useState(1);
 
-  const brandOptions = ["Apple", "Samsung", "OnePlus", "Xiaomi", "Realme", "Vivo", "Oppo"];
+  // Advanced filters
+  const [storage, setStorage] = useState<string[]>([]); // '32' | '64' | '128' | '256' | '512+'
+  const [expandable, setExpandable] = useState<boolean>(false);
+  const [screenSizes, setScreenSizes] = useState<string[]>([]); // 'small' | 'medium' | 'large'
+  const [ram, setRam] = useState<string[]>([]); // '2' | '4' | '6' | '8' | '12+'
+  const [battery, setBattery] = useState<string[]>([]); // '<=3000' | '3001-4000' | '4001-5000' | '>=5001'
+  const [conn, setConn] = useState<string[]>([]); // '4G' | '5G' | 'WiFi+Cellular'
+
+  const brandOptions = ["Apple", "Samsung", "OnePlus", "Xiaomi", "Oppo", "Vivo", "Realme", "Motorola", "Google Pixel", "Others"];
+
+  // Phone specs dictionary (title -> specs)
+  const SPECS: Record<string, PhoneSpecs> = {
+    "Apple iPhone 15 Pro": { storageGB: 256, ramGB: 8, batteryMAh: 3274, screenInches: 6.1, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Apple iPhone 15": { storageGB: 128, ramGB: 6, batteryMAh: 3349, screenInches: 6.1, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Apple iPhone 14": { storageGB: 128, ramGB: 6, batteryMAh: 3279, screenInches: 6.1, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Samsung Galaxy S24 Ultra": { storageGB: 256, ramGB: 12, batteryMAh: 5000, screenInches: 6.8, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Samsung Galaxy S24": { storageGB: 128, ramGB: 8, batteryMAh: 4000, screenInches: 6.2, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Samsung Galaxy A55 5G": { storageGB: 256, ramGB: 8, batteryMAh: 5000, screenInches: 6.6, connectivity: ["5G", "WiFi+Cellular"], expandable: true },
+    "OnePlus 12 5G": { storageGB: 256, ramGB: 16, batteryMAh: 5400, screenInches: 6.82, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "OnePlus 12R 5G": { storageGB: 128, ramGB: 8, batteryMAh: 5500, screenInches: 6.78, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Xiaomi 14 Ultra": { storageGB: 512, ramGB: 16, batteryMAh: 5000, screenInches: 6.73, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Redmi Note 13 Pro+": { storageGB: 256, ramGB: 12, batteryMAh: 5000, screenInches: 6.67, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Realme GT 6T": { storageGB: 256, ramGB: 8, batteryMAh: 5500, screenInches: 6.78, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Realme 12 Pro+": { storageGB: 256, ramGB: 8, batteryMAh: 5000, screenInches: 6.7, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Vivo X100 Pro 5G": { storageGB: 512, ramGB: 16, batteryMAh: 5400, screenInches: 6.78, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Vivo V30 Pro": { storageGB: 256, ramGB: 12, batteryMAh: 5000, screenInches: 6.78, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "OPPO Reno 12 Pro 5G": { storageGB: 256, ramGB: 12, batteryMAh: 5000, screenInches: 6.7, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "OPPO Find N3 Flip": { storageGB: 256, ramGB: 12, batteryMAh: 4300, screenInches: 6.8, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Apple iPhone 13": { storageGB: 128, ramGB: 4, batteryMAh: 3240, screenInches: 6.1, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Samsung Galaxy Z Flip6": { storageGB: 256, ramGB: 12, batteryMAh: 4000, screenInches: 6.7, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Samsung Galaxy Z Fold6": { storageGB: 256, ramGB: 12, batteryMAh: 4400, screenInches: 7.6, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "POCO F6 5G": { storageGB: 256, ramGB: 12, batteryMAh: 5000, screenInches: 6.67, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "OnePlus Nord CE4": { storageGB: 256, ramGB: 8, batteryMAh: 5500, screenInches: 6.7, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Realme Narzo 70 Pro": { storageGB: 128, ramGB: 8, batteryMAh: 5000, screenInches: 6.7, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "Vivo T3 5G": { storageGB: 128, ramGB: 8, batteryMAh: 5000, screenInches: 6.67, connectivity: ["5G", "WiFi+Cellular"], expandable: false },
+    "OPPO A79 5G": { storageGB: 128, ramGB: 8, batteryMAh: 5000, screenInches: 6.72, connectivity: ["5G", "WiFi+Cellular"], expandable: true },
+  };
+
+  const PHONES_WITH_SPECS = useMemo(() => PHONES.map(p => ({ ...p, ...(SPECS[p.title] || {}) })), []);
 
   const filtered = useMemo(() => {
-    let list = PHONES.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
-    if (brands.length) list = list.filter(p => brands.includes(p.brand));
+    const listedBrands = ["Apple", "Samsung", "OnePlus", "Xiaomi", "Oppo", "Vivo", "Realme", "Motorola", "Google Pixel"];
+    let list = PHONES_WITH_SPECS.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
+    if (brands.length) {
+      const hasOthers = brands.includes("Others");
+      list = list.filter(p => {
+        if (hasOthers && !listedBrands.includes(p.brand)) return true;
+        return brands.includes(p.brand);
+      });
+    }
     list = list.filter(p => p.price >= price[0] && p.price <= price[1]);
     if (minRating > 0) list = list.filter(p => p.rating >= minRating);
     if (inStock !== null) list = list.filter(p => p.inStock === inStock);
+
+    // Storage
+    if (storage.length) list = list.filter((p: any) => {
+      const s = (p.storageGB as number) || 0;
+      return storage.some(opt => (opt === "512+" ? s >= 512 : s === Number(opt)));
+    });
+    if (expandable) list = list.filter((p: any) => p.expandable === true);
+
+    // Screen size
+    if (screenSizes.length) list = list.filter((p: any) => {
+      const size = (p.screenInches as number) || 0;
+      return screenSizes.some(r => (
+        (r === "small" && size > 0 && size <= 5.5) ||
+        (r === "medium" && size > 5.5 && size <= 6.4) ||
+        (r === "large" && size > 6.4)
+      ));
+    });
+
+    // RAM
+    if (ram.length) list = list.filter((p: any) => {
+      const g = (p.ramGB as number) || 0;
+      return ram.some(opt => (opt === "12+" ? g >= 12 : g === Number(opt)));
+    });
+
+    // Battery
+    if (battery.length) list = list.filter((p: any) => {
+      const b = (p.batteryMAh as number) || 0;
+      return battery.some(opt => (
+        (opt === "<=3000" && b > 0 && b <= 3000) ||
+        (opt === "3001-4000" && b > 3000 && b <= 4000) ||
+        (opt === "4001-5000" && b > 4000 && b <= 5000) ||
+        (opt === ">=5001" && b >= 5001)
+      ));
+    });
+
+    // Connectivity
+    if (conn.length) list = list.filter((p: any) => (p.connectivity || []).some((c: string) => conn.includes(c)));
+
     switch (sort) {
       case "price-asc": list = [...list].sort((a,b)=>a.price-b.price); break;
       case "price-desc": list = [...list].sort((a,b)=>b.price-a.price); break;
       case "newest": list = [...list].sort((a,b)=>b.reviewCount-a.reviewCount); break; // proxy
+      case "rating-desc": list = [...list].sort((a,b)=>b.rating-a.rating); break;
       default: break; // popularity default order
     }
     return list;
-  }, [query, brands, price, minRating, inStock, sort]);
+  }, [query, brands, price, minRating, inStock, storage, expandable, screenSizes, ram, battery, conn, sort]);
 
   const pageSize = 12;
   const visible = filtered.slice(0, page * pageSize);
-  useEffect(()=>{ setPage(1); }, [query, brands, price, minRating, inStock, sort]);
+  useEffect(()=>{ setPage(1); }, [query, brands, price, minRating, inStock, storage, expandable, screenSizes, ram, battery, conn, sort]);
 
   const clearFilters = () => {
-    setBrands([]); setPrice([100,2000]); setMinRating(0); setInStock(null);
+    setBrands([]); setPrice([0,2000]); setMinRating(0); setInStock(null);
+    setStorage([]); setExpandable(false); setScreenSizes([]); setRam([]); setBattery([]); setConn([]);
   };
 
   const chips: {label: string, onRemove: () => void}[] = [];
   if (brands.length) chips.push({ label: `Brand: ${brands.join(', ')}`, onRemove: ()=>setBrands([]) });
-  if (price[0] !== 100 || price[1] !== 2000) chips.push({ label: `Price: ${GBP(price[0])}–${GBP(price[1])}`, onRemove: ()=>setPrice([100,2000]) });
+  if (price[0] !== 0 || price[1] !== 2000) chips.push({ label: `Price: ${GBP(price[0])}–${GBP(price[1])}`, onRemove: ()=>setPrice([0,2000]) });
   if (minRating > 0) chips.push({ label: `Rating: ${minRating}★+`, onRemove: ()=>setMinRating(0) });
-  if (inStock !== null) chips.push({ label: inStock ? 'In Stock' : 'Out of Stock', onRemove: ()=>setInStock(null) });
+  if (storage.length) chips.push({ label: `Storage: ${storage.join(', ')} GB`, onRemove: ()=>setStorage([]) });
+  if (expandable) chips.push({ label: 'Expandable', onRemove: ()=>setExpandable(false) });
+  if (screenSizes.length) chips.push({ label: `Screen: ${screenSizes.join(', ')}`, onRemove: ()=>setScreenSizes([]) });
+  if (ram.length) chips.push({ label: `RAM: ${ram.join(', ')} GB`, onRemove: ()=>setRam([]) });
+  if (battery.length) chips.push({ label: `Battery: ${battery.join(', ')}`, onRemove: ()=>setBattery([]) });
+  if (conn.length) chips.push({ label: `Connectivity: ${conn.join(', ')}`, onRemove: ()=>setConn([]) });
+  if (inStock !== null) chips.push({ label: inStock ? 'In Stock only' : 'Out of Stock', onRemove: ()=>setInStock(null) });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -111,16 +212,19 @@ export default function Cellphones() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input value={query} onChange={(e)=>setQuery(e.target.value)} placeholder="Search cellphones..." className="pl-10 h-10 rounded-full" />
           </div>
+          {/* Mobile filter trigger */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" className="h-10"><Filter className="w-4 h-4 mr-2"/>Filters</Button>
+              <Button variant="outline" className="h-10 md:hidden"><Filter className="w-4 h-4 mr-2"/>Filters</Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[90vw] sm:w-[420px]">
+            <SheetContent side="left" className="w-[90vw] sm:w-[420px]">
               <SheetHeader>
                 <SheetTitle>Filters</SheetTitle>
                 <SheetDescription>Refine your search</SheetDescription>
               </SheetHeader>
+              {/* Shared filter content */}
               <div className="space-y-6 py-4">
+                {/* Brand */}
                 <div>
                   <h4 className="font-medium mb-2">Brand</h4>
                   <div className="grid grid-cols-2 gap-2">
@@ -131,36 +235,97 @@ export default function Cellphones() {
                     ))}
                   </div>
                 </div>
+                {/* Price */}
                 <div>
-                  <h4 className="font-medium mb-2">Price Range</h4>
-                  <Slider value={price} min={100} max={2000} step={10} onValueChange={(v:any)=>setPrice([v[0], v[1]])} />
+                  <h4 className="font-medium mb-2">Price Range (GBP)</h4>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {[
+                      [0,199], [200,499], [500,799], [800,1199], [1200,2000]
+                    ].map(([a,b]) => (
+                      <Button key={`${a}-${b}`} variant="outline" size="sm" onClick={()=>setPrice([a,b])}>{GBP(a)} – {GBP(b)}</Button>
+                    ))}
+                  </div>
+                  <Slider value={price} min={0} max={2000} step={10} onValueChange={(v:any)=>setPrice([v[0], v[1]])} />
                   <div className="text-sm text-gray-600 mt-1">{GBP(price[0])} – {GBP(price[1])}</div>
                 </div>
+                {/* Ratings */}
                 <div>
-                  <h4 className="font-medium mb-2">Ratings</h4>
+                  <h4 className="font-medium mb-2">Customer Ratings</h4>
                   <div className="flex gap-2 flex-wrap">
-                    {[0,3,4,4.5,5].map(r=> (
-                      <Button key={r} variant={minRating===r?"default":"outline"} size="sm" onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★+`}</Button>
+                    {[4,3,2,1,0].map(r=> (
+                      <Button key={r} variant={minRating===r?"default":"outline"} size="sm" onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
                     ))}
                   </div>
                 </div>
+                {/* Storage */}
+                <div>
+                  <h4 className="font-medium mb-2">Storage Capacity</h4>
+                  <div className="grid grid-cols-3 gap-2 text-sm">
+                    {['32','64','128','256','512+'].map(sOpt => (
+                      <label key={sOpt} className="flex items-center gap-2">
+                        <Checkbox checked={storage.includes(sOpt)} onCheckedChange={(v)=> setStorage(s=> v ? [...s, sOpt] : s.filter(x=>x!==sOpt))} /> {sOpt} GB{sOpt.includes('+')?'':''}
+                      </label>
+                    ))}
+                  </div>
+                  <label className="flex items-center gap-2 mt-2 text-sm">
+                    <Checkbox checked={expandable} onCheckedChange={(v)=> setExpandable(Boolean(v))} /> Expandable
+                  </label>
+                </div>
+                {/* Screen size */}
+                <div>
+                  <h4 className="font-medium mb-2">Screen Size</h4>
+                  <div className="grid grid-cols-1 gap-2 text-sm">
+                    {[{k:'small',l:'Up to 5.5 inches'},{k:'medium',l:'5.6 – 6.4 inches'},{k:'large',l:'6.5 inches & above'}].map(o=> (
+                      <label key={o.k} className="flex items-center gap-2"><Checkbox checked={screenSizes.includes(o.k)} onCheckedChange={(v)=> setScreenSizes(s=> v ? [...s, o.k] : s.filter(x=>x!==o.k))} /> {o.l}</label>
+                    ))}
+                  </div>
+                </div>
+                {/* RAM */}
+                <div>
+                  <h4 className="font-medium mb-2">RAM</h4>
+                  <div className="grid grid-cols-3 gap-2 text-sm">
+                    {['2','4','6','8','12+'].map(rm => (
+                      <label key={rm} className="flex items-center gap-2"><Checkbox checked={ram.includes(rm)} onCheckedChange={(v)=> setRam(s=> v ? [...s, rm] : s.filter(x=>x!==rm))} /> {rm} GB</label>
+                    ))}
+                  </div>
+                </div>
+                {/* Battery */}
+                <div>
+                  <h4 className="font-medium mb-2">Battery Capacity</h4>
+                  <div className="grid grid-cols-1 gap-2 text-sm">
+                    {['<=3000','3001-4000','4001-5000','>=5001'].map(bOpt => (
+                      <label key={bOpt} className="flex items-center gap-2"><Checkbox checked={battery.includes(bOpt)} onCheckedChange={(v)=> setBattery(s=> v ? [...s, bOpt] : s.filter(x=>x!==bOpt))} /> {bOpt === '<=3000' ? 'Up to 3,000 mAh' : bOpt === '3001-4000' ? '3,001 – 4,000 mAh' : bOpt === '4001-5000' ? '4,001 – 5,000 mAh' : '5,001 mAh & above'}</label>
+                    ))}
+                  </div>
+                </div>
+                {/* Connectivity */}
+                <div>
+                  <h4 className="font-medium mb-2">Connectivity</h4>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    {['4G','5G','WiFi+Cellular'].map(cn => (
+                      <label key={cn} className="flex items-center gap-2"><Checkbox checked={conn.includes(cn)} onCheckedChange={(v)=> setConn(s=> v ? [...s, cn] : s.filter(x=>x!==cn))} /> {cn === 'WiFi+Cellular' ? 'Wi‑Fi + Cellular' : cn}</label>
+                    ))}
+                  </div>
+                </div>
+                {/* Availability */}
                 <div>
                   <h4 className="font-medium mb-2">Availability</h4>
                   <div className="flex gap-2">
-                    <Button variant={inStock===true?"default":"outline"} size="sm" onClick={()=>setInStock(true)}>In Stock</Button>
+                    <Button variant={inStock===true?"default":"outline"} size="sm" onClick={()=>setInStock(true)}>In Stock only</Button>
+                    <Button variant={inStock===null?"default":"outline"} size="sm" onClick={()=>setInStock(null)}>Include All</Button>
                     <Button variant={inStock===false?"default":"outline"} size="sm" onClick={()=>setInStock(false)}>Out of Stock</Button>
-                    <Button variant={inStock===null?"default":"outline"} size="sm" onClick={()=>setInStock(null)}>Any</Button>
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-2">Sort</h4>
+                  <h4 className="font-medium mb-2">Sort By</h4>
                   <Select value={sort} onValueChange={setSort}>
                     <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="popularity">Popularity</SelectItem>
-                      <SelectItem value="price-asc">Price Low–High</SelectItem>
-                      <SelectItem value="price-desc">Price High–Low</SelectItem>
-                      <SelectItem value="newest">Newest First</SelectItem>
+                      <SelectItem value="price-asc">Price: Low → High</SelectItem>
+                      <SelectItem value="price-desc">Price: High → Low</SelectItem>
+                      <SelectItem value="newest">Newest Arrivals</SelectItem>
+                      <SelectItem value="rating-desc">Customer Ratings</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -182,42 +347,157 @@ export default function Cellphones() {
         )}
       </div>
 
-      {/* Results */}
+      {/* Results with visible sidebar on desktop */}
       <div className="container mx-auto px-4 py-4">
-        {filtered.length === 0 ? (
-          <Card>
-            <CardContent className="text-center py-16">
-              <img src="/placeholder.svg" className="w-24 h-24 mx-auto mb-4 opacity-40" />
-              <h3 className="text-lg font-semibold mb-2">No phones found.</h3>
-              <p className="text-gray-600 mb-4">Try removing filters.</p>
-              <Button onClick={clearFilters}>Clear Filters</Button>
-            </CardContent>
-          </Card>
-        ) : (
-          <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {visible.map(p => (
-                <ProductCard
-                  key={p.id}
-                  id={p.id}
-                  image={p.image}
-                  title={p.title}
-                  price={p.price}
-                  originalPrice={p.originalPrice}
-                  rating={p.rating}
-                  reviewCount={p.reviewCount}
-                  origin={p.origin}
-                  deliveryEta={p.origin==='UK'? 'Tomorrow' : '5–10 days'}
-                />
-              ))}
-            </div>
-            {visible.length < filtered.length && (
-              <div className="flex justify-center py-6">
-                <Button onClick={()=>setPage(p=>p+1)}>Load More</Button>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Sidebar filters (desktop) */}
+          <aside className="hidden md:block col-span-1">
+            <div className="bg-white border rounded-lg p-4 space-y-6 sticky top-28">
+              {/* Brand */}
+              <div>
+                <h4 className="font-semibold mb-2">Brand</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  {brandOptions.map(b => (
+                    <label key={b} className="flex items-center gap-2 text-sm">
+                      <Checkbox checked={brands.includes(b)} onCheckedChange={(v)=> setBrands(s=> v ? [...s, b] : s.filter(x=>x!==b))} /> {b}
+                    </label>
+                  ))}
+                </div>
               </div>
+              {/* Price */}
+              <div>
+                <h4 className="font-semibold mb-2">Price Range (GBP)</h4>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {[[0,199],[200,499],[500,799],[800,1199],[1200,2000]].map(([a,b]) => (
+                    <Button key={`${a}-${b}`} size="sm" variant="outline" onClick={()=>setPrice([a,b])}>{GBP(a)} – {GBP(b)}</Button>
+                  ))}
+                </div>
+                <Slider value={price} min={0} max={2000} step={10} onValueChange={(v:any)=>setPrice([v[0], v[1]])} />
+                <div className="text-sm text-gray-600 mt-1">{GBP(price[0])} – {GBP(price[1])}</div>
+              </div>
+              {/* Ratings */}
+              <div>
+                <h4 className="font-semibold mb-2">Customer Ratings</h4>
+                <div className="flex gap-2 flex-wrap">
+                  {[4,3,2,1,0].map(r=> (
+                    <Button key={r} variant={minRating===r?"default":"outline"} size="sm" onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
+                  ))}
+                </div>
+              </div>
+              {/* Storage */}
+              <div>
+                <h4 className="font-semibold mb-2">Storage Capacity</h4>
+                <div className="grid grid-cols-3 gap-2 text-sm">
+                  {['32','64','128','256','512+'].map(sOpt => (
+                    <label key={sOpt} className="flex items-center gap-2"><Checkbox checked={storage.includes(sOpt)} onCheckedChange={(v)=> setStorage(s=> v ? [...s, sOpt] : s.filter(x=>x!==sOpt))} /> {sOpt} GB{sOpt.includes('+')?'':''}</label>
+                  ))}
+                </div>
+                <label className="flex items-center gap-2 mt-2 text-sm"><Checkbox checked={expandable} onCheckedChange={(v)=> setExpandable(Boolean(v))} /> Expandable</label>
+              </div>
+              {/* Screen */}
+              <div>
+                <h4 className="font-semibold mb-2">Screen Size</h4>
+                <div className="grid grid-cols-1 gap-2 text-sm">
+                  {[{k:'small',l:'Up to 5.5 inches'},{k:'medium',l:'5.6 – 6.4 inches'},{k:'large',l:'6.5 inches & above'}].map(o=> (
+                    <label key={o.k} className="flex items-center gap-2"><Checkbox checked={screenSizes.includes(o.k)} onCheckedChange={(v)=> setScreenSizes(s=> v ? [...s, o.k] : s.filter(x=>x!==o.k))} /> {o.l}</label>
+                  ))}
+                </div>
+              </div>
+              {/* RAM */}
+              <div>
+                <h4 className="font-semibold mb-2">RAM</h4>
+                <div className="grid grid-cols-3 gap-2 text-sm">
+                  {['2','4','6','8','12+'].map(rm => (
+                    <label key={rm} className="flex items-center gap-2"><Checkbox checked={ram.includes(rm)} onCheckedChange={(v)=> setRam(s=> v ? [...s, rm] : s.filter(x=>x!==rm))} /> {rm} GB</label>
+                  ))}
+                </div>
+              </div>
+              {/* Battery */}
+              <div>
+                <h4 className="font-semibold mb-2">Battery Capacity</h4>
+                <div className="grid grid-cols-1 gap-2 text-sm">
+                  {['<=3000','3001-4000','4001-5000','>=5001'].map(bOpt => (
+                    <label key={bOpt} className="flex items-center gap-2"><Checkbox checked={battery.includes(bOpt)} onCheckedChange={(v)=> setBattery(s=> v ? [...s, bOpt] : s.filter(x=>x!==bOpt))} /> {bOpt === '<=3000' ? 'Up to 3,000 mAh' : bOpt === '3001-4000' ? '3,001 – 4,000 mAh' : bOpt === '4001-5000' ? '4,001 – 5,000 mAh' : '5,001 mAh & above'}</label>
+                  ))}
+                </div>
+              </div>
+              {/* Connectivity */}
+              <div>
+                <h4 className="font-semibold mb-2">Connectivity</h4>
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  {['4G','5G','WiFi+Cellular'].map(cn => (
+                    <label key={cn} className="flex items-center gap-2"><Checkbox checked={conn.includes(cn)} onCheckedChange={(v)=> setConn(s=> v ? [...s, cn] : s.filter(x=>x!==cn))} /> {cn === 'WiFi+Cellular' ? 'Wi‑Fi + Cellular' : cn}</label>
+                  ))}
+                </div>
+              </div>
+              {/* Availability */}
+              <div>
+                <h4 className="font-semibold mb-2">Availability</h4>
+                <div className="flex gap-2">
+                  <Button variant={inStock===true?"default":"outline"} size="sm" onClick={()=>setInStock(true)}>In Stock only</Button>
+                  <Button variant={inStock===null?"default":"outline"} size="sm" onClick={()=>setInStock(null)}>Include All</Button>
+                  <Button variant={inStock===false?"default":"outline"} size="sm" onClick={()=>setInStock(false)}>Out of Stock</Button>
+                </div>
+              </div>
+              <div className="flex gap-2"><Button className="flex-1" onClick={clearFilters} variant="outline">Clear All</Button></div>
+            </div>
+          </aside>
+
+          {/* Products area */}
+          <div className="col-span-1 md:col-span-3">
+            <div className="flex items-center justify-between mb-3">
+              <div className="text-sm text-gray-600">{filtered.length} results</div>
+              <div className="hidden md:flex items-center gap-2">
+                <span className="text-sm text-gray-600">Sort By</span>
+                <Select value={sort} onValueChange={setSort}>
+                  <SelectTrigger className="w-52"><SelectValue placeholder="Sort" /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="popularity">Popularity</SelectItem>
+                    <SelectItem value="price-asc">Price: Low → High</SelectItem>
+                    <SelectItem value="price-desc">Price: High → Low</SelectItem>
+                    <SelectItem value="newest">Newest Arrivals</SelectItem>
+                    <SelectItem value="rating-desc">Customer Ratings</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {filtered.length === 0 ? (
+              <Card>
+                <CardContent className="text-center py-16">
+                  <img src="/placeholder.svg" className="w-24 h-24 mx-auto mb-4 opacity-40" />
+                  <h3 className="text-lg font-semibold mb-2">No phones found.</h3>
+                  <p className="text-gray-600 mb-4">Try removing filters.</p>
+                  <Button onClick={clearFilters}>Clear Filters</Button>
+                </CardContent>
+              </Card>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {visible.map(p => (
+                    <ProductCard
+                      key={p.id}
+                      id={p.id}
+                      image={p.image}
+                      title={p.title}
+                      price={p.price}
+                      originalPrice={p.originalPrice}
+                      rating={p.rating}
+                      reviewCount={p.reviewCount}
+                      origin={p.origin}
+                      deliveryEta={p.origin==='UK'? 'Tomorrow' : '5–10 days'}
+                    />
+                  ))}
+                </div>
+                {visible.length < filtered.length && (
+                  <div className="flex justify-center py-6">
+                    <Button onClick={()=>setPage(p=>p+1)}>Load More</Button>
+                  </div>
+                )}
+              </>
             )}
-          </>
-        )}
+          </div>
+        </div>
       </div>
     </div>
   );
