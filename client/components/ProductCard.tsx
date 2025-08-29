@@ -1,4 +1,3 @@
-import { Heart, Play, Star } from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
