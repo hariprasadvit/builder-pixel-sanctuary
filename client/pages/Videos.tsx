@@ -1,21 +1,11 @@
 import { useState } from "react";
-import {
-  Heart,
-  Share,
-  MessageCircle,
-  MoreHorizontal,
-  Volume2,
-  VolumeX,
-  Play,
-} from "lucide-react";
+import { Heart, Share, MessageCircle, ThumbsDown, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 
 export default function Videos() {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
-  const [playing, setPlaying] = useState(false);
 
   // Mock video data
   const videos = [
@@ -72,6 +62,12 @@ export default function Videos() {
     },
   ];
 
+  const formatCount = (n: number) => {
+    if (n >= 1_000_000) return `${Math.round(n / 100_000) / 10}M`;
+    if (n >= 1_000) return `${Math.round(n / 100) / 10}K`;
+    return `${n}`;
+  };
+
   const toggleLike = (videoId: string) => {
     console.log("Toggle like for video:", videoId);
   };
@@ -85,7 +81,7 @@ export default function Videos() {
   };
 
   return (
-    <div className="h-screen bg-white overflow-hidden relative">
+    <div className="h-screen bg-gray-50 overflow-hidden relative">
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
@@ -95,7 +91,7 @@ export default function Videos() {
               {video.youtubeId ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=${playing?1:0}&mute=${isMuted?1:0}&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
+                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&mute=${isMuted?1:0}&playsinline=1&controls=0&modestbranding=1&loop=1&playlist=${video.youtubeId}&rel=0`}
                   title={video.title}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -105,27 +101,9 @@ export default function Videos() {
                 <img src={video.thumbnail} alt={video.title} className="absolute inset-0 w-full h-full object-cover" />
               )}
 
-              {!playing && (
-                <button className="absolute inset-0 flex items-center justify-center" onClick={()=>setPlaying(true)}>
-                  <div className="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center backdrop-blur-sm">
-                    <Play className="w-8 h-8 text-white fill-white ml-1" />
-                  </div>
-                </button>
-              )}
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-3">
-                <Button variant="ghost" size="icon" className={`w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm ${video.isLiked?'text-brand-red':'text-white'}`} onClick={()=>toggleLike(video.id)}>
-                  <Heart className={`w-5 h-5 ${video.isLiked?'fill-current':''}`} />
-                </Button>
-                <Button variant="ghost" size="icon" className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white" onClick={()=>handleShare(video.id)}>
-                  <Share className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white">
-                  <MoreHorizontal className="w-5 h-5" />
-                </Button>
-              </div>
 
               <div className="absolute left-3 right-3 bottom-16">
                 <Badge className={`${video.origin==='UK'?'bg-blue-600 hover:bg-blue-700':'bg-red-600 hover:bg-red-700'} mb-2`}>{video.origin}</Badge>
@@ -137,7 +115,26 @@ export default function Videos() {
                 </div>
               </div>
 
-              <Button variant="ghost" size="icon" className="absolute top-2 right-2 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm text-white" onClick={()=>setIsMuted(!isMuted)}>
+            </div>
+            {/* Side action panel */}
+            <div className="hidden md:flex flex-col gap-2 ml-4">
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>toggleLike(video.id)}>
+                <Heart className="w-4 h-4 mr-2" />
+                {formatCount(video.likes)}
+              </Button>
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
+                <ThumbsDown className="w-4 h-4 mr-2" />
+                Dislike
+              </Button>
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                {formatCount(video.comments)}
+              </Button>
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>handleShare(video.id)}>
+                <Share className="w-4 h-4 mr-2" />
+                Share
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full bg-white text-gray-700 shadow w-10 h-10" onClick={()=>setIsMuted(!isMuted)}>
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </Button>
             </div>
@@ -145,17 +142,6 @@ export default function Videos() {
         ))}
       </div>
 
-      {/* Video Progress Indicators */}
-      <div className="hidden md:flex absolute right-2 top-1/2 transform -translate-y-1/2 flex-col gap-2">
-        {videos.map((_, index) => (
-          <div
-            key={index}
-            className={`w-1 h-8 rounded-full ${
-              index === currentVideo ? "bg-white" : "bg-white/30"
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
