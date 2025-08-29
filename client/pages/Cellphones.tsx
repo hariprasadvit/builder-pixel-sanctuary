@@ -53,11 +53,11 @@ const PHONES: PhoneItem[] = [
   { id: "p17", brand: "Apple", title: "Apple iPhone 13", price: 599.0, rating: 4.5, reviewCount: 9000, inStock: true, origin: "UK", image: "https://m.media-amazon.com/images/I/71xb2xkN5qL._SX679_.jpg" },
   { id: "p18", brand: "Samsung", title: "Samsung Galaxy Z Flip6", price: 999.0, rating: 4.3, reviewCount: 245, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/71Nt2Z3i8oL._SX679_.jpg" },
   { id: "p19", brand: "Samsung", title: "Samsung Galaxy Z Fold6", price: 1699.0, rating: 4.4, reviewCount: 198, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/71E8VgyZQ-L._SX679_.jpg" },
-  { id: "p20", brand: "Xiaomi", title: "POCO F6 5G", price: 389.0, rating: 4.4, reviewCount: 2110, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/71k3NyyMezL._SX679_.jpg" },
+  { id: "p20", brand: "Xiaomi", title: "POCO F6 5G", price: 389.0, rating: 4.4, reviewCount: 2110, inStock: true, origin: "China", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc273fcec23484bef9b0d0369672215e0?format=webp&width=800" },
   { id: "p21", brand: "OnePlus", title: "OnePlus Nord CE4", price: 299.0, rating: 4.1, reviewCount: 1560, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/61B0+qQriPL._SX679_.jpg" },
-  { id: "p22", brand: "Realme", title: "Realme Narzo 70 Pro", price: 289.0, rating: 4.0, reviewCount: 780, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/71Yc6u7o4pL._SX679_.jpg" },
-  { id: "p23", brand: "Vivo", title: "Vivo T3 5G", price: 259.0, rating: 4.0, reviewCount: 540, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/71xY7Kkz2qL._SX679_.jpg" },
-  { id: "p24", brand: "Oppo", title: "OPPO A79 5G", price: 219.0, rating: 3.9, reviewCount: 430, inStock: true, origin: "China", image: "https://m.media-amazon.com/images/I/61fM8CkK8AL._SX679_.jpg" },
+  { id: "p22", brand: "Realme", title: "Realme Narzo 70 Pro", price: 289.0, rating: 4.0, reviewCount: 780, inStock: true, origin: "China", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8394f1b1a9034364a8f5350184cba37e?format=webp&width=800" },
+  { id: "p23", brand: "Vivo", title: "Vivo T3 5G", price: 259.0, rating: 4.0, reviewCount: 540, inStock: true, origin: "China", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcfc884677ebe485a9b3dbff8829c47e6?format=webp&width=800" },
+  { id: "p24", brand: "Oppo", title: "OPPO A79 5G", price: 219.0, rating: 3.9, reviewCount: 430, inStock: true, origin: "China", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa1cdb2fc81d94e2fb29e564b2795a9e7?format=webp&width=800" },
 ];
 
 export default function Cellphones() {
