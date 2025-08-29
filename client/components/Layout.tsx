@@ -72,7 +72,13 @@ export default function Layout({ children }: LayoutProps) {
     updateAddress,
     getCurrentLocationName,
   } = useLocationContext();
-  const { getItemCount } = useCart();
+  let getItemCount = () => 0 as number;
+  try {
+    // Attempt to read from CartContext; if provider is absent, fall back gracefully
+    ({ getItemCount } = useCart());
+  } catch (e) {
+    // no provider found, keep default
+  }
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
