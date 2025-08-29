@@ -33,7 +33,7 @@ export default function ProductCard({
   origin,
   deliveryEta,
   hasVideo = false,
-  isWishlisted = false,
+  isWishlisted,
   onWishlistToggle,
   onAddToCart,
 }: ProductCardProps) {
