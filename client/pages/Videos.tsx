@@ -84,13 +84,13 @@ export default function Videos() {
   };
 
   return (
-    <div className="h-screen bg-amber-50 overflow-hidden relative">
+    <div className="h-screen bg-white overflow-hidden relative">
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
           <div key={video.id} className="h-full w-full snap-start relative flex items-center justify-center">
             {/* Video Frame */}
-            <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 w-full max-w-[420px] aspect-[9/16]">
+            <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5" style={{ height: '80vh', width: 'calc(80vh * 9 / 16)' }}>
               {video.youtubeId ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
@@ -115,8 +115,8 @@ export default function Videos() {
                 </div>
               </div>
 
-              {/* Subtle overlay for readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+              {/* Overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Video Controls - Right Side */}
