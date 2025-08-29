@@ -240,13 +240,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const deliveryFee = vendor 
       ? calculateDeliveryFee(vendor, subtotal)
       : hasMultipleVendors()
-        ? Array.from(new Set(items.map(item => item.vendor)))
+        ? Array.from(new Set(items.map(item => item.vendor || 'nearbuy')))
             .reduce((sum, v) => {
-              const vendorSubtotal = getItemsByVendor(v).reduce((s, item) => s + (item.price * item.quantity), 0);
-              return sum + calculateDeliveryFee(v, vendorSubtotal);
+              const vendorSubtotal = getItemsByVendor(v as MarketplaceType).reduce((s, item) => s + (item.price * item.quantity), 0);
+              return sum + calculateDeliveryFee(v as MarketplaceType, vendorSubtotal);
             }, 0)
-        : items.length > 0 
-          ? calculateDeliveryFee(items[0].vendor, subtotal)
+        : items.length > 0
+          ? calculateDeliveryFee((items[0].vendor || 'nearbuy') as MarketplaceType, subtotal)
           : 0;
     
     const discountAmount = calculateDiscount(subtotal, vendor);
