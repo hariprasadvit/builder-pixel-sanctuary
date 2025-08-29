@@ -100,6 +100,8 @@ export default function Cart() {
   const handlePaymentSuccess = () => {
     setShowStripeCheckout(false);
 
+    const hasNearbuy = items.some((i) => i.vendor === "nearbuy");
+
     // Clear cart and navigate to success page
     clearCart();
     navigate("/payment-success", {
@@ -107,7 +109,8 @@ export default function Cart() {
         orderNumber: `ORD-${Date.now()}`,
         amount: overallTotals.total,
         currency: currency,
-        customerEmail: "customer@example.com"
+        customerEmail: "customer@example.com",
+        deliveryType: hasNearbuy ? "local" : "china",
       }
     });
   };
