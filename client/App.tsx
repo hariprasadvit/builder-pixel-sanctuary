@@ -9,6 +9,7 @@ import Layout from "@/components/Layout";
 import { MarketplaceProvider } from "@/contexts/MarketplaceContext";
 import { LocationProvider } from "@/contexts/LocationContext";
 import { CartProvider } from "@/contexts/CartContext";
+import { WishlistProvider } from "@/contexts/WishlistContext";
 import Index from "./pages/Index";
 import Categories from "./pages/Categories";
 import Electronics from "./pages/Electronics";
@@ -39,6 +40,7 @@ const App = () => (
         <MarketplaceProvider>
           <LocationProvider>
             <CartProvider>
+              <WishlistProvider>
               <Routes>
               {/* Authentication routes without Layout */}
               <Route path="/login" element={<Login />} />
@@ -68,6 +70,7 @@ const App = () => (
                 </Layout>
               } />
               </Routes>
+              </WishlistProvider>
             </CartProvider>
           </LocationProvider>
         </MarketplaceProvider>
