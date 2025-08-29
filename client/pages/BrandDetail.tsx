@@ -34,21 +34,6 @@ export default function BrandDetail() {
         <section className="space-y-0">
           {/* First hero banner full width */}
           <img src={APPLE_BANNERS[0]} alt="Apple" className="w-full block" />
-          {/* Next four as 2x2 cards */}
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            {[
-              { src: APPLE_BANNERS[3], label: "Watch", target: "#iphone-watch" },
-              { src: APPLE_BANNERS[4], label: "AirPods", target: "#iphone-watch" },
-            ].map(({ src, label, target }) => (
-              <a
-                key={src}
-                href={target}
-                aria-label={`Browse ${label}`}
-                className="relative overflow-hidden rounded-lg block aspect-[3/2] bg-cover bg-center"
-                style={{ backgroundImage: `url(${src})` }}
-              />
-            ))}
-          </div>
         </section>
       )}
 
