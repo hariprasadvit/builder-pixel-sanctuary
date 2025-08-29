@@ -29,6 +29,21 @@ import {
 export default function Orders() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogType, setDialogType] = useState<"return" | "refund" | "cancel" | null>(null);
+  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+  const [requestReason, setRequestReason] = useState("");
+
+  const openRequest = (orderId: string, type: "return" | "refund" | "cancel") => {
+    setSelectedOrderId(orderId);
+    setDialogType(type);
+    setDialogOpen(true);
+  };
+
+  const submitRequest = () => {
+    setDialogOpen(false);
+    setRequestReason("");
+  };
 
   const orders = [
     {
