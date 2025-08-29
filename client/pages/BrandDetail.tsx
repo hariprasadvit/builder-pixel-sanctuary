@@ -19,6 +19,8 @@ export default function BrandDetail() {
   const { brand: brandParam } = useParams();
   const brand = useMemo(() => (brandParam || "").replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()), [brandParam]);
   const products = useMemo(() => SAMPLE_CATALOG.filter(p => p.brand.toLowerCase() === brand.toLowerCase()), [brand]);
+  const phonesAndWatch = useMemo(() => products.filter(p => /iphone|watch/i.test(p.title)), [products]);
+  const ipadAndMac = useMemo(() => products.filter(p => /ipad|mac/i.test(p.title)), [products]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -37,30 +39,48 @@ export default function BrandDetail() {
       )}
 
       <div className="container mx-auto px-4 py-8">
-        <h2 className="text-xl font-semibold mb-4">All {brand} products</h2>
-        {brand === "Apple" && (
-          <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7aa70d6794ff46e8a95a7e4d2aab029f?format=webp&width=1600" alt="Apple" className="w-full mb-4" />
-        )}
         {products.length === 0 ? (
           <div className="text-gray-600">No products found for {brand}.</div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {products.map((p) => (
-              <a key={p.id} href={`/product/${p.id}`} className="block">
-                <ProductCard
-                  id={p.id}
-                  image={p.image}
-                  title={p.title}
-                  price={p.price}
-                  originalPrice={p.originalPrice || undefined}
-                  rating={p.rating}
-                  reviewCount={p.reviewCount}
-                  origin={p.origin}
-                  deliveryEta="2–5 days"
-                />
-              </a>
-            ))}
-          </div>
+          <>
+            <h2 className="text-xl font-semibold mb-4">iPhone & Apple Watch</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
+              {phonesAndWatch.map((p) => (
+                <a key={p.id} href={`/product/${p.id}`} className="block">
+                  <ProductCard
+                    id={p.id}
+                    image={p.image}
+                    title={p.title}
+                    price={p.price}
+                    originalPrice={p.originalPrice || undefined}
+                    rating={p.rating}
+                    reviewCount={p.reviewCount}
+                    origin={p.origin}
+                    deliveryEta="2–5 days"
+                  />
+                </a>
+              ))}
+            </div>
+
+            <h2 className="text-xl font-semibold mb-4">iPad & Mac</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              {ipadAndMac.map((p) => (
+                <a key={p.id} href={`/product/${p.id}`} className="block">
+                  <ProductCard
+                    id={p.id}
+                    image={p.image}
+                    title={p.title}
+                    price={p.price}
+                    originalPrice={p.originalPrice || undefined}
+                    rating={p.rating}
+                    reviewCount={p.reviewCount}
+                    origin={p.origin}
+                    deliveryEta="2–5 days"
+                  />
+                </a>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>
