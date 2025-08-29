@@ -33,7 +33,7 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
   const [slotDay, setSlotDay] = useState<'today'|'tomorrow'|'select'>('today');
   const [slotDate, setSlotDate] = useState<string>("");
   const [slotWindow, setSlotWindow] = useState("10:00–12:00");
-  const [refund, setRefund] = useState<'original'|'wallet'>('original');
+  const [refund] = useState<'original'>('original');
   const [submitted, setSubmitted] = useState(false);
   // removed hub code
   // removed qr state
@@ -156,12 +156,11 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
 
             {step === 4 && (
               <div className="space-y-3 mt-3">
-                <Label className="text-sm">Refund / Exchange</Label>
+                <Label className="text-sm">Refund</Label>
                 <div className="flex gap-2">
-                  <Button variant={refund==='original'?'default':'outline'} onClick={()=>setRefund('original')}>Refund to Original</Button>
-                  <Button variant={refund==='wallet'?'default':'outline'} onClick={()=>setRefund('wallet')}>Riki Wallet (fastest)</Button>
+                  <Button>Refund to original method</Button>
                 </div>
-                <p className="text-xs text-gray-600">Prepaid 3–7 business days; Wallet instant–24h; COD to bank/UPI 5–7 business days.</p>
+                <p className="text-xs text-gray-600">Prepaid 3–7 business days; COD to bank/UPI 5–7 business days.</p>
                 <div className="flex gap-2">
                   <Button variant="outline" className="flex-1" onClick={()=>setStep(3)}>Back</Button>
                   <Button className="flex-1" onClick={()=>setStep(5)}>Continue</Button>
@@ -181,7 +180,7 @@ export default function ReturnWizard({ open, onOpenChange, orderId, items, order
                   ))}
                 </div>
                 <p className="text-xs text-gray-600">Method: Doorstep Pickup — {slotLabel} {slotWindow}. OTP verification. Agent brings label if needed. Up to 2 pickup attempts.</p>
-                <p className="text-xs text-gray-600">Refund: {refund==='wallet' ? 'Riki Wallet' : 'Original method'}</p>
+                <p className="text-xs text-gray-600">Refund: Original method</p>
                 <div className="flex gap-2">
                   <Button variant="outline" className="flex-1" onClick={()=>setStep(4)}>Back</Button>
                   <Button className="flex-1" onClick={submit}>Submit Return</Button>
