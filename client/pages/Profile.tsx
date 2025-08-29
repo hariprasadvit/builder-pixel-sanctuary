@@ -7,14 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
-import { 
-  User, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  CreditCard, 
-  Bell, 
-  Shield, 
+import {
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  CreditCard,
+  Bell,
+  Shield,
   Heart,
   Package,
   Edit,
@@ -22,8 +22,15 @@ import {
   ChevronRight,
   LogOut,
   Camera,
-  Trash2
+  Trash2,
+  ShoppingCart,
+  Share2
 } from "lucide-react";
+
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useCart } from "@/contexts/CartContext";
+import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -336,24 +343,7 @@ export default function Profile() {
 
           {/* Wishlist */}
           <TabsContent value="wishlist">
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Heart className="w-5 h-5" />
-                  Wishlist & Favorites
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center py-12">
-                  <Heart className="w-16 h-16 mx-auto text-gray-300 mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Your wishlist is empty</h3>
-                  <p className="text-gray-600 mb-4">Save items you love for later</p>
-                  <Link to="/">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">Start Shopping</Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+            <ProfileWishlist />
           </TabsContent>
 
           {/* Settings */}
