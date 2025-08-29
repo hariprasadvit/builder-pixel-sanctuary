@@ -415,6 +415,26 @@ export default function Orders() {
           </Card>
         )}
       </div>
+
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              {dialogType === 'return' && 'Request a Return'}
+              {dialogType === 'refund' && 'Request a Refund'}
+              {dialogType === 'cancel' && 'Cancel Order'}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-3">
+            <Label htmlFor="reason">Reason</Label>
+            <Textarea id="reason" value={requestReason} onChange={(e) => setRequestReason(e.target.value)} placeholder="Describe your reason..." />
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Close</Button>
+            <Button onClick={submitRequest}>Submit</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
