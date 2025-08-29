@@ -31,19 +31,17 @@ export function searchCatalog(query: string, limit = 20): SearchResult {
   return { products, categories, brands };
 }
 
-export function highlight(text: string, query: string) {
+export function splitHighlight(text: string, query: string) {
   const q = query.trim();
-  if (!q) return text;
-  const idx = text.toLowerCase().indexOf(q.toLowerCase());
-  if (idx === -1) return text;
-  const before = text.slice(0, idx);
-  const match = text.slice(idx, idx + q.length);
-  const after = text.slice(idx + q.length);
-  return (
-    <>
-      {before}
-      <strong>{match}</strong>
-      {after}
-    </>
-  );
+  const lower = text.toLowerCase();
+  const ql = q.toLowerCase();
+  const idx = q ? lower.indexOf(ql) : -1;
+  if (idx === -1) {
+    return { before: text, match: "", after: "" };
+  }
+  return {
+    before: text.slice(0, idx),
+    match: text.slice(idx, idx + q.length),
+    after: text.slice(idx + q.length),
+  };
 }
