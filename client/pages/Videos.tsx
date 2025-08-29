@@ -66,6 +66,8 @@ export default function Videos() {
     },
   ];
 
+  const [reactions, setReactions] = useState<Record<string, { liked: boolean; likes: number; comments: number }>>(() => Object.fromEntries(videos.map(v => [v.id, { liked: v.isLiked, likes: v.likes, comments: v.comments }])));
+
   const formatCount = (n: number) => {
     if (n >= 1_000_000) return `${Math.round(n / 100_000) / 10}M`;
     if (n >= 1_000) return `${Math.round(n / 100) / 10}K`;
