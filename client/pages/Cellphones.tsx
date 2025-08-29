@@ -310,10 +310,10 @@ export default function Cellphones() {
                 {/* Availability */}
                 <div>
                   <h4 className="font-medium mb-2">Availability</h4>
-                  <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className={inStock===true ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(true)}>In Stock only</Button>
-                    <Button variant="outline" size="sm" className={inStock===null ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(null)}>Include All</Button>
-                    <Button variant="outline" size="sm" className={inStock===false ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(false)}>Out of Stock</Button>
+                  <div className="grid grid-cols-3 gap-2">
+                    <Button variant="outline" size="sm" className={`w-full ${inStock===true ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""}`} onClick={()=>setInStock(true)}>In Stock only</Button>
+                    <Button variant="outline" size="sm" className={`w-full ${inStock===null ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""}`} onClick={()=>setInStock(null)}>Include All</Button>
+                    <Button variant="outline" size="sm" className={`w-full ${inStock===false ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""}`} onClick={()=>setInStock(false)}>Out of Stock</Button>
                   </div>
                 </div>
                 <div>
