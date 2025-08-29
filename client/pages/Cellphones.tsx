@@ -242,7 +242,7 @@ export default function Cellphones() {
                     {[
                       [0,199], [200,499], [500,799], [800,1199], [1200,2000]
                     ].map(([a,b]) => (
-                      <Button key={`${a}-${b}`} variant="outline" size="sm" onClick={()=>setPrice([a,b])}>{GBP(a)} – {GBP(b)}</Button>
+                      <Button key={`${a}-${b}`} variant="outline" size="sm" className={(price[0]===a && price[1]===b) ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setPrice([a,b])}>{GBP(a)} – {GBP(b)}</Button>
                     ))}
                   </div>
                   <Slider value={price} min={0} max={2000} step={10} onValueChange={(v:any)=>setPrice([v[0], v[1]])} />
@@ -253,7 +253,7 @@ export default function Cellphones() {
                   <h4 className="font-medium mb-2">Customer Ratings</h4>
                   <div className="flex gap-2 flex-wrap">
                     {[4,3,2,1,0].map(r=> (
-                      <Button key={r} variant={minRating===r?"default":"outline"} size="sm" onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
+                      <Button key={r} variant="outline" size="sm" className={minRating===r ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
                     ))}
                   </div>
                 </div>
@@ -311,9 +311,9 @@ export default function Cellphones() {
                 <div>
                   <h4 className="font-medium mb-2">Availability</h4>
                   <div className="flex gap-2">
-                    <Button variant={inStock===true?"default":"outline"} size="sm" onClick={()=>setInStock(true)}>In Stock only</Button>
-                    <Button variant={inStock===null?"default":"outline"} size="sm" onClick={()=>setInStock(null)}>Include All</Button>
-                    <Button variant={inStock===false?"default":"outline"} size="sm" onClick={()=>setInStock(false)}>Out of Stock</Button>
+                    <Button variant="outline" size="sm" className={inStock===true ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(true)}>In Stock only</Button>
+                    <Button variant="outline" size="sm" className={inStock===null ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(null)}>Include All</Button>
+                    <Button variant="outline" size="sm" className={inStock===false ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(false)}>Out of Stock</Button>
                   </div>
                 </div>
                 <div>
@@ -380,7 +380,7 @@ export default function Cellphones() {
                 <h4 className="font-semibold mb-2">Customer Ratings</h4>
                 <div className="flex gap-2 flex-wrap">
                   {[4,3,2,1,0].map(r=> (
-                    <Button key={r} variant={minRating===r?"default":"outline"} size="sm" onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
+                    <Button key={r} variant="outline" size="sm" className={minRating===r ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setMinRating(r)}>{r===0?"All":`${r}★ & above`}</Button>
                   ))}
                 </div>
               </div>
@@ -434,9 +434,9 @@ export default function Cellphones() {
               <div>
                 <h4 className="font-semibold mb-2">Availability</h4>
                 <div className="flex gap-2">
-                  <Button variant={inStock===true?"default":"outline"} size="sm" onClick={()=>setInStock(true)}>In Stock only</Button>
-                  <Button variant={inStock===null?"default":"outline"} size="sm" onClick={()=>setInStock(null)}>Include All</Button>
-                  <Button variant={inStock===false?"default":"outline"} size="sm" onClick={()=>setInStock(false)}>Out of Stock</Button>
+                  <Button variant="outline" size="sm" className={inStock===true ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(true)}>In Stock only</Button>
+                  <Button variant="outline" size="sm" className={inStock===null ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(null)}>Include All</Button>
+                  <Button variant="outline" size="sm" className={inStock===false ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={()=>setInStock(false)}>Out of Stock</Button>
                 </div>
               </div>
               <div className="flex gap-2"><Button className="flex-1" onClick={clearFilters} variant="outline">Clear All</Button></div>
