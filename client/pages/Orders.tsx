@@ -239,11 +239,18 @@ export default function Orders() {
                         <Calendar className="w-4 h-4" />
                         Ordered: {new Date(order.date).toLocaleDateString()}
                       </span>
-                      {order.estimatedDelivery && (
+                      {order.shippingType === 'local' ? (
                         <span className="flex items-center gap-1">
                           <Truck className="w-4 h-4" />
-                          Est. Delivery: {new Date(order.estimatedDelivery).toLocaleDateString()}
+                          ETA: 20–30 min
                         </span>
+                      ) : (
+                        order.estimatedDelivery && (
+                          <span className="flex items-center gap-1">
+                            <Truck className="w-4 h-4" />
+                            Est. Delivery: {new Date(order.estimatedDelivery).toLocaleDateString()}
+                          </span>
+                        )
                       )}
                     </div>
                   </div>
