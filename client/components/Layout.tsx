@@ -553,6 +553,10 @@ export default function Layout({ children }: LayoutProps) {
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
+                <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); detectMyLocation(); }}>
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Detect My Location
+                </DropdownMenuItem>
                 <DropdownMenuItem className="text-brand-blue">
                   <MapPin className="w-4 h-4 mr-2" />
                   Add new address
