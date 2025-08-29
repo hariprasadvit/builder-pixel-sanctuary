@@ -85,7 +85,7 @@ export default function Videos() {
       {/* Video Feed */}
       <div className="h-full snap-y snap-mandatory overflow-y-auto scrollbar-hide flex flex-col items-center justify-start">
         {videos.map((video, index) => (
-          <div key={video.id} className="snap-start flex-none h-full w-full flex items-center justify-center">
+          <div key={video.id} className="snap-start flex-none h-full w-full relative flex items-center justify-center">
             {/* Video Frame with controls/info */}
             <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 h-full min-h-full aspect-[9/16]">
               {video.youtubeId ? (
@@ -115,28 +115,28 @@ export default function Videos() {
                 </div>
               </div>
 
-              {/* Side action panel */}
-              <div className="hidden md:flex flex-col gap-2 absolute top-1/2 -translate-y-1/2 right-0 translate-x-full ml-4">
-                <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>toggleLike(video.id)}>
-                  <Heart className="w-4 h-4 mr-2" />
-                  {formatCount(video.likes)}
-                </Button>
-                <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
-                  <ThumbsDown className="w-4 h-4 mr-2" />
-                  Dislike
-                </Button>
-                <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  {formatCount(video.comments)}
-                </Button>
-                <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>handleShare(video.id)}>
-                  <Share className="w-4 h-4 mr-2" />
-                  Share
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full bg-white text-gray-700 shadow w-10 h-10" onClick={()=>setIsMuted(!isMuted)}>
-                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                </Button>
-              </div>
+            </div>
+            {/* Side action panel */}
+            <div className="hidden md:flex flex-col gap-2 ml-4">
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>toggleLike(video.id)}>
+                <Heart className="w-4 h-4 mr-2" />
+                {formatCount(video.likes)}
+              </Button>
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
+                <ThumbsDown className="w-4 h-4 mr-2" />
+                Dislike
+              </Button>
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                {formatCount(video.comments)}
+              </Button>
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>handleShare(video.id)}>
+                <Share className="w-4 h-4 mr-2" />
+                Share
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full bg-white text-gray-700 shadow w-10 h-10" onClick={()=>setIsMuted(!isMuted)}>
+                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              </Button>
             </div>
           </div>
         ))}
