@@ -215,6 +215,13 @@ export default function Orders() {
   const openCancel = (idx: number) => { setActiveOrderIndex(idx); setCancelOpen(true); };
   const openReturn = (idx: number) => { setActiveOrderIndex(idx); setReturnOpen(true); };
 
+  const getReturnByForOrder = (order: any) => {
+    const CATEGORY_WINDOWS: Record<string, number> = { apparel: 10, electronics: 7, home: 15 };
+    const days = order.items.map((it:any) => CATEGORY_WINDOWS[it.category || 'electronics'] ?? 7);
+    const maxDays = Math.max(...days, 7);
+    return new Date(new Date(order.date).getTime() + maxDays*24*60*60*1000);
+  };
+
   const filteredOrders = orders.filter(order => {
     const matchesSearch = order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          order.items.some(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -410,43 +417,65 @@ export default function Orders() {
                   </TabsContent>
 
                   <TabsContent value="actions" className="mt-6">
-                    <div className="flex flex-wrap gap-3">
-                      {order.status === "delivered" && (
+                    <div className="flex flex-col gap-3">
+                      {/* Delivered: Return / Exchange enabled with return-by date */}
+                      {order.status === 'delivered' && (
                         <>
-                          <Button variant="outline">
-                            <Star className="w-4 h-4 mr-2" />
-                            Write Review
-                          </Button>
-                          <Button variant="outline" onClick={() => openRequest(order.id, 'return')}>
-                            <RotateCcw className="w-4 h-4 mr-2" />
-                            Return Item
-                          </Button>
-                          <Button variant="outline" onClick={() => openRequest(order.id, 'refund')}>
-                            <RotateCcw className="w-4 h-4 mr-2" />
-                            Refund Request
-                          </Button>
+                          <p className="text-xs text-gray-600">Return by {getReturnByForOrder(order).toLocaleDateString()}</p>
+                          <div className="flex flex-wrap gap-3">
+                            <Button variant="outline" onClick={() => { setActiveOrderIndex(orders.indexOf(order)); setReturnOpen(true); }}>
+                              <RotateCcw className="w-4 h-4 mr-2" />
+                              Return / Exchange
+                            </Button>
+                            <Button variant="outline">
+                              <Star className="w-4 h-4 mr-2" />
+                              Write Review
+                            </Button>
+                          </div>
                         </>
                       )}
-                      {order.status !== "cancelled" && (
-                        <>
-                          <Button variant="outline" onClick={() => downloadInvoice(order)}>
-                            <Download className="w-4 h-4 mr-2" />
-                            Download Invoice
-                          </Button>
-                          <Button variant="outline" onClick={() => openRequest(order.id, 'cancel')}>
+
+                      {/* Placed / Processing / Packed: Cancel enabled (packed with warning) */}
+                      {(order.status === 'placed' || order.status === 'processing' || order.status === 'packed') && (
+                        <div className="flex flex-wrap gap-3">
+                          <Button variant="outline" onClick={() => { setActiveOrderIndex(orders.indexOf(order)); setCancelOpen(true); }}>
                             <XCircle className="w-4 h-4 mr-2" />
                             Cancel Order
                           </Button>
-                          <Button variant="outline">
-                            <MessageSquare className="w-4 h-4 mr-2" />
-                            Contact Support
-                          </Button>
-                        </>
+                          {order.status === 'packed' && (
+                            <p className="text-xs text-amber-700">We’ll try to stop dispatch.</p>
+                          )}
+                        </div>
                       )}
-                      <Button variant="outline">
-                        <Package className="w-4 h-4 mr-2" />
-                        Reorder Items
-                      </Button>
+
+                      {/* Shipped/Out for Delivery: Cancel disabled with hint */}
+                      {(order.status === 'shipped' || order.status === 'out-for-delivery') && (
+                        <div className="space-y-1">
+                          <div className="flex flex-wrap gap-3">
+                            <Button variant="outline" disabled>
+                              <XCircle className="w-4 h-4 mr-2" />
+                              Cancel Order
+                            </Button>
+                          </div>
+                          <p className="text-xs text-gray-600">You can refuse delivery or return after delivery.</p>
+                        </div>
+                      )}
+
+                      {/* Common actions */}
+                      <div className="flex flex-wrap gap-3">
+                        <Button variant="outline" onClick={() => downloadInvoice(order)}>
+                          <Download className="w-4 h-4 mr-2" />
+                          Download Invoice
+                        </Button>
+                        <Button variant="outline">
+                          <MessageSquare className="w-4 h-4 mr-2" />
+                          Contact Support
+                        </Button>
+                        <Button variant="outline">
+                          <Package className="w-4 h-4 mr-2" />
+                          Reorder Items
+                        </Button>
+                      </div>
                     </div>
                   </TabsContent>
                 </Tabs>
@@ -472,25 +501,27 @@ export default function Orders() {
         )}
       </div>
 
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>
-              {dialogType === 'return' && 'Request a Return'}
-              {dialogType === 'refund' && 'Request a Refund'}
-              {dialogType === 'cancel' && 'Cancel Order'}
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-3">
-            <Label htmlFor="reason">Reason</Label>
-            <Textarea id="reason" value={requestReason} onChange={(e) => setRequestReason(e.target.value)} placeholder="Describe your reason..." />
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogOpen(false)}>Close</Button>
-            <Button onClick={submitRequest}>Submit</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      {activeOrderIndex !== null && (
+        <>
+          <CancelDialog
+            open={cancelOpen}
+            onOpenChange={setCancelOpen}
+            orderId={orders[activeOrderIndex].id}
+            status={orders[activeOrderIndex].status}
+            items={orders[activeOrderIndex].items}
+            currency={orders[activeOrderIndex].currency}
+            onConfirm={() => { /* noop demo */ }}
+          />
+          <ReturnWizard
+            open={returnOpen}
+            onOpenChange={setReturnOpen}
+            orderId={orders[activeOrderIndex].id}
+            items={orders[activeOrderIndex].items}
+            orderDate={orders[activeOrderIndex].date}
+            currency={orders[activeOrderIndex].currency}
+          />
+        </>
+      )}
     </div>
   );
 }
