@@ -105,6 +105,17 @@ export default function Layout({ children }: LayoutProps) {
     savedAddresses.forEach(a => updateAddress(a.id, { isDefault: a.id === id }));
   };
 
+  function addNewAddressManual() {
+    const label = window.prompt("Label (Home, Office, etc.)", "Home") || "Home";
+    const address = window.prompt("Address line", "123 Main Street") || "";
+    const pincode = window.prompt("Postal code", "400001") || "";
+    const city = window.prompt("City", "Mumbai") || "";
+    const state = window.prompt("State", "Maharashtra") || "";
+    if (!address || !pincode || !city) return;
+    const created = addAddress({ type: "other", label, address, pincode, city, state, isDefault: false });
+    setCurrentAddress(created);
+  }
+
   // Track scroll position to hide mobile search/delivery on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -295,7 +306,7 @@ export default function Layout({ children }: LayoutProps) {
                     <MapPin className="w-4 h-4 mr-2" />
                     Detect My Location
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="text-brand-blue">
+                  <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); addNewAddressManual(); }}>
                     <MapPin className="w-4 h-4 mr-2" />
                     Add new address
                   </DropdownMenuItem>
@@ -592,7 +603,7 @@ export default function Layout({ children }: LayoutProps) {
                   <MapPin className="w-4 h-4 mr-2" />
                   Detect My Location
                 </DropdownMenuItem>
-                <DropdownMenuItem className="text-brand-blue">
+                <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); addNewAddressManual(); }}>
                   <MapPin className="w-4 h-4 mr-2" />
                   Add new address
                 </DropdownMenuItem>
