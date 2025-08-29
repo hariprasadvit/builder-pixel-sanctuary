@@ -293,27 +293,38 @@ export default function Orders() {
                             </p>
                           </div>
                         )}
-                        <div className="space-y-4">
-                          {order.timeline.map((step, index) => (
-                            <div key={index} className="flex items-start gap-4">
-                              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                                step.completed ? "bg-green-100" : "bg-gray-100"
-                              }`}>
-                                {step.completed ? (
-                                  <CheckCircle className="w-4 h-4 text-green-600" />
-                                ) : (
-                                  <Clock className="w-4 h-4 text-gray-400" />
-                                )}
-                              </div>
-                              <div className="flex-1">
-                                <p className={`font-medium ${step.completed ? "text-gray-900" : "text-gray-500"}`}>
-                                  {step.status}
-                                </p>
-                                <p className="text-sm text-gray-600">{step.date}</p>
-                              </div>
+                        {order.shippingType === 'local' ? (
+                          <div className="space-y-4">
+                            <MapTracker status={order.status === 'delivered' ? 'Delivered' : 'Courier en route'} />
+                            <div className="space-y-2">
+                              <p className="text-sm text-gray-700">Live status: <span className="font-medium">{order.status === 'delivered' ? 'Delivered' : 'On the way'}</span></p>
+                              <Progress value={order.status === 'delivered' ? 100 : order.status === 'in-transit' ? 75 : 40} />
+                              <p className="text-xs text-gray-500">ETA: 20–30 minutes</p>
                             </div>
-                          ))}
-                        </div>
+                          </div>
+                        ) : (
+                          <div className="space-y-4">
+                            {order.timeline.map((step, index) => (
+                              <div key={index} className="flex items-start gap-4">
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                                  step.completed ? "bg-green-100" : "bg-gray-100"
+                                }`}>
+                                  {step.completed ? (
+                                    <CheckCircle className="w-4 h-4 text-green-600" />
+                                  ) : (
+                                    <Clock className="w-4 h-4 text-gray-400" />
+                                  )}
+                                </div>
+                                <div className="flex-1">
+                                  <p className={`font-medium ${step.completed ? "text-gray-900" : "text-gray-500"}`}>
+                                    {step.status}
+                                  </p>
+                                  <p className="text-sm text-gray-600">{step.date}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ) : (
                       <div className="text-center py-8">
