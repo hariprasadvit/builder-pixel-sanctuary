@@ -8,8 +8,6 @@ const BRAND_DESCRIPTIONS: Record<string, string> = {
 };
 
 const APPLE_BANNERS = [
-  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdbd81c210b744ed08c054249a7e60e72?format=webp&width=1600",
-  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7aa70d6794ff46e8a95a7e4d2aab029f?format=webp&width=1600",
   "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdf6b7c9ef91946f9a14afb8c45024ced?format=webp&width=1600",
   "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb5f9d01d124b4c8ba9ac206cb355677a?format=webp&width=1600",
   "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75d2a8b0d3c8475b9090e9ffd8cf6fd1?format=webp&width=1600",
@@ -40,6 +38,9 @@ export default function BrandDetail() {
 
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-xl font-semibold mb-4">All {brand} products</h2>
+        {brand === "Apple" && (
+          <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7aa70d6794ff46e8a95a7e4d2aab029f?format=webp&width=1600" alt="Apple" className="w-full mb-4" />
+        )}
         {products.length === 0 ? (
           <div className="text-gray-600">No products found for {brand}.</div>
         ) : (
