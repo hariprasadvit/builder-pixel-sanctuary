@@ -208,6 +208,13 @@ export default function Orders() {
     );
   };
 
+  const [cancelOpen, setCancelOpen] = useState(false);
+  const [returnOpen, setReturnOpen] = useState(false);
+  const [activeOrderIndex, setActiveOrderIndex] = useState<number | null>(null);
+
+  const openCancel = (idx: number) => { setActiveOrderIndex(idx); setCancelOpen(true); };
+  const openReturn = (idx: number) => { setActiveOrderIndex(idx); setReturnOpen(true); };
+
   const filteredOrders = orders.filter(order => {
     const matchesSearch = order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          order.items.some(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
