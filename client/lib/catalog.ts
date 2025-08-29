@@ -19,7 +19,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     price: 999.99,
     originalPrice: 1099.99,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5af4fad80ff4399a6d668145b207b6e?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa1204421aea746ed876cfd0a2d6b2eb9?format=webp&width=800",
     category: "Phones",
     brand: "Apple",
     rating: 4.8,
@@ -70,7 +70,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     price: 799.0,
     originalPrice: 899.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4cf15493113a458da87690389a322da7?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2af8b780c7fa41c89d7acdf153fac824?format=webp&width=800",
     category: "Phones",
     brand: "Apple",
     rating: 4.6,
@@ -82,7 +82,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "iPhone 14 128GB",
     price: 699.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F72eafa068f604ba993e614497f0a4379?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd15b45a1ab894ee486a8ba02980a7467?format=webp&width=800",
     category: "Phones",
     brand: "Apple",
     rating: 4.5,
@@ -94,7 +94,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "Apple Watch Series 9 GPS 41mm",
     price: 399.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F924cf65e69cc456e9ba3be6f8a22be27?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff81dd5d574034f448030235941c9a382?format=webp&width=800",
     category: "Wearables",
     brand: "Apple",
     rating: 4.7,
@@ -106,7 +106,7 @@ export const SAMPLE_CATALOG: CatalogProduct[] = [
     title: "Apple Watch Ultra 2",
     price: 799.0,
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F199d372cf11f426bbd41c4f81a31c348?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa5073a63ad47454fa3d126c0cd3ffd11?format=webp&width=800",
     category: "Wearables",
     brand: "Apple",
     rating: 4.8,
