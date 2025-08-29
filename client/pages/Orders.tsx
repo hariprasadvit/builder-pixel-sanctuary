@@ -80,7 +80,8 @@ export default function Orders() {
           name: "iPhone 15 Pro Max 256GB",
           image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5af4fad80ff4399a6d668145b207b6e?format=webp&width=200",
           quantity: 1,
-          price: 299.99
+          price: 299.99,
+          category: "electronics"
         }
       ],
       shippingAddress: {
