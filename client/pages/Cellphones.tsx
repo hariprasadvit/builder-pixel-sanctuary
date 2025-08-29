@@ -476,19 +476,20 @@ export default function Cellphones() {
               <>
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {visible.map(p => (
-                    <ProductCard
-                      key={p.id}
-                      id={p.id}
-                      image={p.image}
-                      title={p.title}
-                      price={p.price}
-                      originalPrice={p.originalPrice}
-                      rating={p.rating}
-                      reviewCount={p.reviewCount}
-                      origin={p.origin}
-                      deliveryEta={p.origin==='UK'? 'Tomorrow' : '5–10 days'}
-                    />
-                  ))}
+                <ProductCard
+                  key={p.id}
+                  id={p.id}
+                  image={p.image}
+                  title={p.title}
+                  price={p.price}
+                  originalPrice={p.originalPrice}
+                  rating={p.rating}
+                  reviewCount={p.reviewCount}
+                  origin={p.origin}
+                  deliveryEta={p.origin==='UK'? 'Tomorrow' : '5–10 days'}
+                  badge={(() => { const map: Record<string,string> = { 'Samsung Galaxy S24 Ultra': 'Bestseller', 'Xiaomi 14 Ultra': 'New Arrival' }; return map[p.title]; })()}
+                />
+              ))}
                 </div>
                 {visible.length < filtered.length && (
                   <div className="flex justify-center py-6">
