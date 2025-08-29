@@ -82,16 +82,16 @@ export default function Videos() {
 
   return (
     <div className="h-screen bg-black overflow-hidden relative">
-      {/* Video Container */}
-      <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide">
+      {/* Video Feed */}
+      <div className="h-full snap-y snap-mandatory overflow-y-scroll scrollbar-hide flex flex-col items-center">
         {videos.map((video, index) => (
-          <div key={video.id} className="h-full snap-start relative">
-            {/* Video Background */}
-            <div className="w-full h-full bg-gray-900 relative">
+          <div key={video.id} className="h-full w-full snap-start relative flex items-center justify-center">
+            {/* Video Frame */}
+            <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-xl w-full max-w-[420px] aspect-[9/16]">
               <img
                 src={video.thumbnail}
                 alt={video.title}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
 
               {/* Play Button Overlay */}
@@ -106,7 +106,7 @@ export default function Videos() {
             </div>
 
             {/* Video Controls - Right Side */}
-            <div className="absolute right-4 bottom-20 flex flex-col gap-6">
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-6">
               {/* Like Button */}
               <div className="flex flex-col items-center">
                 <Button
@@ -217,7 +217,7 @@ export default function Videos() {
       </div>
 
       {/* Video Progress Indicators */}
-      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+      <div className="hidden md:flex absolute right-2 top-1/2 transform -translate-y-1/2 flex-col gap-2">
         {videos.map((_, index) => (
           <div
             key={index}
