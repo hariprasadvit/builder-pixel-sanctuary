@@ -147,8 +147,9 @@ export default function Videos() {
                 <Share className="w-4 h-4 mr-2" />
                 Share
               </Button>
-              <Button variant="ghost" size="icon" className="rounded-full bg-white text-gray-700 shadow w-10 h-10" onClick={()=>setIsMuted(!isMuted)}>
-                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              <Button variant="secondary" className="rounded-full bg-white text-gray-700 shadow px-3 py-2 hover:bg-gray-50" onClick={()=>setIsMuted(!isMuted)}>
+                {isMuted ? <VolumeX className="w-4 h-4 mr-2" /> : <Volume2 className="w-4 h-4 mr-2" />}
+                {isMuted ? 'Unmute' : 'Mute'}
               </Button>
             </div>
           </div>
