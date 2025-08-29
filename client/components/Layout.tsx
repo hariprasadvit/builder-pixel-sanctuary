@@ -18,6 +18,7 @@ import {
   Tag,
   Users,
   Phone,
+  HelpCircle,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
