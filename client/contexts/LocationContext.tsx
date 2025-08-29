@@ -15,7 +15,7 @@ interface LocationContextType {
   currentAddress: Address | null;
   savedAddresses: Address[];
   setCurrentAddress: (address: Address) => void;
-  addAddress: (address: Omit<Address, "id">) => void;
+  addAddress: (address: Omit<Address, "id">) => Address;
   removeAddress: (id: string) => void;
   updateAddress: (id: string, address: Partial<Address>) => void;
   getCurrentLocationName: () => string;
@@ -77,15 +77,16 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("currentAddress", JSON.stringify(address));
   };
 
-  const addAddress = (newAddress: Omit<Address, "id">) => {
-    const address: Address = {
-      ...newAddress,
-      id: Date.now().toString(),
-    };
-    const updated = [...savedAddresses, address];
-    setSavedAddresses(updated);
-    localStorage.setItem("savedAddresses", JSON.stringify(updated));
+  const addAddress = (newAddress: Omit<Address, "id">): Address => {
+  const address: Address = {
+    ...newAddress,
+    id: Date.now().toString(),
   };
+  const updated = [...savedAddresses, address];
+  setSavedAddresses(updated);
+  localStorage.setItem("savedAddresses", JSON.stringify(updated));
+  return address;
+};
 
   const removeAddress = (id: string) => {
     const updated = savedAddresses.filter((addr) => addr.id !== id);
