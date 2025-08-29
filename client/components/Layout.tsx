@@ -143,6 +143,7 @@ export default function Layout({ children }: LayoutProps) {
       label: "Become a seller",
       icon: Users,
       color: "text-indigo-600",
+      to: "/sell",
     },
     { id: "contact", label: "Contact Us", icon: Phone, color: "text-gray-600" },
   ];
