@@ -36,21 +36,18 @@ export default function BrandDetail() {
           <img src={APPLE_BANNERS[0]} alt="Apple" className="w-full block" />
           {/* Next four as 2x2 cards */}
           <div className="grid md:grid-cols-2 gap-4 mt-4">
-            {[APPLE_BANNERS[1], APPLE_BANNERS[2], APPLE_BANNERS[3], APPLE_BANNERS[4]].map((src, idx) => {
-              const labels = ["iPhone", "iPad", "Watch", "AirPods"] as const;
-              const targets = ["#iphone-watch", "#ipad-mac", "#iphone-watch", "#iphone-watch"] as const;
-              const label = labels[idx];
-              const target = targets[idx];
-              return (
-                <a
-                  key={src}
-                  href={target}
-                  aria-label={`Browse ${label}`}
-                  className="relative overflow-hidden rounded-lg block aspect-[3/2] bg-cover bg-center"
-                  style={{ backgroundImage: `url(${src})` }}
-                />
-              );
-            })}
+            {[
+              { src: APPLE_BANNERS[3], label: "Watch", target: "#iphone-watch" },
+              { src: APPLE_BANNERS[4], label: "AirPods", target: "#iphone-watch" },
+            ].map(({ src, label, target }) => (
+              <a
+                key={src}
+                href={target}
+                aria-label={`Browse ${label}`}
+                className="relative overflow-hidden rounded-lg block aspect-[3/2] bg-cover bg-center"
+                style={{ backgroundImage: `url(${src})` }}
+              />
+            ))}
           </div>
         </section>
       )}
