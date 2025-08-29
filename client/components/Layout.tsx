@@ -1,4 +1,5 @@
 import { ReactNode, useState, useEffect } from "react";
+import React, { useEffect, useMemo, useState, type ReactNode } from "react";
 import {
   Search,
   Heart,
