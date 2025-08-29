@@ -87,7 +87,7 @@ export default function Videos() {
         {videos.map((video, index) => (
           <div key={video.id} className="h-[calc(100vh-4rem)] w-full snap-start relative flex items-center justify-center">
             {/* Video Frame with controls/info */}
-            <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5" style={{ height: '80vh', width: 'calc(80vh * 9 / 16)' }}>
+            <div className="relative bg-white rounded-xl overflow-hidden shadow-xl ring-1 ring-black/5 h-full aspect-[9/16]">
               {video.youtubeId ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
