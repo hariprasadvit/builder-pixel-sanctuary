@@ -367,10 +367,11 @@ export default function Cellphones() {
               {/* Price */}
               <div>
                 <h4 className="font-semibold mb-2">Price Range (GBP)</h4>
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {[[0,199],[200,499],[500,799],[800,1199],[1200,2000]].map(([a,b]) => (
-                    <Button key={`${a}-${b}`} size="sm" variant="outline" onClick={()=>setPrice([a,b])}>{GBP(a)} – {GBP(b)}</Button>
-                  ))}
+                <div className="grid grid-cols-1 gap-2 mb-2">
+                  {[[0,199],[200,499],[500,799],[800,1199],[1200,2000]].map(([a,b]) => {
+                    const active = price[0]===a && price[1]===b;
+                    return (<Button key={`${a}-${b}`} size="sm" variant="outline" className={`w-full justify-between ${active?"bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90":""}`} onClick={()=>setPrice([a,b])}>{GBP(a)} – {GBP(b)}</Button>);
+                  })}
                 </div>
                 <Slider value={price} min={0} max={2000} step={10} onValueChange={(v:any)=>setPrice([v[0], v[1]])} />
                 <div className="text-sm text-gray-600 mt-1">{GBP(price[0])} – {GBP(price[1])}</div>
