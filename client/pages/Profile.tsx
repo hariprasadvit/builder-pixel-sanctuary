@@ -7,6 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import AddAddressModal from "@/components/addresses/AddAddressModal";
+import { useLocation as useLocationContext } from "@/contexts/LocationContext";
 import {
   User,
   Mail,
@@ -162,41 +166,29 @@ export default function Profile() {
     reviews: true
   });
 
-  const addresses = [
-    {
-      id: 1,
-      type: "Home",
-      name: "John Doe",
-      address: "123 Main Street, Apt 4B",
-      city: "New York, NY 10001",
-      isDefault: true
-    },
-    {
-      id: 2,
-      type: "Office",
-      name: "John Doe",
-      address: "456 Business Ave, Suite 789",
-      city: "New York, NY 10002",
-      isDefault: false
-    }
-  ];
+  const { savedAddresses, removeAddress, updateAddress } = useLocationContext();
 
-  const paymentMethods = [
-    {
-      id: 1,
-      type: "Visa",
-      last4: "4242",
-      expiry: "12/26",
-      isDefault: true
-    },
-    {
-      id: 2,
-      type: "Mastercard",
-      last4: "8888",
-      expiry: "08/25",
-      isDefault: false
-    }
-  ];
+  const [paymentMethods, setPaymentMethods] = useState([
+    { id: 1, type: "Visa", last4: "4242", expiry: "12/26", isDefault: true },
+    { id: 2, type: "Mastercard", last4: "8888", expiry: "08/25", isDefault: false },
+  ]);
+
+  const [addressModalOpen, setAddressModalOpen] = useState(false);
+  const [addCardOpen, setAddCardOpen] = useState(false);
+  const [securityOpen, setSecurityOpen] = useState<null | "password" | "2fa" | "privacy">(null);
+
+  // Add Card form state
+  const [cardType, setCardType] = useState("Visa");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiry, setExpiry] = useState("");
+  const [cvv, setCvv] = useState("");
+  const addCard = () => {
+    const last4 = cardNumber.replace(/\s+/g, "").slice(-4) || "0000";
+    const nextId = Math.max(...paymentMethods.map(p=>p.id), 0) + 1;
+    setPaymentMethods([{ id: nextId, type: cardType, last4, expiry, isDefault: paymentMethods.length===0 }, ...paymentMethods]);
+    setAddCardOpen(false);
+    setCardNumber(""); setExpiry(""); setCvv("");
+  };
 
   const recentOrders = [
     {
@@ -336,32 +328,31 @@ export default function Profile() {
             <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Saved Addresses</CardTitle>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={()=>setAddressModalOpen(true)}>
                   <Plus className="w-4 h-4 mr-2" />
                   Add Address
                 </Button>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {addresses.map((address) => (
+                  {savedAddresses.map((address) => (
                     <div key={address.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <h3 className="font-semibold">{address.type}</h3>
+                            <h3 className="font-semibold">{address.label}</h3>
                             {address.isDefault && (
                               <Badge variant="default" className="text-xs bg-blue-600 hover:bg-blue-700">Default</Badge>
                             )}
                           </div>
-                          <p className="text-gray-600">{address.name}</p>
                           <p className="text-gray-600">{address.address}</p>
-                          <p className="text-gray-600">{address.city}</p>
+                          <p className="text-gray-600">{address.pincode} {address.city}</p>
                         </div>
                         <div className="flex gap-2">
-                          <Button variant="outline" size="sm">
-                            <Edit className="w-4 h-4" />
+                          <Button variant="outline" size="sm" onClick={()=>updateAddress(address.id, { isDefault: true })}>
+                            Set Default
                           </Button>
-                          <Button variant="outline" size="sm">
+                          <Button variant="outline" size="sm" onClick={()=>removeAddress(address.id)}>
                             <Trash2 className="w-4 h-4" />
                           </Button>
                         </div>
@@ -369,6 +360,7 @@ export default function Profile() {
                     </div>
                   ))}
                 </div>
+                <AddAddressModal open={addressModalOpen} onOpenChange={setAddressModalOpen} />
               </CardContent>
             </Card>
           </TabsContent>
@@ -378,7 +370,7 @@ export default function Profile() {
             <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Payment Methods</CardTitle>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={()=>setAddCardOpen(true)}>
                   <Plus className="w-4 h-4 mr-2" />
                   Add Card
                 </Button>
@@ -401,10 +393,10 @@ export default function Profile() {
                           )}
                         </div>
                         <div className="flex gap-2">
-                          <Button variant="outline" size="sm">
-                            <Edit className="w-4 h-4" />
+                          <Button variant="outline" size="sm" onClick={()=>setPaymentMethods(prev=>prev.map(p=> ({...p, isDefault: p.id===payment.id })))}>
+                            Set Default
                           </Button>
-                          <Button variant="outline" size="sm">
+                          <Button variant="outline" size="sm" onClick={()=>setPaymentMethods(prev=>prev.filter(p=>p.id!==payment.id))}>
                             <Trash2 className="w-4 h-4" />
                           </Button>
                         </div>
@@ -412,6 +404,39 @@ export default function Profile() {
                     </div>
                   ))}
                 </div>
+
+                {/* Add Card Dialog */}
+                <Dialog open={addCardOpen} onOpenChange={setAddCardOpen}>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Add a new card</DialogTitle>
+                      <DialogDescription>Cards are stored securely. Test-only UI.</DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-3">
+                      <div>
+                        <Label>Card Type</Label>
+                        <Input value={cardType} onChange={(e)=>setCardType(e.target.value)} />
+                      </div>
+                      <div>
+                        <Label>Card Number</Label>
+                        <Input placeholder="4242 4242 4242 4242" value={cardNumber} onChange={(e)=>setCardNumber(e.target.value)} />
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label>Expiry (MM/YY)</Label>
+                          <Input placeholder="12/26" value={expiry} onChange={(e)=>setExpiry(e.target.value)} />
+                        </div>
+                        <div>
+                          <Label>CVV</Label>
+                          <Input placeholder="123" value={cvv} onChange={(e)=>setCvv(e.target.value)} />
+                        </div>
+                      </div>
+                    </div>
+                    <DialogFooter>
+                      <Button onClick={addCard} className="bg-blue-600 hover:bg-blue-700 text-white">Save Card</Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </CardContent>
             </Card>
           </TabsContent>
@@ -520,22 +545,86 @@ export default function Profile() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button variant="outline" className="w-full justify-between">
+                  <Button variant="outline" className="w-full justify-between" onClick={()=>setSecurityOpen("password")}>
                     Change Password
                     <ChevronRight className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" className="w-full justify-between">
+                  <Button variant="outline" className="w-full justify-between" onClick={()=>setSecurityOpen("2fa")}>
                     Two-Factor Authentication
                     <ChevronRight className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" className="w-full justify-between">
+                  <Button variant="outline" className="w-full justify-between" onClick={()=>setSecurityOpen("privacy")}>
                     Privacy Settings
                     <ChevronRight className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" className="w-full justify-between text-red-600 hover:text-red-700">
+                  <Button variant="outline" className="w-full justify-between text-red-600 hover:text-red-700" onClick={()=>alert("Account deletion flow to be implemented")}>
                     Delete Account
                     <ChevronRight className="w-4 h-4" />
                   </Button>
+
+                  {/* Security Dialogs */}
+                  <Dialog open={securityOpen==="password"} onOpenChange={(o)=>!o && setSecurityOpen(null)}>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Change Password</DialogTitle>
+                        <DialogDescription>Update your password for better security.</DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-3">
+                        <div>
+                          <Label>Current Password</Label>
+                          <Input type="password" />
+                        </div>
+                        <div>
+                          <Label>New Password</Label>
+                          <Input type="password" />
+                        </div>
+                        <div>
+                          <Label>Confirm New Password</Label>
+                          <Input type="password" />
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={()=>setSecurityOpen(null)}>Save</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+
+                  <Dialog open={securityOpen==="2fa"} onOpenChange={(o)=>!o && setSecurityOpen(null)}>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Two‑Factor Authentication</DialogTitle>
+                        <DialogDescription>Add an extra layer of security to your account.</DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-3">
+                        <p className="text-sm text-gray-600">Scan the QR in your authenticator app and enter the 6‑digit code to enable.</p>
+                        <Input placeholder="Enter 6‑digit code" />
+                      </div>
+                      <DialogFooter>
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={()=>setSecurityOpen(null)}>Enable 2FA</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+
+                  <Dialog open={securityOpen==="privacy"} onOpenChange={(o)=>!o && setSecurityOpen(null)}>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Privacy Settings</DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span>Show profile publicly</span>
+                          <Switch defaultChecked />
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>Allow product recommendations</span>
+                          <Switch defaultChecked />
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={()=>setSecurityOpen(null)}>Save</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             </div>
