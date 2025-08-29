@@ -143,7 +143,7 @@ export default function Layout({ children }: LayoutProps) {
       to: "/bestsellers",
     },
     { id: "coupons", label: "Coupons", icon: Tag, color: "text-amber-600", to: "/coupons" },
-    { id: "sale", label: "On sale", icon: Tag, color: "text-orange-600" },
+    { id: "sale", label: "On sale", icon: Tag, color: "text-orange-600", to: "/flashsale" },
   ];
 
   const secondaryMenuItems = [
