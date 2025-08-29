@@ -155,6 +155,62 @@ export default function Videos() {
         ))}
       </div>
 
+      {/* Share Modal */}
+      <AlertDialog open={shareOpen} onOpenChange={setShareOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Share</AlertDialogTitle>
+            <AlertDialogDescription>Share this video via the options below.</AlertDialogDescription>
+          </AlertDialogHeader>
+          <div className="space-y-3">
+            {(() => {
+              const id = activeVideo || videos[0]?.id;
+              const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/videos#${id}` : `/videos#${id}`;
+              return (
+                <div className="space-y-2">
+                  <div className="flex gap-2">
+                    <a className="px-3 py-2 rounded bg-blue-600 text-white text-sm" href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer">Facebook</a>
+                    <a className="px-3 py-2 rounded bg-sky-500 text-white text-sm" href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer">Twitter/X</a>
+                    <a className="px-3 py-2 rounded bg-green-500 text-white text-sm" href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer">WhatsApp</a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <input readOnly value={shareUrl} className="flex-1 border rounded px-2 py-1 text-sm" />
+                    <Button size="sm" onClick={() => { navigator.clipboard?.writeText(shareUrl); }}>
+                      <Copy className="w-4 h-4 mr-2" /> Copy
+                    </Button>
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Close</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Comments Modal */}
+      <AlertDialog open={commentsOpen} onOpenChange={setCommentsOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Comments</AlertDialogTitle>
+          </AlertDialogHeader>
+          <div className="max-h-64 overflow-auto space-y-3 text-sm">
+            <div className="p-2 rounded bg-gray-50">Great video!</div>
+            <div className="p-2 rounded bg-gray-50">Love this product.</div>
+            <div className="p-2 rounded bg-gray-50">How is the battery life?</div>
+          </div>
+          <div className="mt-3 flex gap-2">
+            <input className="flex-1 border rounded px-2 h-9 text-sm" placeholder="Write a comment" onKeyDown={(e)=>{
+              if(e.key==='Enter' && e.currentTarget.value.trim() && activeVideo){
+                setReactions(prev => ({...prev, [activeVideo]: {...prev[activeVideo], comments: prev[activeVideo].comments + 1}}));
+                e.currentTarget.value='';
+              }
+            }} />
+            <Button size="sm" onClick={()=>setCommentsOpen(false)}>Done</Button>
+          </div>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
