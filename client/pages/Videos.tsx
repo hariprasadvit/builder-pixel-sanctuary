@@ -75,7 +75,12 @@ export default function Videos() {
   };
 
   const toggleLike = (videoId: string) => {
-    console.log("Toggle like for video:", videoId);
+    setReactions(prev => {
+      const r = prev[videoId];
+      const liked = !r.liked;
+      const likes = r.likes + (liked ? 1 : -1);
+      return { ...prev, [videoId]: { ...r, liked, likes } };
+    });
   };
 
   const handleShare = (videoId: string) => {
