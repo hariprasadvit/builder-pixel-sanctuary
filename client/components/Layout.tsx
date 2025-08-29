@@ -21,6 +21,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import SearchOverlay from "@/components/search/SearchOverlay";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,6 +70,7 @@ export default function Layout({ children }: LayoutProps) {
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   // Track scroll position to hide mobile search/delivery on scroll
   useEffect(() => {
@@ -392,6 +394,9 @@ export default function Layout({ children }: LayoutProps) {
             {/* Right section */}
             <div className="flex items-center gap-2 md:gap-4 ml-auto">
               {/* Marketplace Toggle - Always visible */}
+              <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
+                <Search className="w-5 h-5" />
+              </Button>
               <Select value={currentMarketplace} onValueChange={setMarketplace}>
                 <SelectTrigger className="w-[100px] md:w-[130px] flex">
                   <SelectValue />
@@ -528,6 +533,8 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Main Content */}
       <main className="pb-20 md:pb-0">{children}</main>
+
+      <SearchOverlay open={searchOpen} onOpenChange={setSearchOpen} />
 
       {/* Desktop Footer - Hidden on Mobile */}
       <footer className="hidden md:block bg-slate-800 text-white">
