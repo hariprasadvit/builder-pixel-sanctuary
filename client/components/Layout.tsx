@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import SearchOverlay from "@/components/search/SearchOverlay";
+import { searchCatalog, splitHighlight } from "@/lib/search";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -73,6 +74,8 @@ export default function Layout({ children }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileQuery, setMobileQuery] = useState("");
+  const mobileResults = useMemo(() => (mobileQuery ? searchCatalog(mobileQuery, 8) : null), [mobileQuery]);
 
   async function detectMyLocation() {
     if (!navigator.geolocation) {
@@ -90,8 +93,8 @@ export default function Layout({ children }: LayoutProps) {
         const state = addr.state || "";
         const line = data.display_name || `${city}, ${state}`;
         const label = window.prompt("Label this address (e.g., Home, Office)", "Detected");
-        addAddress({ type: "other", label: label || "Detected", address: line, pincode, city, state, isDefault: false });
-        setCurrentAddress({ id: "temp", type: "other", label: label || "Detected", address: line, pincode, city, state, isDefault: false });
+        const created = addAddress({ type: "other", label: label || "Detected", address: line, pincode, city, state, isDefault: false });
+        setCurrentAddress(created);
       } catch (e) {
         alert("Failed to resolve address");
       }
@@ -492,10 +495,37 @@ export default function Layout({ children }: LayoutProps) {
               <Input
                 placeholder={`Search products in ${currentMarketplace === "nearbuy" ? "your area" : currentMarketplace.toUpperCase()}...`}
                 className="pl-10 pr-4 h-10"
-                readOnly
-                onFocus={() => setSearchOpen(true)}
-                onClick={() => setSearchOpen(true)}
+                value={mobileQuery}
+                onChange={(e)=>setMobileQuery(e.target.value)}
+                onKeyDown={(e)=>{ if(e.key==='Enter' && mobileQuery.trim()) { window.location.href = `/search?q=${encodeURIComponent(mobileQuery.trim())}`; } }}
               />
+              {mobileQuery && (
+                <div className="absolute left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-50 p-2 space-y-2">
+                  <div>
+                    <h4 className="text-xs font-semibold px-1 mb-1">Products</h4>
+                    {mobileResults && mobileResults.products.length>0 ? mobileResults.products.slice(0,4).map(p => (
+                      <button key={p.id} className="w-full flex items-center gap-2 p-2 rounded hover:bg-gray-50 text-left" onClick={()=>{ window.location.href = `/search?q=${encodeURIComponent(p.title)}`; }}>
+                        <img src={p.image} className="w-8 h-8 rounded object-cover" />
+                        <div className="text-sm flex-1">{(() => { const parts = splitHighlight(p.title, mobileQuery); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</div>
+                      </button>
+                    )) : <div className="text-xs text-gray-500 px-1">No product matches</div>}
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <h4 className="text-xs font-semibold px-1 mb-1">Categories</h4>
+                      {mobileResults && mobileResults.categories.length>0 ? mobileResults.categories.slice(0,4).map(c => (
+                        <button key={c.name} className="block w-full text-left p-2 rounded hover:bg-gray-50 text-xs" onClick={()=>{ window.location.href = `/search?q=${encodeURIComponent(c.name)}`; }}>{(() => { const parts = splitHighlight(c.name, mobileQuery); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</button>
+                      )) : <div className="text-xs text-gray-500 px-1">—</div>}
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-semibold px-1 mb-1">Brands</h4>
+                      {mobileResults && mobileResults.brands.length>0 ? mobileResults.brands.slice(0,4).map(b => (
+                        <button key={b} className="block w-full text-left p-2 rounded hover:bg-gray-50 text-xs" onClick={()=>{ window.location.href = `/search?q=${encodeURIComponent(b)}`; }}>{(() => { const parts = splitHighlight(b, mobileQuery); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</button>
+                      )) : <div className="text-xs text-gray-500 px-1">—</div>}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
