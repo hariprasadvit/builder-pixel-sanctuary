@@ -550,7 +550,8 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
 
-          {/* Mobile Search and Location */}
+          {/* Mobile Search and Location (hidden on Videos route) */}
+          {location.pathname.toLowerCase() !== '/videos' && (
           <div className={`md:hidden pb-3 pt-2 transition-all duration-300 ${isScrolled ? 'opacity-0 max-h-0 overflow-hidden py-0' : 'opacity-100 max-h-32'}`}>
             <div className="relative mb-3">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
@@ -561,33 +562,6 @@ export default function Layout({ children }: LayoutProps) {
                 onChange={(e)=>setMobileQuery(e.target.value)}
                 onKeyDown={(e)=>{ if(e.key==='Enter' && mobileQuery.trim()) { window.location.href = `/search?q=${encodeURIComponent(mobileQuery.trim())}`; } }}
               />
-              {mobileQuery && (
-                <div className="absolute left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-50 p-2 space-y-2">
-                  <div>
-                    <h4 className="text-xs font-semibold px-1 mb-1">Products</h4>
-                    {mobileResults && mobileResults.products.length>0 ? mobileResults.products.slice(0,4).map(p => (
-                      <button key={p.id} className="w-full flex items-center gap-2 p-2 rounded hover:bg-gray-50 text-left" onClick={()=>{ window.location.href = `/search?q=${encodeURIComponent(p.title)}`; }}>
-                        <img src={p.image} className="w-8 h-8 rounded object-cover" />
-                        <div className="text-sm flex-1">{(() => { const parts = splitHighlight(p.title, mobileQuery); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</div>
-                      </button>
-                    )) : <div className="text-xs text-gray-500 px-1">No product matches</div>}
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div>
-                      <h4 className="text-xs font-semibold px-1 mb-1">Categories</h4>
-                      {mobileResults && mobileResults.categories.length>0 ? mobileResults.categories.slice(0,4).map(c => (
-                        <button key={c.name} className="block w-full text-left p-2 rounded hover:bg-gray-50 text-xs" onClick={()=>{ window.location.href = `/search?q=${encodeURIComponent(c.name)}`; }}>{(() => { const parts = splitHighlight(c.name, mobileQuery); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</button>
-                      )) : <div className="text-xs text-gray-500 px-1">—</div>}
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold px-1 mb-1">Brands</h4>
-                      {mobileResults && mobileResults.brands.length>0 ? mobileResults.brands.slice(0,4).map(b => (
-                        <button key={b} className="block w-full text-left p-2 rounded hover:bg-gray-50 text-xs" onClick={()=>{ window.location.href = `/search?q=${encodeURIComponent(b)}`; }}>{(() => { const parts = splitHighlight(b, mobileQuery); return (<><span>{parts.before}</span><strong>{parts.match}</strong><span>{parts.after}</span></>); })()}</button>
-                      )) : <div className="text-xs text-gray-500 px-1">—</div>}
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -607,60 +581,21 @@ export default function Layout({ children }: LayoutProps) {
                   <ChevronDown className="w-4 h-4 text-muted-foreground" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-[calc(100vw-2rem)]"
-                align="start"
-              >
+              <DropdownMenuContent className="w-[calc(100vw-2rem)]" align="start">
                 <DropdownMenuLabel>Select delivery address</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {savedAddresses.map((address) => (
-                  <DropdownMenuItem
-                    key={address.id}
-                    onClick={() => setCurrentAddress(address)}
-                    className="flex flex-col items-start py-3"
-                  >
+                  <DropdownMenuItem key={address.id} onClick={() => setCurrentAddress(address)} className="flex flex-col items-start py-3">
                     <div className="flex items-center gap-2 w-full">
-                      <div className="flex items-center gap-2">
-                        {address.type === "home" && (
-                          <Home className="w-4 h-4" />
-                        )}
-                        {address.type === "office" && (
-                          <Package className="w-4 h-4" />
-                        )}
-                        {address.type === "other" && (
-                          <MapPin className="w-4 h-4" />
-                        )}
-                        <span className="font-medium">{address.label}</span>
-                      </div>
-                      {currentAddress?.id === address.id && (
-                        <div className="w-2 h-2 bg-brand-blue rounded-full ml-auto" />
-                      )}
+                      <span className="font-medium">{address.label}</span>
                     </div>
-                    <div className="text-sm text-muted-foreground mt-1">
-                      {address.address}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {address.pincode} {address.city}, {address.state}
-                    </div>
-                    <div className="mt-2 flex gap-2">
-                      {!address.isDefault && (
-                        <Button variant="outline" size="sm" onClick={(e)=>{ e.stopPropagation(); setDefault(address.id); }}>Set default</Button>
-                      )}
-                    </div>
+                    <div className="text-sm text-muted-foreground mt-1">{address.address}</div>
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); detectMyLocation(); }}>
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Detect My Location
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-brand-blue" onClick={(e)=>{ e.stopPropagation(); addNewAddressManual(); }}>
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Add new address
-                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
+          )}
         </div>
       </header>
 
