@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Info } from "lucide-react";
+import { Info, Gift, ClipboardCopy, CreditCard } from "lucide-react";
 
 type CouponType = "brand" | "category";
 
@@ -26,32 +26,30 @@ const COUPONS: Coupon[] = [
 ];
 
 function CouponCard({ c }: { c: Coupon }) {
-  const leftColor = c.type === "brand" ? "bg-orange-500" : "bg-green-500";
+  const grad = c.type === "brand" ? "from-orange-500 via-amber-500 to-yellow-500" : "from-emerald-500 via-green-500 to-lime-500";
+  const leftStrip = `bg-gradient-to-b ${grad}`;
   const badge = c.type === "brand" ? "🎁" : "🛍️";
-  const bgMark = c.brand || c.category || "";
   const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(c.code);
-    } catch {}
+    try { await navigator.clipboard.writeText(c.code); } catch {}
   };
   return (
-    <Card className="relative overflow-hidden group">
-      <div className={`absolute left-0 top-0 bottom-0 w-1 ${leftColor}`} />
-      <div className="absolute top-2 left-2 text-xl" aria-hidden>{badge}</div>
-      <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-end pr-4 opacity-10 text-6xl font-black">
-        <span className="truncate">{bgMark}</span>
-      </div>
-      <CardContent className="p-5 relative">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h3 className="text-lg font-bold leading-snug">{c.title}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{c.details} • Valid till {c.validTill}{c.minPurchase?` • Min purchase ${c.minPurchase}`:""}</p>
+    <div className={`rounded-xl p-[1px] bg-gradient-to-r ${grad} bg-opacity-40`}>
+      <Card className="relative overflow-hidden group rounded-[11px]">
+        <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${leftStrip}`} />
+        <div className="absolute -top-6 -right-8 w-40 h-40 bg-gradient-to-br from-purple-200/40 to-blue-200/40 rounded-full blur-2xl" aria-hidden />
+        <div className="absolute top-2 left-2 text-xl" aria-hidden>{badge}</div>
+        <CardContent className="p-5 relative">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h3 className="text-lg font-bold leading-snug">{c.title}</h3>
+              <p className="text-xs text-muted-foreground mt-1">{c.details} • Valid till {c.validTill}{c.minPurchase?` • Min purchase ${c.minPurchase}`:""}</p>
+            </div>
+            <Button onClick={copy} className="rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white transition-transform group-hover:scale-[1.02]">Copy Code</Button>
           </div>
-          <Button onClick={copy} className="rounded-full bg-brand-blue hover:bg-brand-blue/90 transition-transform group-hover:scale-[1.02]">Copy Code</Button>
-        </div>
-        <div className="mt-3 text-sm"><span className="font-mono bg-gray-100 rounded px-2 py-1">{c.code}</span></div>
-      </CardContent>
-    </Card>
+          <div className="mt-3 text-sm"><span className="font-mono bg-gray-100 rounded px-2 py-1">{c.code}</span></div>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 
@@ -88,17 +86,41 @@ export default function Coupons() {
 
       {/* How to use */}
       <section className="border-t bg-gray-50/60">
-        <div className="container mx-auto px-4 py-6 flex items-start gap-3">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700">
-            <Info className="w-4 h-4" />
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700">
+              <Info className="w-4 h-4" />
+            </div>
+            <h3 className="font-semibold">How to use a coupon</h3>
           </div>
-          <div className="text-sm">
-            <div className="font-semibold mb-1">How to use coupon</div>
-            <ol className="list-decimal pl-4 text-muted-foreground grid sm:grid-flow-col gap-2">
-              <li>Select a coupon</li>
-              <li>Copy Code</li>
-              <li>Apply at Checkout</li>
-            </ol>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex items-start gap-3 p-4 rounded-lg bg-white shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 text-white flex items-center justify-center">
+                <Gift className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-medium">Select</div>
+                <div className="text-xs text-muted-foreground">Choose the best offer for your purchase.</div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 p-4 rounded-lg bg-white shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-white flex items-center justify-center">
+                <ClipboardCopy className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-medium">Copy Code</div>
+                <div className="text-xs text-muted-foreground">Tap Copy and it’s saved to your clipboard.</div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 p-4 rounded-lg bg-white shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-white flex items-center justify-center">
+                <CreditCard className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-medium">Apply</div>
+                <div className="text-xs text-muted-foreground">Paste the code at checkout to get the discount.</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
