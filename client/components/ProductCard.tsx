@@ -1,7 +1,11 @@
 import { Heart, Play, Star } from "lucide-react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Heart, Star, Play } from "lucide-react";
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   id: string;
@@ -34,6 +38,19 @@ export default function ProductCard({
   onWishlistToggle,
   onAddToCart,
 }: ProductCardProps) {
+  const { isWishlisted: ctxIsWishlisted, toggle } = useWishlist();
+  const { toast } = useToast();
+  const wishlisted = (typeof isWishlisted === 'boolean' ? isWishlisted : ctxIsWishlisted(id));
+  const handleWishlistToggle = () => {
+    const payload = { id, name: title, price, originalPrice, image, category: undefined, inStock: true };
+    if (onWishlistToggle) {
+      onWishlistToggle(id);
+    } else {
+      toggle(payload);
+    }
+    const nowWishlisted = !wishlisted;
+    toast({ title: nowWishlisted ? 'Added to Wishlist.' : 'Removed from Wishlist.' });
+  };
   return (
     <Card className="group relative overflow-hidden hover:shadow-lg transition-shadow duration-200">
       <CardContent className="p-0">
@@ -72,11 +89,11 @@ export default function ProductCard({
             }`}
             onClick={(e) => {
               e.preventDefault();
-              onWishlistToggle?.(id);
+              handleWishlistToggle();
             }}
           >
             <Heart
-              className={`w-4 h-4 ${isWishlisted ? "fill-current" : ""}`}
+              className={`w-4 h-4 ${wishlisted ? "fill-current" : ""}`}
             />
           </Button>
 
