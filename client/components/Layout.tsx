@@ -20,7 +20,7 @@ import {
   Phone,
   HelpCircle,
 } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SearchOverlay from "@/components/search/SearchOverlay";
 import { searchCatalog, splitHighlight } from "@/lib/search";
 import { Badge } from "@/components/ui/badge";
