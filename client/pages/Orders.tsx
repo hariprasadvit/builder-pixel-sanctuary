@@ -361,17 +361,25 @@ export default function Orders() {
                             <Star className="w-4 h-4 mr-2" />
                             Write Review
                           </Button>
-                          <Button variant="outline">
+                          <Button variant="outline" onClick={() => openRequest(order.id, 'return')}>
                             <RotateCcw className="w-4 h-4 mr-2" />
                             Return Item
+                          </Button>
+                          <Button variant="outline" onClick={() => openRequest(order.id, 'refund')}>
+                            <RotateCcw className="w-4 h-4 mr-2" />
+                            Refund Request
                           </Button>
                         </>
                       )}
                       {order.status !== "cancelled" && (
                         <>
-                          <Button variant="outline">
+                          <Button variant="outline" onClick={() => downloadInvoice(order)}>
                             <Download className="w-4 h-4 mr-2" />
                             Download Invoice
+                          </Button>
+                          <Button variant="outline" onClick={() => openRequest(order.id, 'cancel')}>
+                            <XCircle className="w-4 h-4 mr-2" />
+                            Cancel Order
                           </Button>
                           <Button variant="outline">
                             <MessageSquare className="w-4 h-4 mr-2" />
