@@ -467,9 +467,13 @@ export default function Orders() {
                           <Download className="w-4 h-4 mr-2" />
                           Download Invoice
                         </Button>
-                        <Button variant="outline">
+                        <Button variant="outline" onClick={() => window.location.assign(`/support/chat`)}>
                           <MessageSquare className="w-4 h-4 mr-2" />
                           Contact Support
+                        </Button>
+                        <Button variant="outline" onClick={() => (window.location.href = `/support`, undefined)}>
+                          <Package className="w-4 h-4 mr-2" />
+                          Need Help?
                         </Button>
                         <Button variant="outline">
                           <Package className="w-4 h-4 mr-2" />
