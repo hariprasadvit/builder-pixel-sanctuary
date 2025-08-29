@@ -39,6 +39,7 @@ export default function ProductCard({
   onWishlistToggle,
   onAddToCart,
   badge,
+  saleEndsAt,
 }: ProductCardProps) {
   const { isWishlisted: ctxIsWishlisted, toggle } = useWishlist();
   const { toast } = useToast();
@@ -53,6 +54,17 @@ export default function ProductCard({
     const nowWishlisted = !wishlisted;
     toast({ title: nowWishlisted ? 'Added to Wishlist.' : 'Removed from Wishlist.' });
   };
+  const [now, setNow] = React.useState(Date.now());
+  React.useEffect(()=>{
+    if(!saleEndsAt) return;
+    const id = setInterval(()=> setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, [saleEndsAt]);
+  const timeLeft = saleEndsAt ? Math.max(0, saleEndsAt - now) : 0;
+  const hh = Math.floor(timeLeft/3600000);
+  const mm = Math.floor((timeLeft%3600000)/60000);
+  const ss = Math.floor((timeLeft%60000)/1000);
+  const timerLabel = saleEndsAt ? `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}` : null;
   return (
     <Card className="group relative overflow-hidden hover:shadow-lg transition-shadow duration-200">
       <CardContent className="p-0">
