@@ -14,6 +14,7 @@ import Index from "./pages/Index";
 import Categories from "./pages/Categories";
 import Electronics from "./pages/Electronics";
 import Laptops from "./pages/Laptops";
+import Cellphones from "./pages/Cellphones";
 import Videos from "./pages/Videos";
 import Support from "./pages/Support";
 import SupportChat from "./pages/SupportChat";
@@ -54,6 +55,7 @@ const App = () => (
                     <Route path="/" element={<Index />} />
                     <Route path="/categories" element={<Categories />} />
                     <Route path="/electronics" element={<Electronics />} />
+                    <Route path="/cellphones" element={<Cellphones />} />
                     <Route path="/laptops" element={<Laptops />} />
                     <Route path="/support" element={<Support />} />
                     <Route path="/support/chat" element={<SupportChat />} />
