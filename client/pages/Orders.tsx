@@ -45,6 +45,22 @@ export default function Orders() {
     setRequestReason("");
   };
 
+  const downloadInvoice = (order: any) => {
+    const itemsHtml = order.items
+      .map((it: any) => `<tr><td>${it.name}</td><td style='text-align:center'>${it.quantity}</td><td style='text-align:right'>${order.currency}${it.price.toFixed(2)}</td></tr>`)
+      .join("");
+    const html = `<!doctype html><html><head><meta charset=\"utf-8\" /><title>Invoice ${order.id}</title><style>body{font-family:ui-sans-serif,system-ui,Arial;padding:24px}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #eee}</style></head><body><h1>Invoice ${order.id}</h1><p>Date: ${new Date(order.date).toLocaleDateString()}</p><table><thead><tr><th style='text-align:left'>Item</th><th>Qty</th><th style='text-align:right'>Price</th></tr></thead><tbody>${itemsHtml}</tbody></table><h3 style='text-align:right;margin-top:16px'>Total: ${order.currency}${order.total.toFixed(2)}</h3><p style='margin-top:8px;font-size:12px;color:#555'>Refund SLA: Prepaid 3–7 business days; Wallet instant–24h; COD to bank/UPI 5–7 business days.</p></body></html>`;
+    const blob = new Blob([html], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${order.id}-invoice.html`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
+
   const orders = [
     {
       id: "ORD-2024-001",
