@@ -7,6 +7,9 @@ import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, A
 export default function Videos() {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [commentsOpen, setCommentsOpen] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   // Mock video data
   const videos = [
