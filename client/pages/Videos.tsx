@@ -15,6 +15,7 @@ import { Card } from "@/components/ui/card";
 export default function Videos() {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [playing, setPlaying] = useState(false);
 
   // Mock video data
   const videos = [
