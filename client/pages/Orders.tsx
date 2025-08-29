@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -29,6 +30,7 @@ import {
 } from "lucide-react";
 
 export default function Orders() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -467,11 +469,11 @@ export default function Orders() {
                           <Download className="w-4 h-4 mr-2" />
                           Download Invoice
                         </Button>
-                        <Button variant="outline" onClick={() => window.location.assign(`/support/chat`)}>
+                        <Button variant="outline" onClick={() => navigate('/support/chat', { state: { orderId: order.id } })}>
                           <MessageSquare className="w-4 h-4 mr-2" />
                           Contact Support
                         </Button>
-                        <Button variant="outline" onClick={() => (window.location.href = `/support`, undefined)}>
+                        <Button variant="outline" onClick={() => navigate('/support', { state: { orderId: order.id } })}>
                           <Package className="w-4 h-4 mr-2" />
                           Need Help?
                         </Button>
