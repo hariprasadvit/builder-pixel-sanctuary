@@ -3,12 +3,17 @@ import { Play, Heart, MessageCircle, Eye, ShoppingBag, Star, User } from "lucide
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-// Riky brand gradient (consistent throughout site)
-export const RIKY_GRADIENT = "";
-export const RIKY_GRADIENT_LIGHT = "";
+// Brand colors extracted from logo (navy + red)
+export const BRAND_GRADIENT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f]";
+export const BRAND_GRADIENT_TEXT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] bg-clip-text text-transparent";
 
-interface VideoPlaceholderProps {
-  aspect?: "9/16" | "16/9";
+interface BaseCardProps {
+  cardHeight?: number; // total outer card height
+  mediaHeight?: number; // height of media area (image/video)
+  className?: string;
+}
+
+interface VideoPlaceholderProps extends BaseCardProps {
   title: string;
   price: number;
   originalPrice?: number;
@@ -16,12 +21,11 @@ interface VideoPlaceholderProps {
   likes?: number;
   comments?: number;
   views?: number;
-  className?: string;
-  showSocialCounters?: boolean;
+  rating?: number;
+  reviews?: number;
 }
 
 export function VideoPlaceholder({
-  aspect = "9/16",
   title,
   price,
   originalPrice,
@@ -29,80 +33,62 @@ export function VideoPlaceholder({
   likes = 0,
   comments = 0,
   views = 0,
-  className = "",
-  showSocialCounters = true
+  rating = 4.5,
+  reviews = 120,
+  cardHeight = 420,
+  mediaHeight = 240,
+  className = ""
 }: VideoPlaceholderProps) {
   return (
-    <div className={`bg-white rounded-2xl shadow-lg overflow-hidden relative ${className}`}>
-      <div className={`relative bg-gray-200 aspect-[${aspect}] flex items-center justify-center`}>
+    <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
+      <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
         <div className="text-center text-gray-500">
-          <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center mb-3 mx-auto">
-            <Play className="w-8 h-8 text-gray-500 fill-current" />
+          <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mb-2 mx-auto">
+            <Play className="w-6 h-6 text-gray-500" />
           </div>
-          <p className="text-sm font-medium">Video Thumbnail</p>
-          <p className="text-xs text-gray-400">Placeholder</p>
+          <p className="text-xs font-medium">Video Thumbnail</p>
+          <p className="text-[10px] text-gray-400">Placeholder</p>
         </div>
         {badge && (
-          <Badge className="absolute top-3 left-3 bg-red-500 text-white text-xs animate-pulse">
-            {badge}
-          </Badge>
-        )}
-        {showSocialCounters && aspect === "9/16" && (
-          <div className="absolute right-3 bottom-20 flex flex-col gap-3">
-            <div className="flex flex-col items-center text-white bg-black/50 rounded-full p-2">
-              <Heart className="w-5 h-5" />
-              <span className="text-xs mt-1">{likes.toLocaleString()}</span>
-            </div>
-            <div className="flex flex-col items-center text-white bg-black/50 rounded-full p-2">
-              <MessageCircle className="w-5 h-5" />
-              <span className="text-xs mt-1">{comments}</span>
-            </div>
-            <div className="flex flex-col items-center text-white bg-black/50 rounded-full p-2">
-              <Eye className="w-5 h-5" />
-              <span className="text-xs mt-1">{views.toLocaleString()}</span>
-            </div>
+          <div className="absolute top-2 left-2">
+            <Badge className="bg-red-500 text-white text-[10px]">{badge}</Badge>
           </div>
         )}
       </div>
-      <div className="p-4">
+      <div className="flex-1 p-3 flex flex-col">
         <h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>
-        <div className="flex items-center gap-2 mb-3">
-          <span className="font-bold text-lg text-purple-600">£{price.toFixed(2)}</span>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="font-bold text-base">£{price.toFixed(2)}</span>
           {originalPrice && (
-            <span className="text-gray-500 line-through text-sm">£{originalPrice.toFixed(2)}</span>
+            <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
           )}
         </div>
-        {showSocialCounters && aspect === "16/9" && (
-          <div className="flex items-center gap-4 mb-3 text-gray-600">
-            <div className="flex items-center gap-1">
-              <Heart className="w-4 h-4" />
-              <span className="text-xs">{likes.toLocaleString()}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <MessageCircle className="w-4 h-4" />
-              <span className="text-xs">{comments}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Eye className="w-4 h-4" />
-              <span className="text-xs">{views.toLocaleString()}</span>
-            </div>
+        <div className="flex items-center justify-between text-gray-600 text-xs mb-3">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1"><Heart className="w-3 h-3" /><span>{likes.toLocaleString()}</span></div>
+            <div className="flex items-center gap-1"><MessageCircle className="w-3 h-3" /><span>{comments}</span></div>
+            <div className="flex items-center gap-1"><Eye className="w-3 h-3" /><span>{views.toLocaleString()}</span></div>
           </div>
-        )}
-        <Button className="w-full bg-black text-white hover:bg-black/90 font-medium">
-          <ShoppingBag className="w-4 h-4 mr-2" />
-          Buy Now
-        </Button>
+          <RatingStars value={rating} size={12} /><span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
+        </div>
+        <div className="mt-auto">
+          <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
+            <ShoppingBag className="w-4 h-4 mr-2" />
+            Buy Now
+          </Button>
+        </div>
       </div>
     </div>
   );
 }
 
-interface ProductPlaceholderProps {
+interface ProductPlaceholderProps extends BaseCardProps {
   title: string;
   price: number;
   originalPrice?: number;
   badge?: string;
-  className?: string;
+  rating?: number;
+  reviews?: number;
 }
 
 export function ProductPlaceholder({
@@ -110,34 +96,44 @@ export function ProductPlaceholder({
   price,
   originalPrice,
   badge,
+  rating = 4.5,
+  reviews = 120,
+  cardHeight = 420,
+  mediaHeight = 240,
   className = ""
 }: ProductPlaceholderProps) {
   return (
-    <div className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${className}`}>
-      <div className="relative aspect-square bg-gray-200 flex items-center justify-center">
+    <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
+      <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
         <div className="text-center text-gray-500">
-          <div className="w-12 h-12 bg-gray-300 rounded-lg mb-2 mx-auto"></div>
-          <p className="text-sm font-medium">Product Image</p>
-          <p className="text-xs text-gray-400">Placeholder</p>
+          <div className="w-12 h-12 bg-gray-300 rounded-lg mb-2 mx-auto" />
+          <p className="text-xs font-medium">Product Image</p>
+          <p className="text-[10px] text-gray-400">Placeholder</p>
         </div>
         {badge && (
-          <Badge className="absolute top-2 left-2 bg-red-500 text-white text-xs">
-            {badge}
-          </Badge>
+          <div className="absolute top-2 left-2">
+            <Badge className="bg-red-500 text-white text-[10px]">{badge}</Badge>
+          </div>
         )}
       </div>
-      <div className="p-3">
+      <div className="flex-1 p-3 flex flex-col">
         <h3 className="font-medium text-sm line-clamp-2 mb-2">{title}</h3>
         <div className="flex items-center gap-2 mb-2">
-          <span className="font-bold text-lg">£{price.toFixed(2)}</span>
+          <span className="font-bold text-base">£{price.toFixed(2)}</span>
           {originalPrice && (
-            <span className="text-gray-500 line-through text-sm">£{originalPrice.toFixed(2)}</span>
+            <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
           )}
         </div>
-        <Button className="w-full bg-black text-white hover:bg-black/90 text-sm">
-          <ShoppingBag className="w-4 h-4 mr-2" />
-          Buy Now
-        </Button>
+        <div className="flex items-center text-gray-600 text-xs mb-3">
+          <RatingStars value={rating} size={12} />
+          <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
+        </div>
+        <div className="mt-auto">
+          <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
+            <ShoppingBag className="w-4 h-4 mr-2" />
+            Buy Now
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -153,13 +149,13 @@ interface BrandBannerPlaceholderProps {
 export function BrandBannerPlaceholder({
   width = "w-full",
   height = "h-64",
-  title = "Brand Banner Placeholder",
+  title = "Banner Placeholder",
   className = ""
 }: BrandBannerPlaceholderProps) {
   return (
     <div className={`${width} ${height} bg-gray-200 rounded-2xl flex items-center justify-center ${className}`}>
       <div className="text-center text-gray-500">
-        <div className="w-24 h-16 bg-gray-300 rounded-lg mb-3 mx-auto"></div>
+        <div className="w-24 h-16 bg-gray-300 rounded-lg mb-3 mx-auto" />
         <p className="text-lg font-semibold">{title}</p>
         <p className="text-sm text-gray-400">1440×400</p>
       </div>
@@ -173,21 +169,13 @@ interface BrandLogoPlaceholderProps {
   className?: string;
 }
 
-export function BrandLogoPlaceholder({
-  size = "md",
-  shape = "square",
-  className = ""
-}: BrandLogoPlaceholderProps) {
-  const sizeClasses = {
-    sm: "w-12 h-12",
-    md: "w-16 h-16",
-    lg: "w-24 h-24"
-  } as const;
+export function BrandLogoPlaceholder({ size = "md", shape = "square", className = "" }: BrandLogoPlaceholderProps) {
+  const sizeClasses = { sm: "w-12 h-12", md: "w-16 h-16", lg: "w-20 h-20" } as const;
   const shapeClass = shape === "circle" ? "rounded-full" : "rounded-lg";
   return (
     <div className={`${sizeClasses[size]} ${shapeClass} bg-gray-200 flex items-center justify-center ${className}`}>
       <div className="text-center text-gray-500">
-        <div className={`w-6 h-6 bg-gray-300 ${shapeClass} mx-auto mb-1`}></div>
+        <div className={`w-6 h-6 bg-gray-300 ${shapeClass} mx-auto mb-1`} />
         <p className="text-xs font-medium">Logo</p>
       </div>
     </div>
@@ -202,11 +190,11 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, icon, children }: SectionHeaderProps) {
   return (
-    <div className="bg-white border-b p-6 rounded-t-2xl">
+    <div className={`${BRAND_GRADIENT} text-white p-5 rounded-t-2xl`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {icon && <span className="text-2xl">{icon}</span>}
-          <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+          <h2 className="text-2xl font-bold">{title}</h2>
         </div>
         {children}
       </div>
@@ -223,15 +211,14 @@ export function AvatarPlaceholder({ size = 40 }: { size?: number }) {
   );
 }
 
-export function RatingStars({ value = 4.5 }: { value?: number }) {
+export function RatingStars({ value = 4.5, size = 14 }: { value?: number; size?: number }) {
   const full = Math.floor(value);
   const half = value - full >= 0.5;
   return (
     <div className="flex items-center gap-0.5 text-amber-500">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className={`w-4 h-4 ${i < full ? "fill-current" : i === full && half ? "fill-current" : ""}`} />
+        <Star key={i} className="" style={{ width: size, height: size, fill: i < full ? 'currentColor' : i === full && half ? 'currentColor' : 'none' }} />
       ))}
-      <span className="ml-1 text-xs text-gray-600">{value.toFixed(1)}</span>
     </div>
   );
 }
@@ -244,15 +231,15 @@ interface ReviewCardProps {
 
 export function ReviewPlaceholder({ username, rating, text }: ReviewCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-4">
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center gap-3 mb-3">
         <AvatarPlaceholder size={40} />
         <div>
           <p className="text-sm font-semibold">@{username}</p>
-          <RatingStars value={rating} />
+          <RatingStars value={rating} size={12} />
         </div>
       </div>
-      <p className="text-sm text-gray-700 line-clamp-4">{text}</p>
+      <p className="text-sm text-gray-700 line-clamp-4 flex-1">{text}</p>
     </div>
   );
 }
