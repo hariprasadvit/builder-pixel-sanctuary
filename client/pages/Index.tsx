@@ -3,7 +3,11 @@ import { ChevronRight, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import HeroCarousel from "@/components/HeroCarousel";
+import ModernHero from "@/components/home/ModernHero";
+import CategoryPills from "@/components/home/CategoryPills";
+import FeatureRow from "@/components/home/FeatureRow";
+import PromoSplit from "@/components/home/PromoSplit";
+import ArticlesGrid from "@/components/home/ArticlesGrid";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 import { useNavigate } from "react-router-dom";
 import SocialFeedCard, { type SocialFeedItem } from "@/components/social/SocialFeedCard";
@@ -514,19 +518,28 @@ export default function Index() {
     ];
   }, [allProducts]);
 
-  const sequence: { type: "video" | "block"; idx?: number; key?: "categories" | "deals" | "best" | "new" }[] = [
+  const sequence: { type: "video" | "block"; idx?: number; key?: "categories" | "deals" | "best" | "new" | "promo" | "articles" }[] = [
     { type: "video", idx: 0 },
     { type: "block", key: "categories" },
     { type: "video", idx: 1 },
+    { type: "block", key: "promo" },
     { type: "block", key: "deals" },
     { type: "video", idx: 2 },
+    { type: "block", key: "articles" },
     { type: "block", key: "best" },
     { type: "block", key: "new" },
   ];
 
   return (
     <div className="min-h-screen">
-      <HeroCarousel />
+      <ModernHero />
+
+      <div className="py-3 md:py-4">
+        <CategoryPills items={["Fashion","Technology","Bags","Gaming","Sport","Necklaces","Business"]} />
+      </div>
+      <div className="py-4">
+        <FeatureRow />
+      </div>
 
       <section className="py-4 md:py-6">
         <div className="container mx-auto px-0 md:px-4">
@@ -539,7 +552,9 @@ export default function Index() {
                 {seg.type === "block" && seg.key === "categories" && (
                   <ShopByCategorySection categories={categories} />
                 )}
+                {seg.type === "block" && seg.key === "promo" && <PromoSplit />}
                 {seg.type === "block" && seg.key === "deals" && <DealsSection />}
+                {seg.type === "block" && seg.key === "articles" && <ArticlesGrid />}
                 {seg.type === "block" && seg.key === "best" && <BestSellersSection />}
                 {seg.type === "block" && seg.key === "new" && <NewArrivalsSection />}
               </div>
