@@ -3,11 +3,16 @@ import { ChevronRight, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import ModernHero from "@/components/home/ModernHero";
+import HeroCarousel from "@/components/HeroCarousel";
 import CategoryPills from "@/components/home/CategoryPills";
 import FeatureRow from "@/components/home/FeatureRow";
 import PromoSplit from "@/components/home/PromoSplit";
 import ArticlesGrid from "@/components/home/ArticlesGrid";
+import MixedFeed from "@/components/home/MixedFeed";
+import BestSellersRail from "@/components/home/BestSellersRail";
+import FlashSaleTimer from "@/components/home/FlashSaleTimer";
+import BrandsStrip from "@/components/home/BrandsStrip";
+import Newsletter from "@/components/home/Newsletter";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 import { useNavigate } from "react-router-dom";
 import SocialFeedCard, { type SocialFeedItem } from "@/components/social/SocialFeedCard";
@@ -532,36 +537,43 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      <ModernHero />
+      <HeroCarousel />
 
-      <div className="py-3 md:py-4">
-        <CategoryPills items={["Fashion","Technology","Bags","Gaming","Sport","Necklaces","Business"]} />
-      </div>
-      <div className="py-4">
-        <FeatureRow />
-      </div>
-
-      <section className="py-4 md:py-6">
-        <div className="container mx-auto px-0 md:px-4">
-          <div className="space-y-6 md:space-y-8 snap-y snap-mandatory">
-            {sequence.map((seg, i) => (
-              <div key={i} className="scroll-mt-4">
-                {seg.type === "video" && typeof seg.idx === "number" && feedVideos[seg.idx] && (
-                  <SocialFeedCard item={feedVideos[seg.idx]} />
-                )}
-                {seg.type === "block" && seg.key === "categories" && (
-                  <ShopByCategorySection categories={categories} />
-                )}
-                {seg.type === "block" && seg.key === "promo" && <PromoSplit />}
-                {seg.type === "block" && seg.key === "deals" && <DealsSection />}
-                {seg.type === "block" && seg.key === "articles" && <ArticlesGrid />}
-                {seg.type === "block" && seg.key === "best" && <BestSellersSection />}
-                {seg.type === "block" && seg.key === "new" && <NewArrivalsSection />}
-              </div>
-            ))}
-          </div>
+      <section className="py-6">
+        <div className="container mx-auto px-4 flex items-center justify-between mb-2">
+          <h2 className="text-xl md:text-2xl font-bold">Trending Now</h2>
         </div>
+        <MixedFeed
+          videos={feedVideos}
+          products={allProducts.map((p) => ({ id: p.id, title: p.title, image: p.image, price: p.price }))}
+        />
       </section>
+
+      <section className="py-2">
+        <CategoryPills items={["Fashion","Technology","Bags","Gaming","Sport","Necklaces","Business"]} />
+      </section>
+
+      <ShopByCategorySection categories={categories} />
+
+      <BestSellersRail
+        items={allProducts.map((p, i) => ({ id: i + 1, title: p.title, image: p.image, price: p.price }))}
+      />
+
+      <FlashSaleTimer />
+      <BrandsStrip />
+
+      <section className="py-6">
+        <div className="container mx-auto px-4 flex items-center justify-between mb-2">
+          <h2 className="text-xl md:text-2xl font-bold">For You</h2>
+        </div>
+        <MixedFeed
+          videos={feedVideos.slice().reverse()}
+          products={allProducts.slice().reverse().map((p) => ({ id: p.id+"-b", title: p.title, image: p.image, price: p.price }))}
+        />
+      </section>
+
+      <DealsSection />
+      <Newsletter />
 
       <Button
         onClick={() => navigate("/sell")}
