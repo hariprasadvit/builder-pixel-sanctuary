@@ -7,8 +7,8 @@ export default function NeutralHeroBanner() {
     <section className="bg-white">
       <div className="container mx-auto px-4 py-10">
         <div className="relative">
-          <BrandBannerPlaceholder title="Hero Banner Placeholder" height="h-80" />
-          <div className="absolute inset-0 opacity-60 bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] rounded-2xl" />
+          <BrandBannerPlaceholder title="Hero Banner Placeholder" height="h-80" className="opacity-0" />
+          <div className="absolute inset-0 opacity-90 bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] rounded-2xl" />
           <div className="absolute inset-0 p-6 md:p-10 flex items-center">
             <div className="max-w-2xl text-white">
               <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Your Marketplace. Your Pace.</h1>
