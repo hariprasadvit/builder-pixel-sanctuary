@@ -4,9 +4,9 @@ import FiveUpSection from "@/components/home/FiveUpSection";
 export default function HomeFiveUps() {
   return (
     <>
-      <FiveUpSection title="New Arrivals" icon="🆕" badge="Just In" gradientClass="bg-gradient-to-r from-[#0b3b8f] to-[#6a1b9a]" />
-      <FiveUpSection title="Clothing" icon="👗" badge="Exclusive" gradientClass="bg-gradient-to-r from-[#d32f2f] to-[#f06292]" />
-      <FiveUpSection title="Electronics" icon="🔌" badge="Hot Deal" gradientClass="bg-gradient-to-r from-[#0b3b8f] to-[#1976d2]" />
+      <FiveUpSection title="New Arrivals" icon="🆕" badge="Just In" gradientClass="bg-gradient-to-r from-[#e3f2fd] to-[#ede7f6]" />
+      <FiveUpSection title="Clothing" icon="👗" badge="Exclusive" gradientClass="bg-gradient-to-r from-[#fde7e7] to-[#fce4ec]" />
+      <FiveUpSection title="Electronics" icon="🔌" badge="Hot Deal" gradientClass="bg-gradient-to-r from-[#e3f2fd] to-[#e1f5fe]" />
     </>
   );
 }
