@@ -42,12 +42,14 @@ export function VideoPlaceholder({
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="text-center text-gray-500">
-          <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mb-2 mx-auto">
-            <Play className="w-6 h-6 text-gray-500" />
+        <div className="relative h-full aspect-[9/16] bg-gray-300 rounded-lg flex items-center justify-center">
+          <div className="text-center text-gray-600">
+            <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mb-2 mx-auto">
+              <Play className="w-5 h-5 text-gray-500" />
+            </div>
+            <p className="text-xs font-medium">Video Thumbnail</p>
+            <p className="text-[10px] text-gray-400">Placeholder</p>
           </div>
-          <p className="text-xs font-medium">Video Thumbnail</p>
-          <p className="text-[10px] text-gray-400">Placeholder</p>
         </div>
         {badge && (
           <div className="absolute top-2 left-2">
