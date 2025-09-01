@@ -7,7 +7,7 @@ import TopCategories from "@/components/home/TopCategories";
 import CategoryHighlights from "@/components/home/CategoryHighlights";
 import DealsStrip from "@/components/home/DealsStrip";
 import BestsellerHighlights from "@/components/home/BestsellerHighlights";
-import NewArrivalsMasonry from "@/components/home/NewArrivalsMasonry";
+import HomeFiveUps from "@/components/home/HomeFiveUps";
 import BrandsRow from "@/components/home/BrandsRow";
 import CreatorPicks from "@/components/home/CreatorPicks";
 import UserReviewsGrid from "@/components/home/UserReviewsGrid";
@@ -23,7 +23,7 @@ export default function Index() {
       <CategoryHighlights />
       <DealsStrip />
       <BestsellerHighlights />
-      <NewArrivalsMasonry />
+      <HomeFiveUps />
       <BrandsRow />
       <CreatorPicks />
       <UserReviewsGrid />
