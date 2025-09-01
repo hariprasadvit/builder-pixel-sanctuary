@@ -254,10 +254,10 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Gradient Sticky Header */}
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 shadow-xl backdrop-blur">
+      <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
         <div className="container mx-auto px-4">
           {/* Desktop Header */}
-          <div className="flex items-center justify-between h-16 text-white">
+          <div className="flex items-center justify-between h-16">
             {/* Left: Hamburger and Logo */}
             <div className="flex items-center gap-4">
               {/* Mobile Hamburger */}
@@ -266,7 +266,7 @@ export default function Layout({ children }: LayoutProps) {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="md:hidden text-white hover:bg-white/10"
+                    className="md:hidden text-gray-700 hover:bg-gray-100"
                   >
                     <Menu className="w-5 h-5" />
                   </Button>
@@ -331,9 +331,9 @@ export default function Layout({ children }: LayoutProps) {
 
               {/* Logo */}
               <Link to="/" className="flex items-center">
-                <div className="font-bold text-2xl text-white flex items-center gap-2">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-xl">🛍️</span>
+                <div className="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <span className="text-xl">���️</span>
                   </div>
                   RIKY
                 </div>
@@ -343,10 +343,10 @@ export default function Layout({ children }: LayoutProps) {
             {/* Left: Location Selector with Marketplace Switcher */}
             <div className="hidden md:flex items-center gap-4">
               {/* Marketplace Selector */}
-              <div className="flex items-center gap-2 bg-white/10 rounded-full px-3 py-1">
+              <div className="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1">
                 <span className="text-xs font-medium">Shop:</span>
                 <Select value={currentMarketplace} onValueChange={setMarketplace}>
-                  <SelectTrigger className="bg-transparent border-none text-white text-sm font-medium h-auto p-0 [&>svg]:text-white">
+                  <SelectTrigger className="bg-transparent border-none text-gray-800 text-sm font-medium h-auto p-0">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -362,18 +362,18 @@ export default function Layout({ children }: LayoutProps) {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="flex items-center gap-2 max-w-[200px] justify-start px-2 text-white hover:bg-white/10"
+                    className="flex items-center gap-2 max-w-[200px] justify-start px-2 text-gray-800 hover:bg-gray-100"
                   >
-                    <MapPin className="w-4 h-4 text-white" />
+                    <MapPin className="w-4 h-4 text-gray-700" />
                     <div className="flex flex-col items-start text-left">
-                      <span className="text-xs text-white/80">
+                      <span className="text-xs text-gray-500">
                         Deliver to
                       </span>
                       <span className="text-sm font-medium truncate">
                         {getCurrentLocationName()}
                       </span>
                     </div>
-                    <ChevronDown className="w-4 h-4 text-white/80" />
+                    <ChevronDown className="w-4 h-4 text-gray-500" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-64" align="start">
@@ -421,7 +421,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <Input
                   placeholder="Search products, brands & sellers"
-                  className="pl-12 pr-4 h-12 text-lg rounded-full bg-white/95 backdrop-blur border-0 shadow-lg focus:shadow-xl transition-all duration-300 focus:bg-white"
+                  className="pl-12 pr-4 h-12 text-lg rounded-full bg-white border border-gray-200 shadow-sm focus:shadow-md transition-all duration-300"
                   onClick={() => setSearchOpen(true)}
                   readOnly
                 />
@@ -432,7 +432,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex items-center gap-3">
               {/* Cart */}
               <Link to="/cart">
-                <Button variant="ghost" size="icon" className="relative text-white hover:bg-white/10 flex flex-col items-center h-auto py-2">
+                <Button variant="ghost" size="icon" className="relative text-gray-800 hover:bg-gray-100 flex flex-col items-center h-auto py-2">
                   <ShoppingCart className="w-5 h-5" />
                   <span className="text-xs mt-1 hidden md:block">Cart</span>
                   {getItemCount() > 0 && (
@@ -448,7 +448,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white hover:bg-white/10 flex flex-col items-center h-auto py-2"
+                  className="text-gray-800 hover:bg-gray-100 flex flex-col items-center h-auto py-2"
                 >
                   <Package className="w-5 h-5" />
                   <span className="text-xs mt-1 hidden md:block">Orders</span>
@@ -457,7 +457,7 @@ export default function Layout({ children }: LayoutProps) {
 
               {/* User Profile */}
               <Link to="/profile">
-                <Button variant="ghost" size="icon" className="hidden sm:flex text-white hover:bg-white/10 flex-col items-center h-auto py-2">
+                <Button variant="ghost" size="icon" className="hidden sm:flex text-gray-800 hover:bg-gray-100 flex-col items-center h-auto py-2">
                   <User className="w-5 h-5" />
                   <span className="text-xs mt-1">Profile</span>
                 </Button>
@@ -469,7 +469,7 @@ export default function Layout({ children }: LayoutProps) {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="hidden md:flex text-white hover:bg-white/10 flex-col items-center h-auto py-2"
+                    className="hidden md:flex text-gray-800 hover:bg-gray-100 flex-col items-center h-auto py-2"
                   >
                     <Menu className="w-5 h-5" />
                     <span className="text-xs mt-1">Menu</span>
@@ -544,7 +544,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
                   placeholder="Search products, brands & sellers"
-                  className="pl-10 pr-4 h-10 bg-white/95 rounded-full border-0"
+                  className="pl-10 pr-4 h-10 bg-white rounded-full border border-gray-200"
                   value={mobileQuery}
                   onChange={(e) => setMobileQuery(e.target.value)}
                   onKeyDown={(e) => {
