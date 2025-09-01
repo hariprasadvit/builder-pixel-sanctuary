@@ -23,6 +23,8 @@ interface VideoPlaceholderProps extends BaseCardProps {
   views?: number;
   rating?: number;
   reviews?: number;
+  aspect?: "9/16" | "16/9";
+  showSocialCounters?: boolean;
 }
 
 export function VideoPlaceholder({
@@ -35,21 +37,23 @@ export function VideoPlaceholder({
   views = 0,
   rating = 4.5,
   reviews = 120,
+  aspect = "9/16",
+  showSocialCounters = true,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
 }: VideoPlaceholderProps) {
-  const videoWidth = Math.round((mediaHeight * 9) / 16);
+  const isHorizontal = aspect === "16/9";
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
-      <div className="relative w-full bg-transparent flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+      <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
+        <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "h-full max-w-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center`}>
           <div className="text-center text-gray-600">
             <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-2 mx-auto">
               <Play className="w-5 h-5 text-gray-500" />
             </div>
             <p className="text-xs font-medium">Video Thumbnail</p>
-            <p className="text-[10px] text-gray-400">Placeholder</p>
+            <p className="text-[10px] text-gray-400">Preview</p>
           </div>
         </div>
         {badge && (
@@ -67,12 +71,19 @@ export function VideoPlaceholder({
           )}
         </div>
         <div className="flex items-center justify-between text-gray-600 text-xs mb-3">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1"><Heart className="w-3 h-3" /><span>{likes.toLocaleString()}</span></div>
-            <div className="flex items-center gap-1"><MessageCircle className="w-3 h-3" /><span>{comments}</span></div>
-            <div className="flex items-center gap-1"><Eye className="w-3 h-3" /><span>{views.toLocaleString()}</span></div>
+          {showSocialCounters ? (
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1"><Heart className="w-3 h-3" /><span>{likes.toLocaleString()}</span></div>
+              <div className="flex items-center gap-1"><MessageCircle className="w-3 h-3" /><span>{comments}</span></div>
+              <div className="flex items-center gap-1"><Eye className="w-3 h-3" /><span>{views.toLocaleString()}</span></div>
+            </div>
+          ) : (
+            <div />
+          )}
+          <div className="flex items-center">
+            <RatingStars value={rating} size={12} />
+            <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
           </div>
-          <RatingStars value={rating} size={12} /><span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
         </div>
         <div className="mt-auto">
           <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
@@ -109,11 +120,11 @@ export function ProductPlaceholder({
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="bg-gray-300 rounded-lg flex items-center justify-center" style={{ height: box, width: box }}>
+        <div className="h-full max-w-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
           <div className="text-center text-gray-600">
             <div className="w-12 h-12 bg-gray-200 rounded-lg mb-2 mx-auto" />
             <p className="text-xs font-medium">Product Image</p>
-            <p className="text-[10px] text-gray-400">Placeholder</p>
+            <p className="text-[10px] text-gray-400">Preview</p>
           </div>
         </div>
         {badge && (
