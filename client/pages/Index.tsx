@@ -466,23 +466,6 @@ export default function Index() {
     },
   ];
 
-  const handleAddToCart = (productId: string) => {
-    const product = allProducts.find((p) => p.id === productId);
-    if (product) {
-      const vendorMap: Record<string, any> = { UK: "uk", China: "china" };
-      addToCart({
-        id: product.id,
-        name: product.title,
-        price: product.price,
-        originalPrice: product.originalPrice,
-        image: product.image,
-        vendor: vendorMap[product.origin] || "nearbuy",
-        vendorName: `${product.origin} Marketplace`,
-        category: (product as any).category || "General",
-        shippingWeight: 1.0,
-      });
-    }
-  };
 
   const feedVideos: SocialFeedItem[] = useMemo(() => {
     const p1 = allProducts.find((p) => p.id === "1");
