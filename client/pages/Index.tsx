@@ -12,7 +12,7 @@ import BrandsStrip from "@/components/home/BrandsStrip";
 import Newsletter from "@/components/home/Newsletter";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 import { useNavigate } from "react-router-dom";
-import SocialFeedCard, { type SocialFeedItem } from "@/components/social/SocialFeedCard";
+import { type SocialFeedItem } from "@/components/social/SocialFeedCard";
 
 function ShopByCategorySection({ categories }: { categories: { id: string; name: string; image: string; subcategories: string[] }[] }) {
   return (
