@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import HeroCarousel from "@/components/HeroCarousel";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
-import { useCart } from "@/contexts/CartContext";
 import { useNavigate } from "react-router-dom";
 import SocialFeedCard, { type SocialFeedItem } from "@/components/social/SocialFeedCard";
 
