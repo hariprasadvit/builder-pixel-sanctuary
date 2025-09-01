@@ -1,5 +1,5 @@
 import React from "react";
-import { VideoPlaceholder } from "@/components/ui/placeholders";
+import { VideoPlaceholder, BRAND_GRADIENT } from "@/components/ui/placeholders";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -85,8 +85,9 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
+        <div className="mb-6">
+          <div className={`h-1 w-full rounded ${BRAND_GRADIENT} mb-3`}></div>
+          <div className="flex items-center justify-between">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-2">
               🔥 Trending Videos
             </h2>
@@ -120,7 +121,6 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
             {displayVideos.slice(0, 5).map((video, index) => (
               <div key={video.id} className="w-full">
                 <VideoPlaceholder
-                  aspect="9/16"
                   title={video.title}
                   price={video.price}
                   originalPrice={video.originalPrice}
@@ -128,8 +128,8 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                   likes={video.likes}
                   comments={video.comments}
                   views={video.views}
-                  className="h-full"
-                  showSocialCounters={true}
+                  cardHeight={420}
+                  mediaHeight={240}
                 />
               </div>
             ))}
@@ -142,7 +142,6 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
             {displayVideos.map((video) => (
               <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
                 <VideoPlaceholder
-                  aspect="9/16"
                   title={video.title}
                   price={video.price}
                   originalPrice={video.originalPrice}
@@ -150,8 +149,8 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                   likes={video.likes}
                   comments={video.comments}
                   views={video.views}
-                  className="h-full"
-                  showSocialCounters={true}
+                  cardHeight={420}
+                  mediaHeight={240}
                 />
               </div>
             ))}
