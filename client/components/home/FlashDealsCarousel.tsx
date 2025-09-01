@@ -1,13 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ProductPlaceholder, SectionHeader } from "@/components/ui/placeholders";
+import { ProductPlaceholder, SectionHeader, VideoPlaceholder } from "@/components/ui/placeholders";
 import { Button } from "@/components/ui/button";
-
-interface DealItem {
-  id: string;
-  title: string;
-  price: number;
-  originalPrice: number;
-}
 
 function useCountdown(target: number) {
   const [now, setNow] = useState(Date.now());
@@ -23,14 +16,10 @@ function useCountdown(target: number) {
 }
 
 export default function FlashDealsCarousel() {
-  const deals: DealItem[] = Array.from({ length: 10 }).map((_, i) => ({
-    id: `deal-${i+1}`,
-    title: `Hot Deal Product ${i+1}`,
-    price: 49.99 + i,
-    originalPrice: 79.99 + i * 2,
-  }));
-  const endTime = useMemo(() => Date.now() + 2 * 60 * 60 * 1000, []);
-  const { h, m, s } = useCountdown(endTime);
+  const end = useMemo(() => Date.now() + 2 * 60 * 60 * 1000, []);
+  const { h, m, s } = useCountdown(end);
+  const cardHeight = 420;
+  const mediaHeight = 240;
 
   return (
     <section className="py-8 bg-white">
@@ -44,17 +33,14 @@ export default function FlashDealsCarousel() {
               <span className="px-2 py-1 bg-black/20 rounded-md">{String(s).padStart(2,'0')}</span>
             </div>
           </SectionHeader>
-          <div className="p-4">
-            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-              {deals.map((d) => (
-                <div key={d.id} className="flex-shrink-0 w-56">
-                  <ProductPlaceholder title={d.title} price={d.price} originalPrice={d.originalPrice} badge="Hot Deal" />
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-3">
-              <Button variant="ghost">View All Deals</Button>
-            </div>
+          <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <VideoPlaceholder title="Deals Feature Video" price={89.99} originalPrice={109.99} badge="Hot Deal" likes={3200} comments={64} views={16000} cardHeight={cardHeight} mediaHeight={mediaHeight} />
+            {Array.from({ length: 4 }).map((_, i) => (
+              <ProductPlaceholder key={i} title={`Deal Product ${i+1}`} price={49.99 + i * 10} originalPrice={69.99 + i * 10} badge={i % 2 ? "Just In" : "Exclusive"} cardHeight={cardHeight} mediaHeight={mediaHeight} />
+            ))}
+          </div>
+          <div className="text-center pb-6">
+            <Button variant="ghost">View All Deals</Button>
           </div>
         </div>
       </div>
