@@ -86,7 +86,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-6">
-          <div className={`h-1 w-full rounded ${BRAND_GRADIENT} mb-3`}></div>
+          <div className={`h-1 w-full rounded bg-gradient-to-r from-[#1976d2] to-[#64b5f6] mb-3`}></div>
           <div className="flex items-center justify-between">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-2">
               🔥 Trending Videos
