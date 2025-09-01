@@ -186,11 +186,12 @@ interface SectionHeaderProps {
   title: string;
   icon?: string;
   children?: React.ReactNode;
+  gradientClass?: string;
 }
 
-export function SectionHeader({ title, icon, children }: SectionHeaderProps) {
+export function SectionHeader({ title, icon, children, gradientClass = BRAND_GRADIENT }: SectionHeaderProps) {
   return (
-    <div className={`${BRAND_GRADIENT} text-white p-5 rounded-t-2xl`}>
+    <div className={`${gradientClass} text-white p-5 rounded-t-2xl`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {icon && <span className="text-2xl">{icon}</span>}
