@@ -1,5 +1,5 @@
 import React from "react";
-import { VideoPlaceholder, RIKY_GRADIENT } from "@/components/ui/placeholders";
+import { VideoPlaceholder } from "@/components/ui/placeholders";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -87,12 +87,11 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         {/* Section Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <div className={`w-1 h-8 rounded-full ${RIKY_GRADIENT}`}></div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-2">
               🔥 Trending Videos
             </h2>
           </div>
-          <Button variant="ghost" className="text-purple-600 hover:text-purple-700">
+          <Button variant="ghost" className="text-gray-700 hover:text-gray-900">
             View All
           </Button>
         </div>
