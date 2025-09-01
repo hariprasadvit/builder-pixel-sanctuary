@@ -15,7 +15,7 @@ export default function FiveUpSection({ title, icon, badge, gradientClass }: Fiv
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
         <div className="rounded-2xl shadow-lg overflow-hidden bg-white">
-          <SectionHeader title={title} icon={icon} gradientClass={gradientClass} />
+          <SectionHeader title={title} icon={icon} gradientClass={gradientClass} textClass="text-gray-900" />
           <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             <VideoPlaceholder title={`${title} Feature Video`} price={89.99} originalPrice={109.99} badge={badge || "Hot Deal"} likes={3200} comments={64} views={16000} cardHeight={cardHeight} mediaHeight={mediaHeight} />
             {Array.from({ length: 4 }).map((_, i) => (
