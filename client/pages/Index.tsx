@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import HeroCarousel from "@/components/HeroCarousel";
 import CategoryPills from "@/components/home/CategoryPills";
-import MixedFeed from "@/components/home/MixedFeed";
+import ReelsGrid from "@/components/home/ReelsGrid";
 import BestSellersRail from "@/components/home/BestSellersRail";
 import FlashSaleTimer from "@/components/home/FlashSaleTimer";
 import BrandsStrip from "@/components/home/BrandsStrip";
