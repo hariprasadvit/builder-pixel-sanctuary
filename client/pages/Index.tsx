@@ -520,17 +520,6 @@ export default function Index() {
     ];
   }, [allProducts]);
 
-  const sequence: { type: "video" | "block"; idx?: number; key?: "categories" | "deals" | "best" | "new" | "promo" | "articles" }[] = [
-    { type: "video", idx: 0 },
-    { type: "block", key: "categories" },
-    { type: "video", idx: 1 },
-    { type: "block", key: "promo" },
-    { type: "block", key: "deals" },
-    { type: "video", idx: 2 },
-    { type: "block", key: "articles" },
-    { type: "block", key: "best" },
-    { type: "block", key: "new" },
-  ];
 
   return (
     <div className="min-h-screen">
