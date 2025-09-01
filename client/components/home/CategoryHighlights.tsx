@@ -17,9 +17,9 @@ export default function CategoryHighlights() {
     <section className="py-10 bg-white">
       <div className="container mx-auto px-4 space-y-10">
         {CATEGORIES.map((cat, idx) => (
-          <div key={cat.key} className="bg-white border rounded-2xl overflow-hidden">
-            <div className="p-4 border-b">
-              <h3 className="text-xl font-bold text-gray-900">{cat.title}</h3>
+          <div key={cat.key} className="bg-white rounded-2xl shadow overflow-hidden">
+            <div className="bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] text-white p-4">
+              <h3 className="text-xl font-bold">{cat.title}</h3>
             </div>
             <div className="p-4">
               <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
