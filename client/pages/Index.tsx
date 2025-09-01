@@ -354,7 +354,6 @@ function NewArrivalsSection() {
 export default function Index() {
   const navigate = useNavigate();
   const { getDeliveryTime } = useMarketplace();
-  const { addToCart } = useCart();
 
   const categories = [
     {
