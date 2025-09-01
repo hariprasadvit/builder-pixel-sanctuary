@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { BrandBannerPlaceholder } from "@/components/ui/placeholders";
+import { BrandBannerPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 
 export default function NeutralHeroBanner() {
   return (
@@ -24,8 +24,7 @@ export default function NeutralHeroBanner() {
               {/* Mini featured reel */}
               <div className="p-2">
                 <div className="scale-95 origin-bottom-right">
-                  {/* equal-height mini video */}
-                  {/* Using cardHeight/mediaHeight to ensure consistent layout rules */}
+                  <VideoPlaceholder title="Featured Reel" price={79.99} originalPrice={99.99} likes={1200} comments={30} views={5400} cardHeight={160} mediaHeight={110} />
                 </div>
               </div>
             </div>
