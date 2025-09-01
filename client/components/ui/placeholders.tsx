@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 // Riky brand gradient (consistent throughout site)
-export const RIKY_GRADIENT = "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500";
-export const RIKY_GRADIENT_LIGHT = "bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100";
+export const RIKY_GRADIENT = "";
+export const RIKY_GRADIENT_LIGHT = "";
 
 interface VideoPlaceholderProps {
   aspect?: "9/16" | "16/9";
@@ -88,7 +88,7 @@ export function VideoPlaceholder({
             </div>
           </div>
         )}
-        <Button className={`w-full ${RIKY_GRADIENT} hover:opacity-90 text-white font-medium`}>
+        <Button className="w-full bg-black text-white hover:bg-black/90 font-medium">
           <ShoppingBag className="w-4 h-4 mr-2" />
           Buy Now
         </Button>
@@ -134,7 +134,7 @@ export function ProductPlaceholder({
             <span className="text-gray-500 line-through text-sm">£{originalPrice.toFixed(2)}</span>
           )}
         </div>
-        <Button className={`w-full ${RIKY_GRADIENT} hover:opacity-90 text-white text-sm`}>
+        <Button className="w-full bg-black text-white hover:bg-black/90 text-sm">
           <ShoppingBag className="w-4 h-4 mr-2" />
           Buy Now
         </Button>
@@ -202,11 +202,11 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, icon, children }: SectionHeaderProps) {
   return (
-    <div className={`${RIKY_GRADIENT} text-white p-6 rounded-t-2xl`}>
+    <div className="bg-white border-b p-6 rounded-t-2xl">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {icon && <span className="text-2xl">{icon}</span>}
-          <h2 className="text-2xl font-bold">{title}</h2>
+          <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
         </div>
         {children}
       </div>
