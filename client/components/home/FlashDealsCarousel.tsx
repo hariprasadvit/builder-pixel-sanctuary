@@ -26,11 +26,11 @@ export default function FlashDealsCarousel() {
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <SectionHeader title="Flash Deals" icon="⚡" gradientClass="bg-gradient-to-r from-[#fde7e7] to-[#ffcdd2]" textClass="text-gray-900">
-            <div className="flex items-center gap-2 text-white font-semibold">
+            <div className="flex items-center gap-2 text-gray-900 font-semibold">
               <span>Ends in</span>
-              <span className="px-2 py-1 bg-black/20 rounded-md">{String(h).padStart(2,'0')}</span>:
-              <span className="px-2 py-1 bg-black/20 rounded-md">{String(m).padStart(2,'0')}</span>:
-              <span className="px-2 py-1 bg-black/20 rounded-md">{String(s).padStart(2,'0')}</span>
+              <span className="px-2 py-1 bg-black/10 rounded-md">{String(h).padStart(2,'0')}</span>:
+              <span className="px-2 py-1 bg-black/10 rounded-md">{String(m).padStart(2,'0')}</span>:
+              <span className="px-2 py-1 bg-black/10 rounded-md">{String(s).padStart(2,'0')}</span>
             </div>
           </SectionHeader>
           <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
