@@ -30,7 +30,7 @@ export type SocialFeedItem = {
   liked?: boolean;
 };
 
-export default function SocialFeedCard({ item }: { item: SocialFeedItem }) {
+export default function SocialFeedCard({ item, compact = false, className = "" }: { item: SocialFeedItem; compact?: boolean; className?: string }) {
   const navigate = useNavigate();
   const [isMuted, setIsMuted] = useState(true);
   const [shareOpen, setShareOpen] = useState(false);
@@ -56,7 +56,7 @@ export default function SocialFeedCard({ item }: { item: SocialFeedItem }) {
   };
 
   return (
-    <div className="w-full max-w-md md:max-w-xl mx-auto snap-start">
+    <div className={`${compact ? "w-full" : "w-full max-w-md md:max-w-xl mx-auto"} snap-start ${className}`}>
       <Card className="overflow-hidden rounded-2xl shadow-lg border border-gray-100 bg-white">
         <div className="relative bg-gray-900 aspect-[9/16]">
           {item.youtubeId ? (
@@ -101,12 +101,12 @@ export default function SocialFeedCard({ item }: { item: SocialFeedItem }) {
         </div>
 
         {/* product info */}
-        <div className="p-3 md:p-4">
+        <div className={`${compact ? "p-3" : "p-3 md:p-4"}`}>
           {item.vendor && (
             <div className="text-xs text-gray-500 mb-1">@{item.vendor}</div>
           )}
           <div className="font-semibold text-gray-900 text-sm md:text-base line-clamp-2 mb-1">{item.title}</div>
-          <div className="flex items-center justify-between mb-3">
+          <div className={`flex items-center justify-between ${compact ? "mb-2" : "mb-3"}`}>
             <div className="text-brand-dark font-bold text-base md:text-lg">£{item.price.toFixed(2)}</div>
             <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white" onClick={onShopNow}>
               Shop Now
@@ -114,7 +114,7 @@ export default function SocialFeedCard({ item }: { item: SocialFeedItem }) {
           </div>
 
           {/* social actions */}
-          <div className="flex items-center justify-between">
+          <div className={`flex items-center justify-between ${compact ? "pt-1" : ""}`}>
             <div className="flex items-center gap-3">
               <Button
                 variant="outline"
