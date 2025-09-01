@@ -18,7 +18,7 @@ export default function CategoryHighlights() {
       <div className="container mx-auto px-4 space-y-10">
         {CATEGORIES.map((cat, idx) => (
           <div key={cat.key} className="bg-white rounded-2xl shadow overflow-hidden">
-            <div className="bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] text-white p-4">
+            <div className="bg-gradient-to-r from-[#e6ecf7] to-[#fde7e7] text-gray-900 p-4">
               <h3 className="text-xl font-bold">{cat.title}</h3>
             </div>
             <div className="p-4">
