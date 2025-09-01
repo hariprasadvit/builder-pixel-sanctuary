@@ -8,14 +8,14 @@ export default function NeutralHeroBanner() {
       <div className="container mx-auto px-4 py-10">
         <div className="relative">
           <BrandBannerPlaceholder title="Hero Banner Placeholder" height="h-80" className="opacity-0" />
-          <div className="absolute inset-0 opacity-90 bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] rounded-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#e6ecf7] to-[#fde7e7] rounded-2xl" />
           <div className="absolute inset-0 p-6 md:p-10 flex items-center">
-            <div className="max-w-2xl text-white">
+            <div className="max-w-2xl text-gray-900">
               <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Your Marketplace. Your Pace.</h1>
-              <p className="text-white/90 text-lg md:text-xl mb-6">Clean, aligned, and packed with variety. Shop products and videos in one place.</p>
+              <p className="text-gray-700 text-lg md:text-xl mb-6">Clean, aligned, and packed with variety. Shop products and videos in one place.</p>
               <div className="flex gap-3">
-                <Button className="bg-white text-gray-900 hover:bg-white/90">Shop Now</Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10">Discover Deals</Button>
+                <Button className="bg-black text-white hover:bg-black/90">Shop Now</Button>
+                <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-100">Discover Deals</Button>
               </div>
             </div>
           </div>
