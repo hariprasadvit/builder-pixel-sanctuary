@@ -5,12 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import HeroCarousel from "@/components/HeroCarousel";
 import CategoryPills from "@/components/home/CategoryPills";
+import MegaCategoryGrid from "@/components/home/MegaCategoryGrid";
 import ReelsGrid from "@/components/home/ReelsGrid";
 import BestSellersRail from "@/components/home/BestSellersRail";
 import FlashSaleTimer from "@/components/home/FlashSaleTimer";
 import BrandsStrip from "@/components/home/BrandsStrip";
 import Newsletter from "@/components/home/Newsletter";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { SAMPLE_CATALOG } from "@/lib/catalog";
 import { useNavigate } from "react-router-dom";
 import { type SocialFeedItem } from "@/components/social/SocialFeedCard";
 
@@ -536,29 +538,51 @@ export default function Index() {
       </section>
 
       <section className="py-2">
-        <CategoryPills items={["Fashion","Technology","Bags","Gaming","Sport","Necklaces","Business"]} />
+        <CategoryPills items={["Fashion","Technology","Bags","Gaming","Sport","Necklaces","Business","Home","Beauty","Grocery","Toys","Automotive"]} />
       </section>
 
-      <ShopByCategorySection categories={categories} />
+      <MegaCategoryGrid
+        categories={(
+          [
+            ...categories,
+            { id: "9", name: "Beauty", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop" },
+            { id: "10", name: "Grocery", image: "https://images.unsplash.com/photo-1505575972945-280c5c6f16e7?q=80&w=800&auto=format&fit=crop" },
+            { id: "11", name: "Toys & Games", image: "https://images.unsplash.com/photo-1601758123927-196d2f71dcfd?q=80&w=800&auto=format&fit=crop" },
+            { id: "12", name: "Automotive", image: "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?q=80&w=800&auto=format&fit=crop" },
+          ] as any
+        )}
+      />
 
       <BestSellersRail
-        items={allProducts.map((p, i) => ({ id: i + 1, title: p.title, image: p.image, price: p.price }))}
+        title="Best Sellers"
+        items={SAMPLE_CATALOG.slice(0, 12).map((p) => ({ id: p.id, title: p.title, image: p.image, price: p.price }))}
       />
 
       <FlashSaleTimer />
       <BrandsStrip />
 
+      <BestSellersRail
+        title="Top Picks For You"
+        items={SAMPLE_CATALOG.slice(4, 16).map((p) => ({ id: p.id, title: p.title, image: p.image, price: p.price }))}
+      />
+
       <section className="py-6">
         <div className="container mx-auto px-4 flex items-center justify-between mb-2">
-          <h2 className="text-xl md:text-2xl font-bold">For You</h2>
+          <h2 className="text-xl md:text-2xl font-bold">Shoppable Reels</h2>
         </div>
         <ReelsGrid
           videos={feedVideos.slice().reverse()}
-          products={allProducts.slice().reverse().map((p) => ({ id: p.id+"-b", title: p.title, image: p.image, price: p.price }))}
+          products={SAMPLE_CATALOG.slice(0, 9).map((p) => ({ id: p.id+"-b", title: p.title, image: p.image, price: p.price }))}
         />
       </section>
 
       <DealsSection />
+
+      <BestSellersRail
+        title="Most Wished For"
+        items={SAMPLE_CATALOG.slice(6, 18).map((p) => ({ id: p.id, title: p.title, image: p.image, price: p.price }))}
+      />
+
       <Newsletter />
 
       <Button
