@@ -1,144 +1,128 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import TikTokVideoCard, { type TikTokVideo } from "./TikTokVideoCard";
-import { ArrowRight } from "lucide-react";
+import { VideoPlaceholder, BrandBannerPlaceholder, RIKY_GRADIENT } from "@/components/ui/placeholders";
 
 interface HybridHeroProps {
-  featuredVideo?: TikTokVideo;
+  featuredVideo?: {
+    title: string;
+    price: number;
+    originalPrice?: number;
+    badge?: string;
+    likes: number;
+    comments: number;
+    views: number;
+  };
 }
 
 export default function HybridHero({ featuredVideo }: HybridHeroProps) {
-  // Default featured video if none provided
-  const defaultVideo: TikTokVideo = {
-    id: "hero-video",
-    title: "iPhone 16 Pro Max - Camera Control Demo",
-    price: 999.99,
-    originalPrice: 1099.99,
-    youtubeId: "HfiEy9Rh2cQ",
-    vendor: "TechReviewer",
-    vendorAvatar: "",
-    productId: "iphone-16-pro",
+  // Default featured video data
+  const defaultVideo = {
+    title: "Featured Product Demo - Latest Innovation",
+    price: 299.99,
+    originalPrice: 399.99,
+    badge: "Hot Deal",
     likes: 25400,
     comments: 524,
-    shares: 189,
-    liked: false,
-    badge: "Hot Deal"
+    views: 189000
   };
 
   const video = featuredVideo || defaultVideo;
 
   return (
-    <section className="relative min-h-[500px] md:min-h-[600px] overflow-hidden">
-      {/* Desktop: Split Layout */}
-      <div className="hidden md:flex h-[600px]">
-        {/* Left: Promotional Banner */}
-        <div className="flex-1 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative h-full flex items-center justify-center p-8 lg:p-12">
-            <div className="max-w-xl text-center text-white space-y-6">
-              <Badge className="bg-yellow-400 text-black font-bold mb-4 animate-pulse">
-                🔥 FLASH SALE
-              </Badge>
-              
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                Summer
-                <br />
-                <span className="text-yellow-300">Mega Sale</span>
-              </h1>
-              
-              <p className="text-xl lg:text-2xl opacity-90">
-                Up to 70% off on trending products
-              </p>
-              
-              <div className="flex items-center justify-center gap-4 text-sm">
-                <div className="bg-white/20 px-3 py-2 rounded-full">
-                  <span className="font-bold">48</span> Hours
-                </div>
-                <div className="bg-white/20 px-3 py-2 rounded-full">
-                  <span className="font-bold">23</span> Minutes  
-                </div>
-                <div className="bg-white/20 px-3 py-2 rounded-full">
-                  <span className="font-bold">59</span> Seconds
-                </div>
-              </div>
-              
-              <Button 
-                size="lg" 
-                className="bg-white text-purple-600 hover:bg-gray-100 font-bold text-lg px-8 py-6 rounded-full transition-all transform hover:scale-105"
-              >
-                Shop Now
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-          </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Right: TikTok Video */}
-        <div className="w-80 bg-black flex items-center justify-center p-4">
-          <TikTokVideoCard 
-            video={video}
-            className="h-full max-h-[560px] w-full"
-            autoplay={true}
-          />
-        </div>
+    <section className={`${RIKY_GRADIENT} min-h-[600px] relative overflow-hidden`}>
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-white/15 rounded-full blur-2xl"></div>
       </div>
 
-      {/* Mobile: Stacked Layout */}
-      <div className="md:hidden">
-        {/* Banner First */}
-        <div className="h-80 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative h-full flex items-center justify-center p-6">
-            <div className="text-center text-white space-y-4">
-              <Badge className="bg-yellow-400 text-black font-bold animate-pulse">
-                🔥 FLASH SALE
-              </Badge>
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Desktop Split Layout */}
+        <div className="hidden md:flex min-h-[600px] items-center gap-8">
+          
+          {/* Left: Tall Video Placeholder (9:16) */}
+          <div className="flex-shrink-0 w-80">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-4">
+              <VideoPlaceholder
+                aspect="9/16"
+                title={video.title}
+                price={video.price}
+                originalPrice={video.originalPrice}
+                badge={video.badge}
+                likes={video.likes}
+                comments={video.comments}
+                views={video.views}
+                className="shadow-2xl"
+                showSocialCounters={true}
+              />
+            </div>
+          </div>
+
+          {/* Right: Brand Banner Placeholder */}
+          <div className="flex-1 max-w-4xl">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6">
+              <BrandBannerPlaceholder
+                width="w-full"
+                height="h-96"
+                title="Brand Banner Placeholder"
+                className="shadow-2xl bg-white/20"
+              />
               
-              <h1 className="text-3xl font-bold leading-tight">
-                Summer
-                <br />
-                <span className="text-yellow-300">Mega Sale</span>
-              </h1>
-              
-              <p className="text-lg opacity-90">
-                Up to 70% off on trending products
-              </p>
-              
-              <div className="flex items-center justify-center gap-2 text-xs">
-                <div className="bg-white/20 px-2 py-1 rounded-full">
-                  <span className="font-bold">48</span>h
-                </div>
-                <div className="bg-white/20 px-2 py-1 rounded-full">
-                  <span className="font-bold">23</span>m  
-                </div>
-                <div className="bg-white/20 px-2 py-1 rounded-full">
-                  <span className="font-bold">59</span>s
-                </div>
+              {/* Hero Text Overlay */}
+              <div className="mt-6 text-white text-center">
+                <h1 className="text-4xl lg:text-6xl font-bold mb-4 leading-tight">
+                  Discover Amazing
+                  <br />
+                  <span className="text-yellow-300">Products</span>
+                </h1>
+                <p className="text-xl lg:text-2xl opacity-90 mb-6">
+                  Shop the latest trends with social discovery
+                </p>
               </div>
-              
-              <Button 
-                className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-6 py-3 rounded-full"
-              >
-                Shop Now
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
             </div>
           </div>
         </div>
 
-        {/* Video Below */}
-        <div className="h-96 bg-black flex items-center justify-center p-4">
-          <div className="w-64 h-full">
-            <TikTokVideoCard 
-              video={video}
-              className="h-full w-full"
-              autoplay={true}
+        {/* Mobile Stacked Layout */}
+        <div className="md:hidden py-8 space-y-6">
+          
+          {/* Brand Banner First on Mobile */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4">
+            <BrandBannerPlaceholder
+              width="w-full"
+              height="h-48"
+              title="Brand Banner"
+              className="shadow-lg bg-white/20"
             />
+            
+            <div className="mt-4 text-white text-center">
+              <h1 className="text-2xl font-bold mb-2">
+                Discover Amazing
+                <br />
+                <span className="text-yellow-300">Products</span>
+              </h1>
+              <p className="text-sm opacity-90">
+                Shop the latest trends with social discovery
+              </p>
+            </div>
+          </div>
+
+          {/* Video Below on Mobile */}
+          <div className="flex justify-center">
+            <div className="w-64 bg-white/10 backdrop-blur-sm rounded-2xl p-3">
+              <VideoPlaceholder
+                aspect="9/16"
+                title={video.title}
+                price={video.price}
+                originalPrice={video.originalPrice}
+                badge={video.badge}
+                likes={video.likes}
+                comments={video.comments}
+                views={video.views}
+                className="shadow-xl"
+                showSocialCounters={true}
+              />
+            </div>
           </div>
         </div>
       </div>
