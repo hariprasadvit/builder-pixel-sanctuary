@@ -331,12 +331,7 @@ export default function Layout({ children }: LayoutProps) {
 
               {/* Logo */}
               <Link to="/" className="flex items-center">
-                <div className="font-bold text-2xl text-gray-900 flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                    <span className="text-xl">���️</span>
-                  </div>
-                  RIKY
-                </div>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5b59b7abf70f46a4ab5fe227c77da926?format=webp&width=200" alt="Riky logo" className="h-8 w-auto" />
               </Link>
             </div>
 
