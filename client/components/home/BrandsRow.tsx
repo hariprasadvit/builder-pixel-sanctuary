@@ -6,7 +6,7 @@ export default function BrandsRow() {
   return (
     <section className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="h-1 w-full rounded bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] mb-3"></div>
+        <div className="h-1 w-full rounded bg-gradient-to-r from-[#e3f2fd] to-[#fde7e7] mb-3"></div>
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Brands</h2>
         <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
           {items.map((i) => (
