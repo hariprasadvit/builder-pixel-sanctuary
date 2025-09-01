@@ -25,7 +25,7 @@ export default function FlashDealsCarousel() {
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <SectionHeader title="Flash Deals" icon="⚡">
+          <SectionHeader title="Flash Deals" icon="⚡" gradientClass="bg-gradient-to-r from-[#d32f2f] to-[#f44336]">
             <div className="flex items-center gap-2 text-white font-semibold">
               <span>Ends in</span>
               <span className="px-2 py-1 bg-black/20 rounded-md">{String(h).padStart(2,'0')}</span>:
