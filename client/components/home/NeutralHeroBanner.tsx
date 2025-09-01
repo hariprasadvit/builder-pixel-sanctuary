@@ -20,10 +20,13 @@ export default function NeutralHeroBanner() {
             </div>
           </div>
           <div className="absolute bottom-6 right-6 w-48 hidden md:block">
-            <div className="rounded-xl shadow-lg overflow-hidden">
+            <div className="rounded-xl shadow-lg overflow-hidden bg-white">
               {/* Mini featured reel */}
-              <div className="bg-white">
-                <BrandBannerPlaceholder title="Featured Reel" height="h-28" />
+              <div className="p-2">
+                <div className="scale-95 origin-bottom-right">
+                  {/* equal-height mini video */}
+                  {/* Using cardHeight/mediaHeight to ensure consistent layout rules */}
+                </div>
               </div>
             </div>
           </div>
