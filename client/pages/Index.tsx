@@ -529,7 +529,7 @@ export default function Index() {
         <div className="container mx-auto px-4 flex items-center justify-between mb-2">
           <h2 className="text-xl md:text-2xl font-bold">Trending Now</h2>
         </div>
-        <MixedFeed
+        <ReelsGrid
           videos={feedVideos}
           products={allProducts.map((p) => ({ id: p.id, title: p.title, image: p.image, price: p.price }))}
         />
@@ -552,7 +552,7 @@ export default function Index() {
         <div className="container mx-auto px-4 flex items-center justify-between mb-2">
           <h2 className="text-xl md:text-2xl font-bold">For You</h2>
         </div>
-        <MixedFeed
+        <ReelsGrid
           videos={feedVideos.slice().reverse()}
           products={allProducts.slice().reverse().map((p) => ({ id: p.id+"-b", title: p.title, image: p.image, price: p.price }))}
         />
