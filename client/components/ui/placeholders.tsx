@@ -39,10 +39,11 @@ export function VideoPlaceholder({
   mediaHeight = 240,
   className = ""
 }: VideoPlaceholderProps) {
+  const videoWidth = Math.round((mediaHeight * 9) / 16);
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="relative h-full aspect-[9/16] bg-gray-300 rounded-lg flex items-center justify-center">
+        <div className="bg-gray-300 rounded-lg flex items-center justify-center" style={{ height: mediaHeight, width: videoWidth }}>
           <div className="text-center text-gray-600">
             <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mb-2 mx-auto">
               <Play className="w-5 h-5 text-gray-500" />
@@ -104,10 +105,11 @@ export function ProductPlaceholder({
   mediaHeight = 240,
   className = ""
 }: ProductPlaceholderProps) {
+  const box = mediaHeight; // 1:1 box
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="relative h-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
+        <div className="bg-gray-300 rounded-lg flex items-center justify-center" style={{ height: box, width: box }}>
           <div className="text-center text-gray-600">
             <div className="w-12 h-12 bg-gray-200 rounded-lg mb-2 mx-auto" />
             <p className="text-xs font-medium">Product Image</p>
@@ -191,11 +193,12 @@ interface SectionHeaderProps {
   icon?: string;
   children?: React.ReactNode;
   gradientClass?: string;
+  textClass?: string;
 }
 
-export function SectionHeader({ title, icon, children, gradientClass = BRAND_GRADIENT }: SectionHeaderProps) {
+export function SectionHeader({ title, icon, children, gradientClass = BRAND_GRADIENT, textClass = "text-white" }: SectionHeaderProps) {
   return (
-    <div className={`${gradientClass} text-white p-5 rounded-t-2xl`}>
+    <div className={`${gradientClass} ${textClass} p-5 rounded-t-2xl`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {icon && <span className="text-2xl">{icon}</span>}
