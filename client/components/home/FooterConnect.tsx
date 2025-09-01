@@ -9,7 +9,7 @@ export default function FooterConnect() {
     <section className="py-12">
       <div className="container mx-auto px-4">
         <div className="rounded-2xl p-0 bg-white border overflow-hidden">
-          <div className="h-1 w-full bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f]" />
+          <div className="h-1 w-full bg-gradient-to-r from-[#e3f2fd] to-[#fde7e7]" />
           <div className="p-8 grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl font-extrabold mb-2 text-gray-900">Stay in the loop</h3>
