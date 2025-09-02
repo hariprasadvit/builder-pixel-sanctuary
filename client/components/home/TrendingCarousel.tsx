@@ -84,10 +84,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
 
   // Thumbnails provided by user for trending section
   const trendingThumbs = [
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F67dfa00b13204fcea48506c813867080?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02d9bfda7a8c41ffb9793a9940ceebcd?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf159baa56224ebeb8b89912dc8c136a?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7797faedd6ee40429534a7becada3cc6?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f1783f4e6374c03bc569f15ddb613be?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fccbe9a80e5c54157b40ffdae191bf299?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1672cd2730f047fd9632495688400614?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F64db5d076db24d77a2a145022ca40d49?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdb9044c5945741e7808dbdf6d9d8d338?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3372363d95f644ada9060aff6bd41fcb?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe50abcb60e294c7eb67d46575cc08c61?format=webp&width=800",
