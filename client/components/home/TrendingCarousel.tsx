@@ -122,10 +122,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-2">
               🔥 Trending Videos
             </h2>
+            <Button variant="ghost" className="text-gray-700 hover:text-gray-900 whitespace-nowrap">
+              See All
+            </Button>
           </div>
-          <Button variant="ghost" className="text-gray-700 hover:text-gray-900">
-            View All
-          </Button>
         </div>
 
         {/* Masonry Layout */}
