@@ -1,7 +1,7 @@
 import React from "react";
 
 import AnnouncementStrip from "@/components/home/AnnouncementStrip";
-import NeutralHeroBanner from "@/components/home/NeutralHeroBanner";
+import HeroCarousel from "@/components/HeroCarousel";
 import FlashDealsCarousel from "@/components/home/FlashDealsCarousel";
 import TrendingCarousel from "@/components/home/TrendingCarousel";
 import TopCategories from "@/components/home/TopCategories";
@@ -18,7 +18,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gray-50">
       <AnnouncementStrip />
-      <NeutralHeroBanner />
+      <HeroCarousel />
       <FlashDealsCarousel />
       <TrendingCarousel />
       <TopCategories />
