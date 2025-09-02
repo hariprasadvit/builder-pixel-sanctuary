@@ -53,10 +53,10 @@ export function VideoPlaceholder({
   const isHorizontal = aspect === "16/9";
   const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
   return (
-    <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={outerStyle}>
-      <div className="relative w-full bg-white flex items-center justify-center p-3" style={{ height: mediaHeight }}>
+    <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={outerStyle}>
+      <div className="relative w-full bg-white flex items-center justify-center p-3 overflow-hidden" style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
-          <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+          <img src={thumbnailSrc} alt={title} className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
         ) : (
           <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
             <div className="text-center text-gray-600">
@@ -139,10 +139,10 @@ export function ProductPlaceholder({
 }: ProductPlaceholderProps) {
   const box = mediaHeight; // 1:1 box
   return (
-    <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
-      <div className="relative w-full bg-white flex items-center justify-center p-3" style={{ height: mediaHeight }}>
+    <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={{ height: cardHeight }}>
+      <div className="relative w-full bg-white flex items-center justify-center p-3 overflow-hidden" style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
-          <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+          <img src={thumbnailSrc} alt={title} className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
         ) : (
           <div className="w-full max-h-full aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
             <div className="text-center text-gray-600">
