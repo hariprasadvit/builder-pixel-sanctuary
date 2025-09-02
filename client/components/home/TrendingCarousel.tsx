@@ -96,6 +96,9 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F74f4689197544dd69519ae7fa4c78d20?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3d27c28ba0b546c3b107c8d28491424c?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f0652d842da40c0b9cd4cd6cee3d4f2?format=webp&width=800",
+    // 11-12
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9549cf525ba74b5a8245371354ad22f6?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7e8a3c5a69fc430593c8293279c45800?format=webp&width=800",
   ];
   const trendingTitles = [
     // Titles matching tiles 1-12 above
