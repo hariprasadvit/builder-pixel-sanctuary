@@ -8,8 +8,8 @@ const slides = [
   },
   {
     id: "cadbury",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F36571411fdb24db4bdbf238955b43fd8?format=webp&width=2400",
-    alt: "Cadbury Coconut Chocolate Banner",
+    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8bf35e10b060460595c8ae6a2830c01f?format=webp&width=2400",
+    alt: "Cadbury Trio Banner",
   },
 ];
 
