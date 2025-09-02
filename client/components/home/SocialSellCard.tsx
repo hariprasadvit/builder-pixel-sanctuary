@@ -135,25 +135,33 @@ export default function SocialSellCard(props: SocialSellCardProps) {
     setTimeout(() => setAdded(false), 1500);
   };
 
+  const [posterError, setPosterError] = useState(false);
   const media = (
-    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-[9/16]">
+    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-[9/16] md:min-h-[340px] lg:min-h-[420px]">
       {videoSrc ? (
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
-          poster={videoPoster}
+          poster={!posterError ? videoPoster : undefined}
           muted
           playsInline
           preload="metadata"
           aria-label={alt}
+          onError={() => setPosterError(true)}
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
       ) : (
-        <img src={videoPoster} alt={alt} className="w-full h-full object-cover" />
+        !posterError ? (
+          <img src={videoPoster} alt={alt} className="w-full h-full object-cover" onError={() => setPosterError(true)} />
+        ) : (
+          <div className="absolute inset-0 grid place-items-center bg-gray-100">
+            <span className="rounded-full bg-white p-3 shadow ring-1 ring-black/10"><Play className="w-6 h-6 text-gray-700" /></span>
+          </div>
+        )
       )}
       {videoSrc && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span className="rounded-full bg-white/90 p-2 shadow ring-1 ring-black/10 group-hover:scale-105 transition-transform">
             <Play className="w-6 h-6 text-gray-800" />
           </span>
@@ -218,10 +226,9 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           <div className="md:col-span-3">{media}</div>
           <div className="md:col-span-2 space-y-3">
             <h3 className="text-lg font-semibold line-clamp-2">{title}</h3>
-            <div className="flex items-center gap-2 text-xs text-gray-500"><MessageCircle className="w-4 h-4" /> View sources</div>
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="ghost" className="px-0 h-auto text-blue-600">View sources</Button>
+                <Button variant="ghost" className="px-0 h-auto text-blue-600 gap-2"><MessageCircle className="w-4 h-4" /> View sources</Button>
               </DialogTrigger>
               <DialogContent className="max-w-xl">
                 <DialogHeader>
@@ -244,7 +251,15 @@ export default function SocialSellCard(props: SocialSellCardProps) {
         </div>
       ) : (
         <div className="flex items-center gap-3">
-          <div className="w-24">{media}</div>
+          <div className="w-24">
+            <div className="relative rounded-md overflow-hidden bg-gray-100 aspect-square">
+              {!posterError ? (
+                <img src={videoPoster} alt={alt} className="w-full h-full object-cover" onError={() => setPosterError(true)} />
+              ) : (
+                <div className="absolute inset-0 grid place-items-center"><Play className="w-5 h-5 text-gray-700" /></div>
+              )}
+            </div>
+          </div>
           <div className="flex-1 min-w-0">
             <div className="text-sm font-semibold truncate">{title}</div>
             <div className="flex items-center gap-2">
