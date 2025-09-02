@@ -152,6 +152,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     mediaHeight={h}
                     thumbnailSrc={thumb}
                     fit={"contain"}
+                    showBuyButton={false}
                   />
                 </div>
               );
