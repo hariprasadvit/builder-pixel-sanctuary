@@ -12,7 +12,7 @@ export default function ExploreCurated() {
     rail.scrollBy({ left: dir * step * 2, behavior: "smooth" });
   };
   return (
-    <section className="relative overflow-hidden pt-10 pb-24 md:pb-28 lg:pb-32 bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
+    <section className="relative overflow-hidden pt-10 pb-16 md:pb-20 lg:pb-24 bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
       {/* Bottom skyline image above gradient, behind content */}
       <img
         src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffabb4857a3564d13b09fe1ba4694fa74?format=webp&width=1600"
