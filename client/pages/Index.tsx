@@ -23,6 +23,7 @@ export default function Index() {
       <FlashDealsCarousel />
       <TrendingCarousel />
       <TopCategories />
+      <SocialSellSection />
       <CategoryHighlights />
       <DealsStrip />
       <BestsellerHighlights />
