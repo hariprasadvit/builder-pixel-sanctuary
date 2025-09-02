@@ -6,12 +6,10 @@ export default function ExploreCurated() {
     <section className="relative overflow-hidden pt-10 pb-24 bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
       {/* Bottom skyline image */}
       <img
-        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6c5f4abe7ff340589b4fc4cc6e6ed39d?format=webp&width=1600"
+        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5286ad652ca449a818f3bdb639b9c8e?format=webp&width=1600"
         alt="London skyline"
         className="pointer-events-none select-none absolute inset-x-0 bottom-0 w-full h-28 md:h-40 lg:h-48 object-cover object-bottom"
       />
-      {/* Fade to blend image with section gradient */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 md:h-20 bg-gradient-to-t from-[#071a3d] to-transparent" />
 
       <div className="relative z-10 container mx-auto px-4">
         <div className="mb-4 flex items-center justify-between">
