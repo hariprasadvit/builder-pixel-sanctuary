@@ -41,7 +41,7 @@ function Tile({ title, image }: { title: string; image?: string }) {
           />
         </div>
       </div>
-      <div className="mt-2 text:[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">
+      <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">
         {title}
       </div>
     </button>
