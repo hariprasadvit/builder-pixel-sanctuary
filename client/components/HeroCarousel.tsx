@@ -22,8 +22,8 @@ export default function HeroCarousel() {
         <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory">
           <div className="flex w-max">
             {slides.map((s) => (
-              <div key={s.id} className="w-screen h-[220px] md:h-[300px] flex items-center justify-center bg-white snap-start">
-                <img src={s.src} alt={s.alt} className="max-w-full max-h-full object-contain" />
+              <div key={s.id} className="w-screen h-[240px] md:h-[320px] bg-white snap-start">
+                <img src={s.src} alt={s.alt} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
