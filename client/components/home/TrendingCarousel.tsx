@@ -98,7 +98,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f0652d842da40c0b9cd4cd6cee3d4f2?format=webp&width=800",
   ];
   const trendingTitles = [
-    // Titles matching tiles 1-10 above
+    // Titles matching tiles 1-12 above
     "Best Toys of 2025",
     "Must-Have Gym Equipment",
     "Best MacBook To Choose For You",
@@ -109,6 +109,8 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     "Best Water Heaters 2025",
     "Best UPS & Inverters 2025",
     "Top Smartphones 2025",
+    "Indoor Plants You’ll Love",
+    "Hydrate Yourself With These Fruits",
   ];
 
   return (
