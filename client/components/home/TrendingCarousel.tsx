@@ -90,7 +90,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F64db5d076db24d77a2a145022ca40d49?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdb9044c5945741e7808dbdf6d9d8d338?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3372363d95f644ada9060aff6bd41fcb?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe50abcb60e294c7eb67d46575cc08c61?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F25a114ffbee9421e9eee897b561ca574?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8c468283729e4012b7800dd96d803ed9?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6dbfc5ac1b1045dd9d871b7a060d9d6d?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe1bdfea0aacb4dc790c1ca031bc5e365?format=webp&width=800",
@@ -102,8 +102,8 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     "UK Toy Haul",
     "UK Fashion Finds",
     "Sports Gear Galore",
-    "Samsung Mobile Innovation",
-    "Home Essentials Sale",
+    "Best Washing Machines 2025",
+    "Indoor Plants You’ll Love",
     "Bedroom Refresh Sale",
     "Winter Is Here – Cozy Essentials",
     "Cocktail Creations",
@@ -151,7 +151,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     cardHeight="auto"
                     mediaHeight={h}
                     thumbnailSrc={thumb}
-                    fit={"contain"}
+                    fit={"cover"}
                     showBuyButton={false}
                     showPrice={false}
                   />
@@ -180,7 +180,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     cardHeight={420}
                     mediaHeight={240}
                     thumbnailSrc={thumb}
-                    fit="contain"
+                    fit="cover"
                     showBuyButton={false}
                     showPrice={false}
                   />
