@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const slides = [
   {
@@ -14,18 +16,84 @@ const slides = [
 ];
 
 export default function HeroCarousel() {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [index, setIndex] = useState(0);
+
+  // Sync index on scroll
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const handler = () => {
+      const w = el.clientWidth || window.innerWidth;
+      const i = Math.round(el.scrollLeft / w);
+      setIndex(Math.max(0, Math.min(slides.length - 1, i)));
+    };
+    el.addEventListener("scroll", handler, { passive: true });
+    handler();
+    return () => el.removeEventListener("scroll", handler as any);
+  }, []);
+
+  const goTo = (i: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const w = el.clientWidth || window.innerWidth;
+    el.scrollTo({ left: i * w, behavior: "smooth" });
+  };
+
+  const prev = () => goTo((index - 1 + slides.length) % slides.length);
+  const next = () => goTo((index + 1) % slides.length);
+
   return (
     <section className="bg-white">
-      {/* Full-bleed wrapper */}
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
-        {/* Horizontal scroll with snap */}
-        <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory">
-          <div className="flex w-max">
-            {slides.map((s) => (
-              <div key={s.id} className="w-screen h-[240px] md:h-[320px] bg-white snap-start">
-                <img src={s.src} alt={s.alt} className="w-full h-full object-cover" />
-              </div>
-            ))}
+        <div className="relative">
+          <div
+            ref={scrollRef}
+            className="overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+          >
+            <div className="flex w-max">
+              {slides.map((s) => (
+                <div key={s.id} className="w-screen h-[240px] md:h-[320px] bg-white snap-start">
+                  <img src={s.src} alt={s.alt} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Arrows */}
+          <div className="absolute inset-0 flex items-center justify-between px-2 md:px-4 pointer-events-none">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={prev}
+              className="pointer-events-auto w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white text-gray-900 shadow"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={next}
+              className="pointer-events-auto w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white text-gray-900 shadow"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
+
+          {/* Dots */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+            <div className="flex gap-2">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Go to slide ${i + 1}`}
+                  onClick={() => goTo(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    i === index ? "bg-gray-900 scale-110" : "bg-gray-400/60 hover:bg-gray-600"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
