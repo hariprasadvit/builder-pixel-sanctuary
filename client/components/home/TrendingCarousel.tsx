@@ -146,7 +146,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={index !== 0}
-                    hideTitle={index !== 0}
+                    hideTitle={true}
                   />
                 </div>
               );
@@ -177,7 +177,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={index !== 0}
-                    hideTitle={index !== 0}
+                    hideTitle={true}
                   />
                 </div>
               );
