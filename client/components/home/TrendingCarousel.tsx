@@ -145,6 +145,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     fit={"cover"}
                     showBuyButton={false}
                     showPrice={false}
+                    showPlayOverlay={index !== 0}
                   />
                 </div>
               );
@@ -174,6 +175,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     fit="cover"
                     showBuyButton={false}
                     showPrice={false}
+                    showPlayOverlay={index !== 0}
                   />
                 </div>
               );
