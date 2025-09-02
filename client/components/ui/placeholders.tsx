@@ -54,11 +54,14 @@ export function VideoPlaceholder({
 }: VideoPlaceholderProps) {
   const isHorizontal = aspect === "16/9";
   const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
+  const mediaStyle = mediaHeight === "auto" ? undefined : { height: mediaHeight };
+  const mediaPadding = mediaHeight === "auto" ? "" : "p-3";
+  const imgClass = mediaHeight === "auto" ? "w-full h-auto" : `w-full h-full transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`;
   return (
     <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={outerStyle}>
-      <div className="relative w-full bg-white flex items-center justify-center p-3 overflow-hidden" style={{ height: mediaHeight }}>
+      <div className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`} style={mediaStyle}>
         {thumbnailSrc ? (
-          <img src={thumbnailSrc} alt={title} className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+          <img src={thumbnailSrc} alt={title} className={imgClass} />
         ) : (
           <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
             <div className="text-center text-gray-600">
