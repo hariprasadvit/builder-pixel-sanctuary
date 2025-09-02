@@ -84,15 +84,15 @@ export default function TopCategories() {
 
           <div className="p-4">
             {/* Desktop grid */}
-            <div className="hidden md:grid grid-cols-6 gap-5">
+            <div className="hidden md:grid grid-cols-6 gap-5 justify-items-center">
               {CATS.map((c) => (
                 <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
               ))}
             </div>
 
             {/* Mobile horizontal scroll */}
-            <div className="md:hidden -mx-4 px-4">
-              <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="md:hidden">
+              <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide px-4">
                 {CATS.map((c) => (
                   <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
                 ))}
