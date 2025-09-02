@@ -131,7 +131,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               return (
                 <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
-                    title={title}
+                    title={index === 0 ? "Top Trends in Women's Clothing" : ""}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={undefined}
@@ -146,6 +146,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={index !== 0}
+                    hideTitle={index !== 0}
                   />
                 </div>
               );
@@ -162,7 +163,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               return (
                 <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
                   <VideoPlaceholder
-                    title={title}
+                    title={index === 0 ? "Top Trends in Women's Clothing" : ""}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={undefined}
@@ -176,6 +177,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={index !== 0}
+                    hideTitle={index !== 0}
                   />
                 </div>
               );
