@@ -68,6 +68,11 @@ export function VideoPlaceholder({
             </div>
           </div>
         )}
+        <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none">
+          <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow ring-1 ring-black/10 transition-transform hover:scale-105">
+            <Play className="w-6 h-6 text-gray-800" />
+          </span>
+        </button>
         {badge && (
           <div className="absolute top-2 left-2">
             <Badge className="bg-red-500 text-white text-[10px]">{badge}</Badge>
