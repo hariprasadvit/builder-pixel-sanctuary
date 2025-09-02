@@ -34,10 +34,63 @@ export default function FlashDealsCarousel() {
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <VideoPlaceholder title="Tech Deals Live!" price={89.99} originalPrice={109.99} badge="Hot Deal" likes={3200} comments={64} views={16000} aspect="16/9" thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200" fit="cover" cardHeight={cardHeight} mediaHeight={mediaHeight} />
-            {Array.from({ length: 4 }).map((_, i) => (
-              <ProductPlaceholder key={i} title={`Deal Product ${i+1}`} price={49.99 + i * 10} originalPrice={69.99 + i * 10} badge={i % 2 ? "Just In" : "Exclusive"} cardHeight={cardHeight} mediaHeight={mediaHeight} />
-            ))}
+            <VideoPlaceholder
+              title="Ninja CRISPi Air Fryer"
+              price={89.99}
+              originalPrice={109.99}
+              badge="Hot Deal"
+              likes={3200}
+              comments={64}
+              aspect="16/9"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
+              fit="cover"
+              cardHeight={cardHeight}
+              mediaHeight={mediaHeight}
+            />
+
+            <ProductPlaceholder
+              title="TRIP Magnesium Powder – Pomegranate"
+              price={24.99}
+              originalPrice={29.99}
+              badge="New"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
+              fit="contain"
+              cardHeight={cardHeight}
+              mediaHeight={mediaHeight}
+            />
+
+            <ProductPlaceholder
+              title="Vileda Turbo 3-in-1 Microfibre Mop Kit"
+              price={39.99}
+              originalPrice={49.99}
+              badge="Top Pick"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1254a7b2203a4401b1b14ed1498915ab?format=webp&width=800"
+              fit="contain"
+              cardHeight={cardHeight}
+              mediaHeight={mediaHeight}
+            />
+
+            <ProductPlaceholder
+              title="Vileda Turbo Mop & Bucket Bundle"
+              price={42.99}
+              originalPrice={52.99}
+              badge="Best Seller"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4351f4cb715647bbb2c6fc9ee39be1c3?format=webp&width=800"
+              fit="contain"
+              cardHeight={cardHeight}
+              mediaHeight={mediaHeight}
+            />
+
+            <ProductPlaceholder
+              title="TRIP Mindful Magnesium Drink"
+              price={22.49}
+              originalPrice={27.99}
+              badge="Limited"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
+              fit="contain"
+              cardHeight={cardHeight}
+              mediaHeight={mediaHeight}
+            />
           </div>
           <div className="text-center pb-6">
             <Button variant="ghost">View All Deals</Button>
