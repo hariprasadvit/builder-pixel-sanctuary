@@ -22,7 +22,7 @@ const ITEMS: Item[] = [
 function Tile({ label, img }: Item) {
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28">
-      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-100 flex items-center justify-center ring-1 ring-black/5 shadow-sm">
+      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 shadow-sm">
         <img src={img} alt={label} className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform group-hover:scale-105" />
       </div>
       <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">{label}</div>
