@@ -126,6 +126,7 @@ interface ProductPlaceholderProps extends BaseCardProps {
   reviews?: number;
   thumbnailSrc?: string;
   fit?: "contain" | "cover";
+  showBuyButton?: boolean;
 }
 
 export function ProductPlaceholder({
@@ -137,6 +138,7 @@ export function ProductPlaceholder({
   reviews = 120,
   thumbnailSrc,
   fit = "contain",
+  showBuyButton = true,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
