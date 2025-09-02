@@ -26,6 +26,7 @@ interface VideoPlaceholderProps extends BaseCardProps {
   aspect?: "9/16" | "16/9";
   showSocialCounters?: boolean;
   thumbnailSrc?: string;
+  fit?: "contain" | "cover";
   cardHeight?: number | "auto";
 }
 
@@ -42,6 +43,7 @@ export function VideoPlaceholder({
   aspect = "9/16",
   showSocialCounters = true,
   thumbnailSrc,
+  fit = "contain",
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
@@ -51,10 +53,10 @@ export function VideoPlaceholder({
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={outerStyle}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
-          {thumbnailSrc ? (
-            <img src={thumbnailSrc} alt={title} className="w-full h-full object-contain" />
-          ) : (
+        {thumbnailSrc ? (
+          <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+        ) : (
+          <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
             <div className="text-center text-gray-600">
               <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-2 mx-auto">
                 <Play className="w-5 h-5 text-gray-500" />
@@ -62,8 +64,8 @@ export function VideoPlaceholder({
               <p className="text-xs font-medium">Video Thumbnail</p>
               <p className="text-[10px] text-gray-400">Preview</p>
             </div>
-          )}
-        </div>
+          </div>
+        )}
         {badge && (
           <div className="absolute top-2 left-2">
             <Badge className="bg-red-500 text-white text-[10px]">{badge}</Badge>
