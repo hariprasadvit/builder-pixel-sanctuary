@@ -10,7 +10,7 @@ export default function SocialSellSection() {
             <h3 className="text-xl md:text-2xl font-bold text-gray-900">Social Sell • Review Push</h3>
             <p className="text-xs md:text-sm text-gray-700/80">Curated from reviews, powered by AI.</p>
           </div>
-          <div className="p-6 grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 justify-center">
+          <div className="p-6 grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center">
             <SocialSellCard
               title="Wireless ANC Buds with 30h case"
               creatorHandle="@techwithsam"
