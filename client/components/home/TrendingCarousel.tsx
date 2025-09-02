@@ -93,7 +93,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     // 6-10
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75c537b0d15f436c8c1c4fff836b3dbc?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1f37e71257fb47cc8dc3627c2904e0b9?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5cc3a32c0055445d8952a23b75f23a3f?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd78d92c3cd8d4176bdce35cdc5881dcd?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3d27c28ba0b546c3b107c8d28491424c?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f0652d842da40c0b9cd4cd6cee3d4f2?format=webp&width=800",
   ];
