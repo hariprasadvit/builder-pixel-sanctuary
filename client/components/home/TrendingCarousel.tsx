@@ -151,7 +151,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     cardHeight="auto"
                     mediaHeight={h}
                     thumbnailSrc={thumb}
-                    fit={horizontal ? "cover" : "cover"}
+                    fit={"contain"}
                   />
                 </div>
               );
@@ -178,7 +178,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     cardHeight={420}
                     mediaHeight={240}
                     thumbnailSrc={thumb}
-                    fit="cover"
+                    fit="contain"
                   />
                 </div>
               );
