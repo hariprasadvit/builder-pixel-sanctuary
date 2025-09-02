@@ -166,7 +166,10 @@ export function ProductPlaceholder({
     <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={{ height: cardHeight }}>
       <div className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`} style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
-          <img src={thumbnailSrc} alt={title} className={`w-full h-full max-w-[90%] max-h-[90%] transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+          <>
+            <img src={thumbnailSrc} alt={title} className={`w-full h-full max-w-[90%] max-h-[90%] transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+            <div className="shine-strip animate-shine z-10" />
+          </>
         ) : (
           <div className="w-full max-h-full aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
             <div className="text-center text-gray-600">
