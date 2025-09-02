@@ -213,65 +213,42 @@ export default function SocialSellCard(props: SocialSellCardProps) {
   );
 
   return (
-    <div className={`group rounded-2xl border bg-white shadow-sm overflow-hidden ${variant === "video-first" ? "p-4" : "p-3"}`} onMouseEnter={onEnter} onMouseLeave={onLeave}>
-      <div className="mb-3 flex items-center justify-between">
-        {header}
-        <div className="flex items-center gap-1 text-[11px] text-gray-500">
-          <Info className="w-3.5 h-3.5" /> AI-generated summary
-        </div>
+    <div className={`group rounded-2xl bg-white shadow-sm overflow-hidden p-4 flex flex-col h-full`} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      {header}
+
+      <div className="mt-3 relative">
+        {media}
+        {liveViewers && (
+          <div className="absolute top-2 left-2 text-[10px] bg-rose-600 text-white px-2 py-0.5 rounded-full">LIVE</div>
+        )}
+        <div className="absolute top-2 right-2 text-[10px] bg-white/90 text-gray-700 px-2 py-0.5 rounded-full shadow">updated {updatedAgo}</div>
       </div>
 
-      {variant === "video-first" ? (
-        <div className="grid md:grid-cols-5 gap-4">
-          <div className="md:col-span-3">{media}</div>
-          <div className="md:col-span-2 space-y-3">
-            <h3 className="text-lg font-semibold line-clamp-2">{title}</h3>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="ghost" className="px-0 h-auto text-blue-600 gap-2"><MessageCircle className="w-4 h-4" /> View sources</Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-xl">
-                <DialogHeader>
-                  <DialogTitle>Sources</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-3">
-                  {sources.length ? sources.slice(0,5).map((s, i) => (
-                    <a key={i} href={s.url} target="_blank" rel="noreferrer" className="block p-3 rounded-md border hover:bg-gray-50">
-                      <div className="text-sm font-medium">{s.title}</div>
-                      <div className="text-xs text-gray-600 line-clamp-2">{s.snippet}</div>
-                    </a>
-                  )) : (
-                    <div className="text-sm text-gray-600">No UGC available – AI quick take from specs & expert reviews.</div>
-                  )}
-                </div>
-              </DialogContent>
-            </Dialog>
-            {summary}
-          </div>
+      <div className="mt-3 flex-1 flex flex-col">
+        <h3 className="text-base font-semibold line-clamp-2">{title}</h3>
+        <div className="mt-1 flex items-center gap-2">
+          <Stars value={rating} />
+          <span className="text-xs text-gray-600">{rating.toFixed(1)} · {ratingCount.toLocaleString()}</span>
         </div>
-      ) : (
-        <div className="flex items-center gap-3">
-          <div className="w-24">
-            <div className="relative rounded-md overflow-hidden bg-gray-100 aspect-square">
-              {!posterError ? (
-                <img src={videoPoster} alt={alt} className="w-full h-full object-cover" onError={() => setPosterError(true)} />
-              ) : (
-                <div className="absolute inset-0 grid place-items-center"><Play className="w-5 h-5 text-gray-700" /></div>
-              )}
-            </div>
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="text-sm font-semibold truncate">{title}</div>
-            <div className="flex items-center gap-2">
-              <Stars value={rating} />
-              <span className="text-xs text-gray-500">£{price.toFixed(2)}</span>
-            </div>
-          </div>
-          <Button size="sm" onClick={addToCart}>Add</Button>
+        <ul className="mt-2 list-disc pl-5 text-sm text-gray-800 space-y-1">
+          {bullets.slice(0,3).map((b,i)=> <li key={i}>{b}</li>)}
+        </ul>
+        <div className="mt-2 text-xs text-gray-500 flex items-center gap-2">
+          {deliveryEta && <span>ETA {deliveryEta}</span>}
+          {returnsBadge && <span className="px-2 py-0.5 bg-gray-100 rounded-full">{returnsBadge}</span>}
         </div>
-      )}
-
-      <div className="mt-3">{socialRow}</div>
+        <div className="mt-2">
+          {priceBlock}
+        </div>
+        <div className="mt-2 flex items-center gap-2">
+          <Button onClick={addToCart} className="bg-black hover:bg-gray-900 text-white">{added ? "Added" : "Add to Cart"}</Button>
+          {videoSrc && (
+            <Button variant="outline" className="gap-2"><Play className="w-4 h-4" /> Watch 15s</Button>
+          )}
+        </div>
+        <div className="mt-auto pt-3">{socialRow}</div>
+        <div className="mt-2 text-[11px] text-gray-500 self-end flex items-center gap-1"><Info className="w-3.5 h-3.5" /> AI-generated summary</div>
+      </div>
     </div>
   );
 }
