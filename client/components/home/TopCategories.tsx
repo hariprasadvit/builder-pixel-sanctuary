@@ -28,12 +28,12 @@ const FALLBACK_IMG = "/placeholder.svg";
 function Tile({ title, image }: { title: string; image?: string }) {
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28">
-      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] bg-gradient-to-br from-blue-600 via-sky-500 to-cyan-400 shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
-        <div className="w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-sky-500 group-hover:to-cyan-400">
+      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
+        <div className="w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#1f3b8a] group-hover:via-[#2e63ff] group-hover:to-[#ff3b30]">
           <img
             src={image || FALLBACK_IMG}
             alt={title}
-            className="w-12 h-12 sm:w-14 sm:h-14 object-contain transition-transform group-hover:scale-105"
+            className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform group-hover:scale-105"
             onError={(e) => {
               const t = e.target as HTMLImageElement;
               t.src = FALLBACK_IMG;
@@ -55,7 +55,7 @@ export default function TopCategories() {
         <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Top Categories</h2>
 
         {/* Desktop grid (structure unchanged) */}
-        <div className="hidden md:grid grid-cols-8 gap-4">
+        <div className="hidden md:grid grid-cols-6 gap-5">
           {CATS.map((c) => (
             <Tile key={c.key} title={c.title} image={c.image} />
           ))}
