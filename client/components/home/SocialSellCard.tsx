@@ -116,15 +116,15 @@ export default function SocialSellCard(props: SocialSellCardProps) {
   );
 
   const socialRow = (
-    <div className="flex items-center justify-between text-xs text-gray-600 min-h-[20px]">
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {likes.toLocaleString()}</div>
-        <div className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {boughtIn24h} bought in 24h</div>
+    <div className="flex items-center justify-between text-xs text-gray-600 min-h-[20px] w-full">
+      <div className="flex items-center gap-3 flex-1 min-w-0 overflow-hidden">
+        <div className="flex items-center gap-1 whitespace-nowrap"><Heart className="w-3.5 h-3.5" /> {likes.toLocaleString()}</div>
+        <div className="flex items-center gap-1 whitespace-nowrap"><Users className="w-3.5 h-3.5" /> {boughtIn24h} bought in 24h</div>
         {typeof liveViewers === "number" && liveViewers > 0 ? (
-          <div className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" /> {liveViewers} watching</div>
+          <div className="flex items-center gap-1 whitespace-nowrap"><Eye className="w-3.5 h-3.5" /> {liveViewers} watching</div>
         ) : null}
       </div>
-      <button aria-label="Share" className="text-gray-500 hover:text-gray-700"><Share2 className="w-4 h-4" /></button>
+      <button aria-label="Share" className="text-gray-500 hover:text-gray-700 flex-shrink-0"><Share2 className="w-4 h-4" /></button>
     </div>
   );
 
@@ -241,7 +241,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           )}
         </div>
         <div className="mt-auto pt-3 border-t border-gray-100">{socialRow}</div>
-        <div className="mt-2 text-[11px] text-gray-500 self-start flex items-center gap-1"><Info className="w-3.5 h-3.5" /> AI-generated summary</div>
+        <div className="mt-2 text-[11px] text-gray-500 self-start flex items-center gap-1 min-h-[16px]"><Info className="w-3.5 h-3.5" /> AI-generated summary</div>
       </div>
     </div>
   );
