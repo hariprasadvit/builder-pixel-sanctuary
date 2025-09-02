@@ -43,8 +43,8 @@ export default function CategoryHighlights() {
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-sm">
                       <img
-                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F64e5400c0e31451682277d69ad7a3a76?format=webp&width=1440"
-                        alt="Currys gift card promo"
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9b2cb8424dd6417bb4c4b8b7f7c20a6d?format=webp&width=1440"
+                        alt="TV Trade-in promo"
                         className="w-full h-full object-cover"
                       />
                     </div>
