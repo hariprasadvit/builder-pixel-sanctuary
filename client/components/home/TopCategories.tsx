@@ -1,67 +1,73 @@
 import React from "react";
 
-const CATS = [
-  { key: "electronics", title: "Electronics" },
-  { key: "cellphones", title: "Cellphones" },
-  { key: "clothing", title: "Clothing" },
-  { key: "beauty", title: "Beauty" },
-  { key: "home", title: "Home" },
-  { key: "kitchen", title: "Kitchen" },
-  { key: "sports", title: "Sports" },
-  { key: "toys", title: "Toys" },
+type Cat = { key: string; title: string; image?: string };
+
+const CATS: Cat[] = [
+  { key: "paan", title: "Paan Corner" },
+  { key: "dairy", title: "Dairy, Bread & Eggs" },
+  { key: "fruits", title: "Fruits & Vegetables" },
+  { key: "drinks", title: "Cold Drinks & Juices" },
+  { key: "snacks", title: "Snacks & Munchies" },
+  { key: "breakfast", title: "Breakfast & Instant Food" },
+  { key: "sweets", title: "Sweet Tooth" },
+  { key: "bakery", title: "Bakery & Biscuits" },
+  { key: "beverages", title: "Tea, Coffee & Health Drink" },
+  { key: "grains", title: "Atta, Rice & Dal" },
+  { key: "masala", title: "Masala, Oil & More" },
+  { key: "sauces", title: "Sauces & Spreads" },
+  { key: "meat", title: "Chicken, Meat & Fish" },
+  { key: "organic", title: "Organic & Healthy Living" },
+  { key: "baby", title: "Baby Care" },
+  { key: "pharma", title: "Pharma & Wellness" },
+  { key: "cleaning", title: "Cleaning Essentials" },
+  { key: "office", title: "Home & Office" },
+  { key: "personal", title: "Personal Care" },
+  { key: "pet", title: "Pet Care" },
 ];
 
-const PLACEHOLDER_BG =
-  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1e4915b6d1b54b8aa792300299b55c06?format=webp&width=800";
-const CENTER_ICON =
-  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2ac39650cccf4f6c9cb9cae21e424deb?format=webp&width=800";
+const FALLBACK_IMG = "/placeholder.svg";
 
-function CatTile({ title }: { title: string }) {
+function Tile({ title, image }: { title: string; image?: string }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border bg-white">
-      <div className="absolute inset-0">
-        <img src={PLACEHOLDER_BG} alt={`${title} background`} className="w-full h-full object-cover" />
+    <button className="group flex flex-col items-center w-24 sm:w-28">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-blue-50 flex items-center justify-center shadow-sm ring-1 ring-black/5">
+        <img
+          src={image || FALLBACK_IMG}
+          alt={title}
+          className="w-12 h-12 sm:w-14 sm:h-14 object-contain transition-transform group-hover:scale-105"
+          onError={(e) => {
+            const t = e.target as HTMLImageElement;
+            t.src = FALLBACK_IMG;
+          }}
+        />
       </div>
-      <div className="relative z-10 p-4 flex items-end justify-start h-32">
-        <span className="bg-white/90 text-gray-900 text-sm font-semibold px-3 py-1 rounded-md shadow">
-          {title}
-        </span>
+      <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">
+        {title}
       </div>
-    </div>
-  );
-}
-
-function CenterTile() {
-  return (
-    <div className="relative overflow-hidden rounded-2xl border bg-white flex items-center justify-center h-32">
-      <img src={CENTER_ICON} alt="Electronics 3D icon" className="max-h-full max-w-full object-contain p-4" />
-    </div>
+    </button>
   );
 }
 
 export default function TopCategories() {
-  // Arrange around a center tile: 3x3 grid -> 8 categories + center
-  const topRow = CATS.slice(0, 3);
-  const middleLeft = CATS[3];
-  const middleRight = CATS[4];
-  const bottomRow = CATS.slice(5, 8);
-
   return (
-    <section className="py-8 bg-white">
+    <section className="py-6 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Top Categories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {topRow.map((c) => (
-            <CatTile key={c.key} title={c.title} />
-          ))}
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Top Categories</h2>
 
-          {middleLeft && <CatTile key={middleLeft.key} title={middleLeft.title} />}
-          <CenterTile />
-          {middleRight && <CatTile key={middleRight.key} title={middleRight.title} />}
-
-          {bottomRow.map((c) => (
-            <CatTile key={c.key} title={c.title} />
+        {/* Desktop grid */}
+        <div className="hidden md:grid grid-cols-8 gap-4">
+          {CATS.map((c) => (
+            <Tile key={c.key} title={c.title} image={c.image} />
           ))}
+        </div>
+
+        {/* Mobile horizontal scroll */}
+        <div className="md:hidden -mx-4 px-4">
+          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            {CATS.map((c) => (
+              <Tile key={c.key} title={c.title} image={c.image} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
