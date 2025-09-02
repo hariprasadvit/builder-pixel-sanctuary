@@ -99,7 +99,7 @@ export function VideoPlaceholder({
         {!hideTitle && (<h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>)}
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-bold text-base">£{price.toFixed(2)}</span>
+            <span className="font-bold text-base text-gray-900">£{price.toFixed(2)}</span>
             {originalPrice && (
               <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
             )}
@@ -188,10 +188,10 @@ export function ProductPlaceholder({
         )}
       </div>
       <div className="flex-1 p-3 flex flex-col">
-        <h3 className="font-medium text-sm line-clamp-2 mb-2">{title}</h3>
+        <h3 className="font-medium text-sm text-gray-900 line-clamp-2 mb-2">{title}</h3>
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-bold text-base">£{price.toFixed(2)}</span>
+            <span className="font-bold text-base text-gray-900">£{price.toFixed(2)}</span>
             {originalPrice && (
               <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
             )}
