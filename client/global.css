@@ -188,6 +188,29 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* Shine sweep for icon discs */
+  @keyframes shineSweep {
+    0% { transform: translateX(-120%) rotate(25deg); }
+    100% { transform: translateX(120%) rotate(25deg); }
+  }
+
+  /* Trigger shine/spin on group hover */
+  .group:hover .animate-shine { animation: shineSweep 900ms ease-in-out; opacity: 1; }
+  .group:hover .spin-on-hover { animation: spin 2.5s linear infinite; }
+
+  /* Shine strip element inside icon discs */
+  .shine-strip {
+    position: absolute;
+    top: -15%;
+    bottom: -15%;
+    left: -35%;
+    width: 38%;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+    transform: translateX(-120%) rotate(25deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
