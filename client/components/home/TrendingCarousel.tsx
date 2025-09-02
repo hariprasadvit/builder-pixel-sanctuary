@@ -82,6 +82,36 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     });
   }
 
+  // Thumbnails provided by user for trending section
+  const trendingThumbs = [
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F67dfa00b13204fcea48506c813867080?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02d9bfda7a8c41ffb9793a9940ceebcd?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf159baa56224ebeb8b89912dc8c136a?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7797faedd6ee40429534a7becada3cc6?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdb9044c5945741e7808dbdf6d9d8d338?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3372363d95f644ada9060aff6bd41fcb?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe50abcb60e294c7eb67d46575cc08c61?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8c468283729e4012b7800dd96d803ed9?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6dbfc5ac1b1045dd9d871b7a060d9d6d?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe1bdfea0aacb4dc790c1ca031bc5e365?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F58583a4db325454dbede02b83c6ba13a?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4d987a8a40224341adc77b189d534426?format=webp&width=800",
+  ];
+  const trendingTitles = [
+    "Car Upgrades",
+    "UK Toy Haul",
+    "UK Fashion Finds",
+    "Sports Gear Galore",
+    "Samsung Mobile Innovation",
+    "Home Essentials Sale",
+    "Bedroom Refresh Sale",
+    "Winter Is Here – Cozy Essentials",
+    "Cocktail Creations",
+    "Unique Gifting Ideas",
+    "Find Perfect Ride",
+    "Level Up Your Look",
+  ];
+
   return (
     <section className="py-6 bg-white">
       <div className="container mx-auto px-2">
