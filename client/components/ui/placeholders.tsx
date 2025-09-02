@@ -83,12 +83,14 @@ export function VideoPlaceholder({
       </div>
       <div className="flex-1 p-3 flex flex-col">
         <h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="font-bold text-base">£{price.toFixed(2)}</span>
-          {originalPrice && (
-            <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
-          )}
-        </div>
+        {showPrice && (
+          <div className="flex items-center gap-2 mb-2">
+            <span className="font-bold text-base">£{price.toFixed(2)}</span>
+            {originalPrice && (
+              <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
+            )}
+          </div>
+        )}
         <div className="flex items-center justify-between text-gray-600 text-xs mb-3">
           {showSocialCounters ? (
             <div className="flex items-center gap-3">
