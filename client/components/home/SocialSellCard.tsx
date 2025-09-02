@@ -209,7 +209,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
   );
 
   return (
-    <div className={`group rounded-2xl bg-white shadow-sm overflow-hidden p-4 flex flex-col w-[288px] md:w-[296px] h-[560px]`} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <div className={`group rounded-2xl bg-white shadow-sm overflow-hidden p-4 flex flex-col w-[288px] md:w-[296px] h-[600px]`} onMouseEnter={onEnter} onMouseLeave={onLeave}>
       {header}
 
       <div className="mt-3 relative">
