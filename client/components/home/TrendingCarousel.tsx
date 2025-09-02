@@ -162,21 +162,27 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         {/* Mobile Carousel - Shows 2 cards on mobile */}
         <div className="md:hidden">
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4">
-            {displayVideos.map((video) => (
-              <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
-                <VideoPlaceholder
-                  title={video.title}
-                  price={video.price}
-                  originalPrice={video.originalPrice}
-                  badge={video.badge}
-                  likes={video.likes}
-                  comments={video.comments}
-                  views={video.views}
-                  cardHeight={420}
-                  mediaHeight={240}
-                />
-              </div>
-            ))}
+            {displayVideos.map((video, index) => {
+              const thumb = trendingThumbs[index % trendingThumbs.length];
+              const title = trendingTitles[index % trendingTitles.length] || video.title;
+              return (
+                <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
+                  <VideoPlaceholder
+                    title={title}
+                    price={video.price}
+                    originalPrice={video.originalPrice}
+                    badge={video.badge}
+                    likes={video.likes}
+                    comments={video.comments}
+                    views={video.views}
+                    cardHeight={420}
+                    mediaHeight={240}
+                    thumbnailSrc={thumb}
+                    fit="cover"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
