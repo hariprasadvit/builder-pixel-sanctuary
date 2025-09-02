@@ -25,6 +25,8 @@ interface VideoPlaceholderProps extends BaseCardProps {
   reviews?: number;
   aspect?: "9/16" | "16/9";
   showSocialCounters?: boolean;
+  thumbnailSrc?: string;
+  cardHeight?: number | "auto";
 }
 
 export function VideoPlaceholder({
@@ -39,22 +41,28 @@ export function VideoPlaceholder({
   reviews = 120,
   aspect = "9/16",
   showSocialCounters = true,
+  thumbnailSrc,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
 }: VideoPlaceholderProps) {
   const isHorizontal = aspect === "16/9";
+  const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
   return (
-    <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
+    <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={outerStyle}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center`}>
-          <div className="text-center text-gray-600">
-            <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-2 mx-auto">
-              <Play className="w-5 h-5 text-gray-500" />
+        <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
+          {thumbnailSrc ? (
+            <img src={thumbnailSrc} alt={title} className="w-full h-full object-contain" />
+          ) : (
+            <div className="text-center text-gray-600">
+              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-2 mx-auto">
+                <Play className="w-5 h-5 text-gray-500" />
+              </div>
+              <p className="text-xs font-medium">Video Thumbnail</p>
+              <p className="text-[10px] text-gray-400">Preview</p>
             </div>
-            <p className="text-xs font-medium">Video Thumbnail</p>
-            <p className="text-[10px] text-gray-400">Preview</p>
-          </div>
+          )}
         </div>
         {badge && (
           <div className="absolute top-2 left-2">
