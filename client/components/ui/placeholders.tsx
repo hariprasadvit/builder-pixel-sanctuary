@@ -95,7 +95,7 @@ export function VideoPlaceholder({
           </div>
         )}
       </div>
-      <div className="flex-1 p-3 flex flex-col">
+      <div className="flex-1 p-3 pb-2 flex flex-col">
         {!hideTitle && (<h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>)}
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
@@ -187,7 +187,7 @@ export function ProductPlaceholder({
           </div>
         )}
       </div>
-      <div className="flex-1 p-3 flex flex-col">
+      <div className="flex-1 p-3 pb-2 flex flex-col">
         <h3 className="font-medium text-sm text-gray-900 line-clamp-2 mb-2">{title}</h3>
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
@@ -197,7 +197,7 @@ export function ProductPlaceholder({
             )}
           </div>
         )}
-        <div className="flex items-center text-gray-600 text-xs mb-3">
+        <div className={`flex items-center text-gray-600 text-xs ${showBuyButton ? 'mb-3' : 'mb-1'}`}>
           <RatingStars value={rating} size={12} />
           <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
         </div>
