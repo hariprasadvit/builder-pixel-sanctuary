@@ -25,6 +25,7 @@ export default function Index() {
       <TrendingCarousel />
       <TopCategories />
       <SocialSellSection />
+      <ElectronicsProductShowcase />
       <CategoryHighlights />
       <DealsStrip />
       <BestsellerHighlights />
