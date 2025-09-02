@@ -1,6 +1,7 @@
 import React from "react";
 import { BrandBannerPlaceholder, ProductPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 import ElectronicsCategoryIcons from "@/components/home/ElectronicsCategoryIcons";
+import SocialSnapshotRail from "@/components/home/SocialSnapshotRail";
 
 const CATEGORIES = [
   { key: 'electronics', title: 'Electronics' },
