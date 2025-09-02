@@ -33,8 +33,8 @@ export default function FlashDealsCarousel() {
               <span className="px-2 py-1 bg-black/10 rounded-md">{String(s).padStart(2,'0')}</span>
             </div>
           </SectionHeader>
-          <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            <VideoPlaceholder title="Tech Deals Live!" price={89.99} originalPrice={109.99} badge="Hot Deal" likes={3200} comments={64} views={16000} aspect="16/9" thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=800" cardHeight={cardHeight} mediaHeight={mediaHeight} />
+          <div className="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            <VideoPlaceholder title="Tech Deals Live!" price={89.99} originalPrice={109.99} badge="Hot Deal" likes={3200} comments={64} views={16000} aspect="16/9" thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200" fit="cover" cardHeight={cardHeight} mediaHeight={mediaHeight} />
             {Array.from({ length: 4 }).map((_, i) => (
               <ProductPlaceholder key={i} title={`Deal Product ${i+1}`} price={49.99 + i * 10} originalPrice={69.99 + i * 10} badge={i % 2 ? "Just In" : "Exclusive"} cardHeight={cardHeight} mediaHeight={mediaHeight} />
             ))}
