@@ -28,6 +28,13 @@ export default function CategoryHighlights() {
               ) : (
                 <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
               )}
+              {cat.key !== 'electronics' && (
+                <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
+                  ))}
+                </div>
+              )}
               <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-4">
                 {cat.key === 'electronics' ? (
                   [
