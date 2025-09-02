@@ -156,8 +156,8 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         <div className="md:hidden">
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4">
             {displayVideos.map((video, index) => {
-              const thumb = trendingThumbs[index % trendingThumbs.length];
-              const title = trendingTitles[index % trendingTitles.length] || video.title;
+              const thumb = index === 0 ? trendingThumbs[0] : undefined;
+              const title = index === 0 ? "Top Trends in Women's Clothing" : (trendingTitles[index % trendingTitles.length] || video.title);
               return (
                 <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
                   <VideoPlaceholder
@@ -169,7 +169,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     comments={video.comments}
                     views={video.views}
                     cardHeight={420}
-                    mediaHeight={240}
+                    mediaHeight={index === 0 ? 320 : 240}
                     thumbnailSrc={thumb}
                     fit="cover"
                     showBuyButton={false}
