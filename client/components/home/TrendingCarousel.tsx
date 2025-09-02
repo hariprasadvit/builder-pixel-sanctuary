@@ -153,6 +153,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     thumbnailSrc={thumb}
                     fit={"contain"}
                     showBuyButton={false}
+                    showPrice={false}
                   />
                 </div>
               );
@@ -181,6 +182,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     thumbnailSrc={thumb}
                     fit="contain"
                     showBuyButton={false}
+                    showPrice={false}
                   />
                 </div>
               );
