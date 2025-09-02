@@ -2,7 +2,6 @@ import React from "react";
 import { Fragment } from "react";
 import { BrandBannerPlaceholder, ProductPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 import ElectronicsCategoryIcons from "@/components/home/ElectronicsCategoryIcons";
-import StarterPacksRail from "@/components/home/StarterPacksRail";
 
 const CATEGORIES = [
   { key: 'electronics', title: 'Electronics' },
@@ -77,9 +76,6 @@ export default function CategoryHighlights() {
                 </div>
               </div>
             </div>
-            {cat.key === 'electronics' && (
-              <StarterPacksRail />
-            )}
           </Fragment>
         ))}
       </div>
