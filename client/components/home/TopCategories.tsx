@@ -26,26 +26,19 @@ const CATS: Cat[] = [
 const FALLBACK_IMG = "/placeholder.svg";
 
 function Tile({ title, image, imageClass }: { title: string; image?: string; imageClass?: string }) {
-  const [t, setT] = React.useState({ rx: 0, ry: 0, s: 1 });
-  const onMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width;
-    const py = (e.clientY - rect.top) / rect.height;
-    const ry = (px - 0.5) * 14;
-    const rx = (0.5 - py) * 14;
-    setT({ rx, ry, s: 1.08 });
-  };
-  const onLeave = () => setT({ rx: 0, ry: 0, s: 1 });
+  const [t, setT] = React.useState({ s: 1, dz: 0 });
+  const onEnter = () => setT({ s: 1.08, dz: 28 });
+  const onLeave = () => setT({ s: 1, dz: 0 });
 
   return (
-    <button className="group flex flex-col items-center w-24 sm:w-28" onMouseMove={onMove} onMouseLeave={onLeave}>
-      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-2xl will-change-transform spin-on-hover">
+    <button className="group flex flex-col items-center w-24 sm:w-28" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-2xl will-change-transform">
         <div
           className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 overflow-hidden"
           style={{
-            transform: `perspective(700px) rotateX(${t.rx}deg) rotateY(${t.ry}deg) scale(${t.s})`,
+            transform: `perspective(700px) translateZ(${t.dz}px) scale(${t.s})`,
             transformStyle: "preserve-3d",
-            transition: "transform 300ms cubic-bezier(.2,.8,.2,1)",
+            transition: "transform 280ms cubic-bezier(.2,.8,.2,1)",
           }}
         >
           <div
@@ -55,7 +48,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
                 "radial-gradient(60% 60% at 50% 40%, rgba(59,130,246,0.35), rgba(99,102,241,0.25), transparent 70%)",
               filter: "blur(6px)",
               transform: "translateZ(1px)",
-              transition: "opacity 300ms ease",
+              transition: "opacity 280ms ease",
             }}
           />
           <div className="shine-strip animate-shine z-20 mix-blend-screen" />
@@ -66,7 +59,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
               "relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain object-center transition-transform group-hover:drop-shadow-xl " +
               (imageClass || "")
             }
-            style={{ transform: "translateZ(30px)" }}
+            style={{ transform: `translateZ(${t.dz + 20}px)` }}
             onError={(e) => {
               const t = e.target as HTMLImageElement;
               t.src = FALLBACK_IMG;
