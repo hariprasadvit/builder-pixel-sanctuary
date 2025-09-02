@@ -27,6 +27,7 @@ interface VideoPlaceholderProps extends BaseCardProps {
   showSocialCounters?: boolean;
   thumbnailSrc?: string;
   fit?: "contain" | "cover";
+  showViews?: boolean;
   cardHeight?: number | "auto";
 }
 
@@ -44,6 +45,7 @@ export function VideoPlaceholder({
   showSocialCounters = true,
   thumbnailSrc,
   fit = "contain",
+  showViews = false,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
@@ -85,7 +87,7 @@ export function VideoPlaceholder({
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1"><Heart className="w-3 h-3" /><span>{likes.toLocaleString()}</span></div>
               <div className="flex items-center gap-1"><MessageCircle className="w-3 h-3" /><span>{comments}</span></div>
-              <div className="flex items-center gap-1"><Eye className="w-3 h-3" /><span>{views.toLocaleString()}</span></div>
+              {showViews && (<div className="flex items-center gap-1"><Eye className="w-3 h-3" /><span>{views.toLocaleString()}</span></div>)}
             </div>
           ) : (
             <div />
