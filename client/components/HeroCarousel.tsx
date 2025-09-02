@@ -25,28 +25,12 @@ export default function HeroCarousel() {
       link: "/categories",
     },
     {
-      id: "clarks",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe62af38758d744d2bacf96603f412476?format=webp&width=1600",
-      alt: "Clarks Lifestyle Collage",
-      category: "Clarks",
-      link: "/brands",
-    },
-    {
       id: "heinz",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc7f303e6d4b94075be6bf0d4b7aa77f0?format=webp&width=1600",
       alt: "Heinz Hot Dog Pact",
       category: "Heinz",
       link: "/categories",
-    },
-    {
-      id: "lenovo",
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe3998f2c14134129addedc6f42055d20?format=webp&width=1600",
-      alt: "Lenovo Collaboration Banner",
-      category: "Lenovo",
-      link: "/electronics",
     },
   ];
 
@@ -71,7 +55,7 @@ export default function HeroCarousel() {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-4 py-6 md:py-8">
+      <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="relative overflow-hidden rounded-2xl bg-white">
           {/* Groups */}
           <div className="relative w-full h-[360px] md:h-[520px]">
@@ -80,7 +64,7 @@ export default function HeroCarousel() {
                 key={gi}
                 className={`absolute inset-0 transition-opacity duration-700 ${gi === currentGroup ? "opacity-100 z-10" : "opacity-0 z-0"}`}
               >
-                <div className="grid grid-cols-2 gap-4 p-4 h-full">
+                <div className="grid grid-cols-2 gap-3 p-3 h-full">
                   {pair.map((slide) => (
                     <div key={slide.id} className="relative w-full aspect-square cursor-pointer bg-white rounded-xl overflow-hidden flex items-center justify-center" onClick={() => handleClick(slide)}>
                       <img src={slide.image} alt={slide.alt} className="max-w-full max-h-full object-contain" />
