@@ -22,9 +22,11 @@ const ITEMS: Item[] = [
 function Tile({ label, img }: Item) {
   return (
     <button className="group relative flex flex-col items-center w-24 sm:w-28 transition-transform duration-200 hover:-translate-y-0.5">
-      <div className="rounded-full p-[2px] bg-gradient-to-tr from-sky-300/40 via-fuchsia-300/40 to-amber-300/40 group-hover:from-sky-400/70 group-hover:via-fuchsia-400/70 group-hover:to-amber-400/70 transition-colors">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 shadow-sm">
-          <img src={img} alt={label} className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform duration-200 group-hover:scale-105" />
+      <div className="relative rounded-full p-[2px] bg-gradient-to-tr from-sky-300/40 via-fuchsia-300/40 to-amber-300/40 group-hover:from-sky-400/70 group-hover:via-fuchsia-400/70 group-hover:to-amber-400/70 transition-colors">
+        <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 shadow-sm transition-all group-hover:ring-2 group-hover:ring-sky-300 overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100" style={{ background: "radial-gradient(60% 60% at 50% 40%, rgba(59,130,246,0.25), rgba(236,72,153,0.2), transparent 70%)", filter: "blur(6px)", transition: "opacity 250ms ease" }} />
+          <div className="shine-strip animate-shine z-10" />
+          <img src={img} alt={label} className="relative z-20 w-16 h-16 sm:w-[72px] sm:h-[72px] object-contain transition-transform duration-200 group-hover:scale-105" />
         </div>
       </div>
       <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2 transition-colors group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0b3b8f] group-hover:to-[#d32f2f] font-medium">{label}</div>
