@@ -69,8 +69,9 @@ export function VideoPlaceholder({
         {thumbnailSrc ? (
           <>
             <img src={thumbnailSrc} alt={title} className={imgClass} />
+            <div className="shine-strip animate-shine z-10" />
             {showPlayOverlay && (
-              <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none">
+              <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none z-20">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow ring-1 ring-black/10 transition-transform hover:scale-105">
                   <Play className="w-6 h-6 text-gray-800" />
                 </span>
