@@ -130,11 +130,11 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               const h = index === 0 ? 500 : hBase;
               const horizontal = index % 3 === 0; // mix aspect ratios for variety
               const thumb = index < trendingThumbs.length ? trendingThumbs[index] : undefined;
-              const title = "";
+              const title = trendingTitles[index % trendingTitles.length] || video.title;
               return (
                 <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
-                    title={""}
+                    title={title}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={undefined}
@@ -142,14 +142,14 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     comments={video.comments}
                     views={video.views}
                     aspect={horizontal ? "16/9" : "9/16"}
-                    cardHeight="auto"
-                    mediaHeight={h}
-                    thumbnailSrc={thumb ? `${thumb}&cb=1` : undefined}
-                    fit={"cover"}
+                    cardHeight={"auto"}
+                    mediaHeight={"auto"}
+                    thumbnailSrc={thumb ? `${thumb}&cb=${index}` : undefined}
+                    fit={"contain"}
                     showBuyButton={false}
                     showPrice={false}
-                    showPlayOverlay={index !== 0}
-                    hideTitle={true}
+                    showPlayOverlay={true}
+                    hideTitle={false}
                   />
                 </div>
               );
@@ -162,25 +162,25 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4">
             {displayVideos.map((video, index) => {
               const thumb = index < trendingThumbs.length ? trendingThumbs[index] : undefined;
-              const title = "";
+              const title = trendingTitles[index % trendingTitles.length] || video.title;
               return (
                 <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
                   <VideoPlaceholder
-                    title={""}
+                    title={title}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={undefined}
                     likes={video.likes}
                     comments={video.comments}
                     views={video.views}
-                    cardHeight={420}
-                    mediaHeight={index === 0 ? 320 : 240}
-                    thumbnailSrc={thumb ? `${thumb}&cb=1` : undefined}
-                    fit="cover"
+                    cardHeight={"auto"}
+                    mediaHeight={"auto"}
+                    thumbnailSrc={thumb ? `${thumb}&cb=${index}` : undefined}
+                    fit="contain"
                     showBuyButton={false}
                     showPrice={false}
-                    showPlayOverlay={index !== 0}
-                    hideTitle={true}
+                    showPlayOverlay={true}
+                    hideTitle={false}
                   />
                 </div>
               );
