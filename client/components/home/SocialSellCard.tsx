@@ -92,7 +92,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
   };
 
   const priceBlock = (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 min-h-[28px] w-full">
       <div className="text-xl font-bold">£{price.toFixed(2)}</div>
       {originalPrice && (
         <div className="text-sm text-gray-500 line-through">£{originalPrice.toFixed(2)}</div>
@@ -116,7 +116,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
   );
 
   const socialRow = (
-    <div className="flex items-center justify-between text-xs text-gray-600">
+    <div className="flex items-center justify-between text-xs text-gray-600 min-h-[20px]">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {likes.toLocaleString()}</div>
         <div className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {boughtIn24h} bought in 24h</div>
@@ -235,9 +235,9 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           {priceBlock}
         </div>
         <div className="mt-2 flex items-center gap-2 h-10">
-          <Button onClick={addToCart} className="bg-black hover:bg-gray-900 text-white">{added ? "Added" : "Add to Cart"}</Button>
+          <Button onClick={addToCart} className="bg-black hover:bg-gray-900 text-white h-9 px-4">{added ? "Added" : "Add to Cart"}</Button>
           {videoSrc && !hideWatchButton && (
-            <Button variant="outline" className="gap-2"><Play className="w-4 h-4" /> Watch 15s</Button>
+            <Button variant="outline" className="gap-2 h-9 px-4"><Play className="w-4 h-4" /> Watch 15s</Button>
           )}
         </div>
         <div className="mt-auto pt-3 border-t border-gray-100">{socialRow}</div>
