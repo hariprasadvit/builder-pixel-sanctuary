@@ -1,6 +1,8 @@
 import React from "react";
+import React from "react";
 import { BrandBannerPlaceholder, ProductPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 import ElectronicsCategoryIcons from "@/components/home/ElectronicsCategoryIcons";
+import StarterPacksRail from "@/components/home/StarterPacksRail";
 
 const CATEGORIES = [
   { key: 'electronics', title: 'Electronics' },
@@ -18,7 +20,8 @@ export default function CategoryHighlights() {
     <section className="py-10 bg-white">
       <div className="container mx-auto px-4 space-y-10">
         {CATEGORIES.map((cat) => (
-          <div key={cat.key} className="bg-white rounded-2xl shadow overflow-hidden">
+          <React.Fragment key={cat.key}>
+            <div className="bg-white rounded-2xl shadow overflow-hidden">
               <div className="bg-gradient-to-r from-[#e6ecf7] to-[#fde7e7] text-gray-900 p-4">
                 <h3 className="text-xl font-bold">{cat.title}</h3>
               </div>
@@ -74,6 +77,10 @@ export default function CategoryHighlights() {
                 </div>
               </div>
             </div>
+            {cat.key === 'electronics' && (
+              <StarterPacksRail />
+            )}
+          </React.Fragment>
         ))}
       </div>
     </section>
