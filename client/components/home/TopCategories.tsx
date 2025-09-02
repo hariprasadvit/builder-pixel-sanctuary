@@ -26,15 +26,46 @@ const CATS: Cat[] = [
 const FALLBACK_IMG = "/placeholder.svg";
 
 function Tile({ title, image, imageClass }: { title: string; image?: string; imageClass?: string }) {
+  const [t, setT] = React.useState({ rx: 0, ry: 0, s: 1 });
+  const onMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    const ry = (px - 0.5) * 14;
+    const rx = (0.5 - py) * 14;
+    setT({ rx, ry, s: 1.08 });
+  };
+  const onLeave = () => setT({ rx: 0, ry: 0, s: 1 });
+
   return (
-    <button className="group flex flex-col items-center w-24 sm:w-28">
-      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
-        <div className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 transition-all duration-300 group-hover:ring-2 group-hover:ring-sky-300">
-          <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(59,130,246,0.35),rgba(99,102,241,0.25),transparent_65%)] opacity-0 group-hover:opacity-100 blur-md"></div>
+    <button className="group flex flex-col items-center w-24 sm:w-28" onMouseMove={onMove} onMouseLeave={onLeave}>
+      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-2xl">
+        <div
+          className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5"
+          style={{
+            transform: `perspective(700px) rotateX(${t.rx}deg) rotateY(${t.ry}deg) scale(${t.s})`,
+            transformStyle: "preserve-3d",
+            transition: "transform 300ms cubic-bezier(.2,.8,.2,1)",
+          }}
+        >
+          <div
+            className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100"
+            style={{
+              background:
+                "radial-gradient(60% 60% at 50% 40%, rgba(59,130,246,0.35), rgba(99,102,241,0.25), transparent 70%)",
+              filter: "blur(6px)",
+              transform: "translateZ(1px)",
+              transition: "opacity 300ms ease",
+            }}
+          />
           <img
             src={image || FALLBACK_IMG}
             alt={title}
-            className={"relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain object-center transition-transform group-hover:scale-105 group-hover:drop-shadow-md " + (imageClass || "")}
+            className={
+              "relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain object-center transition-transform group-hover:drop-shadow-xl " +
+              (imageClass || "")
+            }
+            style={{ transform: "translateZ(30px)" }}
             onError={(e) => {
               const t = e.target as HTMLImageElement;
               t.src = FALLBACK_IMG;
