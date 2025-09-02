@@ -74,13 +74,13 @@ export default function HeroCarousel() {
       <div className="container mx-auto px-4 py-6 md:py-8">
         <div className="relative overflow-hidden rounded-2xl bg-gray-900">
           {/* Groups */}
-          <div className="relative w-full">
+          <div className="relative w-full h-[360px] md:h-[520px]">
             {groups.map((pair, gi) => (
               <div
                 key={gi}
                 className={`absolute inset-0 transition-opacity duration-700 ${gi === currentGroup ? "opacity-100 z-10" : "opacity-0 z-0"}`}
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+                <div className="grid grid-cols-2 gap-4 p-4 h-full">
                   {pair.map((slide) => (
                     <div key={slide.id} className="relative w-full aspect-square cursor-pointer" onClick={() => handleClick(slide)}>
                       <img src={slide.image} alt={slide.alt} className="absolute inset-0 w-full h-full object-cover rounded-xl" />
@@ -88,7 +88,7 @@ export default function HeroCarousel() {
                     </div>
                   ))}
                   {pair.length === 1 && (
-                    <div className="hidden sm:block" />
+                    <div />
                   )}
                 </div>
           </div>
