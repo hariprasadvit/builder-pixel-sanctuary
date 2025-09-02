@@ -207,7 +207,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
   );
 
   return (
-    <div className={`group rounded-2xl bg-white shadow-sm overflow-hidden p-4 flex flex-col w-full max-w-[300px] min-w-[280px] h-[540px]`} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <div className={`group rounded-2xl bg-white shadow-sm overflow-hidden p-4 flex flex-col w-[288px] md:w-[296px] h-[560px]`} onMouseEnter={onEnter} onMouseLeave={onLeave}>
       {header}
 
       <div className="mt-3 relative">
@@ -216,12 +216,12 @@ export default function SocialSellCard(props: SocialSellCardProps) {
       </div>
 
       <div className="mt-3 flex-1 flex flex-col">
-        <h3 className="text-base font-semibold line-clamp-2">{title}</h3>
+        <h3 className="text-base font-semibold line-clamp-2 min-h-[40px]">{title}</h3>
         <div className="mt-1 flex items-center gap-2">
           <Stars value={rating} />
           <span className="text-xs text-gray-600">{rating.toFixed(1)} · {ratingCount.toLocaleString()}</span>
         </div>
-        <ul className="mt-2 list-disc pl-5 text-xs text-gray-800 space-y-1">
+        <ul className="mt-2 list-disc pl-5 text-xs text-gray-800 space-y-1 min-h-[48px]">
           {bullets.slice(0,3).map((b,i)=> <li key={i} className="line-clamp-1">{b}</li>)}
         </ul>
         <div className="mt-2 text-xs text-gray-500 flex items-center gap-2">
@@ -231,13 +231,13 @@ export default function SocialSellCard(props: SocialSellCardProps) {
         <div className="mt-2">
           {priceBlock}
         </div>
-        <div className="mt-2 flex items-center gap-2">
+        <div className="mt-2 flex items-center gap-2 h-10">
           <Button onClick={addToCart} className="bg-black hover:bg-gray-900 text-white">{added ? "Added" : "Add to Cart"}</Button>
           {videoSrc && (
             <Button variant="outline" className="gap-2"><Play className="w-4 h-4" /> Watch 15s</Button>
           )}
         </div>
-        <div className="mt-auto pt-3">{socialRow}</div>
+        <div className="mt-auto pt-3 border-t border-gray-100">{socialRow}</div>
         <div className="mt-2 text-[11px] text-gray-500 self-start flex items-center gap-1"><Info className="w-3.5 h-3.5" /> AI-generated summary</div>
       </div>
     </div>
