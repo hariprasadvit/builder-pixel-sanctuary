@@ -29,11 +29,12 @@ function Tile({ title, image }: { title: string; image?: string }) {
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28">
       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
-        <div className="w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#1f3b8a] group-hover:via-[#2e63ff] group-hover:to-[#ff3b30]">
+        <div className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 transition-all duration-300 group-hover:ring-2 group-hover:ring-sky-300">
+          <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(59,130,246,0.35),rgba(99,102,241,0.25),transparent_65%)] opacity-0 group-hover:opacity-100 blur-md"></div>
           <img
             src={image || FALLBACK_IMG}
             alt={title}
-            className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform group-hover:scale-105"
+            className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform group-hover:scale-105 group-hover:drop-shadow-md"
             onError={(e) => {
               const t = e.target as HTMLImageElement;
               t.src = FALLBACK_IMG;
