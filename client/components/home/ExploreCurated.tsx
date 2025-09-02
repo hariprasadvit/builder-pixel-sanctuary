@@ -28,14 +28,14 @@ export default function ExploreCurated() {
           </div>
         </div>
 
-        <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6">
-          <button aria-label="Previous" onClick={() => scrollByCards(-1)} className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-gray-900 shadow items-center justify-center">
+        <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6 overflow-hidden">
+          <button aria-label="Previous" onClick={() => scrollByCards(-1)} className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-900 shadow items-center justify-center ring-1 ring-black/10">
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button aria-label="Next" onClick={() => scrollByCards(1)} className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-gray-900 shadow items-center justify-center">
+          <button aria-label="Next" onClick={() => scrollByCards(1)} className="flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-30 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-900 shadow items-center justify-center ring-1 ring-black/10">
             <ChevronRight className="w-5 h-5" />
           </button>
-          <div ref={railRef} className="p-4 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+          <div ref={railRef} className="p-4 px-10 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
               price={599.0}
