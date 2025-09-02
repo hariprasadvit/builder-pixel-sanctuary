@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Heart, Play, Star, Info, MessageCircle, Users, Share2, Bookmark, TicketPercent } from "lucide-react";
+import { Heart, Play, Star, Info, MessageCircle, Users, Share2, Eye, TicketPercent } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export interface ReviewSourceSnippet {
@@ -118,14 +118,11 @@ export default function SocialSellCard(props: SocialSellCardProps) {
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {likes.toLocaleString()}</div>
         <div className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {boughtIn24h} bought in 24h</div>
-        {liveViewers ? (
-          <div className="flex items-center gap-1 text-rose-600"><Users className="w-3.5 h-3.5" /> {liveViewers} watching</div>
+        {typeof liveViewers === "number" && liveViewers > 0 ? (
+          <div className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" /> {liveViewers} watching</div>
         ) : null}
       </div>
-      <div className="flex items-center gap-3">
-        <button aria-label="Save" className="text-gray-500 hover:text-gray-700"><Bookmark className="w-4 h-4" /></button>
-        <button aria-label="Share" className="text-gray-500 hover:text-gray-700"><Share2 className="w-4 h-4" /></button>
-      </div>
+      <button aria-label="Share" className="text-gray-500 hover:text-gray-700"><Share2 className="w-4 h-4" /></button>
     </div>
   );
 
@@ -137,7 +134,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
 
   const [posterError, setPosterError] = useState(false);
   const media = (
-    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-[4/5]">
+    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-square">
       {videoSrc ? (
         <video
           ref={videoRef}
@@ -166,9 +163,6 @@ export default function SocialSellCard(props: SocialSellCardProps) {
             <Play className="w-6 h-6 text-gray-800" />
           </span>
         </div>
-      )}
-      {liveViewers && (
-        <div className="absolute top-2 left-2 text-xs bg-rose-600 text-white px-2 py-0.5 rounded-full">LIVE</div>
       )}
     </div>
   );
@@ -218,9 +212,6 @@ export default function SocialSellCard(props: SocialSellCardProps) {
 
       <div className="mt-3 relative">
         {media}
-        {liveViewers && (
-          <div className="absolute top-2 left-2 text-[10px] bg-rose-600 text-white px-2 py-0.5 rounded-full">LIVE</div>
-        )}
         <div className="absolute top-2 right-2 text-[10px] bg-white/90 text-gray-700 px-2 py-0.5 rounded-full shadow">updated {updatedAgo}</div>
       </div>
 
@@ -247,7 +238,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           )}
         </div>
         <div className="mt-auto pt-3">{socialRow}</div>
-        <div className="mt-2 text-[11px] text-gray-500 self-end flex items-center gap-1"><Info className="w-3.5 h-3.5" /> AI-generated summary</div>
+        <div className="mt-2 text-[11px] text-gray-500 self-start flex items-center gap-1"><Info className="w-3.5 h-3.5" /> AI-generated summary</div>
       </div>
     </div>
   );
