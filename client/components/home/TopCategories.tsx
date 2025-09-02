@@ -5,8 +5,8 @@ type Cat = { key: string; title: string; image?: string; imageClass?: string };
 // Names taken from the provided image, with Mobiles and Computers split
 const CATS: Cat[] = [
   { key: "mobiles", title: "Mobiles", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d17e099b1064112ad70871b716e3984?format=webp&width=800" },
-  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8900fc31a3494cac8c40b9acb5e4ba38?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
-  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe3b86983d8064ffdb147b92db68300bb?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
+  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8900fc31a3494cac8c40b9acb5e4ba38?format=webp&width=800", imageClass: "translate-y-[1px]" },
+  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe3b86983d8064ffdb147b92db68300bb?format=webp&width=800", imageClass: "translate-y-[1px]" },
   { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02e9345e95c5449292f95829d48eece8?format=webp&width=800" },
   { key: "electronics", title: "Electronics", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F27e79e4f98de4acb8bd3436c9719b7a5?format=webp&width=800" },
   { key: "mens-fashion", title: "Men's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf8dc3525b18405e968ad5ae6ebd59a3?format=webp&width=800" },
@@ -56,7 +56,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
             src={image || FALLBACK_IMG}
             alt={title}
             className={
-              "relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain object-center transition-transform group-hover:drop-shadow-xl " +
+              "relative z-10 w-16 h-16 sm:w-18 sm:h-18 object-contain object-center transition-transform group-hover:drop-shadow-xl " +
               (imageClass || "")
             }
             style={{ transform: `translateZ(${t.dz + 20}px)` }}
