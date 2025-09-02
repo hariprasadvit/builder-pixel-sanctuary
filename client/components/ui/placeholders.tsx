@@ -143,6 +143,7 @@ interface ProductPlaceholderProps extends BaseCardProps {
   thumbnailSrc?: string;
   fit?: "contain" | "cover";
   showBuyButton?: boolean;
+  showPrice?: boolean;
   mediaPadding?: string; // e.g. "px-4 py-3"
 }
 
@@ -156,6 +157,7 @@ export function ProductPlaceholder({
   thumbnailSrc,
   fit = "contain",
   showBuyButton = true,
+  showPrice = true,
   cardHeight = 420,
   mediaHeight = 240,
   className = "",
@@ -187,12 +189,14 @@ export function ProductPlaceholder({
       </div>
       <div className="flex-1 p-3 flex flex-col">
         <h3 className="font-medium text-sm line-clamp-2 mb-2">{title}</h3>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="font-bold text-base">£{price.toFixed(2)}</span>
-          {originalPrice && (
-            <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
-          )}
-        </div>
+        {showPrice && (
+          <div className="flex items-center gap-2 mb-2">
+            <span className="font-bold text-base">£{price.toFixed(2)}</span>
+            {originalPrice && (
+              <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
+            )}
+          </div>
+        )}
         <div className="flex items-center text-gray-600 text-xs mb-3">
           <RatingStars value={rating} size={12} />
           <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
