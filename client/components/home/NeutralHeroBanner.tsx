@@ -1,34 +1,20 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { BrandBannerPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 
 export default function NeutralHeroBanner() {
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-4 py-10">
-        <div className="relative">
-          <BrandBannerPlaceholder title="Hero Banner Placeholder" height="h-80" className="opacity-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#e6ecf7] to-[#fde7e7] rounded-2xl" />
-          <div className="absolute inset-0 p-6 md:p-10 flex items-center">
-            <div className="max-w-2xl text-gray-900">
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Your Marketplace. Your Pace.</h1>
-              <p className="text-gray-700 text-lg md:text-xl mb-6">Clean, aligned, and packed with variety. Shop products and videos in one place.</p>
-              <div className="flex gap-3">
-                <Button className="bg-black text-white hover:bg-black/90">Shop Now</Button>
-                <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-100">Discover Deals</Button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-6 right-6 w-48 hidden md:block">
-            <div className="rounded-xl shadow-lg overflow-hidden bg-white">
-              {/* Mini featured reel */}
-              <div className="p-2">
-                <div className="scale-95 origin-bottom-right">
-                  <VideoPlaceholder title="Featured Reel" price={79.99} originalPrice={99.99} likes={1200} comments={30} views={5400} cardHeight={160} mediaHeight={110} />
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="container mx-auto px-4 py-6 md:py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0321792062974de6832309764cd809b8?format=webp&width=1200"
+            alt="Hero Banner 1"
+            className="w-full h-60 md:h-96 object-cover rounded-2xl shadow"
+          />
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F77fb44a0cff44dd0997d0e2860a8ecd2?format=webp&width=1200"
+            alt="Hero Banner 2"
+            className="w-full h-60 md:h-96 object-cover rounded-2xl shadow"
+          />
         </div>
       </div>
     </section>
