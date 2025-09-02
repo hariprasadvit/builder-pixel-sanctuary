@@ -54,7 +54,7 @@ export function VideoPlaceholder({
   const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={outerStyle}>
-      <div className="relative w-full bg-white flex items-center justify-center" style={{ height: mediaHeight }}>
+      <div className="relative w-full bg-white flex items-center justify-center p-3" style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
           <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
         ) : (
