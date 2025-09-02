@@ -131,7 +131,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               return (
                 <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
-                    title={index === 0 ? "Top Trends in Women's Clothing" : ""}
+                    title={""}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={undefined}
@@ -163,7 +163,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               return (
                 <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
                   <VideoPlaceholder
-                    title={index === 0 ? "Top Trends in Women's Clothing" : ""}
+                    title={""}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={undefined}
