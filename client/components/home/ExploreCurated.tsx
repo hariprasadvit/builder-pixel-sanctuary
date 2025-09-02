@@ -3,12 +3,12 @@ import { ProductPlaceholder } from "@/components/ui/placeholders";
 
 export default function ExploreCurated() {
   return (
-    <section className="relative overflow-hidden pt-10 pb-80 md:pb-96 lg:pb-[28rem] bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
+    <section className="relative overflow-hidden pt-10 pb-48 md:pb-64 lg:pb-72 bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
       {/* Bottom skyline image above gradient, behind content */}
       <img
-        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8ab21c23e05242b796c978252ec08b1b?format=webp&width=1600"
+        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffabb4857a3564d13b09fe1ba4694fa74?format=webp&width=1600"
         alt="London skyline"
-        className="pointer-events-none select-none absolute inset-x-0 bottom-0 z-0 w-full h-44 md:h-64 lg:h-72 object-cover object-bottom"
+        className="pointer-events-none select-none absolute inset-x-0 bottom-0 z-0 w-full h-48 md:h-64 lg:h-72 object-cover object-bottom"
       />
 
       <div className="relative z-20 container mx-auto px-4">
@@ -19,7 +19,7 @@ export default function ExploreCurated() {
           </div>
         </div>
 
-        <div className="rounded-2xl shadow-lg overflow-hidden bg-white mb-8 md:mb-12 lg:mb-14">
+        <div className="rounded-2xl shadow-lg overflow-hidden bg-white mb-2 md:mb-4 lg:mb-6">
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
