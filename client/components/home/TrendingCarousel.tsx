@@ -135,10 +135,12 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               const heights = [220, 300, 260, 280, 240, 320];
               const h = heights[index % heights.length];
               const horizontal = index % 3 === 0; // mix aspect ratios for variety
+              const thumb = trendingThumbs[index % trendingThumbs.length];
+              const title = trendingTitles[index % trendingTitles.length] || video.title;
               return (
                 <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
-                    title={video.title}
+                    title={title}
                     price={video.price}
                     originalPrice={video.originalPrice}
                     badge={video.badge}
@@ -148,6 +150,8 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     aspect={horizontal ? "16/9" : "9/16"}
                     cardHeight="auto"
                     mediaHeight={h}
+                    thumbnailSrc={thumb}
+                    fit={horizontal ? "cover" : "cover"}
                   />
                 </div>
               );
