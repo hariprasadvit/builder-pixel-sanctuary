@@ -95,6 +95,42 @@ export default function ExploreCurated() {
               mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
+
+            <ProductPlaceholder
+              title="Ninja CRISPi Air Fryer"
+              price={89.99}
+              originalPrice={109.99}
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
+              fit="contain"
+              showBuyButton={false}
+              cardHeight="auto"
+              mediaHeight={140}
+              className="min-w-[220px] md:min-w-[240px] snap-start"
+            />
+
+            <ProductPlaceholder
+              title="TRIP Magnesium Powder – Pomegranate"
+              price={24.99}
+              originalPrice={29.99}
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
+              fit="contain"
+              showBuyButton={false}
+              cardHeight="auto"
+              mediaHeight={140}
+              className="min-w-[220px] md:min-w-[240px] snap-start"
+            />
+
+            <ProductPlaceholder
+              title="Vileda Turbo Mop & Bucket Bundle"
+              price={42.99}
+              originalPrice={52.99}
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4351f4cb715647bbb2c6fc9ee39be1c3?format=webp&width=800"
+              fit="contain"
+              showBuyButton={false}
+              cardHeight="auto"
+              mediaHeight={140}
+              className="min-w-[220px] md:min-w-[240px] snap-start"
+            />
           </div>
         </div>
       </div>
