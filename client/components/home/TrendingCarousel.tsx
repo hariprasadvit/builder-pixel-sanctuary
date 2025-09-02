@@ -141,7 +141,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     aspect={horizontal ? "16/9" : "9/16"}
                     cardHeight="auto"
                     mediaHeight={h}
-                    thumbnailSrc={thumb}
+                    thumbnailSrc={thumb ? `${thumb}&cb=1` : undefined}
                     fit={"cover"}
                     showBuyButton={false}
                     showPrice={false}
@@ -172,7 +172,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     views={video.views}
                     cardHeight={420}
                     mediaHeight={index === 0 ? 320 : 240}
-                    thumbnailSrc={thumb}
+                    thumbnailSrc={thumb ? `${thumb}&cb=1` : undefined}
                     fit="cover"
                     showBuyButton={false}
                     showPrice={false}
