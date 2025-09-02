@@ -26,6 +26,7 @@ export default function Index() {
       <TopCategories />
       <SocialSellSection />
       <CategoryHighlights />
+      <SocialSnapshotRail />
       <DealsStrip />
       <BestsellerHighlights />
       <HomeFiveUps />
