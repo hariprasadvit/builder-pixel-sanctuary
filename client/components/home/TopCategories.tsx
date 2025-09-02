@@ -8,10 +8,10 @@ const CATS: Cat[] = [
   { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc3e115ae06ce4f08b0eaa77471fb507a?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
   { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F627e0515a575433d90703254492d1c22?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
   { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8ddfde238b05411582527aeed643e130?format=webp&width=800" },
-  { key: "electronics", title: "Electronics", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4dbe39834cce48e1a9655d4ef700ae76?format=webp&width=800" },
-  { key: "mens-fashion", title: "Men's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe19e8d84770242cebcfb2df564aaea6f?format=webp&width=800" },
-  { key: "womens-fashion", title: "Women's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff67a725a185b47c2a93d039baf7b224a?format=webp&width=800" },
-  { key: "home", title: "Home", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc02dfd2182584380b7b0195ef8b351e2?format=webp&width=800" },
+  { key: "electronics", title: "Electronics", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F27e79e4f98de4acb8bd3436c9719b7a5?format=webp&width=800" },
+  { key: "mens-fashion", title: "Men's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf8dc3525b18405e968ad5ae6ebd59a3?format=webp&width=800" },
+  { key: "womens-fashion", title: "Women's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdd3640d0b5ab4ff7ba99e6c3603eb6ee?format=webp&width=800" },
+  { key: "home", title: "Home", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F42c90a6eb3794d69b343781be14d60dc?format=webp&width=800" },
   { key: "kitchen", title: "Kitchen", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F23aa8fe6776b4861be2ed1b535e9436b?format=webp&width=800" },
   { key: "pets", title: "Pets", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F353a1359f90c48e3b0dbd5cb92e13566?format=webp&width=800" },
   { key: "beauty", title: "Beauty", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0991d73e48814d5cb039b3a9b211fa9c?format=webp&width=800" },
@@ -39,9 +39,9 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
 
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28" onMouseMove={onMove} onMouseLeave={onLeave}>
-      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-2xl">
+      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-2xl will-change-transform spin-on-hover">
         <div
-          className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5"
+          className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 overflow-hidden"
           style={{
             transform: `perspective(700px) rotateX(${t.rx}deg) rotateY(${t.ry}deg) scale(${t.s})`,
             transformStyle: "preserve-3d",
@@ -58,6 +58,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
               transition: "opacity 300ms ease",
             }}
           />
+          <div className="shine-strip animate-shine z-20 mix-blend-screen" />
           <img
             src={image || FALLBACK_IMG}
             alt={title}
