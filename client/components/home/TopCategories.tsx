@@ -67,7 +67,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
           />
         </div>
       </div>
-      <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2 group-hover:text-sky-700">
+      <div className="mt-3 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2 group-hover:text-sky-700">
         {title}
       </div>
     </button>
@@ -78,7 +78,10 @@ export default function TopCategories() {
   return (
     <section className="py-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-50 via-white to-fuchsia-50">
       <div className="container mx-auto px-4 bg-white/70 backdrop-blur-sm rounded-2xl ring-1 ring-black/5 p-4">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Top Categories</h2>
+        <div className="flex items-center gap-3 mb-5">
+          <span className="text-2xl">📚</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Top Categories</h2>
+        </div>
 
         {/* Desktop grid (structure unchanged) */}
         <div className="hidden md:grid grid-cols-6 gap-5">
