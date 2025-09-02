@@ -2,13 +2,13 @@ import React from "react";
 
 const slides = [
   {
-    id: "heinz",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffa37068b30a242078e7f5352e7a10cc0?format=webp&width=2000",
-    alt: "Heinz Stockingz Meanz Heinz Banner",
+    id: "lenovo",
+    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdc07b67b48df45a5aafbcac52e9ec7ff?format=webp&width=2400",
+    alt: "Lenovo Empowering Progress Banner",
   },
   {
     id: "cadbury",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F36571411fdb24db4bdbf238955b43fd8?format=webp&width=2000",
+    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F36571411fdb24db4bdbf238955b43fd8?format=webp&width=2400",
     alt: "Cadbury Coconut Chocolate Banner",
   },
 ];
