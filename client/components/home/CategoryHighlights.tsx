@@ -19,94 +19,93 @@ export default function CategoryHighlights() {
   return (
     <section className="py-10 bg-white">
       <div className="container mx-auto px-4 space-y-10">
-        {CATEGORIES.map((cat, idx) => (
-          <div key={cat.key} className="bg-white rounded-2xl shadow overflow-hidden">
-            <div className="bg-gradient-to-r from-[#e6ecf7] to-[#fde7e7] text-gray-900 p-4">
-              <h3 className="text-xl font-bold">{cat.title}</h3>
-            </div>
-            <div className="p-4">
-              {cat.key === 'electronics' ? (
-                <>
-                  <div className="w-full rounded-2xl overflow-hidden mb-4">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F38cd87269c174fc998ce6e04af10a52f?format=webp&width=1440"
-                      alt="Epic Deals Banner"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  <ElectronicsCategoryIcons />
-                </>
-              ) : (
-                <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
-              )}
-              {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
-              {cat.key !== 'electronics' && (
-                <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
-                  ))}
-                </div>
-              )}
-              <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-4">
+        {CATEGORIES.map((cat) => (
+          <React.Fragment key={cat.key}>
+            <div className="bg-white rounded-2xl shadow overflow-hidden">
+              <div className="bg-gradient-to-r from-[#e6ecf7] to-[#fde7e7] text-gray-900 p-4">
+                <h3 className="text-xl font-bold">{cat.title}</h3>
+              </div>
+              <div className="p-4">
                 {cat.key === 'electronics' ? (
-                  [
-                    { title: 'Dell Inspiron 15 (Ryzen)', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a53cb8ad3da4225822a3c8461db49ed?format=webp&width=800', price: 599.0, original: 699.0 },
-                    { title: 'MacBook Air 13" (M2)', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4971f1c6a0994cb5aeab807ca690b9df?format=webp&width=800', price: 999.0, original: 1099.0 },
-                    { title: 'Sony ZV-1 Vlog Camera', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa69fd77e1c714a3986bb29bf712560dd?format=webp&width=800', price: 549.0, original: 599.0 },
-                    { title: 'boAt Wave Smartwatch', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff8632b0180b34fac94d990c1099d25db?format=webp&width=800', price: 39.0, original: 59.0 },
-                    { title: 'boAt Party Speaker 160W', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9c80bcb62fce48ebbcdbb8299649b4ca?format=webp&width=800', price: 129.0, original: 149.0 },
-                  ].map((p, i) => (
-                    <ProductPlaceholder
-                      key={`elec-${i}`}
-                      title={p.title}
-                      price={p.price}
-                      originalPrice={p.original}
-                      thumbnailSrc={p.img}
-                      fit="contain"
-                      cardHeight={380}
-                      mediaHeight={220}
-                      mediaPadding="px-4 py-3"
-                    />
-                  ))
+                  <>
+                    <div className="w-full rounded-2xl overflow-hidden mb-4">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F38cd87269c174fc998ce6e04af10a52f?format=webp&width=1440"
+                        alt="Epic Deals Banner"
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                    <ElectronicsCategoryIcons />
+                  </>
                 ) : (
-                  Array.from({ length: 5 }).map((_, i) => (
-                    <ProductPlaceholder key={`p-${i}`} title={`${cat.title} Product`} price={49.99} originalPrice={69.99} cardHeight={420} mediaHeight={240} />
-                  ))
+                  <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
+                )}
+                {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
+                {cat.key !== 'electronics' && (
+                  <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
+                    ))}
+                  </div>
+                )}
+                <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-4">
+                  {cat.key === 'electronics' ? (
+                    [
+                      { title: 'Dell Inspiron 15 (Ryzen)', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a53cb8ad3da4225822a3c8461db49ed?format=webp&width=800', price: 599.0, original: 699.0 },
+                      { title: 'MacBook Air 13" (M2)', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4971f1c6a0994cb5aeab807ca690b9df?format=webp&width=800', price: 999.0, original: 1099.0 },
+                      { title: 'Sony ZV-1 Vlog Camera', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa69fd77e1c714a3986bb29bf712560dd?format=webp&width=800', price: 549.0, original: 599.0 },
+                      { title: 'boAt Wave Smartwatch', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff8632b0180b34fac94d990c1099d25db?format=webp&width=800', price: 39.0, original: 59.0 },
+                      { title: 'boAt Party Speaker 160W', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9c80bcb62fce48ebbcdbb8299649b4ca?format=webp&width=800', price: 129.0, original: 149.0 },
+                    ].map((p, i) => (
+                      <ProductPlaceholder
+                        key={`elec-${i}`}
+                        title={p.title}
+                        price={p.price}
+                        originalPrice={p.original}
+                        thumbnailSrc={p.img}
+                        fit="contain"
+                        cardHeight={380}
+                        mediaHeight={220}
+                        mediaPadding="px-4 py-3"
+                      />
+                    ))
+                  ) : (
+                    Array.from({ length: 5 }).map((_, i) => (
+                      <ProductPlaceholder key={`p-${i}`} title={`${cat.title} Product`} price={49.99} originalPrice={69.99} cardHeight={420} mediaHeight={240} />
+                    ))
+                  )}
+                </div>
+                {cat.key === 'electronics' && (
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="rounded-2xl overflow-hidden shadow-sm">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F60da2549f1714e9fb519611d4a5e5f45?format=webp&width=1440"
+                        alt="Runs all day promo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-sm">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9b2cb8424dd6417bb4c4b8b7f7c20a6d?format=webp&width=1440"
+                        alt="TV Trade-in promo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-sm">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb373a36820cb4639a1cedc022d73068a?format=webp&width=1440"
+                        alt="Intel Gamer Days promo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
                 )}
               </div>
-              {cat.key === 'electronics' && (
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="rounded-2xl overflow-hidden shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F60da2549f1714e9fb519611d4a5e5f45?format=webp&width=1440"
-                      alt="Runs all day promo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9b2cb8424dd6417bb4c4b8b7f7c20a6d?format=webp&width=1440"
-                      alt="TV Trade-in promo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb373a36820cb4639a1cedc022d73068a?format=webp&width=1440"
-                      alt="Intel Gamer Days promo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              )}
-              {(cat.key === 'electronics' || cat.key === 'cellphones') && (
-                <div className="mt-6">
-                  {/* Standalone rail below this category */}
-                  <SocialSnapshotRail />
-                </div>
-              )}
             </div>
-          </div>
+            {(cat.key === 'electronics' || cat.key === 'cellphones') && (
+              <SocialSnapshotRail />
+            )}
+          </React.Fragment>
         ))}
       </div>
     </section>
