@@ -66,8 +66,8 @@ export default function HeroCarousel() {
               >
                 <div className="grid grid-cols-2 gap-3 p-0 h-full">
                   {pair.map((slide) => (
-                    <div key={slide.id} className="relative w-full h-full aspect-square cursor-pointer bg-white rounded-xl overflow-hidden flex items-center justify-center" onClick={() => handleClick(slide)}>
-                      <img src={slide.image} alt={slide.alt} className="w-full h-full object-contain" />
+                    <div key={slide.id} className="relative w-full h-full aspect-square cursor-pointer bg-white rounded-xl overflow-hidden flex items-center justify-center p-4 md:p-6" onClick={() => handleClick(slide)}>
+                      <img src={slide.image} alt={slide.alt} className="max-w-full max-h-full w-auto h-auto object-contain" />
                     </div>
                   ))}
                   {pair.length === 1 && (
