@@ -115,6 +115,8 @@ interface ProductPlaceholderProps extends BaseCardProps {
   badge?: string;
   rating?: number;
   reviews?: number;
+  thumbnailSrc?: string;
+  fit?: "contain" | "cover";
 }
 
 export function ProductPlaceholder({
@@ -124,6 +126,8 @@ export function ProductPlaceholder({
   badge,
   rating = 4.5,
   reviews = 120,
+  thumbnailSrc,
+  fit = "contain",
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
@@ -132,13 +136,17 @@ export function ProductPlaceholder({
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="w-full max-h-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
-          <div className="text-center text-gray-600">
-            <div className="w-12 h-12 bg-gray-200 rounded-lg mb-2 mx-auto" />
-            <p className="text-xs font-medium">Product Image</p>
-            <p className="text-[10px] text-gray-400">Preview</p>
+        {thumbnailSrc ? (
+          <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+        ) : (
+          <div className="w-full max-h-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
+            <div className="text-center text-gray-600">
+              <div className="w-12 h-12 bg-gray-200 rounded-lg mb-2 mx-auto" />
+              <p className="text-xs font-medium">Product Image</p>
+              <p className="text-[10px] text-gray-400">Preview</p>
+            </div>
           </div>
-        </div>
+        )}
         {badge && (
           <div className="absolute top-2 left-2">
             <Badge className="bg-red-500 text-white text-[10px]">{badge}</Badge>
