@@ -55,7 +55,7 @@ export default function HeroCarousel() {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-4 py-2 md:py-3">
+      <div className="container mx-auto px-4 py-0 md:py-0">
         <div className="relative overflow-hidden rounded-2xl bg-white">
           {/* Groups */}
           <div className="relative w-full h-[360px] md:h-[520px]">
