@@ -2,25 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 
 const slides = [
   {
-    id: "electronics-banner",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fea9f6de49da84fd7a1ab28815aaf4c31?format=webp&width=800",
-    alt: "Electronics Pattern Banner",
-    fit: "cover" as const,
-    bg: "#f6d81f",
-  },
-  {
-    id: "electronics-center",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F94552783bfc9498c9d8242db2f693b2a?format=webp&width=800",
-    alt: "Electronics Accessories Cluster",
-    fit: "contain" as const,
-    bg: "#f6d81f",
-  },
-  {
-    id: "samsung",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F59a892c20f5b43d48e6fc3b754383b2b?format=webp&width=2400",
-    alt: "Samsung Super Brand Day Banner",
-    fit: "cover" as const,
-    bg: "#ffffff",
+    id: "lenovo",
+    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdc07b67b48df45a5aafbcac52e9ec7ff?format=webp&width=2400",
+    alt: "Lenovo",
   },
 ];
 
