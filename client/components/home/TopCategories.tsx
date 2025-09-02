@@ -56,7 +56,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
             src={image || FALLBACK_IMG}
             alt={title}
             className={
-              "relative z-10 w-16 h-16 sm:w-[72px] sm:h-[72px] object-contain object-center transition-transform group-hover:drop-shadow-xl " +
+              "relative z-10 w-[70px] h-[70px] sm:w-[84px] sm:h-[84px] object-contain object-center transition-transform group-hover:drop-shadow-xl " +
               (imageClass || "")
             }
             style={{ transform: `translateZ(${t.dz + 20}px)` }}
