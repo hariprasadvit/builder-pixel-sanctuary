@@ -47,7 +47,7 @@ export function VideoPlaceholder({
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "h-full max-w-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center`}>
+        <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center`}>
           <div className="text-center text-gray-600">
             <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-2 mx-auto">
               <Play className="w-5 h-5 text-gray-500" />
@@ -120,7 +120,7 @@ export function ProductPlaceholder({
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
       <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
-        <div className="h-full max-w-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
+        <div className="w-full max-h-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
           <div className="text-center text-gray-600">
             <div className="w-12 h-12 bg-gray-200 rounded-lg mb-2 mx-auto" />
             <p className="text-xs font-medium">Product Image</p>
