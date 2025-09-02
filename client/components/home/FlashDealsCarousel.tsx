@@ -22,7 +22,7 @@ export default function FlashDealsCarousel() {
   const mediaHeight = 240;
 
   return (
-    <section className="py-8 bg-white">
+    <section className="pt-2 pb-8 bg-white">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <SectionHeader title="Flash Deals" icon="⚡" gradientClass="bg-gradient-to-r from-[#fde7e7] to-[#ffcdd2]" textClass="text-gray-900">
