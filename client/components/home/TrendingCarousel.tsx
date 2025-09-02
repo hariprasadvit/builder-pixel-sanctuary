@@ -102,7 +102,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     "Best Toys of 2025",
     "Must-Have Gym Equipment",
     "Best MacBook To Choose For You",
-    "Top Household Essentials 2025",
+    "Best Gifting Ideas 2025",
     "Best UPS & Inverters 2025",
     "Gen Z Men’s Style 2025",
     "Best Furniture Picks 2025",
