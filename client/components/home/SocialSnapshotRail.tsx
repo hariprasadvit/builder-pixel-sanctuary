@@ -121,7 +121,7 @@ function SnapshotCard({ data }: { data: CardData }) {
 export default function SocialSnapshotRail() {
   return (
     <section aria-label="Social Snapshot Rail" className="py-8">
-      <div className="max-w-screen-xl mx-auto px-6 py-8 rounded-xl shadow-sm ring-1 ring-black/5 bg-gradient-to-br from-[#e6ecf7]/60 to-[#fde7e7]/60">
+      <div className="max-w-[1200px] mx-auto px-6 py-8 rounded-xl shadow-sm ring-1 ring-black/5 bg-gradient-to-br from-[#e6ecf7]/60 to-[#fde7e7]/60">
         <div className="mb-4">
           <h5 className="text-sm font-semibold text-gray-900">Trending picks</h5>
           <p className="text-xs text-gray-600">What people vibe with</p>
