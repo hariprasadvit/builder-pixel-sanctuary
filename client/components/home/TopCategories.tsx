@@ -28,9 +28,8 @@ const FALLBACK_IMG = "/placeholder.svg";
 function Tile({ title, image }: { title: string; image?: string }) {
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28">
-      <div className="relative w-16 h-16 sm:w-20 sm:h-20">
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600 via-sky-500 to-cyan-400 opacity-90" />
-        <div className="relative w-full h-full rounded-full bg-white flex items-center justify-center shadow-sm ring-1 ring-black/5">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] bg-gradient-to-br from-blue-600 via-sky-500 to-cyan-400 shadow-sm">
+        <div className="w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5">
           <img
             src={image || FALLBACK_IMG}
             alt={title}
@@ -42,7 +41,7 @@ function Tile({ title, image }: { title: string; image?: string }) {
           />
         </div>
       </div>
-      <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">
+      <div className="mt-2 text:[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">
         {title}
       </div>
     </button>
