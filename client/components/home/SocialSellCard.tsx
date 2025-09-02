@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Heart, Play, Star, Info, MessageCircle, Users, Share2, Eye, TicketPercent } from "lucide-react";
+import { Heart, Play, Star, Info, MessageCircle, Users, Share2, Eye, TicketPercent, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export interface ReviewSourceSnippet {
@@ -33,6 +33,7 @@ export interface SocialSellCardProps {
   liveViewers?: number;
   sources?: ReviewSourceSnippet[];
   variant?: "video-first" | "compact";
+  hideWatchButton?: boolean;
 }
 
 function Stars({ value }: { value: number }) {
@@ -70,6 +71,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
     liveViewers,
     sources = [],
     variant = "video-first",
+    hideWatchButton,
   } = props;
 
   const { toast } = useToast();
@@ -221,19 +223,20 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           <Stars value={rating} />
           <span className="text-xs text-gray-600">{rating.toFixed(1)} · {ratingCount.toLocaleString()}</span>
         </div>
-        <ul className="mt-2 list-disc pl-5 text-xs text-gray-800 space-y-1 min-h-[48px]">
-          {bullets.slice(0,3).map((b,i)=> <li key={i} className="line-clamp-1">{b}</li>)}
+        <ul className="mt-2 text-xs text-gray-800 space-y-1 min-h-[48px]">
+          {bullets.slice(0,3).map((b,i)=> (
+            <li key={i} className="flex items-start gap-2 line-clamp-1">
+              <Check className="w-3.5 h-3.5 text-green-600 mt-0.5 flex-shrink-0" />
+              <span>{b}</span>
+            </li>
+          ))}
         </ul>
-        <div className="mt-2 text-xs text-gray-500 flex items-center gap-2">
-          {deliveryEta && <span>ETA {deliveryEta}</span>}
-          {returnsBadge && <span className="px-2 py-0.5 bg-gray-100 rounded-full">{returnsBadge}</span>}
-        </div>
         <div className="mt-2">
           {priceBlock}
         </div>
         <div className="mt-2 flex items-center gap-2 h-10">
           <Button onClick={addToCart} className="bg-black hover:bg-gray-900 text-white">{added ? "Added" : "Add to Cart"}</Button>
-          {videoSrc && (
+          {videoSrc && !hideWatchButton && (
             <Button variant="outline" className="gap-2"><Play className="w-4 h-4" /> Watch 15s</Button>
           )}
         </div>
