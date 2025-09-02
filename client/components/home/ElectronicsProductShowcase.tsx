@@ -51,7 +51,7 @@ export default function ElectronicsProductShowcase() {
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {ELECTRONICS_PRODUCTS.map((p, i) => (
             <ProductPlaceholder
-              key={`elec-show-${i}`]
+              key={`elec-show-${i}`}
               title={p.title}
               price={p.price}
               originalPrice={p.original}
