@@ -36,6 +36,7 @@ export default function ExploreCurated() {
             <ChevronRight className="w-5 h-5" />
           </button>
           <div ref={railRef} className="p-4 px-12 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+            <div className="shrink-0 w-4 md:w-6" />
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
               price={599.0}
