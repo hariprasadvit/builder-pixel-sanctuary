@@ -142,6 +142,7 @@ interface ProductPlaceholderProps extends BaseCardProps {
   thumbnailSrc?: string;
   fit?: "contain" | "cover";
   showBuyButton?: boolean;
+  mediaPadding?: string; // e.g. "px-4 py-3"
 }
 
 export function ProductPlaceholder({
@@ -156,12 +157,13 @@ export function ProductPlaceholder({
   showBuyButton = true,
   cardHeight = 420,
   mediaHeight = 240,
-  className = ""
+  className = "",
+  mediaPadding = "px-4 py-3",
 }: ProductPlaceholderProps) {
   const box = mediaHeight; // 1:1 box
   return (
     <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={{ height: cardHeight }}>
-      <div className="relative w-full bg-white flex items-center justify-center overflow-hidden" style={{ height: mediaHeight }}>
+      <div className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`} style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
           <img src={thumbnailSrc} alt={title} className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
         ) : (
