@@ -132,7 +132,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         <div>
           <div className="columns-2 md:columns-3 xl:columns-4 [column-fill:_balance]" style={{ columnGap: '8px' }}>
             {displayVideos.map((video, index) => {
-              const heights = [220, 300, 260, 280, 240, 320];
+              const heights = [300, 380, 340, 400, 320, 420];
               const h = heights[index % heights.length];
               const horizontal = index % 3 === 0; // mix aspect ratios for variety
               const thumb = trendingThumbs[index % trendingThumbs.length];
