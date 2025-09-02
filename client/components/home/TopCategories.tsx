@@ -4,10 +4,10 @@ type Cat = { key: string; title: string; image?: string };
 
 // Names taken from the provided image, with Mobiles and Computers split
 const CATS: Cat[] = [
-  { key: "mobiles", title: "Mobiles", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbcc856a785b54fa69d37e8c51fa472ad?format=webp&width=800" },
-  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5a282973572046059d51eb2c5b250946?format=webp&width=800" },
-  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9fe60f3c9a2a4ddc958ce3abc6b26c79?format=webp&width=800" },
-  { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6ee0ad9f44354997a272f6b54a36b96f?format=webp&width=800" },
+  { key: "mobiles", title: "Mobiles", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F947b5d1c44ff40228ea9c20d9207aa8e?format=webp&width=800" },
+  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc3e115ae06ce4f08b0eaa77471fb507a?format=webp&width=800" },
+  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F627e0515a575433d90703254492d1c22?format=webp&width=800" },
+  { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8ddfde238b05411582527aeed643e130?format=webp&width=800" },
   { key: "electronics", title: "Electronics", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4dbe39834cce48e1a9655d4ef700ae76?format=webp&width=800" },
   { key: "mens-fashion", title: "Men's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe19e8d84770242cebcfb2df564aaea6f?format=webp&width=800" },
   { key: "womens-fashion", title: "Women's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff67a725a185b47c2a93d039baf7b224a?format=webp&width=800" },
