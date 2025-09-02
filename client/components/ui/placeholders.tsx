@@ -28,6 +28,7 @@ interface VideoPlaceholderProps extends BaseCardProps {
   thumbnailSrc?: string;
   fit?: "contain" | "cover";
   showViews?: boolean;
+  showBuyButton?: boolean;
   cardHeight?: number | "auto";
 }
 
@@ -46,6 +47,7 @@ export function VideoPlaceholder({
   thumbnailSrc,
   fit = "contain",
   showViews = false,
+  showBuyButton = true,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
@@ -102,12 +104,14 @@ export function VideoPlaceholder({
             <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
           </div>
         </div>
-        <div className="mt-auto">
-          <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
-            <ShoppingBag className="w-4 h-4 mr-2" />
-            Buy Now
-          </Button>
-        </div>
+        {showBuyButton && (
+          <div className="mt-auto">
+            <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Buy Now
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -170,12 +174,14 @@ export function ProductPlaceholder({
           <RatingStars value={rating} size={12} />
           <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
         </div>
-        <div className="mt-auto">
-          <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
-            <ShoppingBag className="w-4 h-4 mr-2" />
-            Buy Now
-          </Button>
-        </div>
+        {showBuyButton && (
+          <div className="mt-auto">
+            <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Buy Now
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
