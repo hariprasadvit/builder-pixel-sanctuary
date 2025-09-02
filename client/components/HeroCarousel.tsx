@@ -55,19 +55,19 @@ export default function HeroCarousel() {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-2 py-1 md:py-2">
+      <div className="container mx-auto px-0 py-0">
         <div className="relative overflow-hidden rounded-2xl bg-white">
           {/* Groups */}
-          <div className="relative w-full h-[300px] md:h-[360px]">
+          <div className="relative w-full h-[300px] md:h-[340px]">
             {groups.map((pair, gi) => (
               <div
                 key={gi}
                 className={`absolute inset-0 transition-opacity duration-700 ${gi === currentGroup ? "opacity-100 z-10" : "opacity-0 z-0"}`}
               >
-                <div className="grid grid-cols-2 gap-2 p-0 h-full">
+                <div className="grid grid-cols-2 gap-1 p-0 h-full">
                   {pair.map((slide) => (
-                    <div key={slide.id} className="relative w-full h-full cursor-pointer bg-white rounded-lg overflow-hidden flex items-center justify-center p-2 md:p-3" onClick={() => handleClick(slide)}>
-                      <img src={slide.image} alt={slide.alt} className="w-full h-full object-contain" />
+                    <div key={slide.id} className="relative w-full h-full cursor-pointer bg-white rounded-lg overflow-hidden flex items-center justify-center p-1 md:p-2" onClick={() => handleClick(slide)}>
+                      <img src={slide.image} alt={slide.alt} className="max-w-full max-h-full w-full h-full object-contain" />
                     </div>
                   ))}
                   {pair.length === 1 && (
