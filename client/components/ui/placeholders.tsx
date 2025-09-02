@@ -31,6 +31,7 @@ interface VideoPlaceholderProps extends BaseCardProps {
   showBuyButton?: boolean;
   showPrice?: boolean;
   showPlayOverlay?: boolean;
+  hideTitle?: boolean;
   cardHeight?: number | "auto";
 }
 
@@ -52,6 +53,7 @@ export function VideoPlaceholder({
   showBuyButton = true,
   showPrice = true,
   showPlayOverlay = true,
+  hideTitle = false,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
@@ -93,7 +95,7 @@ export function VideoPlaceholder({
         )}
       </div>
       <div className="flex-1 p-3 flex flex-col">
-        <h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>
+        {!hideTitle && (<h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>)}
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
             <span className="font-bold text-base">£{price.toFixed(2)}</span>
