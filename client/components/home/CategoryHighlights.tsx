@@ -37,6 +37,7 @@ export default function CategoryHighlights() {
               ) : (
                 <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
               )}
+              {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
               {cat.key !== 'electronics' && (
                 <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                   {Array.from({ length: 4 }).map((_, i) => (
