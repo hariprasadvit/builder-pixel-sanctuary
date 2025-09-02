@@ -17,10 +17,10 @@ const CATS: Cat[] = [
   { key: "beauty", title: "Beauty", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F915757553a0843f09d38930a1b624ba2?format=webp&width=800" },
   { key: "grocery", title: "Grocery", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5c6fcb3310094a79b7bd1910b724b4c6?format=webp&width=800" },
   { key: "sports-fitness-bags-luggage", title: "Sports, Fitness, Bags, Luggage", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbb927138f2d643a0934666ba8741598e?format=webp&width=800" },
-  { key: "toys-baby-kids", title: "Toys, Baby Products, Kids' Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F10040903e8e243d591bf932e2eeed037?format=webp&width=800" },
-  { key: "automotive-industrial", title: "Car, Motorbike, Industrial", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff7adf63e887549dbb01fb11bc10a4da1?format=webp&width=800" },
-  { key: "books", title: "Books", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faaa940689bc64a3ea824b7587cc4f58c?format=webp&width=800" },
-  { key: "entertainment", title: "Movies, Music & Video Games", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa66f963a9fd041669b92a21bead1d7e2?format=webp&width=800" },
+  { key: "toys-baby-kids", title: "Toys, Baby Products, Kids' Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0df4f01425454257b492372172f4c146?format=webp&width=800" },
+  { key: "automotive-industrial", title: "Car, Motorbike, Industrial", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1fb6aac613f846a8a1138e6c0a7f3561?format=webp&width=800" },
+  { key: "books", title: "Books", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4e9d2b93c6e04290b483aa07a635955d?format=webp&width=800" },
+  { key: "entertainment", title: "Movies, Music & Video Games", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2d23667d6ef8421999d4d5b9cbe4ffc6?format=webp&width=800" },
 ];
 
 const FALLBACK_IMG = "/placeholder.svg";
@@ -56,7 +56,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
             src={image || FALLBACK_IMG}
             alt={title}
             className={
-              "relative z-10 w-16 h-16 sm:w-18 sm:h-18 object-contain object-center transition-transform group-hover:drop-shadow-xl " +
+              "relative z-10 w-16 h-16 sm:w-[72px] sm:h-[72px] object-contain object-center transition-transform group-hover:drop-shadow-xl " +
               (imageClass || "")
             }
             style={{ transform: `translateZ(${t.dz + 20}px)` }}
