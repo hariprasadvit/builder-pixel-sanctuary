@@ -127,7 +127,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               const h = index === 0 ? 500 : hBase;
               const horizontal = index % 3 === 0; // mix aspect ratios for variety
               const thumb = index === 0 ? trendingThumbs[0] : undefined;
-              const title = index === 0 ? "Top Trends in Women's Clothing" : (trendingTitles[index % trendingTitles.length] || video.title);
+              const title = index === 0 ? "Top Trends in Women's Clothing" : "";
               return (
                 <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
@@ -158,7 +158,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4">
             {displayVideos.map((video, index) => {
               const thumb = index === 0 ? trendingThumbs[0] : undefined;
-              const title = index === 0 ? "Top Trends in Women's Clothing" : (trendingTitles[index % trendingTitles.length] || video.title);
+              const title = index === 0 ? "Top Trends in Women's Clothing" : "";
               return (
                 <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
                   <VideoPlaceholder
