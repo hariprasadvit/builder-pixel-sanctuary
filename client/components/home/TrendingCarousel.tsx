@@ -82,27 +82,33 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     });
   }
 
-  // Thumbnails provided by user for trending section (first 5)
+  // Thumbnails provided by user for trending section (tiles 1-10)
   const trendingThumbs = [
+    // 1-5
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdb8f84e4211c4b198a762954501e50d8?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4d485c509a0d4f2b8dded2d4c8f823fd?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F99870e97ec344b8b99197328db647e5f?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc99c01a8d9f0495ab42b4106224481c5?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2cab0399bb434ebcb3b79e6eed1ce19f?format=webp&width=800",
+    // 6-10
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75c537b0d15f436c8c1c4fff836b3dbc?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1f37e71257fb47cc8dc3627c2904e0b9?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5cc3a32c0055445d8952a23b75f23a3f?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3d27c28ba0b546c3b107c8d28491424c?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f0652d842da40c0b9cd4cd6cee3d4f2?format=webp&width=800",
   ];
   const trendingTitles = [
-    "Car Upgrades",
-    "UK Toy Haul",
-    "UK Fashion Finds",
-    "Sports Gear Galore",
-    "Best Washing Machines 2025",
-    "Indoor Plants You’ll Love",
-    "Bedroom Refresh Sale",
-    "Winter Is Here – Cozy Essentials",
-    "Cocktail Creations",
-    "Unique Gifting Ideas",
-    "Find Perfect Ride",
-    "Level Up Your Look",
+    // Titles matching tiles 1-10 above
+    "Best Toys of 2025",
+    "Must-Have Gym Equipment",
+    "Best MacBook To Choose For You",
+    "Top Household Essentials 2025",
+    "Best UPS & Inverters 2025",
+    "Gen Z Men’s Style 2025",
+    "Best Furniture Picks 2025",
+    "Top Household Essentials 2025",
+    "Best UPS & Inverters 2025",
+    "Top Smartphones 2025",
   ];
 
   return (
