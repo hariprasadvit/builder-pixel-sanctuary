@@ -14,6 +14,7 @@ import CreatorPicks from "@/components/home/CreatorPicks";
 import UserReviewsGrid from "@/components/home/UserReviewsGrid";
 import FooterConnect from "@/components/home/FooterConnect";
 import SocialSellSection from "@/components/home/SocialSellSection";
+import SocialSnapshotRail from "@/components/home/SocialSnapshotRail";
 
 export default function Index() {
   return (
