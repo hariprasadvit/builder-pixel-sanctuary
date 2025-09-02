@@ -1,12 +1,12 @@
 import React from "react";
 
-type Cat = { key: string; title: string; image?: string };
+type Cat = { key: string; title: string; image?: string; imageClass?: string };
 
 // Names taken from the provided image, with Mobiles and Computers split
 const CATS: Cat[] = [
   { key: "mobiles", title: "Mobiles", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F947b5d1c44ff40228ea9c20d9207aa8e?format=webp&width=800" },
-  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc3e115ae06ce4f08b0eaa77471fb507a?format=webp&width=800" },
-  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F627e0515a575433d90703254492d1c22?format=webp&width=800" },
+  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc3e115ae06ce4f08b0eaa77471fb507a?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
+  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F627e0515a575433d90703254492d1c22?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
   { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8ddfde238b05411582527aeed643e130?format=webp&width=800" },
   { key: "electronics", title: "Electronics", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4dbe39834cce48e1a9655d4ef700ae76?format=webp&width=800" },
   { key: "mens-fashion", title: "Men's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe19e8d84770242cebcfb2df564aaea6f?format=webp&width=800" },
@@ -25,7 +25,7 @@ const CATS: Cat[] = [
 
 const FALLBACK_IMG = "/placeholder.svg";
 
-function Tile({ title, image }: { title: string; image?: string }) {
+function Tile({ title, image, imageClass }: { title: string; image?: string; imageClass?: string }) {
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28">
       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
@@ -34,7 +34,7 @@ function Tile({ title, image }: { title: string; image?: string }) {
           <img
             src={image || FALLBACK_IMG}
             alt={title}
-            className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform group-hover:scale-105 group-hover:drop-shadow-md"
+            className={"relative z-10 w-14 h-14 sm:w-16 sm:h-16 object-contain object-center transition-transform group-hover:scale-105 group-hover:drop-shadow-md " + (imageClass || "")}
             onError={(e) => {
               const t = e.target as HTMLImageElement;
               t.src = FALLBACK_IMG;
@@ -58,7 +58,7 @@ export default function TopCategories() {
         {/* Desktop grid (structure unchanged) */}
         <div className="hidden md:grid grid-cols-6 gap-5">
           {CATS.map((c) => (
-            <Tile key={c.key} title={c.title} image={c.image} />
+            <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
           ))}
         </div>
 
@@ -66,7 +66,7 @@ export default function TopCategories() {
         <div className="md:hidden -mx-4 px-4">
           <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
             {CATS.map((c) => (
-              <Tile key={c.key} title={c.title} image={c.image} />
+              <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
             ))}
           </div>
         </div>
