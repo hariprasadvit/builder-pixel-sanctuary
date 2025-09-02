@@ -17,20 +17,36 @@ export default function HeroCarousel() {
 
   const slides: CarouselSlide[] = [
     {
-      id: "1",
+      id: "cadbury",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F753e715874c845f98ec44b6e6edf8d15?format=webp&width=800",
-      alt: "iPhone 15 Newphoria - Available Now",
-      category: "Electronics",
-      link: "/electronics",
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0b13a6808aa84bd29859821ba548c7c2?format=webp&width=1600",
+      alt: "Cadbury Gift of Childhood Campaign",
+      category: "Cadbury",
+      link: "/categories",
     },
     {
-      id: "2",
+      id: "clarks",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff0abf8386e0e42ee980b750efc33cce2?format=webp&width=800",
-      alt: "Creative Clothing Advertisement - Boost Sales",
-      category: "Apparel",
-      link: "/categories?filter=apparel",
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe62af38758d744d2bacf96603f412476?format=webp&width=1600",
+      alt: "Clarks Lifestyle Collage",
+      category: "Clarks",
+      link: "/brands",
+    },
+    {
+      id: "heinz",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc7f303e6d4b94075be6bf0d4b7aa77f0?format=webp&width=1600",
+      alt: "Heinz Hot Dog Pact",
+      category: "Heinz",
+      link: "/categories",
+    },
+    {
+      id: "lenovo",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe3998f2c14134129addedc6f42055d20?format=webp&width=1600",
+      alt: "Lenovo Collaboration Banner",
+      category: "Lenovo",
+      link: "/electronics",
     },
   ];
 
