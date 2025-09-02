@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionHeader } from "@/components/ui/placeholders";
 
 type Cat = { key: string; title: string; image?: string; imageClass?: string };
 
@@ -77,25 +78,26 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
 export default function TopCategories() {
   return (
     <section className="py-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-50 via-white to-fuchsia-50">
-      <div className="container mx-auto px-4 bg-white/70 backdrop-blur-sm rounded-2xl ring-1 ring-black/5 p-4">
-        <div className="flex items-center gap-3 mb-5">
-          <span className="text-2xl">📚</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Top Categories</h2>
-        </div>
+      <div className="container mx-auto px-4">
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <SectionHeader title="Top Categories" icon="📚" gradientClass="bg-gradient-to-r from-[#fde7e7] to-[#ffcdd2]" textClass="text-gray-900" />
 
-        {/* Desktop grid (structure unchanged) */}
-        <div className="hidden md:grid grid-cols-6 gap-5">
-          {CATS.map((c) => (
-            <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
-          ))}
-        </div>
+          <div className="p-4">
+            {/* Desktop grid */}
+            <div className="hidden md:grid grid-cols-6 gap-5">
+              {CATS.map((c) => (
+                <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
+              ))}
+            </div>
 
-        {/* Mobile horizontal scroll (structure unchanged) */}
-        <div className="md:hidden -mx-4 px-4">
-          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-            {CATS.map((c) => (
-              <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
-            ))}
+            {/* Mobile horizontal scroll */}
+            <div className="md:hidden -mx-4 px-4">
+              <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                {CATS.map((c) => (
+                  <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
