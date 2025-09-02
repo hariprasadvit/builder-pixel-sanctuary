@@ -23,21 +23,10 @@ export default function CategoryHighlights() {
             </div>
             <div className="p-4">
               {cat.key === 'electronics' ? (
-                <div className="w-full rounded-2xl overflow-hidden bg-gray-100">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb86fd668bfb0409080f796c5fef4614f?format=webp&width=1440"
-                    alt="Electronics deals banner"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                <ElectronicsCategoryIcons />
               ) : (
                 <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
               )}
-              <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
-                ))}
-              </div>
               <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-4">
                 {cat.key === 'electronics' ? (
                   [
