@@ -35,11 +35,19 @@ function Tile({ label, img }: Item) {
 export default function ElectronicsCategoryIcons() {
   return (
     <div className="mt-4">
-      <h4 className="text-base md:text-lg font-semibold mb-3">Shop by category</h4>
-      <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8 gap-4">
-        {ITEMS.map((it, idx) => (
-          <Tile key={`${it.label}-${idx}`} label={it.label} img={it.img} />
-        ))}
+      <div className="flex items-center justify-between mb-3">
+        <h4 className="text-base md:text-lg font-semibold bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] bg-clip-text text-transparent">
+          Shop by category
+        </h4>
+      </div>
+      <div className="rounded-2xl p-[1px] bg-gradient-to-r from-blue-50 to-rose-50">
+        <div className="rounded-2xl bg-white p-3 sm:p-4 shadow-sm ring-1 ring-black/5">
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8 gap-4">
+            {ITEMS.map((it, idx) => (
+              <Tile key={`${it.label}-${idx}`} label={it.label} img={it.img} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
