@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ProductPlaceholder } from "@/components/ui/placeholders";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ExploreCurated() {
+  const railRef = useRef<HTMLDivElement>(null);
+  const scrollByCards = (dir: 1 | -1) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const first = rail.querySelector<HTMLElement>(".snap-start");
+    const step = ((first?.offsetWidth) || 240) + 16; // card width + gap
+    rail.scrollBy({ left: dir * step * 2, behavior: "smooth" });
+  };
   return (
     <section className="relative overflow-hidden pt-10 pb-24 md:pb-28 lg:pb-32 bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
       {/* Bottom skyline image above gradient, behind content */}
@@ -19,8 +28,14 @@ export default function ExploreCurated() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6">
-          <div className="p-4 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+        <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6">
+          <button aria-label="Previous" onClick={() => scrollByCards(-1)} className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-gray-900 shadow items-center justify-center">
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button aria-label="Next" onClick={() => scrollByCards(1)} className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-gray-900 shadow items-center justify-center">
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          <div ref={railRef} className="p-4 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
               price={599.0}
