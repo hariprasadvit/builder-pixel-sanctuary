@@ -183,7 +183,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
         </div>
         <div className="text-sm font-medium">{creatorHandle}</div>
       </div>
-      <div className="text-[11px] text-gray-500">AI summary from reviews – updated {updatedAgo}</div>
+      <div className="text-[11px] text-gray-500">updated {updatedAgo}</div>
     </div>
   );
 
