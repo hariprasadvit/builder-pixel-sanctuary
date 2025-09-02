@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const slides = [
   {
@@ -12,6 +10,11 @@ const slides = [
     id: "cadbury",
     src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8bf35e10b060460595c8ae6a2830c01f?format=webp&width=2400",
     alt: "Cadbury Trio Banner",
+  },
+  {
+    id: "samsung",
+    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F59a892c20f5b43d48e6fc3b754383b2b?format=webp&width=2400",
+    alt: "Samsung Super Brand Day Banner",
   },
 ];
 
@@ -40,8 +43,6 @@ export default function HeroCarousel() {
     el.scrollTo({ left: i * w, behavior: "smooth" });
   };
 
-  const prev = () => goTo((index - 1 + slides.length) % slides.length);
-  const next = () => goTo((index + 1) % slides.length);
 
   return (
     <section className="bg-white">
@@ -60,25 +61,6 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* Arrows */}
-          <div className="absolute inset-0 flex items-center justify-between px-2 md:px-4 pointer-events-none">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={prev}
-              className="pointer-events-auto w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white text-gray-900 shadow"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={next}
-              className="pointer-events-auto w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white text-gray-900 shadow"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-          </div>
 
           {/* Dots */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
