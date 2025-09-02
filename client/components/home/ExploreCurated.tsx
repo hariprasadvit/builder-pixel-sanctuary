@@ -19,7 +19,7 @@ export default function ExploreCurated() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-white/20 bg-white/60 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6">
+        <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6">
           <div className="p-4 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
