@@ -123,10 +123,11 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           <div className="columns-2 md:columns-3 xl:columns-4 [column-fill:_balance]" style={{ columnGap: '8px' }}>
             {displayVideos.map((video, index) => {
               const heights = [300, 380, 340, 400, 320, 420];
-              const h = heights[index % heights.length];
+              const hBase = heights[index % heights.length];
+              const h = index === 0 ? 500 : hBase;
               const horizontal = index % 3 === 0; // mix aspect ratios for variety
-              const thumb = trendingThumbs[index % trendingThumbs.length];
-              const title = trendingTitles[index % trendingTitles.length] || video.title;
+              const thumb = index === 0 ? trendingThumbs[0] : undefined;
+              const title = index === 0 ? "Top Trends in Women's Clothing" : (trendingTitles[index % trendingTitles.length] || video.title);
               return (
                 <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
