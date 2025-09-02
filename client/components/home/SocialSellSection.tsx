@@ -28,7 +28,6 @@ export default function SocialSellSection() {
               couponCode="SAVE10"
               likes={3200}
               boughtIn24h={214}
-              liveViewers={87}
               sources={[{ title: "Top review", url: "#", snippet: "Great sound for the price; mic is decent indoors." }]}
             />
             <SocialSellCard
