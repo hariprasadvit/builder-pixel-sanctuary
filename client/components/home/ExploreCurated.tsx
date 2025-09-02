@@ -19,7 +19,7 @@ export default function ExploreCurated() {
           </div>
         </div>
 
-        <div className="rounded-2xl shadow-lg overflow-hidden bg-white mb-2 md:mb-4 lg:mb-6">
+        <div className="rounded-2xl border border-white/20 bg-white/60 backdrop-blur-md shadow-lg mb-2 md:mb-4 lg:mb-6">
           <div className="p-4 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
@@ -28,8 +28,8 @@ export default function ExploreCurated() {
               thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
               fit="contain"
               showBuyButton={false}
-              cardHeight={300}
-              mediaHeight={160}
+              cardHeight="auto"
+              mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
 
@@ -40,8 +40,8 @@ export default function ExploreCurated() {
               thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
               fit="contain"
               showBuyButton={false}
-              cardHeight={300}
-              mediaHeight={160}
+              cardHeight="auto"
+              mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
 
@@ -52,8 +52,8 @@ export default function ExploreCurated() {
               thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1254a7b2203a4401b1b14ed1498915ab?format=webp&width=800"
               fit="contain"
               showBuyButton={false}
-              cardHeight={300}
-              mediaHeight={160}
+              cardHeight="auto"
+              mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
 
@@ -64,8 +64,8 @@ export default function ExploreCurated() {
               thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
               fit="contain"
               showBuyButton={false}
-              cardHeight={300}
-              mediaHeight={160}
+              cardHeight="auto"
+              mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
 
@@ -76,8 +76,8 @@ export default function ExploreCurated() {
               thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4351f4cb715647bbb2c6fc9ee39be1c3?format=webp&width=800"
               fit="contain"
               showBuyButton={false}
-              cardHeight={300}
-              mediaHeight={160}
+              cardHeight="auto"
+              mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
           </div>
