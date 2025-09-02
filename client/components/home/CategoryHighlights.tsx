@@ -97,6 +97,12 @@ export default function CategoryHighlights() {
                   </div>
                 </div>
               )}
+              {(cat.key === 'electronics' || cat.key === 'cellphones') && (
+                <div className="mt-6">
+                  {/* Standalone rail below this category */}
+                  <SocialSnapshotRail />
+                </div>
+              )}
             </div>
           </div>
         ))}
