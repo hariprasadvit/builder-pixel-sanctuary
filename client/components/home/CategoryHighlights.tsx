@@ -24,7 +24,16 @@ export default function CategoryHighlights() {
             </div>
             <div className="p-4">
               {cat.key === 'electronics' ? (
-                <ElectronicsCategoryIcons />
+                <>
+                  <div className="w-full rounded-2xl overflow-hidden mb-4">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F38cd87269c174fc998ce6e04af10a52f?format=webp&width=1440"
+                      alt="Epic Deals Banner"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  <ElectronicsCategoryIcons />
+                </>
               ) : (
                 <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
               )}
