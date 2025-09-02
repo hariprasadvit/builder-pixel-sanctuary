@@ -82,7 +82,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
   }
 
   return (
-    <section className="py-8 bg-white">
+    <section className="py-6 bg-white">
       <div className="container mx-auto px-2">
         {/* Section Header */}
         <div className="mb-6">
@@ -99,13 +99,13 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
 
         {/* Masonry Layout */}
         <div>
-          <div className="columns-2 md:columns-3 xl:columns-4 gap-2 [column-fill:_balance]">
+          <div className="columns-2 md:columns-3 xl:columns-4 [column-fill:_balance]" style={{ columnGap: '8px' }}>
             {displayVideos.map((video, index) => {
               const heights = [220, 300, 260, 280, 240, 320];
               const h = heights[index % heights.length];
               const horizontal = index % 3 === 0; // mix aspect ratios for variety
               return (
-                <div key={video.id} className="mb-2 break-inside-avoid">
+                <div key={video.id} className="mb-2 break-inside-avoid-column">
                   <VideoPlaceholder
                     title={video.title}
                     price={video.price}
