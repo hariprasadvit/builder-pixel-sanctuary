@@ -30,6 +30,7 @@ interface VideoPlaceholderProps extends BaseCardProps {
   showViews?: boolean;
   showBuyButton?: boolean;
   showPrice?: boolean;
+  showPlayOverlay?: boolean;
   cardHeight?: number | "auto";
 }
 
@@ -50,6 +51,7 @@ export function VideoPlaceholder({
   showViews = false,
   showBuyButton = true,
   showPrice = true,
+  showPlayOverlay = true,
   cardHeight = 420,
   mediaHeight = 240,
   className = ""
@@ -65,11 +67,13 @@ export function VideoPlaceholder({
         {thumbnailSrc ? (
           <>
             <img src={thumbnailSrc} alt={title} className={imgClass} />
-            <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none">
-              <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow ring-1 ring-black/10 transition-transform hover:scale-105">
-                <Play className="w-6 h-6 text-gray-800" />
-              </span>
-            </button>
+            {showPlayOverlay && (
+              <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none">
+                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow ring-1 ring-black/10 transition-transform hover:scale-105">
+                  <Play className="w-6 h-6 text-gray-800" />
+                </span>
+              </button>
+            )}
           </>
         ) : (
           <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
