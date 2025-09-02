@@ -97,42 +97,30 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </Button>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative">
-          {/* Navigation Buttons */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full w-10 h-10"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </Button>
-          
-          <Button
-            variant="ghost" 
-            size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full w-10 h-10"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </Button>
-
-          {/* Cards Grid - Responsive */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-12">
-            {displayVideos.slice(0, 5).map((video, index) => (
-              <div key={video.id} className="w-full">
-                <VideoPlaceholder
-                  title={video.title}
-                  price={video.price}
-                  originalPrice={video.originalPrice}
-                  badge={video.badge}
-                  likes={video.likes}
-                  comments={video.comments}
-                  views={video.views}
-                  cardHeight={420}
-                  mediaHeight={240}
-                />
-              </div>
-            ))}
+        {/* Masonry Layout */}
+        <div>
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+            {displayVideos.map((video, index) => {
+              const heights = [220, 300, 260, 280, 240, 320];
+              const h = heights[index % heights.length];
+              const horizontal = index % 3 === 0; // mix aspect ratios for variety
+              return (
+                <div key={video.id} className="mb-4 break-inside-avoid">
+                  <VideoPlaceholder
+                    title={video.title}
+                    price={video.price}
+                    originalPrice={video.originalPrice}
+                    badge={video.badge}
+                    likes={video.likes}
+                    comments={video.comments}
+                    views={video.views}
+                    aspect={horizontal ? "16/9" : "9/16"}
+                    cardHeight="auto"
+                    mediaHeight={h}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
 
