@@ -28,8 +28,8 @@ const FALLBACK_IMG = "/placeholder.svg";
 function Tile({ title, image }: { title: string; image?: string }) {
   return (
     <button className="group flex flex-col items-center w-24 sm:w-28">
-      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] bg-gradient-to-br from-blue-600 via-sky-500 to-cyan-400 shadow-sm">
-        <div className="w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] bg-gradient-to-br from-blue-600 via-sky-500 to-cyan-400 shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
+        <div className="w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-sky-500 group-hover:to-cyan-400">
           <img
             src={image || FALLBACK_IMG}
             alt={title}
@@ -41,7 +41,7 @@ function Tile({ title, image }: { title: string; image?: string }) {
           />
         </div>
       </div>
-      <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2">
+      <div className="mt-2 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2 group-hover:text-sky-700">
         {title}
       </div>
     </button>
@@ -50,8 +50,8 @@ function Tile({ title, image }: { title: string; image?: string }) {
 
 export default function TopCategories() {
   return (
-    <section className="py-6 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-50 via-white to-fuchsia-50">
+      <div className="container mx-auto px-4 bg-white/70 backdrop-blur-sm rounded-2xl ring-1 ring-black/5 p-4">
         <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Top Categories</h2>
 
         {/* Desktop grid (structure unchanged) */}
