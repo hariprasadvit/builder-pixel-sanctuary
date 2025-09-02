@@ -137,7 +137,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
 
   const [posterError, setPosterError] = useState(false);
   const media = (
-    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-[9/16] md:min-h-[340px] lg:min-h-[420px]">
+    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-[4/5]">
       {videoSrc ? (
         <video
           ref={videoRef}
