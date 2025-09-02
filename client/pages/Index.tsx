@@ -13,6 +13,7 @@ import BrandsRow from "@/components/home/BrandsRow";
 import CreatorPicks from "@/components/home/CreatorPicks";
 import UserReviewsGrid from "@/components/home/UserReviewsGrid";
 import FooterConnect from "@/components/home/FooterConnect";
+import SocialSellSection from "@/components/home/SocialSellSection";
 
 export default function Index() {
   return (
