@@ -57,7 +57,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
             src={image || FALLBACK_IMG}
             alt={title}
             className={
-              "relative z-10 w-[70px] h-[70px] sm:w-[84px] sm:h-[84px] object-contain object-center transition-transform group-hover:drop-shadow-xl " +
+              "relative z-10 w-[78px] h-[78px] sm:w-[92px] sm:h-[92px] object-contain object-center transition-transform group-hover:drop-shadow-xl " +
               (imageClass || "")
             }
             style={{ transform: `translateZ(${t.dz + 20}px)` }}
@@ -80,7 +80,7 @@ export default function TopCategories() {
     <section className="py-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-50 via-white to-fuchsia-50">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <SectionHeader title="Top Categories" icon="📚" gradientClass="bg-gradient-to-r from-[#fde7e7] to-[#ffcdd2]" textClass="text-gray-900" />
+          <SectionHeader title="Top Categories" gradientClass="bg-gradient-to-r from-[#fde7e7] via-[#ffd6db] to-[#ffcdd2] animate-gradient-x" textClass="text-gray-900" />
 
           <div className="p-4">
             {/* Desktop grid */}
