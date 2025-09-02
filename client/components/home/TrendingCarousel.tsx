@@ -71,9 +71,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     }
   ];
 
-  // Use provided videos or fill with defaults to ensure 5 cards
+  // Use provided videos or fill with defaults to ensure a dense masonry
   const displayVideos = [...videos];
-  while (displayVideos.length < 5) {
+  const minCount = 12;
+  while (displayVideos.length < minCount) {
     const defaultVideo = defaultVideos[displayVideos.length % defaultVideos.length];
     displayVideos.push({
       ...defaultVideo,
