@@ -17,6 +17,7 @@ export default function SocialSellSection() {
               avatars={["https://i.pravatar.cc/24?img=1","https://i.pravatar.cc/24?img=2","https://i.pravatar.cc/24?img=3"]}
               videoPoster="https://images.unsplash.com/photo-1606229365485-93a3b8e84cf3?q=80&w=1200&auto=format&fit=crop"
               videoSrc="https://cdn.coverr.co/videos/coverr-urban-snapshots-8241/1080p.mp4"
+              hideWatchButton
               bullets={["Clear calls; punchy bass","Comfortable for long sessions","Case scratches easily"]}
               rating={4.3}
               ratingCount={1287}
@@ -25,8 +26,6 @@ export default function SocialSellSection() {
               originalPrice={79.99}
               discountPercent={25}
               couponCode="SAVE10"
-              deliveryEta="Tomorrow 9AM"
-              returnsBadge="7-day Returns"
               likes={3200}
               boughtIn24h={214}
               liveViewers={87}
