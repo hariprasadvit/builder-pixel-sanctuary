@@ -4,10 +4,10 @@ type Cat = { key: string; title: string; image?: string; imageClass?: string };
 
 // Names taken from the provided image, with Mobiles and Computers split
 const CATS: Cat[] = [
-  { key: "mobiles", title: "Mobiles", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F947b5d1c44ff40228ea9c20d9207aa8e?format=webp&width=800" },
-  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc3e115ae06ce4f08b0eaa77471fb507a?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
-  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F627e0515a575433d90703254492d1c22?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
-  { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8ddfde238b05411582527aeed643e130?format=webp&width=800" },
+  { key: "mobiles", title: "Mobiles", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d17e099b1064112ad70871b716e3984?format=webp&width=800" },
+  { key: "computers", title: "Computers", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8900fc31a3494cac8c40b9acb5e4ba38?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
+  { key: "tv", title: "TV", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe3b86983d8064ffdb147b92db68300bb?format=webp&width=800", imageClass: "translate-y-[2px] scale-95" },
+  { key: "appliances", title: "Appliances", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02e9345e95c5449292f95829d48eece8?format=webp&width=800" },
   { key: "electronics", title: "Electronics", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F27e79e4f98de4acb8bd3436c9719b7a5?format=webp&width=800" },
   { key: "mens-fashion", title: "Men's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faf8dc3525b18405e968ad5ae6ebd59a3?format=webp&width=800" },
   { key: "womens-fashion", title: "Women's Fashion", image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdd3640d0b5ab4ff7ba99e6c3603eb6ee?format=webp&width=800" },
