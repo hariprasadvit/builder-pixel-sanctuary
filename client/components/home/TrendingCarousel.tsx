@@ -71,16 +71,18 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     }
   ];
 
-  // Use provided videos or fill with defaults to ensure a dense masonry
+  // Use provided videos or fill with defaults
   const displayVideos = [...videos];
   const minCount = 12;
   while (displayVideos.length < minCount) {
-    const defaultVideo = defaultVideos[displayVideos.length % defaultVideos.length];
-    displayVideos.push({
-      ...defaultVideo,
-      id: `placeholder-${displayVideos.length}`
-    });
+    const def = defaultVideos[displayVideos.length % defaultVideos.length];
+    displayVideos.push({ ...def, id: `placeholder-${displayVideos.length}` });
   }
+  // Keep only cards 1,3,5,6,8,9,10,11 (1-based) => 0,2,4,5,7,8,9,10
+  const keepOrder = [0, 2, 4, 5, 7, 8, 9, 10];
+  const selectedVideos = keepOrder
+    .filter((i) => i < displayVideos.length)
+    .map((i) => ({ ...displayVideos[i], __srcIndex: i } as any));
 
   // Thumbnails provided by user for trending section (tiles 1-10)
   const trendingThumbs = [
@@ -132,18 +134,15 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Masonry Layout */}
+        {/* Grid Layout: 8 cards in two rows (4 columns on xl) */}
         <div>
-          <div className="columns-2 md:columns-3 xl:columns-4 [column-fill:_balance]" style={{ columnGap: '8px' }}>
-            {displayVideos.map((video, index) => {
-              const heights = [300, 380, 340, 400, 320, 420];
-              const hBase = heights[index % heights.length];
-              const h = index === 0 ? 500 : hBase;
-              const horizontal = index % 3 === 0; // mix aspect ratios for variety
-              const thumb = index < trendingThumbs.length ? trendingThumbs[index] : undefined;
-              const title = trendingTitles[index % trendingTitles.length] || video.title;
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+            {selectedVideos.map((video, index) => {
+              const srcIndex = (video as any).__srcIndex as number;
+              const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
+              const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={video.id} className="mb-2 break-inside-avoid-column">
+                <div key={`trending-${srcIndex}-${video.id}`} className="">
                   <VideoPlaceholder
                     title={title}
                     price={video.price}
@@ -152,10 +151,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     likes={video.likes}
                     comments={video.comments}
                     views={video.views}
-                    aspect={horizontal ? "16/9" : "9/16"}
+                    aspect={srcIndex % 3 === 0 ? "16/9" : "9/16"}
                     cardHeight={"auto"}
                     mediaHeight={"auto"}
-                    thumbnailSrc={thumb ? `${thumb}&cb=${index}` : undefined}
+                    thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
                     fit={"contain"}
                     showBuyButton={false}
                     showPrice={false}
@@ -168,14 +167,15 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Mobile Carousel - Shows 2 cards on mobile */}
+        {/* Mobile Carousel - Shows selected cards */}
         <div className="md:hidden">
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4">
-            {displayVideos.map((video, index) => {
-              const thumb = index < trendingThumbs.length ? trendingThumbs[index] : undefined;
-              const title = trendingTitles[index % trendingTitles.length] || video.title;
+            {selectedVideos.map((video) => {
+              const srcIndex = (video as any).__srcIndex as number;
+              const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
+              const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={`mobile-${video.id}`} className="flex-shrink-0 w-48">
+                <div key={`mobile-${srcIndex}-${video.id}`} className="flex-shrink-0 w-48">
                   <VideoPlaceholder
                     title={title}
                     price={video.price}
@@ -186,7 +186,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     views={video.views}
                     cardHeight={"auto"}
                     mediaHeight={"auto"}
-                    thumbnailSrc={thumb ? `${thumb}&cb=${index}` : undefined}
+                    thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
                     fit="contain"
                     showBuyButton={false}
                     showPrice={false}
