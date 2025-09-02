@@ -11,7 +11,7 @@ export default function ExploreCurated() {
         className="pointer-events-none select-none absolute inset-x-0 bottom-0 z-0 w-full h-44 md:h-64 lg:h-72 object-cover object-bottom"
       />
 
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative z-20 container mx-auto px-4">
         <div className="mb-4 flex items-center justify-between">
           <div>
             <h2 className="text-2xl md:text-3xl font-extrabold">Explore London</h2>
@@ -19,7 +19,7 @@ export default function ExploreCurated() {
           </div>
         </div>
 
-        <div className="rounded-2xl shadow-lg overflow-hidden bg-white">
+        <div className="rounded-2xl shadow-lg overflow-hidden bg-white mb-8 md:mb-12 lg:mb-14">
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
             <ProductPlaceholder
               title="Dell Inspiron 15 (Ryzen)"
