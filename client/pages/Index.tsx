@@ -17,6 +17,7 @@ import FooterConnect from "@/components/home/FooterConnect";
 export default function Index() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <AnnouncementStrip />
       <NeutralHeroBanner />
       <FlashDealsCarousel />
       <TrendingCarousel />
