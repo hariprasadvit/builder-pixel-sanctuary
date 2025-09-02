@@ -132,6 +132,7 @@ export default function ExploreCurated() {
               mediaHeight={140}
               className="min-w-[220px] md:min-w-[240px] snap-start"
             />
+            <div className="shrink-0 w-4 md:w-6" />
           </div>
         </div>
       </div>
