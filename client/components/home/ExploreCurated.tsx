@@ -3,7 +3,7 @@ import { ProductPlaceholder } from "@/components/ui/placeholders";
 
 export default function ExploreCurated() {
   return (
-    <section className="relative overflow-hidden pt-10 pb-40 md:pb-56 lg:pb-64 bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
+    <section className="relative overflow-hidden pt-10 pb-80 md:pb-96 lg:pb-[28rem] bg-gradient-to-b from-[#0a1b4f] via-[#0c2f6f] to-[#071a3d] text-white">
       {/* Bottom skyline image above gradient, behind content */}
       <img
         src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5286ad652ca449a818f3bdb639b9c8e?format=webp&width=1600"
