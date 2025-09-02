@@ -8,8 +8,8 @@ export const BRAND_GRADIENT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f]";
 export const BRAND_GRADIENT_TEXT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] bg-clip-text text-transparent";
 
 interface BaseCardProps {
-  cardHeight?: number; // total outer card height
-  mediaHeight?: number; // height of media area (image/video)
+  cardHeight?: number | "auto"; // total outer card height
+  mediaHeight?: number | "auto"; // height of media area (image/video)
   className?: string;
 }
 
