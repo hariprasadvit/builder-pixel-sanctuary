@@ -87,9 +87,9 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
   // Thumbnails provided by user for trending section (tiles 1-10)
   const trendingThumbs = [
     // 1-5
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6f399d617ec9456db30591d5d62dd84e?format=webp&width=800", // Card 1 (srcIndex 0)
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdb8f84e4211c4b198a762954501e50d8?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4d485c509a0d4f2b8dded2d4c8f823fd?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcbe79e80b6a847b490135842324d38ea?format=webp&width=800", // Card 2 (srcIndex 2)
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F99870e97ec344b8b99197328db647e5f?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcbe79e80b6a847b490135842324d38ea?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2cab0399bb434ebcb3b79e6eed1ce19f?format=webp&width=800",
     // 6-10
