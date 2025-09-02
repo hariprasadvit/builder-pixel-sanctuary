@@ -225,9 +225,9 @@ export default function SocialSellCard(props: SocialSellCardProps) {
         </div>
         <ul className="mt-2 text-xs text-gray-800 space-y-1 min-h-[48px]">
           {bullets.slice(0,3).map((b,i)=> (
-            <li key={i} className="flex items-start gap-2 line-clamp-1">
-              <Check className="w-3.5 h-3.5 text-green-600 mt-0.5 flex-shrink-0" />
-              <span>{b}</span>
+            <li key={i} className="flex items-center gap-2">
+              <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+              <span className="line-clamp-1 leading-snug">{b}</span>
             </li>
           ))}
         </ul>
