@@ -54,7 +54,7 @@ export function VideoPlaceholder({
   const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={outerStyle}>
-      <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
+      <div className="relative w-full bg-white flex items-center justify-center" style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
           <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
         ) : (
@@ -135,11 +135,11 @@ export function ProductPlaceholder({
   const box = mediaHeight; // 1:1 box
   return (
     <div className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col ${className}`} style={{ height: cardHeight }}>
-      <div className="relative w-full bg-gray-200 flex items-center justify-center" style={{ height: mediaHeight }}>
+      <div className="relative w-full bg-white flex items-center justify-center p-3" style={{ height: mediaHeight }}>
         {thumbnailSrc ? (
           <img src={thumbnailSrc} alt={title} className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`} />
         ) : (
-          <div className="w-full max-h-full aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
+          <div className="w-full max-h-full aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
             <div className="text-center text-gray-600">
               <div className="w-12 h-12 bg-gray-200 rounded-lg mb-2 mx-auto" />
               <p className="text-xs font-medium">Product Image</p>
