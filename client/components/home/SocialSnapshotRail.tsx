@@ -100,7 +100,7 @@ function SnapshotCard({ data }: { data: CardData }) {
             ))}
           </div>
           {/* Price strip */}
-          <div className="mt-auto pt-3 border-t border-dashed border-gray-200 text-sm flex items-center gap-2">
+          <div className="mt-auto pt-3 border-t border-dashed border-gray-200 text-sm flex items-center gap-2 whitespace-nowrap">
             <span className="font-semibold text-gray-900">{data.price}</span>
             <span className="text-gray-400 line-through text-xs">{data.mrp}</span>
             <span className="text-emerald-600 text-xs font-medium">{data.discountPct}% off</span>
