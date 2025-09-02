@@ -33,6 +33,29 @@ export default function CategoryHighlights() {
                     />
                   </div>
                   <ElectronicsCategoryIcons />
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="rounded-2xl overflow-hidden shadow-sm">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F60da2549f1714e9fb519611d4a5e5f45?format=webp&width=1440"
+                        alt="Runs all day promo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-sm">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F64e5400c0e31451682277d69ad7a3a76?format=webp&width=1440"
+                        alt="Currys gift card promo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-sm">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb373a36820cb4639a1cedc022d73068a?format=webp&width=1440"
+                        alt="Intel Gamer Days promo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
                 </>
               ) : (
                 <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
