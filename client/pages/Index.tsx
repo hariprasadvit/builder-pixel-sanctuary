@@ -27,6 +27,7 @@ export default function Index() {
       <TrendingCarousel />
       <TopCategories />
       <ExploreCurated />
+      <CellphonesShowcase />
       <SocialSellSection />
       <CategoryHighlights />
       <SocialSnapshotRail />
