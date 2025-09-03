@@ -2,6 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import { BrandBannerPlaceholder, ProductPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 import ElectronicsCategoryIcons from "@/components/home/ElectronicsCategoryIcons";
+import UKDealsBanner from "@/components/home/UKDealsBanner";
 
 const CATEGORIES = [
   { key: 'electronics', title: 'Electronics' },
@@ -106,10 +107,7 @@ export default function CategoryHighlights() {
             </div>
             {cat.key === 'cellphones' && (
               <div className="mt-4">
-                {/** UK Deals banner between Cellphones and Clothing **/}
-                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-                {/* @ts-ignore */}
-                {require('./UKDealsBanner').default()}
+                <UKDealsBanner />
               </div>
             )}
           </Fragment>
