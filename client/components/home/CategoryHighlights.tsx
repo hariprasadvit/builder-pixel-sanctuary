@@ -36,11 +36,19 @@ export default function CategoryHighlights() {
                     </div>
                     <ElectronicsCategoryIcons />
                   </>
+                ) : cat.key === 'cellphones' ? (
+                  <div className="w-full rounded-2xl overflow-hidden mb-4">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0685bf9e45fb4b92b841cc489a8ccc3c?format=webp&width=1440"
+                      alt="Cellphones Banner"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
                 ) : (
                   <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
                 )}
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
-                {cat.key !== 'electronics' && (
+                {!(cat.key === 'electronics' || cat.key === 'cellphones') && (
                   <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                     {Array.from({ length: 4 }).map((_, i) => (
                       <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
@@ -58,6 +66,26 @@ export default function CategoryHighlights() {
                     ].map((p, i) => (
                       <ProductPlaceholder
                         key={`elec-${i}`}
+                        title={p.title}
+                        price={p.price}
+                        originalPrice={p.original}
+                        thumbnailSrc={p.img}
+                        fit="contain"
+                        cardHeight={380}
+                        mediaHeight={220}
+                        mediaPadding="px-4 py-3"
+                      />
+                    ))
+                  ) : cat.key === 'cellphones' ? (
+                    [
+                      { title: 'OnePlus Nord CE4 Lite', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc33feae9d94c451b8969c60661c3692d?format=webp&width=800', price: 199.0, original: 229.0 },
+                      { title: 'Samsung Galaxy M05', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F52335893f0c54cb4b8fbdd9822964bdd?format=webp&width=800', price: 139.0, original: 159.0 },
+                      { title: 'iQOO Z10x', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F687bbd4ffd97429ba501de2ec448faa3?format=webp&width=800', price: 229.0, original: 259.0 },
+                      { title: 'Redmi 13 5G Prime Edition', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4de295fcb31a4ed990c1b1e9107431e3?format=webp&width=800', price: 179.0, original: 199.0 },
+                      { title: 'POCO M6 Plus 5G', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4a1b3bab6a694089998b588abcabc22b?format=webp&width=800', price: 189.0, original: 209.0 },
+                    ].map((p, i) => (
+                      <ProductPlaceholder
+                        key={`cell-${i}`}
                         title={p.title}
                         price={p.price}
                         originalPrice={p.original}
