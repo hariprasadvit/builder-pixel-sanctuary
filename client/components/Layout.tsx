@@ -357,9 +357,19 @@ export default function Layout({ children }: LayoutProps) {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="flex items-center gap-2 max-w-[200px] justify-start px-2 text-gray-800 hover:bg-gray-100"
+                    className="flex items-center gap-2 max-w-[220px] justify-start px-2 text-gray-800 hover:bg-gray-100"
                   >
                     <MapPin className="w-4 h-4 text-gray-700" />
+                    {/* UK flag */}
+                    <svg aria-hidden viewBox="0 0 60 30" className="w-5 h-2.5 rounded-sm ring-1 ring-black/10">
+                      <rect width="60" height="30" fill="#012169"/>
+                      <path d="M0,0 60,30 M60,0 0,30" stroke="#FFF" strokeWidth="6"/>
+                      <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="3"/>
+                      <rect x="0" y="12" width="60" height="6" fill="#FFF"/>
+                      <rect x="0" y="13.5" width="60" height="3" fill="#C8102E"/>
+                      <rect x="27" y="0" width="6" height="30" fill="#FFF"/>
+                      <rect x="28.5" y="0" width="3" height="30" fill="#C8102E"/>
+                    </svg>
                     <div className="flex flex-col items-start text-left">
                       <span className="text-xs text-gray-500">
                         Deliver to
