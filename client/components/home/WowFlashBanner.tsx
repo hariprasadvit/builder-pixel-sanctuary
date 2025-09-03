@@ -9,29 +9,31 @@ export default function WowFlashBanner() {
           <div className="relative overflow-hidden rounded-2xl shadow-lg min-h-[200px] md:min-h-[280px]">
             {/* Split background panels (no gap) */}
             <div className="absolute inset-0 flex">
-              <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 25% 50%, rgba(255,255,255,0.18), transparent 55%), #CF1020" }}>
-                {/* Ghosted Union Jack rays */}
-                <svg className="pointer-events-none absolute inset-0 opacity-10" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 25% 50%, rgba(255,255,255,0.14), transparent 55%), #CF1020" }}>
+                {/* Ghosted Union Jack rays with subtle motion */}
+                <svg className="pointer-events-none absolute inset-0 opacity-10 uk-drift" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                   <path d="M0,0 60,30 M60,0 0,30" stroke="#fff" strokeWidth="6"/>
                   <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="3"/>
                 </svg>
               </div>
-              <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 75% 50%, rgba(255,255,255,0.12), transparent 55%), #0B3B8F" }} />
+              <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 75% 50%, rgba(255,255,255,0.12), transparent 55%), #003170" }} />
             </div>
 
             {/* Center lightning bolt overlapping both sides */}
             <svg
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-6 w-28 h-40 md:w-40 md:h-64 drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] bolt-strike"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-40 md:w-40 md:h-64 drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] bolt-strike"
               viewBox="0 0 64 96"
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>
                 <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#FFEFA3" />
-                  <stop offset="100%" stopColor="#FFC331" />
+                  <stop offset="0%" stopColor="#FFDF7E" />
+                  <stop offset="100%" stopColor="#FFC83A" />
                 </linearGradient>
               </defs>
-              <path d="M40 0 L0 56 H24 L14 96 L64 40 H40 Z" fill="url(#boltGrad)" stroke="#E6A400" strokeWidth="2" />
+              <g transform="rotate(8,32,48)">
+                <path d="M40 0 L0 56 H24 L14 96 L64 40 H40 Z" fill="url(#boltGrad)" stroke="#C58A00" strokeWidth="2" />
+              </g>
             </svg>
 
             {/* Left content */}
@@ -46,7 +48,7 @@ export default function WowFlashBanner() {
                       <rect y="8" width="60" height="8" fill="#CF1020" />
                     </svg>
                   </span>
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-[#F9E27D]" style={{ textShadow: "0 2px 0 #b40e1c, 0 6px 14px rgba(0,0,0,0.35)" }}>
+                  <h3 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(#FFDF7E,#FFC83A)", textShadow: "0 2px 0 #b40e1c, 0 6px 14px rgba(0,0,0,0.35)" }}>
                     FLASH SALE
                   </h3>
                 </div>
@@ -58,7 +60,7 @@ export default function WowFlashBanner() {
               <div className="w-1/2 text-right text-white">
                 <div className="uppercase tracking-[0.3em] text-white/85 text-xs md:text-sm">Best Offer</div>
                 <div className="mt-1 text-2xl md:text-4xl font-extrabold text-[#FFF7DC] drop-shadow-sm">
-                  Up to <span className="text-[#FFD35C]">30% OFF</span>
+                  Prices reduced by <span className="text-[#FFD35C]">30%</span>
                 </div>
                 <div className="mt-3 flex justify-end">
                   <Button className="bg-[#CF1020] hover:bg-[#b40e1c] text-white shadow-lg">Shop UK Deals</Button>
