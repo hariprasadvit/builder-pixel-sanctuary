@@ -15,7 +15,7 @@ export default function SocialSellSection() {
               title="Wireless ANC Buds with 30h case"
               creatorHandle="@techwithsam"
               avatars={["https://i.pravatar.cc/24?img=1","https://i.pravatar.cc/24?img=2","https://i.pravatar.cc/24?img=3"]}
-              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdc4191108d8748c0bf09199af581a77f?format=webp&width=800"
+              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdc4191108d8748c0bf09199af581a77f?format=webp&width=800&cb=1"
               videoSrc="https://cdn.coverr.co/videos/coverr-urban-snapshots-8241/1080p.mp4"
               hideWatchButton
               bullets={["Clear calls; punchy bass","Comfortable for long sessions","Case scratches easily"]}
@@ -34,7 +34,7 @@ export default function SocialSellSection() {
               title="Portable blender 500ml"
               creatorHandle="@homechef.ai"
               avatars={["https://i.pravatar.cc/24?img=4","https://i.pravatar.cc/24?img=5"]}
-              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feeb98ccbd77a4083bafb59d5cadd70e0?format=webp&width=800"
+              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feeb98ccbd77a4083bafb59d5cadd70e0?format=webp&width=800&cb=2"
               bullets={["Quick smoothies","USB-C charge","Blade not for nuts"]}
               rating={4.1}
               ratingCount={642}
@@ -49,7 +49,7 @@ export default function SocialSellSection() {
               title="Ergo desk chair"
               creatorHandle="@workspace"
               avatars={["https://i.pravatar.cc/24?img=6"]}
-              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6d635c57372c4ff892d479e37f9bd254?format=webp&width=800"
+              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6d635c57372c4ff892d479e37f9bd254?format=webp&width=800&cb=3"
               bullets={["Breathable mesh","Excellent lumbar","Armrests a bit wobbly"]}
               rating={4.5}
               ratingCount={312}
@@ -64,7 +64,7 @@ export default function SocialSellSection() {
               title="1080p Creator Webcam"
               creatorHandle="@remotework"
               avatars={["https://i.pravatar.cc/24?img=7"]}
-              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc1d75e916f494c2e86219078200c4a3f?format=webp&width=800"
+              videoPoster="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc1d75e916f494c2e86219078200c4a3f?format=webp&width=800&cb=4"
               bullets={["Sharp image","Auto exposure works","Colors slightly cool"]}
               rating={4.2}
               ratingCount={908}
