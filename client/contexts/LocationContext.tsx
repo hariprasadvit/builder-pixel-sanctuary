@@ -77,6 +77,22 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("currentAddress", JSON.stringify(address));
   };
 
+  useEffect(() => {
+    if (currentAddress && (currentAddress.city === "Mumbai" || currentAddress.pincode.startsWith("400"))) {
+      const eastHam: Address = {
+        id: currentAddress.id || "default",
+        type: currentAddress.type,
+        label: currentAddress.label,
+        address: "12 High Street, East Ham",
+        pincode: "E6 1AA",
+        city: "East Ham",
+        state: "England",
+        isDefault: true,
+      };
+      setCurrentAddress(eastHam);
+    }
+  }, []);
+
   const addAddress = (newAddress: Omit<Address, "id">): Address => {
     const address: Address = {
       ...newAddress,
