@@ -20,21 +20,25 @@ export default function WowFlashBanner() {
             </div>
 
             {/* Center lightning bolt overlapping both sides */}
-            <svg
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-40 md:w-40 md:h-64 drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] bolt-strike"
-              viewBox="0 0 64 96"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#FFDF7E" />
-                  <stop offset="100%" stopColor="#FFC83A" />
-                </linearGradient>
-              </defs>
-              <g transform="rotate(8,32,48)">
-                <path d="M40 0 L0 56 H24 L14 96 L64 40 H40 Z" fill="url(#boltGrad)" stroke="#C58A00" strokeWidth="2" />
-              </g>
-            </svg>
+            <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              {/* shockwave flash */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-56 md:h-56 rounded-full strike-flash" style={{ background: "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 60%)" }} />
+              <svg
+                className="relative w-28 h-40 md:w-40 md:h-64 drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] bolt-strike bolt-pulse"
+                viewBox="0 0 64 96"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#FFDF7E" />
+                    <stop offset="100%" stopColor="#FFC83A" />
+                  </linearGradient>
+                </defs>
+                <g transform="rotate(8,32,48)">
+                  <path d="M40 0 L0 56 H24 L14 96 L64 40 H40 Z" fill="url(#boltGrad)" stroke="#C58A00" strokeWidth="2" />
+                </g>
+              </svg>
+            </div>
 
             {/* Left content */}
             <div className="absolute inset-y-0 left-0 z-10 w-full md:w-1/2 flex items-center justify-center md:justify-start px-6 md:px-8">
