@@ -9,8 +9,8 @@ export default function AnnouncementStrip() {
     <>
       <style>{`@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
       <div className="relative w-full bg-gradient-to-r from-[#CF1020] via-white to-[#003170]">
-        {/* subtle dark overlay for contrast */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_60%_at_50%_50%,rgba(0,0,0,0.25),transparent_60%)]" />
+        {/* subtle dark overlay for contrast with darker center band */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/15 via-black/40 to-black/15" />
         <div className="overflow-hidden whitespace-nowrap h-9 flex items-center relative">
           <div className="flex items-center gap-12 will-change-transform" style={{ animation: "ticker 18s linear infinite" }}>
             {[0, 1].map((dup) => (
