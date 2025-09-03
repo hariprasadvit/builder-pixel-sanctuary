@@ -50,7 +50,7 @@ export default function CategoryHighlights() {
                 ) : cat.key === 'clothing' ? (
                   <div className="relative group w-full rounded-2xl overflow-hidden mb-4">
                     <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff53af318aa064cd985bc7b9a9711d80c?format=webp&width=800"
+                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0e92f7f4907344aba6b6ad1cb8ab0613?format=webp&width=1440"
                       alt="Women's Fashion Banner"
                       className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
@@ -68,7 +68,7 @@ export default function CategoryHighlights() {
                   </div>
                 )}
                 {cat.key === 'clothing' && (
-                  <h4 className="mt-4 text-lg font-semibold">Explore Women's Clothing</h4>
+                  <h4 className="mt-4 text-lg font-extrabold bg-gradient-to-r from-pink-600 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">Explore Women's Clothing</h4>
                 )}
                 <div className={`mt-4 grid ${cat.key === 'clothing' ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6' : 'grid-cols-2 md:grid-cols-5'} gap-4`}>
                   {cat.key === 'electronics' ? (
@@ -113,12 +113,12 @@ export default function CategoryHighlights() {
                     ))
                   ) : cat.key === 'clothing' ? (
                     [
-                      { title: 'Jeans & Jeggings', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bff683db7124754ac6c86b8f835f7b0?format=webp&width=800' },
-                      { title: 'Dresses & Jumpsuits', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F17ce21f13e464256bb68ec25b5fc2683?format=webp&width=800' },
-                      { title: 'Tops & Tees', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fba2e2b6f948246c8b8f676b52b3cadb5?format=webp&width=800' },
-                      { title: 'Innerwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe146d0ea06134dbbad3b3efd4d34efb6?format=webp&width=800' },
-                      { title: 'Swimwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F833a52dee1c14f979787b20546f67e68?format=webp&width=800' },
-                      { title: 'Activewear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8a785e772f8a486db6e6056935746fbd?format=webp&width=800' }
+                      { title: 'Jeans & Jeggings', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F93cd18deab3a4407aa76af7b5e08f6b6?format=webp&width=800' },
+                      { title: 'Dresses & Jumpsuits', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5af06d8bd91547698c386cecc3d7f32f?format=webp&width=800' },
+                      { title: 'Tops & Tees', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F776cc9ad00a2462fa48eed60dec820da?format=webp&width=800' },
+                      { title: 'Innerwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcbc45a5ec381450ba77510215772c761?format=webp&width=800' },
+                      { title: 'Swimwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F91e4fb89cc444e35a56d1f498c6411c1?format=webp&width=800' },
+                      { title: 'Activewear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd2565f28c67348d291689e7e20c2b10a?format=webp&width=800' }
                     ].map((p, i) => (
                       <div key={`cloth-${i}`} className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                         <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50">
