@@ -19,12 +19,16 @@ export default function WowFlashBanner() {
               <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 75% 50%, rgba(255,255,255,0.12), transparent 55%), #003170" }} />
             </div>
 
+            {/* Shine sweep on hover */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="shine-strip animate-shine z-10" />
+            </div>
             {/* Center lightning bolt overlapping both sides */}
             <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               {/* shockwave flash */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-56 md:h-56 rounded-full strike-flash" style={{ background: "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 60%)" }} />
               <svg
-                className="relative w-28 h-40 md:w-40 md:h-64 drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] bolt-strike bolt-pulse"
+                className="relative w-28 h-40 md:w-40 md:h-64 drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] bolt-strike bolt-pulse transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1"
                 viewBox="0 0 64 96"
                 xmlns="http://www.w3.org/2000/svg"
               >
