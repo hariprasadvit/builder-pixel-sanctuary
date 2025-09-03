@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 const slides = [
   {
     id: "lenovo",
-    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdc07b67b48df45a5aafbcac52e9ec7ff?format=webp&width=2400",
+    src: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb7d64a90a90340b4b9d89a3deda1291a?format=webp&width=2400",
     alt: "Lenovo",
   },
 ];
