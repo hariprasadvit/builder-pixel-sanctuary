@@ -11,7 +11,7 @@ export default function WowFlashBanner() {
             <div className="absolute inset-0 flex">
               <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 25% 50%, rgba(255,255,255,0.14), transparent 55%), #CF1020" }}>
                 {/* Ghosted Union Jack rays with subtle motion */}
-                <svg className="pointer-events-none absolute inset-0 opacity-10 uk-drift" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <svg className="pointer-events-none absolute inset-0 opacity-10 uk-drift transition-opacity duration-300 group-hover:opacity-20" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                   <path d="M0,0 60,30 M60,0 0,30" stroke="#fff" strokeWidth="6"/>
                   <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="3"/>
                 </svg>
