@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/select";
 import { Filter, Search, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import CellphonesShowcase from "@/components/home/CellphonesShowcase";
 
 interface PhoneItem {
   id: string;
