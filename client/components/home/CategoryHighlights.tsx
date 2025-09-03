@@ -104,6 +104,14 @@ export default function CategoryHighlights() {
                 </div>
               </div>
             </div>
+            {cat.key === 'cellphones' && (
+              <div className="mt-4">
+                {/** UK Deals banner between Cellphones and Clothing **/}
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-ignore */}
+                {require('./UKDealsBanner').default()}
+              </div>
+            )}
           </Fragment>
         ))}
       </div>
