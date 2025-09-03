@@ -67,7 +67,7 @@ export default function CategoryHighlights() {
                 {cat.key === 'clothing' && (
                   <h4 className="mt-4 text-lg font-semibold">Explore Women's Clothing</h4>
                 )}
-                <div className={`mt-4 grid ${cat.key === 'clothing' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-5'} gap-4`}>
+                <div className={`mt-4 grid ${cat.key === 'clothing' ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6' : 'grid-cols-2 md:grid-cols-5'} gap-4`}>
                   {cat.key === 'electronics' ? (
                     [
                       { title: 'Dell Inspiron 15 (Ryzen)', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a53cb8ad3da4225822a3c8461db49ed?format=webp&width=800', price: 599.0, original: 699.0 },
