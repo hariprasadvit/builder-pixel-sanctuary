@@ -133,15 +133,15 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Grid Layout: 8 cards in two rows (4 columns on xl) */}
-        <div>
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
-            {selectedVideos.map((video, index) => {
+        {/* Masonry layout on md+ using CSS columns */}
+        <div className="hidden md:block">
+          <div className="columns-2 md:columns-3 xl:columns-4 gap-4 [column-fill:_balance]">
+            {selectedVideos.map((video) => {
               const srcIndex = (video as any).__srcIndex as number;
               const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
               const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={`trending-${srcIndex}-${video.id}`} className="">
+                <div key={`trending-${srcIndex}-${video.id}`} className="break-inside-avoid mb-4">
                   <VideoPlaceholder
                     title={title}
                     price={video.price}
