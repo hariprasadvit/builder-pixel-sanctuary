@@ -47,16 +47,7 @@ export default function CategoryHighlights() {
                     />
                     <div className="shine-strip animate-shine z-10" />
                   </div>
-                ) : cat.key === 'clothing' ? (
-                  <div className="relative group w-full rounded-2xl overflow-hidden mb-4">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0e92f7f4907344aba6b6ad1cb8ab0613?format=webp&width=1440"
-                      alt="Women's Fashion Banner"
-                      className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
-                    <div className="shine-strip animate-shine z-10" />
-                  </div>
-                ) : (
+                ) : cat.key === 'clothing' ? null : (
                   <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
                 )}
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
