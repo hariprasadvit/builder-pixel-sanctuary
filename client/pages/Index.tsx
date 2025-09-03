@@ -16,6 +16,7 @@ import FooterConnect from "@/components/home/FooterConnect";
 import SocialSellSection from "@/components/home/SocialSellSection";
 import SocialSnapshotRail from "@/components/home/SocialSnapshotRail";
 import ExploreCurated from "@/components/home/ExploreCurated";
+import WowFlashBanner from "@/components/home/WowFlashBanner";
 
 
 export default function Index() {
