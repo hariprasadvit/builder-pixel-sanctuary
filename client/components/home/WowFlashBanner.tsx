@@ -6,7 +6,7 @@ export default function WowFlashBanner() {
     <section className="py-6">
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-2xl shadow-lg min-h-[200px] md:min-h-[280px]">
+          <div className="relative overflow-hidden rounded-2xl shadow-lg min-h-[200px] md:min-h-[280px] group transition-all duration-300 hover:shadow-xl">
             {/* Split background panels (no gap) */}
             <div className="absolute inset-0 flex">
               <div className="relative flex-1" style={{ background: "radial-gradient(120% 100% at 25% 50%, rgba(255,255,255,0.14), transparent 55%), #CF1020" }}>
