@@ -28,6 +28,7 @@ export default function Index() {
       <TrendingCarousel />
       <TopCategories />
       <ExploreCurated />
+      <WowFlashBanner />
       <SocialSellSection />
       <CategoryHighlights />
       <SocialSnapshotRail />
