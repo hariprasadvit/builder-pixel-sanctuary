@@ -16,7 +16,7 @@ import FooterConnect from "@/components/home/FooterConnect";
 import SocialSellSection from "@/components/home/SocialSellSection";
 import SocialSnapshotRail from "@/components/home/SocialSnapshotRail";
 import ExploreCurated from "@/components/home/ExploreCurated";
-import CellphonesShowcase from "@/components/home/CellphonesShowcase";
+
 
 export default function Index() {
   return (
@@ -27,7 +27,6 @@ export default function Index() {
       <TrendingCarousel />
       <TopCategories />
       <ExploreCurated />
-      <CellphonesShowcase />
       <SocialSellSection />
       <CategoryHighlights />
       <SocialSnapshotRail />
