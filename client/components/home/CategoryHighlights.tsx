@@ -28,30 +28,33 @@ export default function CategoryHighlights() {
               <div className="p-4">
                 {cat.key === 'electronics' ? (
                   <>
-                    <div className="w-full rounded-2xl overflow-hidden mb-4">
+                    <div className="relative group w-full rounded-2xl overflow-hidden mb-4">
                       <img
                         src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F38cd87269c174fc998ce6e04af10a52f?format=webp&width=1440"
                         alt="Epic Deals Banner"
-                        className="w-full h-auto object-cover"
+                        className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       />
+                      <div className="shine-strip animate-shine z-10" />
                     </div>
                     <ElectronicsCategoryIcons />
                   </>
                 ) : cat.key === 'cellphones' ? (
-                  <div className="w-full rounded-2xl overflow-hidden mb-4">
+                  <div className="relative group w-full rounded-2xl overflow-hidden mb-4">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0685bf9e45fb4b92b841cc489a8ccc3c?format=webp&width=1440"
                       alt="Cellphones Banner"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
+                    <div className="shine-strip animate-shine z-10" />
                   </div>
                 ) : cat.key === 'clothing' ? (
-                  <div className="w-full rounded-2xl overflow-hidden mb-4">
+                  <div className="relative group w-full rounded-2xl overflow-hidden mb-4">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff53af318aa064cd985bc7b9a9711d80c?format=webp&width=800"
                       alt="Women's Fashion Banner"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
+                    <div className="shine-strip animate-shine z-10" />
                   </div>
                 ) : (
                   <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
@@ -118,8 +121,9 @@ export default function CategoryHighlights() {
                       { title: 'Activewear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8a785e772f8a486db6e6056935746fbd?format=webp&width=800' }
                     ].map((p, i) => (
                       <div key={`cloth-${i}`} className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
-                        <div className="aspect-[4/5] w-full overflow-hidden bg-gray-50">
+                        <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50">
                           <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                          <div className="shine-strip animate-shine z-10" />
                         </div>
                         <div className="p-3">
                           <h3 className="text-sm font-medium text-gray-900 line-clamp-1">{p.title}</h3>
