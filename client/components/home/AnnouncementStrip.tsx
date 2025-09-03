@@ -8,7 +8,7 @@ export default function AnnouncementStrip() {
   return (
     <>
       <style>{`@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
-      <div className="relative w-full bg-[linear-gradient(90deg,#CF1020_0%,#CF1020_46%,#ffffff_50%,#003170_54%,#003170_100%)]">
+      <div className="relative w-full bg-gradient-to-r from-[#CF1020] via-[#7a2a6f] to-[#003170]">
         {/* subtle dark overlay for contrast with darker center band */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/15 via-black/40 to-black/15" />
         <div className="overflow-hidden whitespace-nowrap h-9 flex items-center relative">
