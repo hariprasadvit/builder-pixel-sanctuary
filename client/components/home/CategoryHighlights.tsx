@@ -45,16 +45,27 @@ export default function CategoryHighlights() {
                       className="w-full h-auto object-cover"
                     />
                   </div>
+                ) : cat.key === 'clothing' ? (
+                  <div className="w-full rounded-2xl overflow-hidden mb-4">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff53af318aa064cd985bc7b9a9711d80c?format=webp&width=800"
+                      alt="Women's Fashion Banner"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
                 ) : (
                   <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" />
                 )}
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
-                {!(cat.key === 'electronics' || cat.key === 'cellphones') && (
+                {!(cat.key === 'electronics' || cat.key === 'cellphones' || cat.key === 'clothing') && (
                   <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                     {Array.from({ length: 4 }).map((_, i) => (
                       <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
                     ))}
                   </div>
+                )}
+                {cat.key === 'clothing' && (
+                  <h4 className="mt-4 text-lg font-semibold">Explore Women's Clothing</h4>
                 )}
                 <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-4">
                   {cat.key === 'electronics' ? (
@@ -96,6 +107,24 @@ export default function CategoryHighlights() {
                         mediaHeight={220}
                         mediaPadding="px-4 py-3"
                       />
+                    ))
+                  ) : cat.key === 'clothing' ? (
+                    [
+                      { title: 'Jeans & Jeggings', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bff683db7124754ac6c86b8f835f7b0?format=webp&width=800' },
+                      { title: 'Dresses & Jumpsuits', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F17ce21f13e464256bb68ec25b5fc2683?format=webp&width=800' },
+                      { title: 'Tops & Tees', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fba2e2b6f948246c8b8f676b52b3cadb5?format=webp&width=800' },
+                      { title: 'Innerwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe146d0ea06134dbbad3b3efd4d34efb6?format=webp&width=800' },
+                      { title: 'Swimwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F833a52dee1c14f979787b20546f67e68?format=webp&width=800' },
+                      { title: 'Activewear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8a785e772f8a486db6e6056935746fbd?format=webp&width=800' }
+                    ].map((p, i) => (
+                      <div key={`cloth-${i}`} className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+                        <div className="aspect-[4/5] w-full overflow-hidden bg-gray-50">
+                          <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                        </div>
+                        <div className="p-3">
+                          <h3 className="text-sm font-medium text-gray-900 line-clamp-1">{p.title}</h3>
+                        </div>
+                      </div>
                     ))
                   ) : (
                     Array.from({ length: 5 }).map((_, i) => (
