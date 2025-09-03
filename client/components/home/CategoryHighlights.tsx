@@ -129,7 +129,7 @@ export default function CategoryHighlights() {
                 </div>
               </div>
             </div>
-            {cat.key === 'cellphones' && (
+            {cat.key === 'clothing' && (
               <div className="mt-4">
                 <UKDealsBanner />
               </div>
