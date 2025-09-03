@@ -37,8 +37,8 @@ export default function WowFlashBanner() {
             </svg>
 
             {/* Left content */}
-            <div className="relative z-10 h-full flex items-center px-6 md:px-8">
-              <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center text-center md:text-left translate-y-1 md:translate-y-0">
+            <div className="absolute inset-y-0 left-0 z-10 w-full md:w-1/2 flex items-center justify-center md:justify-start px-6 md:px-8">
+              <div className="w-full flex flex-col items-center md:items-start justify-center text-center md:text-left gap-2">
                 <div className="flex items-center gap-3 md:gap-4">
                   {/* St George's Cross pill icon */}
                   <span className="inline-flex items-center rounded-full bg-white/90 ring-2 ring-white/70 px-2 py-1 shadow-sm">
@@ -79,8 +79,8 @@ export default function WowFlashBanner() {
             </div>
 
             {/* Right copy */}
-            <div className="relative z-10 h-full flex items-center justify-end px-6 md:px-8">
-              <div className="w-1/2 text-right text-white">
+            <div className="absolute inset-y-0 right-0 z-10 w-full md:w-1/2 flex items-center justify-center md:justify-end px-6 md:px-8">
+              <div className="w-full md:w-auto text-right text-white space-y-2">
                 <div className="uppercase tracking-[0.3em] text-white/85 text-xs md:text-sm">Best Offer</div>
                 <div className="mt-1 text-2xl md:text-4xl font-extrabold text-[#FFF7DC] drop-shadow-sm">
                   Prices reduced by <span className="text-[#FFD35C]">30%</span>
