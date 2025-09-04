@@ -90,6 +90,10 @@ export default function CategoryHighlights() {
                     </div>
                   </div>
                 )}
+                {cat.key === 'clothing' && (
+                  <h4 className="mt-4 text-lg font-extrabold bg-gradient-to-r from-pink-600 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">Explore Women's Clothing</h4>
+                )}
+
                 <div className={`mt-4 grid ${cat.key === 'clothing' ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6' : 'grid-cols-2 md:grid-cols-5'} gap-4`}>
                   {cat.key === 'electronics' ? (
                     [
