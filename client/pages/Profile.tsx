@@ -306,7 +306,7 @@ export default function Profile() {
                       src={userData.avatar}
                       alt={userData.firstName}
                     />
-                    <AvatarFallback className="text-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                    <AvatarFallback className={`text-2xl ${BRAND_GRADIENT} text-white` }>
                       {userData.firstName[0]}
                       {userData.lastName[0]}
                     </AvatarFallback>
