@@ -432,7 +432,7 @@ export default function EnhancedStripeCheckout({
             {/* Submit Button */}
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white h-12 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+              className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white h-12 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105` }
               disabled={processing || !validateForm()}
             >
               {processing ? (
