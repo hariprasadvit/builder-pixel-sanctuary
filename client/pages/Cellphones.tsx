@@ -1054,7 +1054,7 @@ export default function Cellphones() {
             {chips.map((c, i) => (
               <Badge
                 key={i}
-                className="bg-blue-100 text-blue-800 border-blue-200 flex items-center gap-1"
+                className="bg-[#0b3b8f]/10 text-[#0b3b8f] border-[#0b3b8f]/20 flex items-center gap-1"
               >
                 {c.label}{" "}
                 <button onClick={c.onRemove}>
