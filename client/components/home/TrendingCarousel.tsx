@@ -155,6 +155,23 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                 );
               }
 
+              // place provided images into c and d
+              if (area === 'c') {
+                return (
+                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800" alt="c" className="w-full h-full object-cover" />
+                  </div>
+                );
+              }
+
+              if (area === 'd') {
+                return (
+                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800" alt="d" className="w-full h-full object-cover" />
+                  </div>
+                );
+              }
+
               return <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md bg-black" />;
             })}
           </div>
