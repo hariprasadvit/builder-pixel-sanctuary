@@ -75,6 +75,16 @@ export default function CategoryHighlights() {
                           mediaHeight={240}
                         />
                       ))
+                    ) : cat.key === 'home' ? (
+                      [
+                        { title: 'Wall Clock', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F800dea76bfaf4b96b84850671fe5a9cb?format=webp&width=800', price: 24.99 },
+                        { title: 'Scented Candle', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fff9554b1616e4357a99028665d0c5e4a?format=webp&width=800', price: 9.99 },
+                        { title: 'Mint Mug', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1d25eb988cd14b0aaaf6191c25f8b352?format=webp&width=800', price: 7.99 },
+                        { title: 'Kitchen Jar', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F201733d801a74c6c8e1643bd9af4a585?format=webp&width=800', price: 12.99 },
+                        { title: 'Cow Vase', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F87eeefbea37140ffb957b0ca55459140?format=webp&width=800', price: 14.99 },
+                      ].map((p, i) => (
+                        <ProductPlaceholder key={`home-${i}`} title={p.title} price={p.price} originalPrice={undefined} thumbnailSrc={p.img} fit="contain" showBuyButton={true} cardHeight={420} mediaHeight={240} />
+                      ))
                     ) : (
                       Array.from({ length: 4 }).map((_, i) => (
                         <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
