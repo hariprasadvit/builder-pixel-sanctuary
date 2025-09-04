@@ -1,5 +1,6 @@
 import React, { useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { BRAND_GRADIENT } from "@/components/ui/placeholders";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Heart, Play, Star, Info, MessageCircle, Users, Share2, Eye, TicketPercent, Check } from "lucide-react";
