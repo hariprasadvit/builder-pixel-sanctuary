@@ -159,13 +159,11 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           </div>
         )
       )}
-      {videoSrc && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span className="rounded-full bg-white/90 p-2 shadow ring-1 ring-black/10 group-hover:scale-105 transition-transform">
             <Play className="w-6 h-6 text-gray-800" />
           </span>
         </div>
-      )}
     </div>
   );
 
