@@ -199,7 +199,7 @@ export default function CategoryHighlights() {
                       ].map((p, i) => (
                         <ProductPlaceholder key={`beauty-p-${i}`} title={p.title} price={p.price} originalPrice={p.original} thumbnailSrc={p.img} fit="contain" cardHeight={420} mediaHeight={240} />
                       ))
-                    ) : (
+                    ) : cat.key === 'home' ? null : (
                       Array.from({ length: 5 }).map((_, i) => (
                         <ProductPlaceholder key={`p-${i}`} title={`${cat.title} Product`} price={49.99} originalPrice={69.99} cardHeight={420} mediaHeight={240} />
                       ))
