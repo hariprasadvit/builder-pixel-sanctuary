@@ -1087,7 +1087,7 @@ export default function ProductDetail() {
 
         {/* Marketing Images - Single Column Scroll Layout */}
         <div className="mb-8">
-          <h2 className="text-xl font-bold mb-6">Why iPhone 16?</h2>
+          <h2 className="text-xl font-bold mb-6">Why SOLARA Blendkwik?</h2>
           <div className="space-y-0">
             {marketingImages.map((image, index) => (
               <div key={index} className="w-full">
