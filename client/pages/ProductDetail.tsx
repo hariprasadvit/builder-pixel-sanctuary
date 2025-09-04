@@ -1144,42 +1144,22 @@ export default function ProductDetail() {
                           </div>
                           <div className="space-y-2 text-sm">
                             <div>
-                              <span className="font-medium text-gray-600">
-                                Display:
-                              </span>
-                              <p className="text-gray-800">{phone.display}</p>
+                              <span className="font-medium text-gray-600">Motor:</span>
+                              <p className="text-gray-800">{phone.motor}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">
-                                Chip:
-                              </span>
-                              <p className="text-gray-800">{phone.chip}</p>
+                              <span className="font-medium text-gray-600">Capacity:</span>
+                              <p className="text-gray-800">{phone.capacity}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">
-                                Camera:
-                              </span>
-                              <p className="text-gray-800">{phone.camera}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-gray-600">
-                                Battery:
-                              </span>
+                              <span className="font-medium text-gray-600">Battery:</span>
                               <p className="text-gray-800">{phone.battery}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-gray-600">
-                                Features:
-                              </span>
+                              <span className="font-medium text-gray-600">Features:</span>
                               <div className="flex flex-wrap gap-1 mt-1">
                                 {phone.features.map((feature, i) => (
-                                  <Badge
-                                    key={i}
-                                    variant="secondary"
-                                    className="text-xs"
-                                  >
-                                    {feature}
-                                  </Badge>
+                                  <Badge key={i} variant="secondary" className="text-xs">{feature}</Badge>
                                 ))}
                               </div>
                             </div>
