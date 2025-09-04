@@ -195,7 +195,7 @@ export default function EnhancedStripeCheckout({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className={`w-10 h-10 ${BRAND_GRADIENT} rounded-lg flex items-center justify-center`}>
               <Lock className="w-5 h-5 text-white" />
             </div>
             <div>
