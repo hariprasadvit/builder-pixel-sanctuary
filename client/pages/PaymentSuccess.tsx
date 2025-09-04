@@ -76,11 +76,11 @@ export default function PaymentSuccess() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#0b3b8f]/6 to-[#d32f2f]/6 flex items-center justify-center p-4">
         <div className="w-full max-w-2xl space-y-8">
           {/* Main Success Card */}
           <Card
-            className={`relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-white to-green-50 transition-all duration-1000 ${
+            className={`relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-white to-[#0b3b8f]/6 transition-all duration-1000 ${
               showContent
                 ? "opacity-100 translate-y-0 scale-100"
                 : "opacity-0 translate-y-8 scale-95"
@@ -89,7 +89,7 @@ export default function PaymentSuccess() {
             <CardContent className="p-8 text-center">
               {/* Success Icon with Pulse Animation */}
               <div className="relative mb-6">
-                <div className="w-24 h-24 mx-auto bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center animate-pulse">
+                <div className="w-24 h-24 mx-auto bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] rounded-full flex items-center justify-center animate-pulse">
                   <CheckCircle className="w-12 h-12 text-white animate-bounce" />
                 </div>
                 <div className="absolute inset-0 w-24 h-24 mx-auto bg-green-400 rounded-full animate-ping opacity-25"></div>
@@ -103,7 +103,7 @@ export default function PaymentSuccess() {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] bg-clip-text text-transparent">
                   Payment Successful! 🎉
                 </h1>
                 <p className="text-xl text-gray-600">
@@ -119,7 +119,7 @@ export default function PaymentSuccess() {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-green-200">
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#0b3b8f]/20">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
                     <div>
                       <p className="text-sm text-gray-600">Order Number</p>
@@ -165,14 +165,14 @@ export default function PaymentSuccess() {
                   {features.map((feature, index) => (
                     <div
                       key={index}
-                      className={`p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-blue-200 hover:shadow-lg transition-all duration-300 hover:scale-105 ${
+                      className={`p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-[#0b3b8f]/10 hover:shadow-lg transition-all duration-300 hover:scale-105 ${
                         animationStep >= 4
                           ? "animate-in slide-in-from-bottom"
                           : ""
                       }`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="text-blue-600 mb-2 flex justify-center">
+                      <div className="text-[#0b3b8f] mb-2 flex justify-center">
                         {feature.icon}
                       </div>
                       <h4 className="font-medium text-gray-800 text-sm">
@@ -194,9 +194,9 @@ export default function PaymentSuccess() {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
+                <div className="bg-gradient-to-r from-[#0b3b8f]/6 to-[#d32f2f]/6 rounded-xl p-6 border border-[#0b3b8f]/10">
                   <div className="flex items-center justify-center gap-3 mb-3">
-                    <Truck className="w-6 h-6 text-blue-600" />
+                    <Truck className="w-6 h-6 text-[#0b3b8f]" />
                     <h3 className="text-lg font-semibold text-gray-800">
                       Estimated Delivery
                     </h3>
@@ -248,7 +248,7 @@ export default function PaymentSuccess() {
           >
             <Button
               onClick={() => navigate("/orders")}
-              className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white h-12 font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+              className={`flex-1 ${BRAND_GRADIENT} hover:opacity-90 text-white h-12 font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105` }
             >
               <Package className="w-4 h-4 mr-2" />
               Track Your Order
@@ -294,7 +294,7 @@ export default function PaymentSuccess() {
               Need help? Contact us at{" "}
               <a
                 href="mailto:support@example.com"
-                className="text-blue-600 hover:underline font-medium"
+                className="text-[#0b3b8f] hover:underline font-medium"
               >
                 support@example.com
               </a>
