@@ -53,6 +53,18 @@ const CARDS: CardData[] = [
     imageUrl: "/images/bottle-9x16.jpg",
     avatarUrls: ["/img/c1.jpg", "/img/c2.jpg", "/img/c3.jpg", "/img/c4.jpg"],
   },
+  {
+    title: "Portable Blender 500ml",
+    pullQuote: "Smoothies on the go — USB-C rechargeable compact blender.",
+    chips: ["500ml", "USB-C", "BPA-free"],
+    price: "£39.99",
+    mrp: "£59.99",
+    discountPct: 32,
+    couponCode: "BLEND10",
+    imageUrl: "/images/blender-9x16.jpg",
+    avatarUrls: ["/img/d1.jpg", "/img/d2.jpg", "/img/d3.jpg", "/img/d4.jpg"],
+    link: "/product/2",
+  }
 ];
 
 function Facepile({ urls, altPrefix }: { urls: string[]; altPrefix: string }) {
@@ -72,7 +84,7 @@ function Facepile({ urls, altPrefix }: { urls: string[]; altPrefix: string }) {
 }
 
 function SnapshotCard({ data }: { data: CardData }) {
-  return (
+  const content = (
     <article className="rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-3 flex flex-col h-[360px] focus-within:ring-2">
       {/* Top row */}
       <div className="flex items-center justify-between mb-2">
@@ -119,6 +131,7 @@ function SnapshotCard({ data }: { data: CardData }) {
       </div>
     </article>
   );
+  return data.link ? <Link to={data.link} className="block">{content}</Link> : content;
 }
 
 export default function SocialSnapshotRail() {
