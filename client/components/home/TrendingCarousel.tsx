@@ -71,20 +71,21 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     }
   ];
 
-  // Use provided videos or fill with defaults
-  const displayVideos = [...videos];
-  const minCount = 12;
-  while (displayVideos.length < minCount) {
-    const def = defaultVideos[displayVideos.length % defaultVideos.length];
-    displayVideos.push({ ...def, id: `placeholder-${displayVideos.length}` });
-  }
-  // Keep a compact set of cards for masonry (removed one to improve feel)
-  const keepOrder = [0, 2, 4, 7, 8, 9, 10];
-  const selectedVideos = keepOrder
-    .filter((i) => i < displayVideos.length)
-    .map((i) => ({ ...displayVideos[i], __srcIndex: i } as any));
-  // Limit to first 7 items to keep layout compact
-  if (selectedVideos.length > 7) selectedVideos.length = 7;
+  // Render exactly 8 placeholder boxes (no images) for a tight masonry layout
+  const boxCount = 8;
+  const selectedVideos = Array.from({ length: boxCount }).map((_, i) => ({
+    id: `placeholder-${i}`,
+    title: "",
+    price: 0,
+    originalPrice: undefined,
+    badge: undefined,
+    likes: 0,
+    comments: 0,
+    views: 0,
+    __srcIndex: i
+  }) as any);
+  // keep length explicit
+  selectedVideos.length = boxCount;
 
   // Thumbnails for Trending Videos (updated)
   const trendingThumbs = [
