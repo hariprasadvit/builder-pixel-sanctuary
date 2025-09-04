@@ -131,10 +131,33 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         {/* Masonry layout on md+ using CSS columns (compact) */}
         <div className="hidden md:block">
           <div className="columns-3 md:columns-4 xl:columns-5 [column-fill:_balance] [column-gap:.75rem]">
-            {selectedVideos.map((video) => {
+            {selectedVideos.map((video, index) => {
               const srcIndex = (video as any).__srcIndex as number;
               const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
               const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
+
+              // Define a repeating variant pattern for mixed tile sizes: tall, standard, wide
+              const variants: ("tall" | "standard" | "wide")[] = ["tall", "standard", "wide", "standard", "tall", "standard", "wide"];
+              const variant = variants[index % variants.length];
+
+              let aspect: "9/16" | "16/9" = "9/16";
+              let cardH: number | "auto" = "auto";
+              let mediaH: number | "auto" = "auto";
+
+              if (variant === "tall") {
+                aspect = "9/16";
+                cardH = 360;
+                mediaH = 240;
+              } else if (variant === "wide") {
+                aspect = "16/9";
+                cardH = 300;
+                mediaH = 160;
+              } else {
+                aspect = "9/16";
+                cardH = 320;
+                mediaH = 200;
+              }
+
               return (
                 <div key={`trending-${srcIndex}-${video.id}`} className="inline-block w-full [break-inside:avoid] mb-3">
                   <VideoPlaceholder
@@ -146,11 +169,11 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     likes={video.likes}
                     comments={video.comments}
                     views={video.views}
-                    aspect={srcIndex % 3 === 0 ? "16/9" : "9/16"}
-                    cardHeight={300}
-                    mediaHeight={160}
+                    aspect={aspect}
+                    cardHeight={cardH}
+                    mediaHeight={mediaH}
                     thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
-                    fit={"cover"}
+                    fit={"contain"}
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={true}
