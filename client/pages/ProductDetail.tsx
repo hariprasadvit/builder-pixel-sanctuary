@@ -287,7 +287,7 @@ export default function ProductDetail() {
       camera: "Dual 48MP & Ultra Wide",
       battery: "Up to 22 hours video playback",
       features: ["Action button", "Face ID", "USB‑C"],
-      image: marketingImages[0] || "",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffa1d63fd57984ad6b476b94454261bb5?format=webp&width=800",
     },
     {
       model: "iPhone 16 Plus",
@@ -297,7 +297,7 @@ export default function ProductDetail() {
       camera: "Dual 48MP & Ultra Wide",
       battery: "Up to 27 hours video playback",
       features: ["Larger display", "Longer battery", "USB‑C"],
-      image: marketingImages[1] || "",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F80e6edf4d64e41bb81bcc68170dedb6d?format=webp&width=800",
     },
     {
       model: "iPhone 16 Pro",
@@ -307,7 +307,7 @@ export default function ProductDetail() {
       camera: "Triple camera system: 48MP main, 5x telephoto",
       battery: "Up to 30+ hours video playback",
       features: ["ProMotion display", "Titanium frame", "Pro camera system"],
-      image: marketingImages[2] || "",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F54cd0bd2c4a44a2d8dc73ae8a3e8ee70?format=webp&width=800",
     },
     {
       model: "iPhone 16 Pro Max",
@@ -317,7 +317,7 @@ export default function ProductDetail() {
       camera: "Advanced triple camera: 48MP main, 5x telephoto",
       battery: "Best-in-class battery life",
       features: ["Largest display", "Best battery", "Pro camera system"],
-      image: marketingImages[3] || "",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F91b3cb24d5414dcbab76789c6aed27cc?format=webp&width=800",
     },
   ];
 
