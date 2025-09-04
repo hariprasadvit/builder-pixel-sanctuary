@@ -232,7 +232,7 @@ export default function EnhancedStripeCheckout({
               }}
               className={`flex-1 transition-all duration-300 ${
                 paymentMethod === "saved" 
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white" 
+                  ? `${BRAND_GRADIENT} text-white`
                   : ""
               }`}
             >
@@ -246,7 +246,7 @@ export default function EnhancedStripeCheckout({
               }}
               className={`flex-1 transition-all duration-300 ${
                 paymentMethod === "new" 
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white" 
+                  ? `${BRAND_GRADIENT} text-white`
                   : ""
               }`}
             >
