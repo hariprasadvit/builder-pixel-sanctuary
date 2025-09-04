@@ -165,9 +165,51 @@ export default function ProductDetail() {
     },
   };
 
+  const clothingProduct = {
+    id: "c1",
+    title: "NOBERO Letter Regular T-Shirt - Olive (Pack)",
+    price: 12.99,
+    originalPrice: 19.99,
+    rating: 4.2,
+    reviewCount: 842,
+    origin: "UK",
+    deliveryEta: "Tomorrow",
+    inStock: true,
+    stockCount: 50,
+    images: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F33ecd5dbf27a4563af9d7c03abbde4c4?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5747fc3eeb6f43daafdf11e9e57ed2e1?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feef959dfcd1a43c4800a4fd90a6b2d4e?format=webp&width=800",
+    ],
+    brand: "NOBERO",
+    category: "Clothing",
+    color: "Olive",
+    sizes: ["S", "M", "L", "XL"],
+    features: [
+      "Regular fit cotton t-shirt",
+      "Printed lettering design",
+      "Machine washable",
+      "Lightweight breathable fabric",
+    ],
+    description:
+      "NOBERO Letter Regular T-Shirt — comfortable everyday tee in olive with subtle print. Lightweight and breathable, perfect for casual wear.",
+    specifications: {
+      Material: "100% Cotton",
+      Fit: "Regular",
+      Care: "Machine wash cold",
+      Origin: "Imported",
+    },
+    seller: {
+      name: "NOBERO Official",
+      rating: 4.3,
+      location: "UK",
+    },
+  };
+
   const productsById: Record<string, any> = {
     '1': iphoneProduct,
     '2': blenderProduct,
+    'c1': clothingProduct,
   };
 
   const product = productsById[id || '1'] || iphoneProduct;
