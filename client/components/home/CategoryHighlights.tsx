@@ -66,6 +66,33 @@ export default function CategoryHighlights() {
                 {cat.key === 'clothing' && (
                   <h4 className="mt-4 text-lg font-extrabold bg-gradient-to-r from-pink-600 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">Explore Women's Clothing</h4>
                 )}
+
+                {/* New: Explore Men's Clothing subsection */}
+                {cat.key === 'clothing' && (
+                  <div className="mt-6">
+                    <h4 className="text-lg font-extrabold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent animate-gradient-x">Explore Men's Clothing</h4>
+                    <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                      {[
+                        { title: 'Casual wear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F78abe6e110b147ec87697439e3781ca2?format=webp&width=800' },
+                        { title: 'Sports wear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F34f89b30847844a5874652f766b57898?format=webp&width=800' },
+                        { title: 'Sports Shoes', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0d108bd585304b32bf66f523bf1ae1aa?format=webp&width=800' },
+                        { title: 'Watches', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc5305d9748cc4f6385b8490ee9ea3045?format=webp&width=800' },
+                        { title: 'Formal wear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcd2ee57f41c64ff3b20a0fabc88cc467?format=webp&width=800' },
+                        { title: 'Sunglasses', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd0e6450d3d7840929e29bd2ab7c955e9?format=webp&width=800' }
+                      ].map((p, i) => (
+                        <div key={`men-${i}`} className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+                          <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50">
+                            <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                            <div className="shine-strip animate-shine z-10" />
+                          </div>
+                          <div className="p-3">
+                            <h3 className="text-sm font-medium text-gray-900 line-clamp-1">{p.title}</h3>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <div className={`mt-4 grid ${cat.key === 'clothing' ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6' : 'grid-cols-2 md:grid-cols-5'} gap-4`}>
                   {cat.key === 'electronics' ? (
                     [
