@@ -618,7 +618,7 @@ export default function Cart() {
                   </div>
 
                   <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    className={`${BRAND_GRADIENT} hover:opacity-90 text-white w-full` }
                     onClick={() => setShowStripeCheckout(true)}
                   >
                     Proceed to Checkout
