@@ -186,16 +186,17 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                 );
               }
 
-              // area c, d, e, h: show creator card with blurred background and overlays
-              if (['c','d','e','h'].includes(area)) {
+              // area c, d, e, g, h: show creator card with blurred background and overlays
+              if (['c','d','e','g','h'].includes(area)) {
                 // choose image and name per area
                 const imgMap: Record<string, string> = {
                   c: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800',
                   d: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800',
                   e: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf40b23e5b9a4786b28c3c2ecb75cd01?format=webp&width=800',
-                  h: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe7688d544f32454d9cb156ce8dfdee45?format=webp&width=800'
+                  g: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d24405ddca744bea45d58bbc256c383?format=webp&width=800',
+                  h: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbb72997bd25f480aacf6612f6fbeea22?format=webp&width=800'
                 };
-                const nameMap: Record<string, string> = { c: 'Li Wei', d: 'Wang Fang', e: 'Zhang Lei', h: 'Liu Ming' };
+                const nameMap: Record<string, string> = { c: 'Li Wei', d: 'Wang Fang', e: 'Zhang Lei', g: 'Mei Lin', h: 'Xiao Chen' };
                 const imgSrc = imgMap[area];
                 const creatorName = nameMap[area];
 
