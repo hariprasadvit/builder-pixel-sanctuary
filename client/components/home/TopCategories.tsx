@@ -24,14 +24,14 @@ const CATS: Cat[] = [
 
 const FALLBACK_IMG = "/placeholder.svg";
 
-function Tile({ title, image, imageClass }: { title: string; image?: string; imageClass?: string }) {
+function Tile({ title, image, imageClass, onClick }: { title: string; image?: string; imageClass?: string; onClick?: () => void }) {
   const [t, setT] = React.useState({ s: 1, dz: 0 });
   const onEnter = () => setT({ s: 1.08, dz: 28 });
   const onLeave = () => setT({ s: 1, dz: 0 });
 
   return (
-    <button className="group flex flex-col items-center w-24 sm:w-28" onMouseEnter={onEnter} onMouseLeave={onLeave}>
-      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] bg-gradient-to-br from-[#1f3b8a] via-[#2e63ff] to-[#ff3b30] shadow-sm transition-all duration-300 group-hover:shadow-2xl will-change-transform">
+    <button onClick={onClick} className="group flex flex-col items-center w-24 sm:w-28" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[3px] ${BRAND_GRADIENT} shadow-sm transition-all duration-300 group-hover:shadow-2xl will-change-transform`}>
         <div
           className="relative w-full h-full rounded-full bg-white flex items-center justify-center ring-1 ring-black/5 overflow-hidden"
           style={{
@@ -44,7 +44,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
             className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100"
             style={{
               background:
-                "radial-gradient(60% 60% at 50% 40%, rgba(59,130,246,0.35), rgba(99,102,241,0.25), transparent 70%)",
+                "radial-gradient(60% 60% at 50% 40%, rgba(11,59,143,0.18), rgba(211,47,47,0.12), transparent 70%)",
               filter: "blur(6px)",
               transform: "translateZ(1px)",
               transition: "opacity 280ms ease",
@@ -66,7 +66,7 @@ function Tile({ title, image, imageClass }: { title: string; image?: string; ima
           />
         </div>
       </div>
-      <div className="mt-3 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2 group-hover:text-sky-700">
+      <div className="mt-3 text-[11px] sm:text-xs leading-tight text-gray-800 text-center line-clamp-2 group-hover:text-[#0b3b8f]">
         {title}
       </div>
     </button>
