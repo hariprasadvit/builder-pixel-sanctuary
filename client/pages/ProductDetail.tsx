@@ -918,24 +918,24 @@ export default function ProductDetail() {
                 </div>
 
                 {/* Value Proposition */}
-                {product.category !== 'Clothing' && (
+                {product.id === '2' && (
                   <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
                     <div className="flex items-center gap-2 mb-2">
                       <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
                       <span className="text-sm font-medium text-gray-900">Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}</span>
                     </div>
-                    <p className="text-sm text-gray-700">Get the SOLARA Blendkwik with fast delivery and 1-year warranty upon registration. Limited time offer — save on the launch price.</p>
+                    <p className="text-sm text-gray-700">Get the {product.title} with fast delivery and 1-year warranty upon registration. Limited time offer — save on the launch price.</p>
                   </div>
                 )}
 
                 {/* Why Choose This */}
-                {product.category !== 'Clothing' && (
+                {product.id === '2' && (
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">Why Choose SOLARA Blendkwik?</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">Why Choose {product.title}?</h4>
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
                         <Shield className="w-4 h-4 text-[#0b3b8f]" />
-                        <span>Safe, BPA-free Tritan jar</span>
+                        <span>Safe, high-quality materials and certified components</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Star className="w-4 h-4 text-yellow-500" />
