@@ -664,7 +664,7 @@ export default function ProductDetail() {
               <div className="col-span-5 space-y-4">
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <Badge className="bg-blue-600 text-white">
+                    <Badge className={`${BRAND_GRADIENT} text-white` }>
                       {product.origin}
                     </Badge>
                     <Badge variant="outline">{product.brand}</Badge>
