@@ -136,7 +136,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
-              gridTemplateRows: '120px 120px 120px 120px',
+              gridTemplateRows: '110px 160px 160px 140px',
               gap: '8px',
               gridTemplateAreas: `"a a b" "c d b" "c d e" "f g h"`
             }}
@@ -145,16 +145,16 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               const areaNames = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
               const area = areaNames[index] || 'a';
 
-              // map area to size presets
+              // map area to compact size presets
               const sizeMap: Record<string, { cardH: number; mediaH: number }> = {
-                a: { cardH: 150, mediaH: 100 },
-                b: { cardH: 260, mediaH: 180 },
-                c: { cardH: 120, mediaH: 80 },
-                d: { cardH: 260, mediaH: 180 },
-                e: { cardH: 120, mediaH: 80 },
-                f: { cardH: 120, mediaH: 80 },
-                g: { cardH: 120, mediaH: 80 },
-                h: { cardH: 240, mediaH: 160 }
+                a: { cardH: 110, mediaH: 76 },
+                b: { cardH: 240, mediaH: 160 },
+                c: { cardH: 140, mediaH: 96 },
+                d: { cardH: 240, mediaH: 160 },
+                e: { cardH: 140, mediaH: 96 },
+                f: { cardH: 140, mediaH: 96 },
+                g: { cardH: 140, mediaH: 96 },
+                h: { cardH: 220, mediaH: 144 }
               };
 
               const { cardH, mediaH } = sizeMap[area];
