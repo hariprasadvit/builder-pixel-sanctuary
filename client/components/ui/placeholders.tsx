@@ -62,13 +62,15 @@ export function VideoPlaceholder({
   const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
   const mediaStyle = mediaHeight === "auto" ? undefined : { height: mediaHeight };
   const mediaPadding = mediaHeight === "auto" ? "" : "p-3";
-  const imgClass = mediaHeight === "auto" ? "w-full h-auto" : `w-full h-full transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`;
+  // Use explicit style for img to avoid unexpected cropping; keep aspect ratio intact
+  const imgStyle = mediaHeight === "auto" ? undefined : { width: '100%', height: '100%', objectFit: fit === 'cover' ? 'cover' : 'contain' } as React.CSSProperties;
+  const imgClass = mediaHeight === "auto" ? "w-full h-auto" : `w-full h-full transition-transform duration-300 group-hover:scale-105`;
   return (
     <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={outerStyle}>
       <div className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`} style={mediaStyle}>
         {thumbnailSrc ? (
           <>
-            <img src={thumbnailSrc} alt={title} className={imgClass} />
+            <img src={thumbnailSrc} alt={title} className={imgClass} style={imgStyle} />
             <div className="shine-strip animate-shine z-10" />
             {showPlayOverlay && (
               <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none z-20">
