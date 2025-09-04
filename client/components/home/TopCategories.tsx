@@ -84,7 +84,7 @@ export default function TopCategories() {
             {/* Desktop grid */}
             <div className="hidden md:grid grid-cols-6 gap-5 justify-items-center">
               {CATS.map((c) => (
-                <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
+                <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} onClick={() => { if (c.key === 'mobiles') navigate('/cellphones'); }} />
               ))}
             </div>
 
@@ -92,7 +92,7 @@ export default function TopCategories() {
             <div className="md:hidden">
               <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide px-4">
                 {CATS.map((c) => (
-                  <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} />
+                  <Tile key={c.key} title={c.title} image={c.image} imageClass={c.imageClass} onClick={() => { if (c.key === 'mobiles') navigate('/cellphones'); }} />
                 ))}
               </div>
             </div>
