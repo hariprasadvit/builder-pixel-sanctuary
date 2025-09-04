@@ -155,19 +155,44 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                 );
               }
 
-              // place provided images into c and d
-              if (area === 'c') {
-                return (
-                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden">
-                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800" alt="c" className="w-full h-full object-cover" />
-                  </div>
-                );
-              }
+              // area c and d: show creator card with blurred background and overlays
+              if (area === 'c' || area === 'd') {
+                // choose image and name per area
+                const imgSrc = area === 'c'
+                  ? 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800'
+                  : 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800';
+                const creatorName = area === 'c' ? '李伟' : '王芳';
 
-              if (area === 'd') {
                 return (
-                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden">
-                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800" alt="d" className="w-full h-full object-cover" />
+                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden relative bg-black">
+                    {/* blurred background */}
+                    <img src={imgSrc} alt={area} className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105" />
+                    {/* subtle overlay to focus */}
+                    <div className="absolute inset-0 bg-black/25" />
+
+                    {/* foreground subject (centered) */}
+                    <div className="relative z-10 flex items-center justify-center p-3 h-full">
+                      <img src={imgSrc} alt={area} className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg" />
+                    </div>
+
+                    {/* top bar: ellipsis on right */}
+                    <button aria-label="More actions" className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow">
+                      <svg width="18" height="4" viewBox="0 0 18 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#111"/><circle cx="9" cy="2" r="2" fill="#111"/><circle cx="16" cy="2" r="2" fill="#111"/></svg>
+                    </button>
+
+                    {/* top-left: avatar + name + verified */}
+                    <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-black/40 px-2 py-1 rounded-full">
+                      <img src={imgSrc} alt="avatar" className="w-8 h-8 rounded-full ring-2 ring-white object-cover" />
+                      <div className="text-sm text-white flex items-center gap-2">
+                        <span className="font-semibold">{creatorName}</span>
+                        <span title="Verified" className="text-xs text-emerald-400">✔️</span>
+                      </div>
+                    </div>
+
+                    {/* bottom-right: mute/unmute icon */}
+                    <button aria-label="Toggle mute" className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9v6h4l5 4V5L9 9H5z" fill="#111"/></svg>
+                    </button>
                   </div>
                 );
               }
