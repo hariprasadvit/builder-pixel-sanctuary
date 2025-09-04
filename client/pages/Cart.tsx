@@ -511,7 +511,7 @@ export default function Cart() {
                       <Button
                         onClick={handleApplyCoupon}
                         disabled={couponLoading || !couponCode.trim()}
-                        className="bg-blue-600 hover:bg-blue-700 text-white"
+                        className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
                       >
                         {couponLoading ? "..." : "Apply"}
                       </Button>
