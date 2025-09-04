@@ -110,7 +110,7 @@ export default function CategoryHighlights() {
                         { title: 'Formal wear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcd2ee57f41c64ff3b20a0fabc88cc467?format=webp&width=800' },
                         { title: 'Sunglasses', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd0e6450d3d7840929e29bd2ab7c955e9?format=webp&width=800' }
                       ].map((p, i) => (
-                        <div key={`men-${i}`} className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+                        <Link key={`men-${i}`} to={`/clothing?section=${encodeURIComponent(p.title)}`} className="block group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                           <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50">
                             <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                             <div className="shine-strip animate-shine z-10" />
@@ -118,7 +118,7 @@ export default function CategoryHighlights() {
                           <div className="p-3">
                             <h3 className="text-sm font-medium text-gray-900 line-clamp-1">{p.title}</h3>
                           </div>
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -178,7 +178,7 @@ export default function CategoryHighlights() {
                       { title: 'Swimwear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F91e4fb89cc444e35a56d1f498c6411c1?format=webp&width=800' },
                       { title: 'Activewear', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd2565f28c67348d291689e7e20c2b10a?format=webp&width=800' }
                     ].map((p, i) => (
-                      <div key={`cloth-${i}`} className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+                      <Link key={`cloth-${i}`} to={`/clothing?category=${encodeURIComponent(p.title)}`} className="block group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                         <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50">
                           <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                           <div className="shine-strip animate-shine z-10" />
@@ -186,7 +186,7 @@ export default function CategoryHighlights() {
                         <div className="p-3">
                           <h3 className="text-sm font-medium text-gray-900 line-clamp-1">{p.title}</h3>
                         </div>
-                      </div>
+                      </Link>
                     ))
                   ) : (
                     cat.key === 'beauty' ? (
