@@ -38,7 +38,7 @@ const CLOTHES: ClothItem[] = [
     rating: 4.2,
     reviewCount: 421,
     inStock: true,
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbfa228a630454527a3b0fe16df0a6034?format=webp&width=800",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F33ecd5dbf27a4563af9d7c03abbde4c4?format=webp&width=800",
     colors: ["Blue", "Green", "Maroon"],
     sizes: ["S", "M", "L", "XL"],
   },
