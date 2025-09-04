@@ -206,7 +206,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     cardHeight={280}
                     mediaHeight={150}
                     thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
-                    fit="cover"
+                    fit="contain"
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={true}
