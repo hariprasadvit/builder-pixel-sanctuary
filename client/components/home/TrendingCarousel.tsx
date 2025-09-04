@@ -135,14 +135,15 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
 
         {/* Masonry layout on md+ using CSS columns */}
         <div className="hidden md:block">
-          <div className="columns-2 md:columns-3 xl:columns-4 gap-4 [column-fill:_balance]">
+          <div className="columns-2 md:columns-3 xl:columns-4 [column-fill:_balance] [column-gap:1rem]">
             {selectedVideos.map((video) => {
               const srcIndex = (video as any).__srcIndex as number;
               const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
               const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={`trending-${srcIndex}-${video.id}`} className="break-inside-avoid mb-4">
+                <div key={`trending-${srcIndex}-${video.id}`} className="inline-block w-full [break-inside:avoid] mb-4">
                   <VideoPlaceholder
+                    className="w-full"
                     title={title}
                     price={video.price}
                     originalPrice={video.originalPrice}
