@@ -107,7 +107,7 @@ function SnapshotCard({ data }: { data: CardData }) {
         </div>
         {/* Right details 60% */}
         <div className="basis-3/5 flex flex-col min-w-0">
-          <h3 className="text-[16px] font-semibold leading-tight line-clamp-2">{data.title}</h3>
+          <h3 onClick={go} className="text-[16px] font-semibold leading-tight line-clamp-2 cursor-pointer">{data.title}</h3>
           <div className="text-sm text-gray-700 mt-1 mb-1"><span aria-hidden>★★★★☆</span> 4.6 <span className="text-gray-400">—</span></div>
           <p className="italic text-[13px] text-gray-700 leading-snug line-clamp-2">{data.pullQuote}</p>
           <div className="mt-2 flex flex-wrap gap-1.5">
