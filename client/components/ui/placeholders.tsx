@@ -256,15 +256,28 @@ interface BrandLogoPlaceholderProps {
   className?: string;
 }
 
-export function BrandLogoPlaceholder({ size = "md", shape = "square", className = "" }: BrandLogoPlaceholderProps) {
+export function BrandLogoPlaceholder({ size = "md", shape = "square", className = "", src }: BrandLogoPlaceholderProps & { src?: string }) {
   const sizeClasses = { sm: "w-12 h-12", md: "w-16 h-16", lg: "w-20 h-20" } as const;
   const shapeClass = shape === "circle" ? "rounded-full" : "rounded-lg";
   return (
-    <div className={`${sizeClasses[size]} ${shapeClass} bg-gray-200 flex items-center justify-center ${className}`}>
-      <div className="text-center text-gray-500">
-        <div className={`w-6 h-6 bg-gray-300 ${shapeClass} mx-auto mb-1`} />
-        <p className="text-xs font-medium">Logo</p>
-      </div>
+    <div className={`group ${sizeClasses[size]} ${shapeClass} flex items-center justify-center ${className}`}>
+      {src ? (
+        <div className={`w-full h-full p-2 flex items-center justify-center ${shapeClass} bg-white`}>
+          <img
+            src={src}
+            alt="brand logo"
+            className={`w-full h-full object-contain transition-transform duration-200 filter grayscale group-hover:grayscale-0 group-hover:scale-105`}
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+          />
+        </div>
+      ) : (
+        <div className={`w-full h-full p-2 flex items-center justify-center bg-gray-200 ${shapeClass}`}>
+          <div className="text-center text-gray-500">
+            <div className={`w-6 h-6 bg-gray-300 ${shapeClass} mx-auto mb-1`} />
+            <p className="text-xs font-medium">Logo</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
