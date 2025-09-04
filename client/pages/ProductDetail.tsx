@@ -25,6 +25,8 @@ import { Avatar, AvatarContent, AvatarFallback } from "@/components/ui/avatar";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useToast } from "@/hooks/use-toast";
+import { useCart } from "@/contexts/CartContext";
+import { BRAND_GRADIENT } from "@/components/ui/placeholders";
 
 export default function ProductDetail() {
   const { id } = useParams();
