@@ -133,8 +133,8 @@ export default function CategoryHighlights() {
                   )}
                 </div>
                 {cat.key === 'electronics' && (
-                  <div className="mt-6">
-                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffd540752c33a4e3f8c8230d0eacb3794?format=webp&width=1440" alt="DiscoverAI Banner" className="w-full h-auto object-cover rounded-xl shadow-md" />
+                  <div className="mt-6 group relative rounded-xl overflow-hidden">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffd540752c33a4e3f8c8230d0eacb3794?format=webp&width=1440" alt="DiscoverAI Banner" className="w-full h-auto object-cover" />
                   </div>
                 )}
               </div>
