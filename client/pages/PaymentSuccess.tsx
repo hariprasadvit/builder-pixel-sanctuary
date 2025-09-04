@@ -228,7 +228,7 @@ export default function PaymentSuccess() {
                           })}
                         </p>
                       </div>
-                      <Badge className="mt-3 bg-blue-100 text-blue-700 border-blue-300">
+                      <Badge className="mt-3 bg-[#0b3b8f]/10 text-[#0b3b8f] border-[#0b3b8f]/20">
                         International shipping
                       </Badge>
                     </div>
