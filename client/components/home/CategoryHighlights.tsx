@@ -73,6 +73,7 @@ export default function CategoryHighlights() {
                           fit="cover"
                           cardHeight={420}
                           mediaHeight={240}
+                          className="w-full"
                         />
                       ))
                     ) : cat.key === 'home' ? (
