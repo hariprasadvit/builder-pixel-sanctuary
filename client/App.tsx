@@ -15,6 +15,7 @@ import Categories from "./pages/Categories";
 import Electronics from "./pages/Electronics";
 import Laptops from "./pages/Laptops";
 import Cellphones from "./pages/Cellphones";
+import Clothing from "./pages/Clothing";
 import Videos from "./pages/Videos";
 import Support from "./pages/Support";
 import Contact from "./pages/Contact";
