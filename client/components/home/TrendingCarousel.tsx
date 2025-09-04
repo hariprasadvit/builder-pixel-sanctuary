@@ -129,61 +129,21 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Explicit grid template areas matching user reference */}
+        {/* Replace with exact placeholder blocks matching user's reference */}
         <div className="hidden md:block">
           <div
             className="w-full"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
-              gridTemplateRows: '110px 160px 160px 140px',
-              gap: '8px',
+              gridTemplateRows: '150px 220px 220px 180px',
+              gap: '12px',
               gridTemplateAreas: `"a a b" "c d b" "c d e" "f g h"`
             }}
           >
-            {selectedVideos.map((video, index) => {
-              const areaNames = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-              const area = areaNames[index] || 'a';
-
-              // map area to compact size presets
-              const sizeMap: Record<string, { cardH: number; mediaH: number }> = {
-                a: { cardH: 110, mediaH: 76 },
-                b: { cardH: 240, mediaH: 160 },
-                c: { cardH: 140, mediaH: 96 },
-                d: { cardH: 240, mediaH: 160 },
-                e: { cardH: 140, mediaH: 96 },
-                f: { cardH: 140, mediaH: 96 },
-                g: { cardH: 140, mediaH: 96 },
-                h: { cardH: 220, mediaH: 144 }
-              };
-
-              const { cardH, mediaH } = sizeMap[area];
-
-              return (
-                <div key={`trending-${index}`} style={{ gridArea: area }} className="rounded-lg overflow-hidden">
-                  <VideoPlaceholder
-                    className="w-full h-full"
-                    title={''}
-                    price={0}
-                    originalPrice={undefined}
-                    badge={undefined}
-                    likes={0}
-                    comments={0}
-                    views={0}
-                    aspect={area === 'b' || area === 'd' || area === 'h' ? '9/16' : '9/16'}
-                    cardHeight={cardH}
-                    mediaHeight={mediaH}
-                    thumbnailSrc={undefined}
-                    fit={'contain'}
-                    showBuyButton={false}
-                    showPrice={false}
-                    showPlayOverlay={false}
-                    showSocialCounters={false}
-                    hideTitle={true}
-                  />
-                </div>
-              );
-            })}
+            {['a','b','c','d','e','f','g','h'].map((area, i) => (
+              <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md bg-black" />
+            ))}
           </div>
         </div>
 
