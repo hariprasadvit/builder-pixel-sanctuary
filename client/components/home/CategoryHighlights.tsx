@@ -10,9 +10,6 @@ const CATEGORIES = [
   { key: 'clothing', title: 'Clothing' },
   { key: 'beauty', title: 'Beauty' },
   { key: 'home', title: 'Home' },
-  { key: 'kitchen', title: 'Kitchen' },
-  { key: 'sports', title: 'Sports' },
-  { key: 'toys', title: 'Toys' },
 ];
 
 export default function CategoryHighlights() {
