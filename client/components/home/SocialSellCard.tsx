@@ -234,7 +234,7 @@ export default function SocialSellCard(props: SocialSellCardProps) {
           {priceBlock}
         </div>
         <div className="mt-2 flex items-center gap-2 h-10">
-          <Button onClick={addToCart} className="bg-black hover:bg-gray-900 text-white h-9 px-4">{added ? "Added" : "Add to Cart"}</Button>
+          <Button onClick={addToCart} className={`${BRAND_GRADIENT} hover:opacity-90 text-white h-9 px-4`}>{added ? "Added" : "Add to Cart"}</Button>
           {videoSrc && !hideWatchButton && (
             <Button variant="outline" className="gap-2 h-9 px-4"><Play className="w-4 h-4" /> Watch 15s</Button>
           )}
