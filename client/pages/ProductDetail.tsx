@@ -1037,7 +1037,7 @@ export default function ProductDetail() {
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-6">Why {product.title}?</h2>
             <div className="space-y-0">
-              {(product.id === '1' ? marketingImages : (product.images && product.images.length ? product.images : marketingImages)).map((image, index) => (
+              {(product.id === '1' ? marketingImages.slice(0, 1) : (product.images && product.images.length ? product.images : marketingImages)).map((image, index) => (
                 <div key={index} className="w-full">
                   <img
                     src={image}
