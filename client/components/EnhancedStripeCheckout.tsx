@@ -264,9 +264,9 @@ export default function EnhancedStripeCheckout({
                     <div key={card.id} className="relative">
                       <div 
                         className={`border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                          selectedCardId === card.id 
-                            ? "border-blue-500 bg-blue-50 shadow-md transform scale-105" 
-                            : "border-gray-200 hover:border-blue-300"
+                          selectedCardId === card.id
+                            ? "border-[#0b3b8f] bg-[#0b3b8f]/6 shadow-md transform scale-105"
+                            : "border-gray-200 hover:border-[#0b3b8f]/20"
                         }`}
                         onClick={() => setSelectedCardId(card.id)}
                       >
