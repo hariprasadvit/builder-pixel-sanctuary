@@ -221,6 +221,13 @@ export default function ProductDetail() {
 
   const product = productsById[id || '1'] || iphoneProduct;
 
+  // default selected size when product loads
+  React.useEffect(() => {
+    if (product && product.sizes && product.sizes.length) {
+      setSelectedSize((s) => (s ? s : product.sizes[0]));
+    }
+  }, [product]);
+
   const handleQuantityChange = (increment: boolean) => {
     if (increment && quantity < product.stockCount) {
       setQuantity(quantity + 1);
@@ -719,6 +726,20 @@ export default function ProductDetail() {
                   )}
                 </div>
 
+                {/* Size selector (desktop) */}
+                {product.sizes && product.sizes.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="font-medium text-gray-900 mb-2">Size</h4>
+                    <div className="flex gap-2 flex-wrap">
+                      {product.sizes.map((s: string) => (
+                        <button key={s} className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-brand-blue bg-brand-blue/10" : "border-gray-200"}`} onClick={() => setSelectedSize(s)}>
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
 
                 {/* Delivery Info */}
                 <Card>
@@ -918,9 +939,23 @@ export default function ProductDetail() {
 
         {/* Mobile Detail Sections - Options */}
         <div className="lg:hidden space-y-6 mb-8 px-1">
-          {/* Color Selection - 2x2 grid */}
-
-          {/* Storage Selection */}
+          {/* Size Selection */}
+          {product.sizes && product.sizes.length > 0 && (
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <h4 className="font-medium text-gray-900 mb-3">Size</h4>
+              <div className="flex gap-2 flex-wrap">
+                {product.sizes.map((s: string) => (
+                  <button
+                    key={s}
+                    className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-brand-blue bg-brand-blue/10" : "border-gray-200"}`}
+                    onClick={() => setSelectedSize(s)}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Quantity & Delivery Info */}
           <div className="grid grid-cols-2 gap-4">
