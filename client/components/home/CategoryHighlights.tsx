@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { BrandBannerPlaceholder, ProductPlaceholder, VideoPlaceholder } from "@/components/ui/placeholders";
 import ElectronicsCategoryIcons from "@/components/home/ElectronicsCategoryIcons";
 import UKDealsBanner from "@/components/home/UKDealsBanner";
