@@ -259,8 +259,9 @@ export default function ProductDetail() {
     },
   ];
 
-  const aiSummary =
-    "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
+  const aiSummary = product.id === '2'
+    ? "Based on customer feedback, the SOLARA Blendkwik is praised for its portability, ease of use, and ability to crush frozen fruit and light ice. Users highlight the USB-C rechargeable battery and that it’s great for on-the-go smoothies. Primary suggestions: some users request a slightly larger capacity and stronger motor for heavy-duty blending. Overall sentiment: ~89% positive."
+    : "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
 
   const colorOptions = [
     {
