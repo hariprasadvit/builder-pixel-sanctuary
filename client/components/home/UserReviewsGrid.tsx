@@ -17,7 +17,7 @@ export default function UserReviewsGrid() {
             {reviews.map((rv, i) => (
               <div key={i} className="space-y-3">
                 <ReviewPlaceholder username={rv.u} rating={rv.r} text={rv.t} />
-                <ProductPlaceholder title="Reviewed Product" price={89.99} originalPrice={119.99} />
+                <ProductPlaceholder title={rv.product.title} price={rv.product.price} originalPrice={rv.product.originalPrice} thumbnailSrc={rv.product.image} fit="contain" cardHeight={200} mediaHeight={120} />
               </div>
             ))}
           </div>
