@@ -15,7 +15,7 @@ export default function SocialSellSection() {
               title="Wireless ANC Buds with 30h case"
               creatorHandle="@techwithsam"
               avatars={["https://i.pravatar.cc/24?img=1","https://i.pravatar.cc/24?img=2","https://i.pravatar.cc/24?img=3"]}
-              videoPoster={`https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd3866706f34d484796f3f4e23808d233?format=webp&width=800&cb=${Date.now()}` }
+              videoPoster={`https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8c56ab6c939f497c82b13b00b50d5e04?format=webp&width=800&cb=${Date.now()}` }
               hideWatchButton
               bullets={["Clear calls; punchy bass","Comfortable for long sessions","Case scratches easily"]}
               rating={4.3}
