@@ -78,7 +78,7 @@ export default function TopCategories() {
     <section className="py-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-50 via-white to-fuchsia-50">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <SectionHeader title="Top Categories" gradientClass="bg-gradient-to-r from-[#fde7e7] via-[#ffd6db] to-[#ffcdd2] animate-gradient-x" textClass="text-gray-900" />
+          <SectionHeader title="Top Categories" gradientClass={BRAND_GRADIENT} textClass="text-white" />
 
           <div className="p-4">
             {/* Desktop grid */}
