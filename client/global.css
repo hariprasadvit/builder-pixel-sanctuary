@@ -210,6 +210,29 @@
     pointer-events: none;
   }
 
+  /* Generic hover shine overlay for group containers with images/banners */
+  .group.relative:hover::after {
+    content: "";
+    position: absolute;
+    top: -15%;
+    left: -35%;
+    width: 38%;
+    height: 130%;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+    transform: translateX(-120%) rotate(25deg);
+    animation: shineSweep 900ms ease-in-out;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 40;
+  }
+
+  /* Ensure existing shine-strip still works and overlay doesn't stack oddly */
+  .group.relative .shine-strip { z-index: 45; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .group.relative:hover::after { animation: none; }
+  }
+
   @keyframes gradientX {
     0% { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
