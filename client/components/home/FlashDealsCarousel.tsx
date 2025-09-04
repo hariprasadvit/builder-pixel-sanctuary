@@ -34,63 +34,73 @@ export default function FlashDealsCarousel() {
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <VideoPlaceholder
-              title="Tech Deals Live!"
-              price={89.99}
-              originalPrice={109.99}
-              badge="Hot Deal"
-              likes={3200}
-              comments={64}
-              aspect="16/9"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
-              fit="cover"
-              cardHeight={cardHeight}
-              mediaHeight={mediaHeight}
-            />
+            <a href="/product/1" className="block">
+              <VideoPlaceholder
+                title="Tech Deals Live!"
+                price={89.99}
+                originalPrice={109.99}
+                badge="Hot Deal"
+                likes={3200}
+                comments={64}
+                aspect="16/9"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
+                fit="cover"
+                cardHeight={cardHeight}
+                mediaHeight={mediaHeight}
+              />
+            </a>
 
-            <ProductPlaceholder
-              title="Ninja CRISPi Air Fryer"
-              price={89.99}
-              originalPrice={109.99}
-              badge="Exclusive"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
-              fit="contain"
-              cardHeight={cardHeight}
-              mediaHeight={mediaHeight}
-            />
+            <a href="/product/2" className="block">
+              <ProductPlaceholder
+                title="Ninja CRISPi Air Fryer"
+                price={89.99}
+                originalPrice={109.99}
+                badge="Exclusive"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
+                fit="contain"
+                cardHeight={cardHeight}
+                mediaHeight={mediaHeight}
+              />
+            </a>
 
-            <ProductPlaceholder
-              title="TRIP Magnesium Powder – Pomegranate"
-              price={24.99}
-              originalPrice={29.99}
-              badge="New"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
-              fit="contain"
-              cardHeight={cardHeight}
-              mediaHeight={mediaHeight}
-            />
+            <a href="/product/3" className="block">
+              <ProductPlaceholder
+                title="TRIP Magnesium Powder – Pomegranate"
+                price={24.99}
+                originalPrice={29.99}
+                badge="New"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
+                fit="contain"
+                cardHeight={cardHeight}
+                mediaHeight={mediaHeight}
+              />
+            </a>
 
-            <ProductPlaceholder
-              title="Vileda Turbo 3-in-1 Microfibre Mop Kit"
-              price={39.99}
-              originalPrice={49.99}
-              badge="Top Pick"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d1d9c3652ed49b1b9f81df3b0d3aee7?format=webp&width=800"
-              fit="contain"
-              cardHeight={cardHeight}
-              mediaHeight={mediaHeight}
-            />
+            <a href="/product/4" className="block">
+              <ProductPlaceholder
+                title="Vileda Turbo 3-in-1 Microfibre Mop Kit"
+                price={39.99}
+                originalPrice={49.99}
+                badge="Top Pick"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d1d9c3652ed49b1b9f81df3b0d3aee7?format=webp&width=800"
+                fit="contain"
+                cardHeight={cardHeight}
+                mediaHeight={mediaHeight}
+              />
+            </a>
 
-            <ProductPlaceholder
-              title="Vileda Turbo Mop & Bucket Bundle"
-              price={42.99}
-              originalPrice={52.99}
-              badge="Best Seller"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F170a30c88a3c44ada629d58963d506db?format=webp&width=800"
-              fit="contain"
-              cardHeight={cardHeight}
-              mediaHeight={mediaHeight}
-            />
+            <a href="/product/5" className="block">
+              <ProductPlaceholder
+                title="Vileda Turbo Mop & Bucket Bundle"
+                price={42.99}
+                originalPrice={52.99}
+                badge="Best Seller"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F170a30c88a3c44ada629d58963d506db?format=webp&width=800"
+                fit="contain"
+                cardHeight={cardHeight}
+                mediaHeight={mediaHeight}
+              />
+            </a>
           </div>
           <div className="text-center pb-6">
             <Button variant="ghost">View All Deals</Button>
