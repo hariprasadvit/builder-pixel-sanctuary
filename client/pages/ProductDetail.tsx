@@ -1206,139 +1206,16 @@ export default function ProductDetail() {
                     </p>
                   </div>
 
-                  {/* Simple specifications table */}
+                  {/* Render specifications dynamically from product.specifications */}
                   <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
                     <table className="w-full">
                       <tbody className="divide-y divide-gray-200">
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900 w-1/3">
-                            Display
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            6.9″ Super Retina XDR OLED, 2868x1320-pixel at 460
-                            ppi
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Processor
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            A18 Pro Bionic
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Storage
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700 font-semibold text-blue-700">
-                            {selectedStorage}
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Main Camera
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            48MP Fusion (24mm, ƒ/1.78)
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Ultra Wide
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            48MP (13mm, ƒ/2.2, 120° FOV)
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Telephoto
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            12MP 5x (120mm, ƒ/2.8)
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Front Camera
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            12MP (ƒ/1.9, Autofocus)
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Battery
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            Up to 33 hours video playback
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Charging
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            MagSafe up to 25W, Fast charge 50% in 30 min
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Water Resistance
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            IP68 rated (6 metres up to 30 min)
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Dimensions
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            163 x 78 x 8 mm, 227g
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Color
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700 font-semibold text-blue-700">
-                            {selectedColor}
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Operating System
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            iOS 18
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Manufacturer
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            Apple Inc, Cupertino, CA
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            In the Box
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            iPhone with iOS 18, USB‑C Cable (1m), Documentation
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                            Warranty
-                          </td>
-                          <td className="px-4 py-3 text-sm text-gray-700">
-                            One-Year Limited Warranty
-                          </td>
-                        </tr>
+                        {Object.entries(product.specifications).map(([key, value]) => (
+                          <tr key={key} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-sm font-medium text-gray-900 w-1/3">{key}</td>
+                            <td className="px-4 py-3 text-sm text-gray-700">{String(value)}</td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
