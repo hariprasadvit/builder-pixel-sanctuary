@@ -694,7 +694,7 @@ export default function Profile() {
                             }
                             className={
                               order.status === "Delivered"
-                                ? "bg-blue-600 hover:bg-blue-700"
+                                ? `${BRAND_GRADIENT} hover:opacity-90 text-white`
                                 : ""
                             }
                           >
