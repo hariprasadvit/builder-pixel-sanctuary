@@ -22,9 +22,18 @@ export default function ExploreCurated() {
 
       <div className="relative z-20 container mx-auto px-4">
         <div className="mb-4 flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-extrabold">Explore London</h2>
-            <p className="text-white/90">Items curated for you</p>
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-3 bg-amber-400 text-black font-semibold px-3 py-2 rounded-full shadow-lg">
+              <span className="relative flex items-center justify-center w-6 h-6">
+                <Truck className="w-4 h-4" />
+                <span className="absolute inline-flex w-6 h-6 rounded-full bg-amber-300 opacity-60 animate-ping" />
+              </span>
+              <span className="text-sm">Delivering in less than <span className="font-extrabold">30 min</span></span>
+            </span>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold">Explore London</h2>
+              <p className="text-white/90">Items curated for you</p>
+            </div>
           </div>
         </div>
 
