@@ -1003,7 +1003,6 @@ export default function ProductDetail() {
             <h2 className="text-xl font-bold mb-6">Why NOBERO T‑Shirts?</h2>
             <div className="space-y-0">
               {[
-                "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9cc188dd8c7c4917b2d938bd9e1a4351?format=webp&width=1500",
                 "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe98a8635fcfd46d0b338eda1133a18e3?format=webp&width=1500",
                 "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe0374722cdb9474cb190793a11bf5541?format=webp&width=1500",
                 "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6405d0c1fbc5451099e170fb3cf3f29c?format=webp&width=1500",
