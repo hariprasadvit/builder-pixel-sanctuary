@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { ProductPlaceholder } from "@/components/ui/placeholders";
+import { ProductPlaceholder, BRAND_GRADIENT } from "@/components/ui/placeholders";
 import { ChevronLeft, ChevronRight, Truck } from "lucide-react";
 
 export default function ExploreCurated() {
