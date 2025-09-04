@@ -1,5 +1,6 @@
 import React from "react";
 import SocialSellCard from "@/components/home/SocialSellCard";
+import { BRAND_GRADIENT_TEXT } from "@/components/ui/placeholders";
 
 export default function SocialSellSection() {
   return (
@@ -7,7 +8,7 @@ export default function SocialSellSection() {
       <div className="container mx-auto px-4">
         <div className="rounded-2xl overflow-hidden shadow bg-white">
           <div className="bg-gradient-to-r from-[#e3f2fd] to-[#e1f5fe] p-4">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900">what people are buying around u</h3>
+            <h3 className={`text-xl md:text-2xl font-bold ${BRAND_GRADIENT_TEXT}`}>What people are buying around u</h3>
             <p className="text-xs md:text-sm text-gray-700/80">Curated from reviews, powered by AI.</p>
           </div>
           <div className="p-6 grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center">
