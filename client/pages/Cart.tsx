@@ -24,6 +24,7 @@ import { useMarketplace, MarketplaceType } from "@/contexts/MarketplaceContext";
 import { useLocation } from "@/contexts/LocationContext";
 import { useFireworks } from "@/hooks/useFireworks";
 import EnhancedStripeCheckout from "@/components/EnhancedStripeCheckout";
+import { BRAND_GRADIENT } from "@/components/ui/placeholders";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -332,7 +333,7 @@ export default function Cart() {
                   Add Demo Items
                 </Button>
                 <Link to="/">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }>
                     Continue Shopping
                   </Button>
                 </Link>
