@@ -2,6 +2,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 type CardData = {
   title: string;
   price: string; // keep string for currency formatting provided
@@ -12,6 +14,7 @@ type CardData = {
   chips: [string, string, string];
   imageUrl: string;
   avatarUrls: [string, string, string, string];
+  link?: string;
 };
 
 const FALLBACK = "/placeholder.svg";
