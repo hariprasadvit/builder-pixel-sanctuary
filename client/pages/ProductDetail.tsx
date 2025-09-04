@@ -57,9 +57,9 @@ export default function ProductDetail() {
     inStock: true,
     stockCount: 12,
     images: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf25397c817d4090bfed61f37d0297f3?format=webp&width=800",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feb8ccf1b427d4d138cb1c16148b2821f?format=webp&width=800",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F793c3e01001144a39e1173a6819bfc01?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F241c5c864e8e46f7998b9f2bc70cd196?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F63fe0995184944b69c07ff25dcfdee74?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa19f9eda6b2f406aa87bf352185838ff?format=webp&width=800",
     ],
     brand: "Apple",
     model: "iPhone 16",
