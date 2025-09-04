@@ -34,7 +34,7 @@ export default function FlashDealsCarousel() {
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <a href="/product/1" className="block">
+            <a href="/product/1" className="block relative z-30 pointer-events-auto">
               <VideoPlaceholder
                 title="Tech Deals Live!"
                 price={89.99}
