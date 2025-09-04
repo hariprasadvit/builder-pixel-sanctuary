@@ -221,14 +221,24 @@ interface BrandBannerPlaceholderProps {
   height?: string;
   title?: string;
   className?: string;
+  imageSrc?: string;
 }
 
 export function BrandBannerPlaceholder({
   width = "w-full",
   height = "h-64",
   title = "Banner Placeholder",
-  className = ""
+  className = "",
+  imageSrc
 }: BrandBannerPlaceholderProps) {
+  if (imageSrc) {
+    return (
+      <div className={`${width} ${height} rounded-2xl overflow-hidden ${className}`}>
+        <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
+        <div className="shine-strip animate-shine z-10" />
+      </div>
+    );
+  }
   return (
     <div className={`${width} ${height} bg-gray-200 rounded-2xl flex items-center justify-center ${className}`}>
       <div className="text-center text-gray-500">
