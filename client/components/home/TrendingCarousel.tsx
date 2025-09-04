@@ -155,25 +155,35 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                 );
               }
 
-              // area c and d: show creator card with blurred background and overlays
-              if (area === 'c' || area === 'd') {
+              // area c, d, e, h: show creator card with blurred background and overlays
+              if (['c','d','e','h'].includes(area)) {
                 // choose image and name per area
-                const imgSrc = area === 'c'
-                  ? 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800'
-                  : 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800';
-                const creatorName = area === 'c' ? '李伟' : '王芳';
+                const imgMap: Record<string, string> = {
+                  c: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800',
+                  d: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800',
+                  e: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf40b23e5b9a4786b28c3c2ecb75cd01?format=webp&width=800',
+                  h: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe7688d544f32454d9cb156ce8dfdee45?format=webp&width=800'
+                };
+                const nameMap: Record<string, string> = { c: 'Li Wei', d: 'Wang Fang', e: 'Zhang Lei', h: 'Liu Ming' };
+                const imgSrc = imgMap[area];
+                const creatorName = nameMap[area];
 
                 return (
                   <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden relative bg-black">
                     {/* blurred background */}
                     <img src={imgSrc} alt={area} className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105" />
                     {/* subtle overlay to focus */}
-                    <div className="absolute inset-0 bg-black/25" />
+                    <div className="absolute inset-0 bg-black/28" />
 
                     {/* foreground subject (centered) */}
                     <div className="relative z-10 flex items-center justify-center p-3 h-full">
                       <img src={imgSrc} alt={area} className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg" />
                     </div>
+
+                    {/* play overlay center */}
+                    <button aria-label="Play video" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7L8 5z" fill="#111"/></svg>
+                    </button>
 
                     {/* top bar: ellipsis on right */}
                     <button aria-label="More actions" className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow">
