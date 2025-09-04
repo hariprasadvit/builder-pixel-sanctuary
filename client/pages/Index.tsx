@@ -1,6 +1,5 @@
 import React from "react";
 
-import AnnouncementStrip from "@/components/home/AnnouncementStrip";
 import HeroCarousel from "@/components/HeroCarousel";
 import FlashDealsCarousel from "@/components/home/FlashDealsCarousel";
 import TopCategories from "@/components/home/TopCategories";
