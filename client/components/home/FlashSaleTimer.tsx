@@ -46,3 +46,14 @@ export default function FlashSaleTimer() {
     </section>
   );
 }
+
+function AddFlashItemButton({ index }: { index: number }) {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+  const price = 19.99 + index;
+  const handle = () => {
+    addToCart({ id: `flash-${index}`, name: `Hot Deal #${index}`, price, image: `https://picsum.photos/seed/flash${index}/600/400`, vendor: 'nearbuy', vendorName: 'Nearbuy', category: 'Flash' }, 1);
+    toast({ title: 'Added to cart', description: `Hot Deal #${index} added to cart.` });
+  };
+  return <Button size="sm" onClick={handle} className="bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] text-white">Add to Cart</Button>;
+}
