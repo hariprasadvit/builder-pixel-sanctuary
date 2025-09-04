@@ -141,9 +141,30 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               gridTemplateAreas: `"a a b" "c d b" "c d e" "f g h"`
             }}
           >
-            {['a','b','c','d','e','f','g','h'].map((area, i) => (
-              <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md bg-black" />
-            ))}
+            <style>{`
+              @keyframes flagMove { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+              .flag-text { background-image: url('https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg'); background-size: 300% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: flagMove 8s linear infinite; }
+              .trending-banner { position: relative; overflow: hidden; border-radius: 8px; }
+              .trending-banner img { display:block; width:100%; height:100%; object-fit:cover; }
+              .trending-banner .overlay-text { position:absolute; left:16px; top:16px; z-index:10; display:flex; align-items:center; gap:12px; }
+              .trending-banner .cta { background: rgba(255,255,255,0.9); color:#111; padding:6px 10px; border-radius:6px; font-weight:600; }
+            `}</style>
+
+            {['a','b','c','d','e','f','g','h'].map((area, i) => {
+              if (area === 'a') {
+                return (
+                  <div key={`blk-${area}`} style={{ gridArea: area }} className="trending-banner">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F54c4816c2cb947ba8007130404165717?format=webp&width=1200" alt="banner" />
+                    <div className="overlay-text">
+                      <h3 className="text-2xl font-bold flag-text">Delivered Faster in the UK</h3>
+                      <div className="cta">Explore Now</div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md bg-black" />;
+            })}
           </div>
         </div>
 
