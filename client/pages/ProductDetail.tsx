@@ -1121,13 +1121,11 @@ export default function ProductDetail() {
               <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                 <div className="min-w-[800px]">
                   <div className="grid grid-cols-4 gap-4">
-                    {iPhoneComparison.map((phone, index) => (
+                    {productComparison.map((phone, index) => (
                       <div
                         key={index}
                         className={`border rounded-lg p-4 ${
-                          phone.model === "iPhone 16"
-                            ? "border-blue-500 bg-blue-50 shadow-md"
-                            : "border-gray-200 bg-white"
+                          phone.model === product.model ? "border-blue-500 bg-blue-50 shadow-md" : "border-gray-200 bg-white"
                         }`}
                       >
                         <div className="space-y-3">
