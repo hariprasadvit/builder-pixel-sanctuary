@@ -52,14 +52,13 @@ export default function CategoryHighlights() {
                 )}
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
                 {!(cat.key === 'electronics' || cat.key === 'cellphones' || cat.key === 'clothing') && (
-                  <div className="mt-4 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-4">
+                  <div className="mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
                     {cat.key === 'beauty' ? (
                       [
                         { title: 'British Makeup Tips', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F733271c97b48431d85c9f90c5db28e9a?format=webp&width=800' },
                         { title: 'British & Irish Makeup', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F933ef31be6464395afa4050f02a703a3?format=webp&width=800' },
                         { title: 'Cult Beauty Haul', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4402cdceea62458195c5d9b5dab02e0d?format=webp&width=800' },
                         { title: 'UK Beauty Picks', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f173e2302764a548fd399b8e8d61026?format=webp&width=800' },
-                        { title: 'VIEVE Skincare Set', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3be405290b97436fb31361b290d68021?format=webp&width=800' },
                       ].map((v, i) => (
                         <VideoPlaceholder
                           key={`beauty-${i}`}
