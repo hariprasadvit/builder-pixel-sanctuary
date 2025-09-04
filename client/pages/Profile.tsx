@@ -314,7 +314,7 @@ export default function Profile() {
                   <Button
                     size="icon"
                     variant="outline"
-                    className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white border-white"
+                    className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full ${BRAND_GRADIENT} text-white border-white` }
                   >
                     <Camera className="w-4 h-4" />
                   </Button>
