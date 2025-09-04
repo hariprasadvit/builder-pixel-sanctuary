@@ -887,25 +887,23 @@ export default function ProductDetail() {
 
                 {/* Quick Specs */}
                 <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <h3 className="font-semibold text-gray-900 mb-3">
-                    Quick Specs
-                  </h3>
+                  <h3 className="font-semibold text-gray-900 mb-3">Quick Specs</h3>
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div>
-                      <span className="text-gray-600">Display</span>
-                      <div className="font-medium">6.9″ Super Retina XDR</div>
+                      <span className="text-gray-600">Capacity</span>
+                      <div className="font-medium">{product.specifications.Capacity}</div>
                     </div>
                     <div>
-                      <span className="text-gray-600">Storage</span>
-                      <div className="font-medium">{selectedStorage}</div>
+                      <span className="text-gray-600">Motor</span>
+                      <div className="font-medium">{product.specifications.Motor}</div>
                     </div>
                     <div>
-                      <span className="text-gray-600">Color</span>
-                      <div className="font-medium">{selectedColor}</div>
+                      <span className="text-gray-600">Battery</span>
+                      <div className="font-medium">{product.specifications.Battery}</div>
                     </div>
                     <div>
-                      <span className="text-gray-600">Camera</span>
-                      <div className="font-medium">Pro 48MP + 5x Telephoto</div>
+                      <span className="text-gray-600">Material</span>
+                      <div className="font-medium">{product.specifications.Material}</div>
                     </div>
                   </div>
                 </div>
@@ -913,37 +911,27 @@ export default function ProductDetail() {
                 {/* Value Proposition */}
                 <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
                   <div className="flex items-center gap-2 mb-2">
-                    <Badge className="bg-red-500 text-white text-xs">
-                      LIMITED OFFER
-                    </Badge>
-                    <span className="text-sm font-medium text-gray-900">
-                      Save £100.00
-                    </span>
+                    <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
+                    <span className="text-sm font-medium text-gray-900">Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}</span>
                   </div>
-                  <p className="text-sm text-gray-700">
-                    Get the latest iPhone 16 with free delivery and 1-year
-                    warranty. Limited time offer - save £100 on all storage
-                    variants.
-                  </p>
+                  <p className="text-sm text-gray-700">Get the SOLARA Blendkwik with fast delivery and 1-year warranty upon registration. Limited time offer — save on the launch price.</p>
                 </div>
 
                 {/* Why Choose This */}
                 <div className="bg-gray-50 rounded-xl p-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Why Choose iPhone 16?
-                  </h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">Why Choose SOLARA Blendkwik?</h4>
                   <div className="space-y-2 text-sm text-gray-600">
                     <div className="flex items-center gap-2">
                       <Shield className="w-4 h-4 text-blue-600" />
-                      <span>Industry-leading security & privacy</span>
+                      <span>Safe, BPA-free Tritan jar</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Star className="w-4 h-4 text-yellow-500" />
-                      <span>4.8/5 rating from 2,847 customers</span>
+                      <span>{product.rating}/5 rating from {product.reviewCount} customers</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Truck className="w-4 h-4 text-green-600" />
-                      <span>Free next-day delivery available</span>
+                      <span>Delivery in {product.deliveryEta}</span>
                     </div>
                   </div>
                 </div>
