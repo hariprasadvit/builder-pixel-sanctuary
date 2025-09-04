@@ -293,7 +293,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#0b3b8f]/6 to-[#d32f2f]/6 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Profile Header */}
         <Card className="mb-8 border-2 border-blue-200 shadow-lg bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40">
