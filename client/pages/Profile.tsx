@@ -348,7 +348,7 @@ export default function Profile() {
 
         {/* Profile Tabs */}
         <Tabs defaultValue="personal" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 bg-white border border-[#0b3b8f]/10">
             <TabsTrigger
               value="personal"
               className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-700 data-[state=active]:text-white"
