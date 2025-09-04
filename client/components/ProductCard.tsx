@@ -184,7 +184,7 @@ export default function ProductCard({
           {/* Add to Cart Button */}
           <Button
             size="sm"
-            className="w-full bg-brand-blue hover:bg-brand-blue/90"
+            className={`${BRAND_GRADIENT} hover:opacity-90 text-white w-full` }
             onClick={(e) => {
               e.preventDefault();
               onAddToCart?.(id);
