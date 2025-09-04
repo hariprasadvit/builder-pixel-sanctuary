@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Heart, MessageCircle, Share, ShoppingBag, Volume2, VolumeX, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
@@ -48,9 +50,15 @@ export default function TikTokVideoCard({
     setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
   };
 
-  const handleBuyNow = () => {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+  const handleAddToCart = () => {
     if (video.productId) {
-      navigate(`/product/${video.productId}`);
+      addToCart({ id: video.productId, name: video.title, price: video.price, image: video.thumbnail || '', vendor: 'nearbuy', vendorName: 'Nearbuy', category: 'Videos' }, 1);
+      toast({ title: 'Added to cart', description: `${video.title} added to cart.` });
+    } else {
+      // fallback - navigate to product page if no productId
+      if (video.productId) navigate(`/product/${video.productId}`);
     }
   };
 
@@ -164,11 +172,11 @@ export default function TikTokVideoCard({
               </div>
 
               <Button
-                onClick={handleBuyNow}
-                className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-medium text-sm h-8 rounded-full"
+                onClick={handleAddToCart}
+                className="w-full bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] hover:from-[#092e6f] hover:to-[#b71c1c] text-white font-medium text-sm h-8 rounded-full"
               >
                 <ShoppingBag className="w-4 h-4 mr-2" />
-                Buy Now
+                Add to Cart
               </Button>
             </div>
           </div>

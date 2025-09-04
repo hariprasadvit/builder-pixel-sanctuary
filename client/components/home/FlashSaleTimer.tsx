@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 function useCountdown(seconds: number) {
   const [remain, setRemain] = useState(seconds);
@@ -34,7 +36,7 @@ export default function FlashSaleTimer() {
                 <div className="text-sm font-semibold mb-1">Hot Deal #{i}</div>
                 <div className="flex items-center justify-between">
                   <div className="font-bold text-rose-600">£{(19.99 + i).toFixed(2)}</div>
-                  <Button size="sm">Buy Now</Button>
+                  <AddFlashItemButton index={i} />
                 </div>
               </div>
             </div>

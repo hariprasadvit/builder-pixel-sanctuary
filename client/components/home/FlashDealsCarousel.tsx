@@ -33,74 +33,99 @@ export default function FlashDealsCarousel() {
               <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(s).padStart(2,'0')}</span>
             </div>
           </SectionHeader>
-          <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <a href="/product/1" className="block relative z-30 pointer-events-auto">
-              <VideoPlaceholder
-                title="Tech Deals Live!"
-                price={89.99}
-                originalPrice={109.99}
-                badge="Hot Deal"
-                likes={3200}
-                comments={64}
-                aspect="16/9"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
-                fit="cover"
-                cardHeight={cardHeight}
-                mediaHeight={mediaHeight}
-              />
-            </a>
+          <div className="p-4 flex gap-3 overflow-x-auto no-scrollbar" style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="flex-shrink-0 min-w-[220px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px]">
+              <a href="/product/1" className="block relative z-30 pointer-events-auto">
+                <VideoPlaceholder
+                  title="Tech Deals Live!"
+                  price={89.99}
+                  originalPrice={109.99}
+                  badge="Hot Deal"
+                  likes={3200}
+                  comments={64}
+                  aspect="16/9"
+                  thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
+                  fit="cover"
+                  cardHeight={cardHeight}
+                  mediaHeight={mediaHeight}
+                />
+              </a>
+            </div>
 
-            <a href="/product/2" className="block relative z-30 pointer-events-auto">
-              <ProductPlaceholder
-                title="Ninja CRISPi Air Fryer"
-                price={89.99}
-                originalPrice={109.99}
-                badge="Exclusive"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
-                fit="contain"
-                cardHeight={cardHeight}
-                mediaHeight={mediaHeight}
-              />
-            </a>
+            <div className="flex-shrink-0 min-w-[220px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px]">
+              <a href="/product/2" className="block relative z-30 pointer-events-auto">
+                <ProductPlaceholder
+                  title="Ninja CRISPi Air Fryer"
+                  price={89.99}
+                  originalPrice={109.99}
+                  badge="Exclusive"
+                  thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
+                  fit="contain"
+                  cardHeight={cardHeight}
+                  mediaHeight={mediaHeight}
+                />
+              </a>
+            </div>
 
-            <a href="/product/3" className="block relative z-30 pointer-events-auto">
-              <ProductPlaceholder
-                title="TRIP Magnesium Powder – Pomegranate"
-                price={24.99}
-                originalPrice={29.99}
-                badge="New"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
-                fit="contain"
-                cardHeight={cardHeight}
-                mediaHeight={mediaHeight}
-              />
-            </a>
+            <div className="flex-shrink-0 min-w-[220px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px]">
+              <a href="/product/3" className="block relative z-30 pointer-events-auto">
+                <ProductPlaceholder
+                  title="TRIP Magnesium Powder – Pomegranate"
+                  price={24.99}
+                  originalPrice={29.99}
+                  badge="New"
+                  thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
+                  fit="contain"
+                  cardHeight={cardHeight}
+                  mediaHeight={mediaHeight}
+                />
+              </a>
+            </div>
 
-            <a href="/product/4" className="block relative z-30 pointer-events-auto">
-              <ProductPlaceholder
-                title="Vileda Turbo 3-in-1 Microfibre Mop Kit"
-                price={39.99}
-                originalPrice={49.99}
-                badge="Top Pick"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d1d9c3652ed49b1b9f81df3b0d3aee7?format=webp&width=800"
-                fit="contain"
-                cardHeight={cardHeight}
-                mediaHeight={mediaHeight}
-              />
-            </a>
+            <div className="flex-shrink-0 min-w-[220px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px]">
+              <a href="/product/4" className="block relative z-30 pointer-events-auto">
+                <ProductPlaceholder
+                  title={"Philips 32\" LED TV"}
+                  price={199.99}
+                  originalPrice={249.99}
+                  badge="Deal"
+                  thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5c109ec24aa94fa4916978ce02580ccf?format=webp&width=800"
+                  fit="contain"
+                  cardHeight={cardHeight}
+                  mediaHeight={mediaHeight}
+                />
+              </a>
+            </div>
 
-            <a href="/product/5" className="block">
-              <ProductPlaceholder
-                title="Vileda Turbo Mop & Bucket Bundle"
-                price={42.99}
-                originalPrice={52.99}
-                badge="Best Seller"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F170a30c88a3c44ada629d58963d506db?format=webp&width=800"
-                fit="contain"
-                cardHeight={cardHeight}
-                mediaHeight={mediaHeight}
-              />
-            </a>
+            <div className="flex-shrink-0 min-w-[220px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px]">
+              <a href="/product/5" className="block relative z-30 pointer-events-auto">
+                <ProductPlaceholder
+                  title="Vileda Turbo Mop & Bucket Bundle"
+                  price={42.99}
+                  originalPrice={52.99}
+                  badge="Best Seller"
+                  thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F170a30c88a3c44ada629d58963d506db?format=webp&width=800"
+                  fit="contain"
+                  cardHeight={cardHeight}
+                  mediaHeight={mediaHeight}
+                />
+              </a>
+            </div>
+
+            <div className="flex-shrink-0 min-w-[220px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px]">
+              <a href="/product/6" className="block relative z-30 pointer-events-auto">
+                <ProductPlaceholder
+                  title="Clip-on Lavalier Microphone"
+                  price={29.99}
+                  originalPrice={39.99}
+                  badge="New"
+                  thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc1733dfbf8e74ac589270fbe6bfaa4a5?format=webp&width=800"
+                  fit="contain"
+                  cardHeight={cardHeight}
+                  mediaHeight={mediaHeight}
+                />
+              </a>
+            </div>
           </div>
           <div className="text-center pb-6">
             <Button variant="ghost">View All Deals</Button>
