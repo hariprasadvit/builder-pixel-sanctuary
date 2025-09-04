@@ -46,7 +46,7 @@ export default function HeroCarousel() {
               {slides.map((s) => (
                 <div
                   key={s.id}
-                  className="w-screen h-[240px] md:h-[320px] snap-start"
+                  className="group relative w-screen h-[240px] md:h-[320px] snap-start overflow-hidden"
                   style={{ backgroundColor: (s as any).bg || "#ffffff" }}
                 >
                   <img
