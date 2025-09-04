@@ -53,9 +53,33 @@ export default function CategoryHighlights() {
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
                 {!(cat.key === 'electronics' || cat.key === 'cellphones' || cat.key === 'clothing') && (
                   <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {Array.from({ length: 4 }).map((_, i) => (
-                      <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
-                    ))}
+                    {cat.key === 'beauty' ? (
+                      [
+                        { title: 'British Makeup Tips', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F733271c97b48431d85c9f90c5db28e9a?format=webp&width=800' },
+                        { title: 'British & Irish Makeup', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F933ef31be6464395afa4050f02a703a3?format=webp&width=800' },
+                        { title: 'Cult Beauty Haul', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4402cdceea62458195c5d9b5dab02e0d?format=webp&width=800' },
+                        { title: 'UK Beauty Picks', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4f173e2302764a548fd399b8e8d61026?format=webp&width=800' },
+                      ].map((v, i) => (
+                        <VideoPlaceholder
+                          key={`beauty-${i}`}
+                          title={v.title}
+                          price={19.99}
+                          originalPrice={29.99}
+                          likes={1200}
+                          comments={45}
+                          views={5400}
+                          aspect="16/9"
+                          thumbnailSrc={v.img}
+                          fit="cover"
+                          cardHeight={420}
+                          mediaHeight={240}
+                        />
+                      ))
+                    ) : (
+                      Array.from({ length: 4 }).map((_, i) => (
+                        <VideoPlaceholder key={`v-${i}`} title={`${cat.title} Video`} price={89.99} originalPrice={109.99} likes={1500} comments={30} views={6000} cardHeight={420} mediaHeight={240} />
+                      ))
+                    )}
                   </div>
                 )}
                 {cat.key === 'clothing' && (
