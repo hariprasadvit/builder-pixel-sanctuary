@@ -118,7 +118,7 @@ export default function Cart() {
   };
 
   const CartItemCard = ({ item }: { item: CartItem }) => (
-    <Card className="mb-4 bg-gradient-to-br from-white via-blue-50/20 to-purple-50/20">
+    <Card className="mb-4 bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
       <CardContent className="p-4">
         <div className="flex gap-4">
           <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
@@ -294,7 +294,7 @@ export default function Cart() {
 
   if (totalItems === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
+      <div className="min-h-screen bg-gradient-to-br from-[#0b3b8f]/6 to-[#d32f2f]/6 py-8">
         <div className="container mx-auto px-4 max-w-4xl">
           <Card className="text-center py-16">
             <CardContent>
@@ -343,8 +343,8 @@ export default function Cart() {
                   💡 Tip: Use coupon code "1234" for a special surprise!
                 </p>
                 <div className="space-y-3">
-                  <div className="border-2 border-dashed border-blue-300 rounded-lg p-4 bg-blue-50">
-                    <p className="text-sm font-medium text-blue-800 mb-2">
+                  <div className="border-2 border-dashed border-[#0b3b8f]/20 rounded-lg p-4 bg-[#0b3b8f]/6">
+                    <p className="text-sm font-medium text-[#0b3b8f] mb-2">
                       Test the firework effect:
                     </p>
                     <Button
@@ -354,7 +354,7 @@ export default function Cart() {
                         );
                         triggerFireworks();
                       }}
-                      className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold"
+                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold w-full` }
                     >
                       🎆 Launch Fireworks! 🎆
                     </Button>
@@ -406,7 +406,7 @@ export default function Cart() {
         onSuccess={handlePaymentSuccess}
         onCancel={() => setShowStripeCheckout(false)}
       />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
+      <div className="min-h-screen bg-gradient-to-br from-[#0b3b8f]/6 to-[#d32f2f]/6 py-8">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="mb-6">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
