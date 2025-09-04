@@ -1215,22 +1215,22 @@ export default function ProductDetail() {
                   </div>
 
                   {/* AI Summary */}
-                  <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Bot className="w-5 h-5 text-purple-600" />
-                        <h3 className="font-semibold text-purple-900">
-                          AI Review Summary
-                        </h3>
-                        <Badge className="bg-purple-100 text-purple-700 text-xs">
-                          Powered by AI
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-gray-700 leading-relaxed">
-                        {aiSummary}
-                      </p>
-                    </CardContent>
-                  </Card>
+  {product.category !== 'Clothing' && (
+    <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
+      <CardContent className="p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Bot className="w-5 h-5 text-purple-600" />
+          <h3 className="font-semibold text-purple-900">
+            AI Review Summary
+          </h3>
+          <Badge className="bg-purple-100 text-purple-700 text-xs">
+            Powered by AI
+          </Badge>
+        </div>
+        <p className="text-sm text-gray-700 leading-relaxed">{aiSummary}</p>
+      </CardContent>
+    </Card>
+  )}
 
                   {/* Write a Review */}
                   <div className="border rounded-lg p-4">
