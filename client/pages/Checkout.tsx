@@ -240,7 +240,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#0b3b8f]/6 to-[#d32f2f]/6 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-6">
           <Button 
@@ -273,7 +273,7 @@ export default function Checkout() {
           {/* Left Column - Delivery & Payment */}
           <div className="space-y-6">
             {/* Delivery Address */}
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
@@ -322,7 +322,7 @@ export default function Checkout() {
             </Card>
 
             {/* Payment Method */}
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CreditCard className="w-5 h-5" />
@@ -453,7 +453,7 @@ export default function Checkout() {
             </Card>
 
             {/* Order Notes */}
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader>
                 <CardTitle>Order Notes (Optional)</CardTitle>
               </CardHeader>
@@ -562,12 +562,12 @@ export default function Checkout() {
                       onCheckedChange={(checked) => setAgreeToTerms(checked as boolean)}
                     />
                     <Label htmlFor="terms" className="text-sm text-gray-600">
-                      I agree to the <button className="text-blue-600 underline">Terms & Conditions</button> and <button className="text-blue-600 underline">Privacy Policy</button>
+                      I agree to the <button className="text-[#0b3b8f] underline">Terms & Conditions</button> and <button className="text-[#0b3b8f] underline">Privacy Policy</button>
                     </Label>
                   </div>
 
                   <Button 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    className={`${BRAND_GRADIENT} hover:opacity-90 text-white w-full` }
                     onClick={handlePlaceOrder}
                     disabled={processing || !agreeToTerms}
                   >
