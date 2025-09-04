@@ -39,6 +39,13 @@ export default function ProductDetail() {
   const [showComparison, setShowComparison] = useState(true);
   const [selectedColor, setSelectedColor] = useState("Black Titanium");
   const [selectedStorage, setSelectedStorage] = useState("256GB");
+  const [selectedSize, setSelectedSize] = useState("");
+
+  // If product has sizes, default to first available
+  React.useEffect(() => {
+    if ((productsById && Object.keys(productsById).length) === 0) return;
+    // productsById is defined later, so guard when product is available
+  }, []);
 
   // Mock product data - in real app this would be fetched based on the ID
   const iphoneProduct = {
@@ -864,52 +871,46 @@ export default function ProductDetail() {
                 <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
                   <h3 className="font-semibold text-gray-900 mb-3">Quick Specs</h3>
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div>
-                      <span className="text-gray-600">Capacity</span>
-                      <div className="font-medium">{product.specifications.Capacity}</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Motor</span>
-                      <div className="font-medium">{product.specifications.Motor}</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Battery</span>
-                      <div className="font-medium">{product.specifications.Battery}</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Material</span>
-                      <div className="font-medium">{product.specifications.Material}</div>
-                    </div>
+                    {Object.entries(product.specifications || {}).slice(0, 4).map(([k, v]) => (
+                      <div key={k}>
+                        <span className="text-gray-600">{k}</span>
+                        <div className="font-medium">{String(v)}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Value Proposition */}
-                <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
-                    <span className="text-sm font-medium text-gray-900">Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}</span>
+                {product.category !== 'Clothing' && (
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
+                      <span className="text-sm font-medium text-gray-900">Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}</span>
+                    </div>
+                    <p className="text-sm text-gray-700">Get the SOLARA Blendkwik with fast delivery and 1-year warranty upon registration. Limited time offer — save on the launch price.</p>
                   </div>
-                  <p className="text-sm text-gray-700">Get the SOLARA Blendkwik with fast delivery and 1-year warranty upon registration. Limited time offer — save on the launch price.</p>
-                </div>
+                )}
 
                 {/* Why Choose This */}
-                <div className="bg-gray-50 rounded-xl p-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Why Choose SOLARA Blendkwik?</h4>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-blue-600" />
-                      <span>Safe, BPA-free Tritan jar</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Star className="w-4 h-4 text-yellow-500" />
-                      <span>{product.rating}/5 rating from {product.reviewCount} customers</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Truck className="w-4 h-4 text-green-600" />
-                      <span>Delivery in {product.deliveryEta}</span>
+                {product.category !== 'Clothing' && (
+                  <div className="bg-gray-50 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Why Choose SOLARA Blendkwik?</h4>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <Shield className="w-4 h-4 text-blue-600" />
+                        <span>Safe, BPA-free Tritan jar</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Star className="w-4 h-4 text-yellow-500" />
+                        <span>{product.rating}/5 rating from {product.reviewCount} customers</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Truck className="w-4 h-4 text-green-600" />
+                        <span>Delivery in {product.deliveryEta}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -966,93 +967,114 @@ export default function ProductDetail() {
         </div>
 
         {/* Marketing Images - Single Column Scroll Layout */}
-        <div className="mb-8">
-          <h2 className="text-xl font-bold mb-6">Why SOLARA Blendkwik?</h2>
-          <div className="space-y-0">
-            {marketingImages.map((image, index) => (
-              <div key={index} className="w-full">
-                <img
-                  src={image}
-                  alt={`SOLARA Blendkwik Marketing ${index + 1}`}
-                  className="w-full h-auto object-cover block"
-                />
-              </div>
-            ))}
+        {product.category === 'Clothing' ? (
+          <div className="mb-8">
+            <h2 className="text-xl font-bold mb-6">Why NOBERO T‑Shirts?</h2>
+            <div className="space-y-0">
+              {[
+                "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9cc188dd8c7c4917b2d938bd9e1a4351?format=webp&width=1500",
+                "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe98a8635fcfd46d0b338eda1133a18e3?format=webp&width=1500",
+                "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe0374722cdb9474cb190793a11bf5541?format=webp&width=1500",
+                "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6405d0c1fbc5451099e170fb3cf3f29c?format=webp&width=1500",
+                "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F915231fbe5c649b491a8cbe1a416ccd0?format=webp&width=1500",
+              ].map((image, index) => (
+                <div key={index} className="w-full">
+                  <img src={image} alt={`NOBERO ${index + 1}`} className="w-full h-auto object-cover block" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mb-8">
+            <h2 className="text-xl font-bold mb-6">Why SOLARA Blendkwik?</h2>
+            <div className="space-y-0">
+              {marketingImages.map((image, index) => (
+                <div key={index} className="w-full">
+                  <img
+                    src={image}
+                    alt={`SOLARA Blendkwik Marketing ${index + 1}`}
+                    className="w-full h-auto object-cover block"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* iPhone Comparison */}
-        <Card className="mb-8">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">Compare Blendkwik Models</h2>
-              <Button
-                variant="outline"
-                onClick={() => setShowComparison(!showComparison)}
-                className="flex items-center gap-2"
-              >
-                {showComparison ? "Hide" : "Show"} Comparison
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform ${showComparison ? "rotate-180" : ""}`}
-                />
-              </Button>
-            </div>
-            {showComparison && (
-              <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                <div className="min-w-[800px]">
-                  <div className="grid grid-cols-4 gap-4">
-                    {productComparison.map((phone, index) => (
-                      <div
-                        key={index}
-                        className={`border rounded-lg p-4 ${
-                          phone.model === product.model ? "border-blue-500 bg-blue-50 shadow-md" : "border-gray-200 bg-white"
-                        }`}
-                      >
-                        <div className="space-y-3">
-                          <div className="text-center">
-                            <div className="w-20 h-20 mx-auto mb-3 bg-white border rounded-lg overflow-hidden">
-                              <img
-                                src={phone.image}
-                                alt={phone.model}
-                                className="w-full h-full object-contain p-2"
-                              />
+        {product.category !== 'Clothing' && (
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-bold">Compare Blendkwik Models</h2>
+                <Button
+                  variant="outline"
+                  onClick={() => setShowComparison(!showComparison)}
+                  className="flex items-center gap-2"
+                >
+                  {showComparison ? "Hide" : "Show"} Comparison
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${showComparison ? "rotate-180" : ""}`}
+                  />
+                </Button>
+              </div>
+              {showComparison && (
+                <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                  <div className="min-w-[800px]">
+                    <div className="grid grid-cols-4 gap-4">
+                      {productComparison.map((phone, index) => (
+                        <div
+                          key={index}
+                          className={`border rounded-lg p-4 ${
+                            phone.model === product.model ? "border-blue-500 bg-blue-50 shadow-md" : "border-gray-200 bg-white"
+                          }`}
+                        >
+                          <div className="space-y-3">
+                            <div className="text-center">
+                              <div className="w-20 h-20 mx-auto mb-3 bg-white border rounded-lg overflow-hidden">
+                                <img
+                                  src={phone.image}
+                                  alt={phone.model}
+                                  className="w-full h-full object-contain p-2"
+                                />
+                              </div>
+                              <h3 className="font-bold text-lg">{phone.model}</h3>
+                              <p className="text-xl font-bold text-green-600">
+                                {phone.price}
+                              </p>
                             </div>
-                            <h3 className="font-bold text-lg">{phone.model}</h3>
-                            <p className="text-xl font-bold text-green-600">
-                              {phone.price}
-                            </p>
-                          </div>
-                          <div className="space-y-2 text-sm">
-                            <div>
-                              <span className="font-medium text-gray-600">Motor:</span>
-                              <p className="text-gray-800">{phone.motor}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-gray-600">Capacity:</span>
-                              <p className="text-gray-800">{phone.capacity}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-gray-600">Battery:</span>
-                              <p className="text-gray-800">{phone.battery}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-gray-600">Features:</span>
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {phone.features.map((feature, i) => (
-                                  <Badge key={i} variant="secondary" className="text-xs">{feature}</Badge>
-                                ))}
+                            <div className="space-y-2 text-sm">
+                              <div>
+                                <span className="font-medium text-gray-600">Motor:</span>
+                                <p className="text-gray-800">{phone.motor}</p>
+                              </div>
+                              <div>
+                                <span className="font-medium text-gray-600">Capacity:</span>
+                                <p className="text-gray-800">{phone.capacity}</p>
+                              </div>
+                              <div>
+                                <span className="font-medium text-gray-600">Battery:</span>
+                                <p className="text-gray-800">{phone.battery}</p>
+                              </div>
+                              <div>
+                                <span className="font-medium text-gray-600">Features:</span>
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {phone.features.map((feature, i) => (
+                                    <Badge key={i} variant="secondary" className="text-xs">{feature}</Badge>
+                                  ))}
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
+              )}
+            </CardContent>
+          </Card>
+        )}
 
         {/* Product Details Tabs */}
         <Card className="relative z-10">
