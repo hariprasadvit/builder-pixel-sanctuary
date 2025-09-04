@@ -27,6 +27,7 @@ import {
 import { useCart } from "@/contexts/CartContext";
 import { useLocation, Address } from "@/contexts/LocationContext";
 import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { BRAND_GRADIENT } from "@/components/ui/placeholders";
 
 interface PaymentMethod {
   id: string;
