@@ -2,6 +2,9 @@ import React from "react";
 import { Play, Heart, MessageCircle, Eye, ShoppingBag, Star, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/contexts/CartContext";
+import { useMarketplace } from "@/contexts/MarketplaceContext";
+import { useToast } from "@/hooks/use-toast";
 
 // Brand colors extracted from logo (navy + red)
 export const BRAND_GRADIENT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f]";
@@ -124,10 +127,7 @@ export function VideoPlaceholder({
         </div>
         {showBuyButton && (
           <div className="mt-auto">
-            <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Buy Now
-            </Button>
+            <AddToCartButton title={title} price={price} originalPrice={originalPrice} thumbnailSrc={thumbnailSrc} />
           </div>
         )}
       </div>
@@ -205,10 +205,7 @@ export function ProductPlaceholder({
         </div>
         {showBuyButton && (
           <div className="mt-auto">
-            <Button className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Buy Now
-            </Button>
+            <AddToCartButton title={title} price={price} originalPrice={originalPrice} thumbnailSrc={thumbnailSrc} />
           </div>
         )}
       </div>
@@ -343,5 +340,37 @@ export function ReviewPlaceholder({ username, rating, text }: ReviewCardProps) {
       </div>
       <p className="text-sm text-gray-700 line-clamp-4 flex-1">{text}</p>
     </div>
+  );
+}
+
+// Small helper button to unify add-to-cart behaviour across placeholders
+function AddToCartButton({ title, price, originalPrice, thumbnailSrc }: { title: string; price: number; originalPrice?: number; thumbnailSrc?: string }) {
+  const { addToCart } = useCart();
+  const { currentMarketplace, getMarketplaceLabel } = useMarketplace();
+  const { toast } = useToast();
+
+  const handleAdd = () => {
+    const id = `ph-${Math.random().toString(36).slice(2, 9)}`;
+    addToCart(
+      {
+        id,
+        name: title,
+        price,
+        originalPrice: originalPrice,
+        image: thumbnailSrc || "",
+        vendor: currentMarketplace,
+        vendorName: getMarketplaceLabel(currentMarketplace),
+        category: "General",
+      },
+      1,
+    );
+    toast({ title: "Added to cart", description: `${title} added to cart.` });
+  };
+
+  return (
+    <Button onClick={handleAdd} className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
+      <ShoppingBag className="w-4 h-4 mr-2" />
+      Add to Cart
+    </Button>
   );
 }
