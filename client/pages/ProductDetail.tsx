@@ -115,6 +115,56 @@ export default function ProductDetail() {
     },
   };
 
+  const blenderProduct = {
+    id: "2",
+    title: "Portable Blender 500ml — Compact Personal Blender",
+    price: 39.99,
+    originalPrice: 59.99,
+    rating: 4.5,
+    reviewCount: 412,
+    origin: "UK" as const,
+    deliveryEta: "2 days",
+    inStock: true,
+    stockCount: 34,
+    images: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3f08b41427634eff923fa23e7f5ca9cd?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F733271c97b48431d85c9f90c5db28e9a?format=webp&width=800",
+    ],
+    brand: "KitchenPro",
+    model: "BlendGo 500",
+    storage: "N/A",
+    color: "Matte White",
+    features: [
+      "500ml capacity",
+      "USB-C rechargeable",
+      "Safety lock & BPA-free",
+      "Compact for travel",
+      "Easy to clean",
+    ],
+    description:
+      "BlendGo 500 is a compact, rechargeable portable blender perfect for smoothies and shakes on the go. 500ml capacity with safety lock and easy-clean design.",
+    specifications: {
+      Capacity: "500 ml",
+      Power: "200W motor",
+      Battery: "2000mAh (about 15 blends per charge)",
+      Material: "BPA-free Tritan",
+      Charging: "USB-C (included)",
+      DishwasherSafe: "No (top-rack only parts)",
+    },
+    seller: {
+      name: "KitchenPro Store",
+      rating: 4.6,
+      location: "Manchester, UK",
+    },
+  };
+
+  const productsById: Record<string, any> = {
+    '1': iphoneProduct,
+    '2': blenderProduct,
+  };
+
+  const product = productsById[id || '1'] || iphoneProduct;
+
   const handleQuantityChange = (increment: boolean) => {
     if (increment && quantity < product.stockCount) {
       setQuantity(quantity + 1);
