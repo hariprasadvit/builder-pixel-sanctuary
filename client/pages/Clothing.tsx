@@ -25,7 +25,7 @@ interface ClothItem {
   sizes?: string[];
 }
 
-const INR = (n: number) => `₹${n.toFixed(0)}`;
+const GBP = (n: number) => `£${n.toFixed(2)}`;
 
 // Use the provided attachment images for listing
 const CLOTHES: ClothItem[] = [
@@ -175,8 +175,11 @@ export default function Clothing() {
   const filtered = useMemo(() => {
     let list = CLOTHES.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()));
     if (section) {
-      const sLow = section.toLowerCase();
-      list = list.filter((p) => p.title.toLowerCase().includes(sLow) || p.brand.toLowerCase().includes(sLow));
+      const tokens = section.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+      list = list.filter((p) => {
+        const txt = `${p.title} ${p.brand}`.toLowerCase();
+        return tokens.some((t) => txt.includes(t));
+      });
     }
     if (brands.length) list = list.filter((p) => brands.includes(p.brand));
     list = list.filter((p) => p.price >= price[0] && p.price <= price[1]);
@@ -214,7 +217,7 @@ export default function Clothing() {
 
   const chips: { label: string; onRemove: () => void }[] = [];
   if (brands.length) chips.push({ label: `Brand: ${brands.join(", ")}`, onRemove: () => setBrands([]) });
-  if (price[0] !== 0 || price[1] !== 2000) chips.push({ label: `Price: ${INR(price[0])}–${INR(price[1])}`, onRemove: () => setPrice([0, 2000]) });
+  if (price[0] !== 0 || price[1] !== 2000) chips.push({ label: `Price: ${GBP(price[0])}–${GBP(price[1])}`, onRemove: () => setPrice([0, 2000]) });
   if (minRating > 0) chips.push({ label: `Rating: ${minRating}★+`, onRemove: () => setMinRating(0) });
   if (sizes.length) chips.push({ label: `Sizes: ${sizes.join(", ")}`, onRemove: () => setSizes([]) });
   if (colors.length) chips.push({ label: `Colors: ${colors.join(", ")}`, onRemove: () => setColors([]) });
@@ -256,16 +259,16 @@ export default function Clothing() {
                 </div>
 
                 <div>
-                  <h4 className="font-medium mb-2">Price Range (INR)</h4>
+                  <h4 className="font-medium mb-2">Price Range (GBP)</h4>
                   <div className="flex flex-wrap gap-2 mb-2">
-                    {[[0, 399], [400, 699], [700, 999], [1000, 1499], [1500, 3000]].map(([a, b]) => (
+                    {[[0, 199], [200, 499], [500, 799], [800, 1199], [1200, 2000]].map(([a, b]) => (
                       <Button key={`${a}-${b}`} variant="outline" size="sm" className={price[0] === a && price[1] === b ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""} onClick={() => setPrice([a, b])}>
-                        {INR(a)} – {INR(b)}
+                        {GBP(a)} – {GBP(b)}
                       </Button>
                     ))}
                   </div>
-                  <Slider value={price} min={0} max={3000} step={50} onValueChange={(v: any) => setPrice([v[0], v[1]])} />
-                  <div className="text-sm text-gray-600 mt-1">{INR(price[0])} – {INR(price[1])}</div>
+                  <Slider value={price} min={0} max={2000} step={10} onValueChange={(v: any) => setPrice([v[0], v[1]])} />
+                  <div className="text-sm text-gray-600 mt-1">{GBP(price[0])} – {GBP(price[1])}</div>
                 </div>
 
                 <div>
@@ -344,16 +347,16 @@ export default function Clothing() {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Price Range (INR)</h4>
+                <h4 className="font-semibold mb-2">Price Range (GBP)</h4>
                 <div className="grid grid-cols-1 gap-2 mb-2">
-                  {[[0, 399], [400, 699], [700, 999], [1000, 1499], [1500, 3000]].map(([a, b]) => (
+                  {[[0, 199], [200, 499], [500, 799], [800, 1199], [1200, 2000]].map(([a, b]) => (
                     <Button key={`${a}-${b}`} size="sm" variant="outline" className={`w-full justify-between ${price[0] === a && price[1] === b ? "bg-brand-blue text-white border-brand-blue hover:bg-brand-blue/90" : ""}`} onClick={() => setPrice([a, b])}>
-                      {INR(a)} – {INR(b)}
+                      {GBP(a)} – {GBP(b)}
                     </Button>
                   ))}
                 </div>
-                <Slider value={price} min={0} max={3000} step={50} onValueChange={(v: any) => setPrice([v[0], v[1]])} />
-                <div className="text-sm text-gray-600 mt-1">{INR(price[0])} – {INR(price[1])}</div>
+                <Slider value={price} min={0} max={2000} step={10} onValueChange={(v: any) => setPrice([v[0], v[1]])} />
+                <div className="text-sm text-gray-600 mt-1">{GBP(price[0])} – {GBP(price[1])}</div>
               </div>
 
               <div>
