@@ -173,12 +173,13 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     aspect={aspect}
                     cardHeight={cardH}
                     mediaHeight={mediaH}
-                    thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
+                    thumbnailSrc={undefined}
                     fit={"contain"}
                     showBuyButton={false}
                     showPrice={false}
-                    showPlayOverlay={true}
-                    hideTitle={false}
+                    showPlayOverlay={false}
+                    showSocialCounters={false}
+                    hideTitle={true}
                   />
                 </div>
               );
@@ -206,12 +207,13 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     views={video.views}
                     cardHeight={280}
                     mediaHeight={150}
-                    thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
+                    thumbnailSrc={undefined}
                     fit="contain"
                     showBuyButton={false}
                     showPrice={false}
-                    showPlayOverlay={true}
-                    hideTitle={false}
+                    showPlayOverlay={false}
+                    showSocialCounters={false}
+                    hideTitle={true}
                   />
                 </div>
               );
