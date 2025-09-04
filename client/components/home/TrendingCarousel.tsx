@@ -130,7 +130,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
             `}</style>
 
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 justify-center">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F63acd6abc68847c493b2ab4ad6e77f33?format=webp&width=800" alt="UK flag" className="w-6 h-6 animate-uk-wave" />
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdbf4ff7329804953a7191934781d2034?format=webp&width=800" alt="UK flag" className="w-6 h-6 animate-uk-wave" />
               <span className="bg-gradient-to-r from-[#012169] to-[#C8102E] bg-clip-text text-transparent">Trending Videos</span>
             </h2>
 
