@@ -17,7 +17,6 @@ import WowFlashBanner from "@/components/home/WowFlashBanner";
 export default function Index() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <AnnouncementStrip />
       <HeroCarousel />
       <FlashDealsCarousel />
       <TopCategories />
