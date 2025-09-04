@@ -379,7 +379,7 @@ export default function Cart() {
                         // Then open payment modal
                         setTimeout(() => setShowStripeCheckout(true), 500);
                       }}
-                      className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-semibold"
+                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold w-full` }
                     >
                       💳 Test Payment Flow 💳
                     </Button>
