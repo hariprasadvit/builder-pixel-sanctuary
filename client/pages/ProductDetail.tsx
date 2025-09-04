@@ -266,11 +266,16 @@ export default function ProductDetail() {
   };
 
   const marketingImages = [
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5de5308cd9d74fa89a81d80b794c4690?format=webp&width=1500",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9a3b0baebdac4319970704f846d0cf1a?format=webp&width=1500",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc4fcc90eee26492ebf3f89aa9b9fab34?format=webp&width=1500",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0676db21bd004183907b38103230e546?format=webp&width=1500",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F89f17da7e0ce49628ee5fe3233aa9946?format=webp&width=1500",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf25397c817d4090bfed61f37d0297f3?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feb8ccf1b427d4d138cb1c16148b2821f?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F793c3e01001144a39e1173a6819bfc01?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F20e5372ed55c4f3e941b99b7391f989a?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F480b2c6d23df41bdab1b2e6c0fdcd452?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bd8091f6be64b9ca4cc03e7ed51c9b2?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa2e1ed965a4d47a7a317d7f10fa5c5f8?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8cf99592afbe483c8546016e5f3e2408?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcd37028432514f76a3a2868927049973?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F80d9873033d94c24825f001a5d3346b2?format=webp&width=800",
   ];
 
   const productComparison = [
@@ -1033,7 +1038,7 @@ export default function ProductDetail() {
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-6">Why {product.title}?</h2>
             <div className="space-y-0">
-              {(product.images && product.images.length ? product.images : marketingImages).map((image, index) => (
+              {(product.id === '1' ? marketingImages : (product.images && product.images.length ? product.images : marketingImages)).map((image, index) => (
                 <div key={index} className="w-full">
                   <img
                     src={image}
