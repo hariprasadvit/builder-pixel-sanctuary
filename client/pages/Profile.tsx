@@ -485,7 +485,7 @@ export default function Profile() {
                             {address.isDefault && (
                               <Badge
                                 variant="default"
-                                className="text-xs bg-blue-600 hover:bg-blue-700"
+                                className={`${BRAND_GRADIENT} hover:opacity-90 text-white text-xs` }
                               >
                                 Default
                               </Badge>
@@ -562,7 +562,7 @@ export default function Profile() {
                           {payment.isDefault && (
                             <Badge
                               variant="default"
-                              className="text-xs bg-blue-600 hover:bg-blue-700"
+                              className={`${BRAND_GRADIENT} hover:opacity-90 text-white text-xs` }
                             >
                               Default
                             </Badge>
