@@ -3,10 +3,10 @@ import { ReviewPlaceholder, ProductPlaceholder, SectionHeader } from "@/componen
 
 export default function UserReviewsGrid() {
   const reviews = [
-    { u: 'sophia', r: 4.8, t: 'Absolutely loved the quality and the fast delivery. Highly recommend!' },
-    { u: 'liam', r: 4.5, t: 'Great value for money. The video demo helped me decide quickly.' },
-    { u: 'olivia', r: 4.7, t: 'Stylish and functional. Exactly as described in the video.' },
-    { u: 'noah', r: 4.6, t: 'Customer service was excellent and the product is top notch.' },
+    { u: 'sophia', r: 4.8, t: 'Absolutely loved the quality and the fast delivery. Highly recommend!', product: { id: 'p1', title: 'Smartrun A6 Treadmill', price: 299.99, originalPrice: 399.99, image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5a2faa9687f3425fa777d83d6801fce9?format=webp&width=800' } },
+    { u: 'liam', r: 4.5, t: 'Great value for money. The video demo helped me decide quickly.', product: { id: 'p2', title: '3-Piece Hardside Luggage Set', price: 129.99, originalPrice: 179.99, image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa2b4009e08244e11bcdaa69bc0888053?format=webp&width=800' } },
+    { u: 'olivia', r: 4.7, t: 'Stylish and functional. Exactly as described in the video.', product: { id: 'p3', title: 'Presto Active Wash Detergent 8kg', price: 15.99, originalPrice: 19.99, image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9c1dbc7306e24a8ca61d044d63d3f342?format=webp&width=800' } },
+    { u: 'noah', r: 4.6, t: 'Customer service was excellent and the product is top notch.', product: { id: 'p4', title: 'Philips 32" LED TV', price: 199.99, originalPrice: 249.99, image: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5c109ec24aa94fa4916978ce02580ccf?format=webp&width=800' } },
   ];
   return (
     <section className="py-10 bg-white">
