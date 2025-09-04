@@ -271,7 +271,7 @@ export default function ProductDetail() {
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb2d11ccc3b244340abde484915c7b36e?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6f2fa79e3b114414807025bb3f77dddd?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fba8fbec44f424a2e86e473e6c9b02dc2?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bd8091f6be64b9ca4cc03e7ed51c9b2?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F958ad2c553404fc4b5444525b3f39f7c?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa2e1ed965a4d47a7a317d7f10fa5c5f8?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8cf99592afbe483c8546016e5f3e2408?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcd37028432514f76a3a2868927049973?format=webp&width=800",
