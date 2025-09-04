@@ -78,11 +78,13 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
     const def = defaultVideos[displayVideos.length % defaultVideos.length];
     displayVideos.push({ ...def, id: `placeholder-${displayVideos.length}` });
   }
-  // Keep only cards 1,3,5,6,8,9,10,11 (1-based) => 0,2,4,5,7,8,9,10
-  const keepOrder = [0, 2, 4, 5, 7, 8, 9, 10];
+  // Keep a compact set of cards for masonry (removed one to improve feel)
+  const keepOrder = [0, 2, 4, 7, 8, 9, 10];
   const selectedVideos = keepOrder
     .filter((i) => i < displayVideos.length)
     .map((i) => ({ ...displayVideos[i], __srcIndex: i } as any));
+  // Limit to first 7 items to keep layout compact
+  if (selectedVideos.length > 7) selectedVideos.length = 7;
 
   // Thumbnails for Trending Videos (updated)
   const trendingThumbs = [
@@ -133,17 +135,17 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Masonry layout on md+ using CSS columns */}
+        {/* Masonry layout on md+ using CSS columns (compact) */}
         <div className="hidden md:block">
-          <div className="columns-2 md:columns-3 xl:columns-4 [column-fill:_balance] [column-gap:1rem]">
+          <div className="columns-3 md:columns-4 xl:columns-5 [column-fill:_balance] [column-gap:.75rem]">
             {selectedVideos.map((video) => {
               const srcIndex = (video as any).__srcIndex as number;
               const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
               const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={`trending-${srcIndex}-${video.id}`} className="inline-block w-full [break-inside:avoid] mb-4">
+                <div key={`trending-${srcIndex}-${video.id}`} className="inline-block w-full [break-inside:avoid] mb-3">
                   <VideoPlaceholder
-                    className="w-full"
+                    className="w-full p-2"
                     title={title}
                     price={video.price}
                     originalPrice={video.originalPrice}
@@ -152,10 +154,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     comments={video.comments}
                     views={video.views}
                     aspect={srcIndex % 3 === 0 ? "16/9" : "9/16"}
-                    cardHeight={"auto"}
-                    mediaHeight={"auto"}
+                    cardHeight={300}
+                    mediaHeight={160}
                     thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
-                    fit={"contain"}
+                    fit={"cover"}
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={true}
@@ -167,16 +169,17 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Mobile Carousel - Shows selected cards */}
+        {/* Mobile Carousel - compact cards */}
         <div className="md:hidden">
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4">
+          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide px-4">
             {selectedVideos.map((video) => {
               const srcIndex = (video as any).__srcIndex as number;
               const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
               const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={`mobile-${srcIndex}-${video.id}`} className="flex-shrink-0 w-48">
+                <div key={`mobile-${srcIndex}-${video.id}`} className="flex-shrink-0 w-40">
                   <VideoPlaceholder
+                    className="p-2"
                     title={title}
                     price={video.price}
                     originalPrice={video.originalPrice}
@@ -184,10 +187,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     likes={video.likes}
                     comments={video.comments}
                     views={video.views}
-                    cardHeight={"auto"}
-                    mediaHeight={"auto"}
+                    cardHeight={280}
+                    mediaHeight={150}
                     thumbnailSrc={thumb ? `${thumb}&cb=${srcIndex}` : undefined}
-                    fit="contain"
+                    fit="cover"
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={true}
