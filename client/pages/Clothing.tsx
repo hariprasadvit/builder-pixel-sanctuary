@@ -413,7 +413,9 @@ export default function Clothing() {
               <>
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {visible.map((p) => (
-                    <ProductCard key={p.id} id={p.id} image={p.image} title={p.title} price={p.price} originalPrice={p.originalPrice} rating={p.rating} reviewCount={p.reviewCount} origin={"UK"} deliveryEta={p.inStock ? "Tomorrow" : "5–10 days"} />
+                    <Link key={p.id} to={`/product/${encodeURIComponent(p.id)}`} className="block">
+                      <ProductCard id={p.id} image={p.image} title={p.title} price={p.price} originalPrice={p.originalPrice} rating={p.rating} reviewCount={p.reviewCount} origin={"UK"} deliveryEta={p.inStock ? "Tomorrow" : "5–10 days"} />
+                    </Link>
                   ))}
                 </div>
                 {visible.length < filtered.length && (
