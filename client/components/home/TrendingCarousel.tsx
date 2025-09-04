@@ -132,7 +132,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         {/* Replace with exact placeholder blocks matching user's reference */}
         <div className="hidden md:flex justify-center">
           <div
-            className="w-full"
+            className="mx-auto w-full lg:w-8/12"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
