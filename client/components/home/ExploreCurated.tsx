@@ -17,7 +17,7 @@ export default function ExploreCurated() {
       <img
         src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffabb4857a3564d13b09fe1ba4694fa74?format=webp&width=1600"
         alt="London skyline"
-        className="pointer-events-none select-none absolute inset-x-0 bottom-0 z-0 w-full h-64 md:h-80 lg:h-96 object-cover object-bottom"
+        className="pointer-events-none select-none absolute inset-x-0 bottom-0 z-0 w-full h-80 md:h-[420px] lg:h-[520px] object-cover object-bottom"
       />
 
       <div className="relative z-20 container mx-auto px-4">
