@@ -1,5 +1,5 @@
 import React from "react";
-import { ReviewPlaceholder, ProductPlaceholder, SectionHeader } from "@/components/ui/placeholders";
+import { ReviewPlaceholder, SectionHeader } from "@/components/ui/placeholders";
 
 export default function UserReviewsGrid() {
   const reviews = [
