@@ -1,5 +1,6 @@
 import React from "react";
-import { SectionHeader } from "@/components/ui/placeholders";
+import { SectionHeader, BRAND_GRADIENT, BRAND_GRADIENT_TEXT } from "@/components/ui/placeholders";
+import { useNavigate } from "react-router-dom";
 
 type Cat = { key: string; title: string; image?: string; imageClass?: string };
 
