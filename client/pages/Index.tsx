@@ -3,18 +3,14 @@ import React from "react";
 import AnnouncementStrip from "@/components/home/AnnouncementStrip";
 import HeroCarousel from "@/components/HeroCarousel";
 import FlashDealsCarousel from "@/components/home/FlashDealsCarousel";
-import TrendingCarousel from "@/components/home/TrendingCarousel";
 import TopCategories from "@/components/home/TopCategories";
 import CategoryHighlights from "@/components/home/CategoryHighlights";
 import DealsStrip from "@/components/home/DealsStrip";
-import BestsellerHighlights from "@/components/home/BestsellerHighlights";
-import HomeFiveUps from "@/components/home/HomeFiveUps";
 import BrandsRow from "@/components/home/BrandsRow";
 import CreatorPicks from "@/components/home/CreatorPicks";
 import UserReviewsGrid from "@/components/home/UserReviewsGrid";
 import FooterConnect from "@/components/home/FooterConnect";
 import SocialSellSection from "@/components/home/SocialSellSection";
-import SocialSnapshotRail from "@/components/home/SocialSnapshotRail";
 import ExploreCurated from "@/components/home/ExploreCurated";
 import WowFlashBanner from "@/components/home/WowFlashBanner";
 
@@ -25,16 +21,12 @@ export default function Index() {
       <AnnouncementStrip />
       <HeroCarousel />
       <FlashDealsCarousel />
-      <TrendingCarousel />
       <TopCategories />
       <ExploreCurated />
       <WowFlashBanner />
       <SocialSellSection />
       <CategoryHighlights />
-      <SocialSnapshotRail />
       <DealsStrip />
-      <BestsellerHighlights />
-      <HomeFiveUps />
       <BrandsRow />
       <CreatorPicks />
       <UserReviewsGrid />
