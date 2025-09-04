@@ -267,6 +267,7 @@ export default function ProductDetail() {
 
   const marketingImages = [
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9722f3a7ad544c6ab1511899f5086e62?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbbe4aecfc35743b7811bfbe330cdab83?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F20e5372ed55c4f3e941b99b7391f989a?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F480b2c6d23df41bdab1b2e6c0fdcd452?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bd8091f6be64b9ca4cc03e7ed51c9b2?format=webp&width=800",
