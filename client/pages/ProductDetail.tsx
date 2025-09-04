@@ -876,36 +876,12 @@ export default function ProductDetail() {
                     Product Highlights
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-700">
-                    <li className="flex items-start gap-3 py-1">
-                      <span className="text-blue-600 font-bold text-lg leading-none">
-                        •
-                      </span>
-                      <span>A18 Pro chip for pro-level performance</span>
-                    </li>
-                    <li className="flex items-start gap-3 py-1">
-                      <span className="text-blue-600 font-bold text-lg leading-none">
-                        •
-                      </span>
-                      <span>Pro camera system with 5x telephoto lens</span>
-                    </li>
-                    <li className="flex items-start gap-3 py-1">
-                      <span className="text-blue-600 font-bold text-lg leading-none">
-                        •
-                      </span>
-                      <span>Extended battery life up to 33 hours video</span>
-                    </li>
-                    <li className="flex items-start gap-3 py-1">
-                      <span className="text-blue-600 font-bold text-lg leading-none">
-                        •
-                      </span>
-                      <span>Premium titanium design - aerospace grade</span>
-                    </li>
-                    <li className="flex items-start gap-3 py-1">
-                      <span className="text-blue-600 font-bold text-lg leading-none">
-                        •
-                      </span>
-                      <span>6.9″ largest iPhone display ever</span>
-                    </li>
+                    {product.features.map((feat, i) => (
+                      <li key={i} className="flex items-start gap-3 py-1">
+                        <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
