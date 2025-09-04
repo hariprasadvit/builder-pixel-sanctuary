@@ -179,9 +179,21 @@ export default function CategoryHighlights() {
                       </div>
                     ))
                   ) : (
-                    Array.from({ length: 5 }).map((_, i) => (
-                      <ProductPlaceholder key={`p-${i}`} title={`${cat.title} Product`} price={49.99} originalPrice={69.99} cardHeight={420} mediaHeight={240} />
-                    ))
+                    cat.key === 'beauty' ? (
+                      [
+                        { title: 'Teresa Tarmey Cleanser', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbb78b598692f4d2e889bfd4fae409754?format=webp&width=800', price: 24.99, original: 34.99 },
+                        { title: 'L Oreal Color Lipstick', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fee8ba4724a04499683c282572fb022eb?format=webp&width=800', price: 9.99, original: 14.99 },
+                        { title: 'Maychao Nail Polish', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7dc8e2250cfc43228bdca04a8d8eda37?format=webp&width=800', price: 6.99, original: 9.99 },
+                        { title: 'Floral Makeup Pouch', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdfb4443db99c4fa18f0f0e6af088d7e5?format=webp&width=800', price: 12.99, original: 19.99 },
+                        { title: 'Monogram Makeup Pouch', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe04549ca79764d0f8c8cd93e3a94ec34?format=webp&width=800', price: 12.99, original: 19.99 },
+                      ].map((p, i) => (
+                        <ProductPlaceholder key={`beauty-p-${i}`} title={p.title} price={p.price} originalPrice={p.original} thumbnailSrc={p.img} fit="contain" cardHeight={420} mediaHeight={240} />
+                      ))
+                    ) : (
+                      Array.from({ length: 5 }).map((_, i) => (
+                        <ProductPlaceholder key={`p-${i}`} title={`${cat.title} Product`} price={49.99} originalPrice={69.99} cardHeight={420} mediaHeight={240} />
+                      ))
+                    )
                   )}
                 </div>
                 {cat.key === 'electronics' && (
