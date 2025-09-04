@@ -53,7 +53,7 @@ function ProfileWishlist() {
 
   if (items.length === 0) {
     return (
-      <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+      <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Heart className="w-5 h-5" />
@@ -79,7 +79,7 @@ function ProfileWishlist() {
   }
 
   return (
-    <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+    <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Heart className="w-5 h-5" />
@@ -296,7 +296,7 @@ export default function Profile() {
     <div className="min-h-screen bg-gradient-to-br from-[#0b3b8f]/6 to-[#d32f2f]/6 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Profile Header */}
-        <Card className="mb-8 border-2 border-blue-200 shadow-lg bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40">
+        <Card className="mb-8 border-2 border-[#0b3b8f]/10 shadow-lg bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-6">
@@ -389,7 +389,7 @@ export default function Profile() {
 
           {/* Personal Information */}
           <TabsContent value="personal">
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader>
                 <CardTitle>Personal Information</CardTitle>
               </CardHeader>
@@ -460,7 +460,7 @@ export default function Profile() {
 
           {/* Addresses */}
           <TabsContent value="addresses">
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Saved Addresses</CardTitle>
                 <Button
@@ -528,7 +528,7 @@ export default function Profile() {
 
           {/* Payment Methods */}
           <TabsContent value="payments">
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Payment Methods</CardTitle>
                 <Button
@@ -660,7 +660,7 @@ export default function Profile() {
 
           {/* Orders */}
           <TabsContent value="orders">
-            <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+            <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Recent Orders</CardTitle>
                 <Link to="/orders">
@@ -718,7 +718,7 @@ export default function Profile() {
           <TabsContent value="settings">
             <div className="space-y-6">
               {/* Notifications */}
-              <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+              <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Bell className="w-5 h-5" />
@@ -798,7 +798,7 @@ export default function Profile() {
               </Card>
 
               {/* Security */}
-              <Card className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+              <Card className="bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Shield className="w-5 h-5" />
