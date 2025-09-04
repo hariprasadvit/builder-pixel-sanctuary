@@ -179,10 +179,9 @@ export default function ProductDetail() {
     inStock: true,
     stockCount: 50,
     images: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe98a8635fcfd46d0b338eda1133a18e3?format=webp&width=1500",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe0374722cdb9474cb190793a11bf5541?format=webp&width=1500",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6405d0c1fbc5451099e170fb3cf3f29c?format=webp&width=1500",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F915231fbe5c649b491a8cbe1a416ccd0?format=webp&width=1500",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1dd3ad46e4244a4b9cf6bf774685aa07?format=webp&width=1500",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdb1db13c0195459fa22b23b5b6f0b89d?format=webp&width=1500",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2c9173056aa140c5893f286b39f8ffe6?format=webp&width=1500",
     ],
     brand: "NOBERO",
     category: "Clothing",
