@@ -199,70 +199,33 @@ export default function ProductDetail() {
   };
 
   const marketingImages = [
-    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_01._CB547243914_.jpg",
-    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_02._CB547243914_.jpg",
-    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_03._CB547243914_.jpg",
-    "https://m.media-amazon.com/images/G/31/img25/Wireless/Madhav/Feb/Apple/River/16/iPhone_16_Marketing_Page_Flex_Module_Avail_Amazon_Desktop_1500px__en-IN_04._CB547243914_.jpg",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5de5308cd9d74fa89a81d80b794c4690?format=webp&width=1500",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9a3b0baebdac4319970704f846d0cf1a?format=webp&width=1500",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc4fcc90eee26492ebf3f89aa9b9fab34?format=webp&width=1500",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0676db21bd004183907b38103230e546?format=webp&width=1500",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F89f17da7e0ce49628ee5fe3233aa9946?format=webp&width=1500",
   ];
 
-  const iPhoneComparison = [
+  const productComparison = [
     {
-      model: "iPhone 16",
-      price: "£999.99",
-      display: '6.1" Super Retina XDR',
-      chip: "A18 Bionic",
-      camera: "48MP Main + 12MP Ultra Wide",
-      battery: "Up to 22h video",
-      storage: "128GB, 256GB, 512GB",
-      features: ["Camera Control", "Action Button", "USB-C"],
+      model: "Blendkwik (Standard)",
+      price: "£39.99",
+      motor: "7.4V copper motor",
+      capacity: "450 ml",
+      battery: "4000 mAh",
+      features: ["USB-C Rechargeable", "6 stainless steel blades", "Safe-lock design"],
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1ab7beef708241a5ac8b96c09e63146f?format=webp&width=800",
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5de5308cd9d74fa89a81d80b794c4690?format=webp&width=800",
     },
     {
-      model: "iPhone 16 Plus",
-      price: "£1,099.99",
-      display: '6.7" Super Retina XDR',
-      chip: "A18 Bionic",
-      camera: "48MP Main + 12MP Ultra Wide",
-      battery: "Up to 27h video",
-      storage: "128GB, 256GB, 512GB",
-      features: ["Camera Control", "Action Button", "USB-C"],
+      model: "Blendkwik Pro",
+      price: "£59.99",
+      motor: "9V high-torque motor",
+      capacity: "500 ml",
+      battery: "5000 mAh",
+      features: ["Stronger blades", "Longer battery", "Travel pouch"],
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8d8deb9d54e746b78bdf029fb2782ff4?format=webp&width=800",
-    },
-    {
-      model: "iPhone 16 Pro",
-      price: "£1,199.99",
-      display: '6.3" Super Retina XDR ProMotion',
-      chip: "A18 Pro",
-      camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
-      battery: "Up to 27h video",
-      storage: "128GB, 256GB, 512GB, 1TB",
-      features: [
-        "Camera Control",
-        "Action Button",
-        "Titanium Design",
-        "5x Zoom",
-      ],
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1fbe373ae20c4f26b1e4495ec55024c7?format=webp&width=800",
-    },
-    {
-      model: "iPhone 16 Pro Max",
-      price: "£1,399.99",
-      display: '6.9" Super Retina XDR ProMotion',
-      chip: "A18 Pro",
-      camera: "48MP Main + 48MP Ultra Wide + 12MP Telephoto",
-      battery: "Up to 33h video",
-      storage: "256GB, 512GB, 1TB",
-      features: [
-        "Camera Control",
-        "Action Button",
-        "Titanium Design",
-        "5x Zoom",
-      ],
-      image:
-        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F109505a1bf1c4911b1c720697e773970?format=webp&width=800",
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9a3b0baebdac4319970704f846d0cf1a?format=webp&width=800",
     },
   ];
 
