@@ -119,11 +119,22 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
         {/* Section Header */}
         <div className="mb-6">
           <div className={`h-1 w-full rounded bg-gradient-to-r from-[#e3f2fd] to-[#e1f5fe] mb-3`}></div>
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-2">
-              🔥 Trending Videos
+          <div className="flex flex-col items-center">
+            <style>{`
+              @keyframes ukWave {
+                0% { transform: rotate(-8deg); }
+                50% { transform: rotate(8deg); }
+                100% { transform: rotate(-8deg); }
+              }
+              .animate-uk-wave { animation: ukWave 1.6s ease-in-out infinite; transform-origin: 50% 50%; display: inline-block; }
+            `}</style>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 justify-center">
+              <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff3892b59e4084ec58a18c6573afec41b?format=webp&width=800" alt="UK flag" className="w-6 h-6 animate-uk-wave" />
+              <span className="bg-gradient-to-r from-[#012169] to-[#C8102E] bg-clip-text text-transparent">Trending Videos</span>
             </h2>
-            <Button variant="ghost" className="text-gray-700 hover:text-gray-900 whitespace-nowrap">
+
+            <Button variant="ghost" className="text-gray-700 hover:text-gray-900 whitespace-nowrap mt-2">
               See All
             </Button>
           </div>
@@ -176,7 +187,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                       <img src={imgSrc} alt="avatar" className="w-8 h-8 rounded-full ring-2 ring-white object-cover" />
                       <div className="text-sm text-white flex items-center gap-2">
                         <span className="font-semibold">{creatorName}</span>
-                        <span title="Verified" className="text-xs text-emerald-400">✔️</span>
+                        <span title="Verified" className="text-xs text-emerald-400">��️</span>
                       </div>
                     </div>
                     <button aria-label="Toggle mute" className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow">
