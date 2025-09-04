@@ -467,7 +467,7 @@ export default function ProductDetail() {
                   key={index}
                   className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
                     selectedImage === index
-                      ? "border-brand-blue"
+                      ? "border-[#0b3b8f]"
                       : "border-gray-200"
                   }`}
                   onClick={() => setSelectedImage(index)}
@@ -487,7 +487,7 @@ export default function ProductDetail() {
             {/* Header Info */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-blue-600 text-white text-xs">
+                <Badge className={`${BRAND_GRADIENT} text-white text-xs` }>
                   {product.origin}
                 </Badge>
                 <Badge variant="outline" className="text-xs">
@@ -565,36 +565,36 @@ export default function ProductDetail() {
             {/* Product Highlights - Mobile version */}
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-4 border border-blue-100">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                <div className="w-4 h-4 bg-[#0b3b8f] rounded-full"></div>
                 Product Highlights
               </h3>
               <div className="grid grid-cols-1 gap-2 text-sm text-gray-700">
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">
+                  <span className="text-[#0b3b8f] font-bold text-lg leading-none">
                     •
                   </span>
                   <span>A18 Pro chip for pro-level performance</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">
+                  <span className="text-[#0b3b8f] font-bold text-lg leading-none">
                     •
                   </span>
                   <span>Pro camera system with 5x telephoto lens</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">
+                  <span className="text-[#0b3b8f] font-bold text-lg leading-none">
                     •
                   </span>
                   <span>Extended battery life up to 33 hours video</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">
+                  <span className="text-[#0b3b8f] font-bold text-lg leading-none">
                     •
                   </span>
                   <span>Premium titanium design - aerospace grade</span>
                 </div>
                 <div className="flex items-start gap-3 py-1">
-                  <span className="text-blue-600 font-bold text-lg leading-none">
+                  <span className="text-[#0b3b8f] font-bold text-lg leading-none">
                     •
                   </span>
                   <span>6.9″ largest iPhone display ever</span>
@@ -606,7 +606,7 @@ export default function ProductDetail() {
             <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 -mx-1 space-y-3">
               <Button
                 size="lg"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg h-12"
+                className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold py-4 text-lg shadow-lg h-12` }
                 onClick={handleBuyNow}
                 disabled={!product.inStock}
               >
@@ -616,7 +616,7 @@ export default function ProductDetail() {
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg h-12"
+                className={`w-full border-2 border-[#0b3b8f] text-[#0b3b8f] hover:bg-[#0b3b8f]/10 font-medium py-4 text-lg h-12` }
                 onClick={handleAddToCart}
                 disabled={!product.inStock}
               >
@@ -645,7 +645,7 @@ export default function ProductDetail() {
                       key={index}
                       className={`flex-shrink-0 w-16 h-16 bg-white rounded-lg overflow-hidden cursor-pointer border-2 ${
                         selectedImage === index
-                          ? "border-brand-blue"
+                          ? "border-[#0b3b8f]"
                           : "border-gray-200"
                       }`}
                       onClick={() => setSelectedImage(index)}
@@ -743,7 +743,7 @@ export default function ProductDetail() {
                     <h4 className="font-medium text-gray-900 mb-2">Size</h4>
                     <div className="flex gap-2 flex-wrap">
                       {product.sizes.map((s: string) => (
-                        <button key={s} className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-brand-blue bg-brand-blue/10" : "border-gray-200"}`} onClick={() => setSelectedSize(s)}>
+                        <button key={s} className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-[#0b3b8f] bg-brand-blue/10" : "border-gray-200"}`} onClick={() => setSelectedSize(s)}>
                           {s}
                         </button>
                       ))}
@@ -779,7 +779,7 @@ export default function ProductDetail() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-10 w-10 hover:bg-blue-50"
+                        className="h-10 w-10 hover:bg-[#0b3b8f]/10"
                         onClick={() => handleQuantityChange(false)}
                         disabled={quantity <= 1}
                       >
@@ -791,7 +791,7 @@ export default function ProductDetail() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-10 w-10 hover:bg-blue-50"
+                        className="h-10 w-10 hover:bg-[#0b3b8f]/10"
                         onClick={() => handleQuantityChange(true)}
                         disabled={quantity >= product.stockCount}
                       >
@@ -803,7 +803,7 @@ export default function ProductDetail() {
                   <div className="space-y-3">
                     <Button
                       size="lg"
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14"
+                      className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14` }
                       onClick={handleBuyNow}
                       disabled={!product.inStock}
                     >
@@ -814,7 +814,7 @@ export default function ProductDetail() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-4 text-lg transition-all duration-200 h-14"
+                      className={`w-full border-2 border-[#0b3b8f] text-[#0b3b8f] hover:bg-[#0b3b8f]/10 font-medium py-4 text-lg transition-all duration-200 h-14` }
                       onClick={handleAddToCart}
                       disabled={!product.inStock}
                     >
@@ -886,13 +886,13 @@ export default function ProductDetail() {
                 {/* Quick Summary */}
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-100">
                   <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    <div className="w-4 h-4 bg-[#0b3b8f] rounded-full"></div>
                     Product Highlights
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-700">
                     {product.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-3 py-1">
-                        <span className="text-blue-600 font-bold text-lg leading-none">•</span>
+                        <span className="text-[#0b3b8f] font-bold text-lg leading-none">•</span>
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -929,7 +929,7 @@ export default function ProductDetail() {
                     <h4 className="font-semibold text-gray-900 mb-2">Why Choose SOLARA Blendkwik?</h4>
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
-                        <Shield className="w-4 h-4 text-blue-600" />
+                        <Shield className="w-4 h-4 text-[#0b3b8f]" />
                         <span>Safe, BPA-free Tritan jar</span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -958,7 +958,7 @@ export default function ProductDetail() {
                 {product.sizes.map((s: string) => (
                   <button
                     key={s}
-                    className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-brand-blue bg-brand-blue/10" : "border-gray-200"}`}
+                    className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-[#0b3b8f] bg-brand-blue/10" : "border-gray-200"}`}
                     onClick={() => setSelectedSize(s)}
                   >
                     {s}
@@ -977,7 +977,7 @@ export default function ProductDetail() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-10 w-10 hover:bg-blue-50"
+                  className="h-10 w-10 hover:bg-[#0b3b8f]/10"
                   onClick={() => handleQuantityChange(false)}
                   disabled={quantity <= 1}
                 >
@@ -989,7 +989,7 @@ export default function ProductDetail() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-10 w-10 hover:bg-blue-50"
+                  className="h-10 w-10 hover:bg-[#0b3b8f]/10"
                   onClick={() => handleQuantityChange(true)}
                   disabled={quantity >= product.stockCount}
                 >
@@ -1136,7 +1136,7 @@ export default function ProductDetail() {
                   {/* Product Description */}
                   <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-xl p-8 border border-blue-100 shadow-sm">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-1 h-16 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
+                      <div className="w-1 h-16 bg-gradient-to-b from-[#0b3b8f] to-[#d32f2f] rounded-full"></div>
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 mb-2">
                           Product Overview
@@ -1151,7 +1151,7 @@ export default function ProductDetail() {
                   {/* Key Features */}
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                      <div className="w-6 h-6 bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] rounded-lg flex items-center justify-center">
                         <Star className="w-4 h-4 text-white" />
                       </div>
                       Key Features
@@ -1163,7 +1163,7 @@ export default function ProductDetail() {
                           className="group hover:shadow-md transition-shadow duration-200 p-4 bg-white border border-gray-200 rounded-xl hover:border-blue-300"
                         >
                           <div className="flex items-start gap-3">
-                            <span className="text-blue-600 font-bold text-xl leading-none mt-0.5">
+                            <span className="text-[#0b3b8f] font-bold text-xl leading-none mt-0.5">
                               ✓
                             </span>
                             <span className="text-gray-800 font-medium">
@@ -1416,7 +1416,7 @@ export default function ProductDetail() {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm text-blue-600 hover:underline cursor-pointer line-clamp-2 font-medium">
+                      <div className="text-sm text-[#0b3b8f] hover:underline cursor-pointer line-clamp-2 font-medium">
                         {item.title}
                       </div>
                       <div className="flex items-center gap-1 mt-1">
@@ -1482,7 +1482,7 @@ export default function ProductDetail() {
                           className="w-full h-full object-contain p-2"
                         />
                       </div>
-                      <div className="mt-2 text-sm text-blue-600 hover:underline cursor-pointer line-clamp-2 max-w-24">
+                      <div className="mt-2 text-sm text-[#0b3b8f] hover:underline cursor-pointer line-clamp-2 max-w-24">
                         {item.title}
                       </div>
                       <div className="flex items-center gap-1 mt-1">
@@ -1547,7 +1547,7 @@ export default function ProductDetail() {
               <h2 className="text-xl font-bold">
                 Customers who viewed this item also viewed
               </h2>
-              <Button variant="ghost" className="text-blue-600 hover:underline">
+              <Button variant="ghost" className="text-[#0b3b8f] hover:underline">
                 View more
               </Button>
             </div>
@@ -1568,7 +1568,7 @@ export default function ProductDetail() {
                       />
                     </div>
                     <div className="p-3">
-                      <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-blue-600">
+                      <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-[#0b3b8f]">
                         {item.title}
                       </h3>
                       <div className="flex items-center gap-1 mb-2">
