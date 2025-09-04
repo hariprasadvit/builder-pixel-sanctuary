@@ -28,9 +28,9 @@ export default function FlashDealsCarousel() {
           <SectionHeader title="Flash Deals" icon="⚡" gradientClass="bg-gradient-to-r from-[#fde7e7] to-[#ffcdd2]" textClass="text-gray-900">
             <div className="flex items-center gap-2 text-gray-900 font-semibold">
               <span>Ends in</span>
-              <span className="px-2 py-1 bg-black/10 rounded-md">{String(h).padStart(2,'0')}</span>:
-              <span className="px-2 py-1 bg-black/10 rounded-md">{String(m).padStart(2,'0')}</span>:
-              <span className="px-2 py-1 bg-black/10 rounded-md">{String(s).padStart(2,'0')}</span>
+              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(h).padStart(2,'0')}</span>:
+              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(m).padStart(2,'0')}</span>:
+              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(s).padStart(2,'0')}</span>
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
@@ -75,7 +75,7 @@ export default function FlashDealsCarousel() {
               price={39.99}
               originalPrice={49.99}
               badge="Top Pick"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff5342252e5b6424992812525b2483810?format=webp&width=800"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d1d9c3652ed49b1b9f81df3b0d3aee7?format=webp&width=800"
               fit="contain"
               cardHeight={cardHeight}
               mediaHeight={mediaHeight}
@@ -86,7 +86,7 @@ export default function FlashDealsCarousel() {
               price={42.99}
               originalPrice={52.99}
               badge="Best Seller"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa2212fa237dc4a13bf68b6652a79c135?format=webp&width=800"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F170a30c88a3c44ada629d58963d506db?format=webp&width=800"
               fit="contain"
               cardHeight={cardHeight}
               mediaHeight={mediaHeight}
