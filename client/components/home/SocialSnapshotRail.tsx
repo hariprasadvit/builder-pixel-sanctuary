@@ -132,7 +132,7 @@ function SnapshotCard({ data }: { data: CardData }) {
       </div>
     </article>
   );
-  return content;
+  return <a href={data.link || '/product/1'} className="block">{content}</a>;
 }
 
 export default function SocialSnapshotRail() {
