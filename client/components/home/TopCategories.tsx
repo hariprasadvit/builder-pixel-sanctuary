@@ -74,6 +74,7 @@ function Tile({ title, image, imageClass, onClick }: { title: string; image?: st
 }
 
 export default function TopCategories() {
+  const navigate = useNavigate();
   return (
     <section className="py-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-50 via-white to-fuchsia-50">
       <div className="container mx-auto px-4">
