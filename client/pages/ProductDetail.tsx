@@ -876,40 +876,6 @@ export default function ProductDetail() {
         {/* Mobile Detail Sections - Options */}
         <div className="lg:hidden space-y-6 mb-8 px-1">
           {/* Color Selection - 2x2 grid */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="font-medium text-gray-900 mb-3">
-              Colour: <span className="font-semibold">{selectedColor}</span>
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {colorOptions.map((color) => (
-                <div
-                  key={color.name}
-                  className={`cursor-pointer rounded-lg border-2 p-3 transition-all ${
-                    selectedColor === color.name
-                      ? "border-blue-600 bg-blue-50"
-                      : "border-gray-200 hover:border-gray-300"
-                  }`}
-                  onClick={() => setSelectedColor(color.name)}
-                >
-                  <div className="aspect-square w-16 mx-auto mb-2 bg-white rounded-lg overflow-hidden">
-                    <img
-                      src={color.image}
-                      alt={color.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm font-medium text-gray-900 mb-1">
-                      £{color.price.toFixed(2)}
-                    </div>
-                    <div className="text-xs text-gray-500 line-through">
-                      £{color.originalPrice.toFixed(2)}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Storage Selection */}
           <div className="bg-white rounded-lg border border-gray-200 p-4">
