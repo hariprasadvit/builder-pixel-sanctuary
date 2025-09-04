@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Star,
@@ -41,11 +41,6 @@ export default function ProductDetail() {
   const [selectedStorage, setSelectedStorage] = useState("256GB");
   const [selectedSize, setSelectedSize] = useState("");
 
-  // If product has sizes, default to first available
-  React.useEffect(() => {
-    if ((productsById && Object.keys(productsById).length) === 0) return;
-    // productsById is defined later, so guard when product is available
-  }, []);
 
   // Mock product data - in real app this would be fetched based on the ID
   const iphoneProduct = {
@@ -222,7 +217,7 @@ export default function ProductDetail() {
   const product = productsById[id || '1'] || iphoneProduct;
 
   // default selected size when product loads
-  React.useEffect(() => {
+  useEffect(() => {
     if (product && product.sizes && product.sizes.length) {
       setSelectedSize((s) => (s ? s : product.sizes[0]));
     }
