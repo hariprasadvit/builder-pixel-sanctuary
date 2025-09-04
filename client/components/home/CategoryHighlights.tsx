@@ -156,7 +156,7 @@ export default function CategoryHighlights() {
                       { title: 'Redmi 13 5G Prime Edition', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4de295fcb31a4ed990c1b1e9107431e3?format=webp&width=800', price: 179.0, original: 199.0 },
                       { title: 'POCO M6 Plus 5G', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4a1b3bab6a694089998b588abcabc22b?format=webp&width=800', price: 189.0, original: 209.0 },
                     ].map((p, i) => (
-                      <a key={`cell-${i}`} href="/product/1" className="block">
+                      <Link key={`cell-${i}`} to="/product/1" className="block">
                         <ProductPlaceholder
                           title={p.title}
                           price={p.price}
@@ -167,7 +167,7 @@ export default function CategoryHighlights() {
                           mediaHeight={220}
                           mediaPadding="px-4 py-3"
                         />
-                      </a>
+                      </Link>
                     ))
                   ) : cat.key === 'clothing' ? (
                     [
