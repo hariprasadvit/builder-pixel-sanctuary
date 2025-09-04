@@ -75,7 +75,7 @@ export default function FlashDealsCarousel() {
               price={39.99}
               originalPrice={49.99}
               badge="Top Pick"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1254a7b2203a4401b1b14ed1498915ab?format=webp&width=800"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff5342252e5b6424992812525b2483810?format=webp&width=800"
               fit="contain"
               cardHeight={cardHeight}
               mediaHeight={mediaHeight}
@@ -86,7 +86,7 @@ export default function FlashDealsCarousel() {
               price={42.99}
               originalPrice={52.99}
               badge="Best Seller"
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4351f4cb715647bbb2c6fc9ee39be1c3?format=webp&width=800"
+              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa2212fa237dc4a13bf68b6652a79c135?format=webp&width=800"
               fit="contain"
               cardHeight={cardHeight}
               mediaHeight={mediaHeight}
