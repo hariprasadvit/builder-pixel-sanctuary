@@ -50,7 +50,7 @@ export default function FlashDealsCarousel() {
               />
             </a>
 
-            <a href="/product/2" className="block">
+            <a href="/product/2" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
                 title="Ninja CRISPi Air Fryer"
                 price={89.99}
