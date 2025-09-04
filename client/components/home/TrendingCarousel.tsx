@@ -129,23 +129,38 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Grid-based masonry on md+ matching reference layout */}
+        {/* Explicit grid template areas matching user reference */}
         <div className="hidden md:block">
-          <div className="grid grid-cols-3 gap-2" style={{ gridAutoRows: '110px', gridAutoFlow: 'dense' }}>
+          <div
+            className="w-full"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr 1fr',
+              gridTemplateRows: '120px 120px 120px 120px',
+              gap: '8px',
+              gridTemplateAreas: `"a a b" "c d b" "c d e" "f g h"`
+            }}
+          >
             {selectedVideos.map((video, index) => {
-              const srcIndex = (video as any).__srcIndex as number;
+              const areaNames = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+              const area = areaNames[index] || 'a';
 
-              // variant pattern for placement
-              const variants: ("tall" | "standard" | "wide")[] = ["tall", "standard", "standard", "standard", "tall", "standard", "standard", "standard"];
-              const variant = variants[index % variants.length];
+              // map area to size presets
+              const sizeMap: Record<string, { cardH: number; mediaH: number }> = {
+                a: { cardH: 150, mediaH: 100 },
+                b: { cardH: 260, mediaH: 180 },
+                c: { cardH: 120, mediaH: 80 },
+                d: { cardH: 260, mediaH: 180 },
+                e: { cardH: 120, mediaH: 80 },
+                f: { cardH: 120, mediaH: 80 },
+                g: { cardH: 120, mediaH: 80 },
+                h: { cardH: 240, mediaH: 160 }
+              };
 
-              const cls = variant === 'tall' ? 'row-span-2' : variant === 'wide' ? 'col-span-2' : '';
-
-              const cardH = variant === 'tall' ? 340 : variant === 'wide' ? 220 : 180;
-              const mediaH = variant === 'tall' ? 220 : variant === 'wide' ? 140 : 120;
+              const { cardH, mediaH } = sizeMap[area];
 
               return (
-                <div key={`trending-${srcIndex}-${video.id}`} className={`${cls} rounded-lg overflow-hidden`}>
+                <div key={`trending-${index}`} style={{ gridArea: area }} className="rounded-lg overflow-hidden">
                   <VideoPlaceholder
                     className="w-full h-full"
                     title={''}
@@ -155,7 +170,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                     likes={0}
                     comments={0}
                     views={0}
-                    aspect={variant === 'wide' ? '16/9' : '9/16'}
+                    aspect={area === 'b' || area === 'd' || area === 'h' ? '9/16' : '9/16'}
                     cardHeight={cardH}
                     mediaHeight={mediaH}
                     thumbnailSrc={undefined}
