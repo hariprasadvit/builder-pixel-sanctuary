@@ -1093,7 +1093,7 @@ export default function ProductDetail() {
               <div key={index} className="w-full">
                 <img
                   src={image}
-                  alt={`iPhone 16 Marketing ${index + 1}`}
+                  alt={`SOLARA Blendkwik Marketing ${index + 1}`}
                   className="w-full h-auto object-cover block"
                 />
               </div>
