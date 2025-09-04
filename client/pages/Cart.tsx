@@ -471,7 +471,7 @@ export default function Cart() {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <Card className="sticky top-4 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+              <Card className="sticky top-4 bg-gradient-to-br from-white via-[#0b3b8f]/10 to-[#d32f2f]/10">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <ShoppingCart className="w-5 h-5" />
