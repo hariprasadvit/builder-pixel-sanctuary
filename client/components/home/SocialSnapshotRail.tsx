@@ -127,12 +127,12 @@ function SnapshotCard({ data }: { data: CardData }) {
       {/* CTA row */}
       <div className="mt-3 grid grid-cols-[1fr,auto,auto] gap-2">
         <Button aria-label="Add to Cart" className="h-9 text-white bg-black hover:bg-gray-900">Add to Cart</Button>
-        <Button aria-label="View details" variant="ghost" className="h-9">View details</Button>
+        <Button aria-label="View details" variant="ghost" className="h-9" onClick={go}>View details</Button>
         <Button aria-label="Save item" variant="outline" className="h-9 px-3"><Heart className="w-4 h-4" /></Button>
       </div>
     </article>
   );
-  return data.link ? <Link to={data.link} className="block">{content}</Link> : content;
+  return content;
 }
 
 export default function SocialSnapshotRail() {
