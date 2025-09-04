@@ -878,31 +878,6 @@ export default function ProductDetail() {
           {/* Color Selection - 2x2 grid */}
 
           {/* Storage Selection */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="font-medium text-gray-900 mb-3">
-              Size: <span className="font-semibold">{selectedStorage}</span>
-            </h3>
-            <div className="grid grid-cols-2 gap-2">
-              {storageOptions.map((storage) => (
-                <button
-                  key={storage.size}
-                  className={`px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
-                    selectedStorage === storage.size
-                      ? "border-blue-600 bg-blue-600 text-white"
-                      : storage.available
-                        ? "border-gray-300 text-gray-900 hover:border-gray-400"
-                        : "border-gray-200 text-gray-400 cursor-not-allowed opacity-50"
-                  } ${!storage.available ? "border-dashed" : ""}`}
-                  onClick={() =>
-                    storage.available && setSelectedStorage(storage.size)
-                  }
-                  disabled={!storage.available}
-                >
-                  {storage.size}
-                </button>
-              ))}
-            </div>
-          </div>
 
           {/* Quantity & Delivery Info */}
           <div className="grid grid-cols-2 gap-4">
