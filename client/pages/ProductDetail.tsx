@@ -267,7 +267,7 @@ export default function ProductDetail() {
 
   const marketingImages = [
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9722f3a7ad544c6ab1511899f5086e62?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbbe4aecfc35743b7811bfbe330cdab83?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd06f35faabc8441fad390b4abe363267?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fb2d11ccc3b244340abde484915c7b36e?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fba8fbec44f424a2e86e473e6c9b02dc2?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bd8091f6be64b9ca4cc03e7ed51c9b2?format=webp&width=800",
@@ -1037,7 +1037,7 @@ export default function ProductDetail() {
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-6">Why {product.title}?</h2>
             <div className="space-y-0">
-              {(product.id === '1' ? marketingImages.slice(0, 1) : (product.images && product.images.length ? product.images : marketingImages)).map((image, index) => (
+              {(product.id === '1' ? marketingImages.slice(0, 2) : (product.images && product.images.length ? product.images : marketingImages)).map((image, index) => (
                 <div key={index} className="w-full">
                   <img
                     src={image}
