@@ -129,52 +129,37 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           </div>
         </div>
 
-        {/* Masonry layout on md+ using CSS columns (compact) */}
+        {/* Grid-based masonry on md+ matching reference layout */}
         <div className="hidden md:block">
-          <div className="columns-2 md:columns-4 xl:columns-4 [column-fill:_balance] [column-gap:.5rem]">
+          <div className="grid grid-cols-3 gap-2" style={{ gridAutoRows: '110px', gridAutoFlow: 'dense' }}>
             {selectedVideos.map((video, index) => {
               const srcIndex = (video as any).__srcIndex as number;
-              const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
-              const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
 
-              // Define a repeating variant pattern for mixed tile sizes: tall, standard, wide
-              const variants: ("tall" | "standard" | "wide")[] = ["tall", "standard", "wide", "standard", "tall", "standard", "wide"];
+              // variant pattern for placement
+              const variants: ("tall" | "standard" | "wide")[] = ["tall", "standard", "standard", "standard", "tall", "standard", "standard", "standard"];
               const variant = variants[index % variants.length];
 
-              let aspect: "9/16" | "16/9" = "9/16";
-              let cardH: number | "auto" = "auto";
-              let mediaH: number | "auto" = "auto";
+              const cls = variant === 'tall' ? 'row-span-2' : variant === 'wide' ? 'col-span-2' : '';
 
-              if (variant === "tall") {
-                aspect = "9/16";
-                cardH = 360;
-                mediaH = 240;
-              } else if (variant === "wide") {
-                aspect = "16/9";
-                cardH = 300;
-                mediaH = 160;
-              } else {
-                aspect = "9/16";
-                cardH = 320;
-                mediaH = 200;
-              }
+              const cardH = variant === 'tall' ? 340 : variant === 'wide' ? 220 : 180;
+              const mediaH = variant === 'tall' ? 220 : variant === 'wide' ? 140 : 120;
 
               return (
-                <div key={`trending-${srcIndex}-${video.id}`} className="inline-block w-full [break-inside:avoid] mb-3">
+                <div key={`trending-${srcIndex}-${video.id}`} className={`${cls} rounded-lg overflow-hidden`}>
                   <VideoPlaceholder
-                    className="w-full p-2"
-                    title={title}
-                    price={video.price}
-                    originalPrice={video.originalPrice}
+                    className="w-full h-full"
+                    title={''}
+                    price={0}
+                    originalPrice={undefined}
                     badge={undefined}
-                    likes={video.likes}
-                    comments={video.comments}
-                    views={video.views}
-                    aspect={aspect}
+                    likes={0}
+                    comments={0}
+                    views={0}
+                    aspect={variant === 'wide' ? '16/9' : '9/16'}
                     cardHeight={cardH}
                     mediaHeight={mediaH}
                     thumbnailSrc={undefined}
-                    fit={"contain"}
+                    fit={'contain'}
                     showBuyButton={false}
                     showPrice={false}
                     showPlayOverlay={false}
