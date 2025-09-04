@@ -491,16 +491,7 @@ export default function ProductDetail() {
 
             {/* Product Description - Now visible on mobile */}
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-              <p className="text-gray-800 text-sm leading-relaxed">
-                The iPhone 16 Pro Max delivers pro-grade performance with the
-                A18 Pro chip, featuring the revolutionary Camera Control and
-                advanced Pro camera system with 5x telephoto. Built with
-                aerospace-grade titanium and the largest iPhone display ever.
-                <span className="font-medium text-blue-700 block mt-2">
-                  {" "}
-                  Experience professional mobile photography and videography.
-                </span>
-              </p>
+              <p className="text-gray-800 text-sm leading-relaxed">{product.description}</p>
             </div>
 
             {/* Product Highlights - Mobile version */}
@@ -655,18 +646,7 @@ export default function ProductDetail() {
 
                   {/* Product Description */}
                   <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                    <p className="text-gray-800 text-sm leading-relaxed">
-                      The iPhone 16 Pro Max delivers pro-grade performance with
-                      the A18 Pro chip, featuring the revolutionary Camera
-                      Control and advanced Pro camera system with 5x telephoto.
-                      Built with aerospace-grade titanium and the largest iPhone
-                      display ever.
-                      <span className="font-medium text-blue-700">
-                        {" "}
-                        Experience professional mobile photography and
-                        videography.
-                      </span>
-                    </p>
+                    <p className="text-gray-800 text-sm leading-relaxed">{product.description}</p>
                   </div>
                 </div>
 
