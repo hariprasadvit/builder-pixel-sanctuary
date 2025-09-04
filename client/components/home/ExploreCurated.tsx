@@ -27,12 +27,17 @@ export default function ExploreCurated() {
             <p className="text-white/90">Items curated for you</p>
           </div>
 
-          <span className="flex items-center gap-3 bg-amber-400 text-black font-semibold px-3 py-2 rounded-full shadow-lg">
-            <span className="relative flex items-center justify-center w-6 h-6">
-              <Truck className="w-4 h-4" />
-              <span className="absolute inline-flex w-6 h-6 rounded-full bg-amber-300 opacity-60 animate-ping" />
+          <span className={`flex items-center gap-4 px-4 py-3 rounded-full shadow-2xl ring-1 ring-black/10 transform hover:scale-105 transition-all ${BRAND_GRADIENT}`}>
+            <span className="relative flex items-center justify-center w-8 h-8">
+              <span className="absolute inline-flex w-8 h-8 rounded-full bg-white/25 animate-ping" />
+              <span className="absolute inline-flex w-4 h-4 rounded-full bg-white/40 -translate-x-0.5 -translate-y-0.5 blur-sm" />
+              <Truck className="w-5 h-5 text-white" />
             </span>
-            <span className="text-sm">Delivering in less than <span className="font-extrabold">30 min</span></span>
+            <div className="text-left">
+              <div className="text-xs uppercase tracking-wide opacity-90">Riky Local</div>
+              <div className="text-sm md:text-base font-extrabold leading-none">Delivering in <span className="text-lg md:text-xl">30 min</span></div>
+            </div>
+            <span className="ml-2 hidden md:inline-flex items-center bg-white/20 px-2 py-1 rounded-full text-xs">Fastest in town</span>
           </span>
         </div>
 
