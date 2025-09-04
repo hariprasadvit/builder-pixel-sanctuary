@@ -155,6 +155,37 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
                 );
               }
 
+              // area b: place user-provided image with overlays
+              if (area === 'b') {
+                const imgSrc = 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faeb4511072754f109bbdd39fd9ebe496?format=webp&width=800';
+                const creatorName = 'Zhao Yi';
+                return (
+                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden relative bg-black">
+                    <img src={imgSrc} alt={area} className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105" />
+                    <div className="absolute inset-0 bg-black/28" />
+                    <div className="relative z-10 flex items-center justify-center p-3 h-full">
+                      <img src={imgSrc} alt={area} className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg" />
+                    </div>
+                    <button aria-label="Play video" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7L8 5z" fill="#111"/></svg>
+                    </button>
+                    <button aria-label="More actions" className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow">
+                      <svg width="18" height="4" viewBox="0 0 18 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#111"/><circle cx="9" cy="2" r="2" fill="#111"/><circle cx="16" cy="2" r="2" fill="#111"/></svg>
+                    </button>
+                    <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-black/40 px-2 py-1 rounded-full">
+                      <img src={imgSrc} alt="avatar" className="w-8 h-8 rounded-full ring-2 ring-white object-cover" />
+                      <div className="text-sm text-white flex items-center gap-2">
+                        <span className="font-semibold">{creatorName}</span>
+                        <span title="Verified" className="text-xs text-emerald-400">✔️</span>
+                      </div>
+                    </div>
+                    <button aria-label="Toggle mute" className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9v6h4l5 4V5L9 9H5z" fill="#111"/></svg>
+                    </button>
+                  </div>
+                );
+              }
+
               // area c, d, e, h: show creator card with blurred background and overlays
               if (['c','d','e','h'].includes(area)) {
                 // choose image and name per area
