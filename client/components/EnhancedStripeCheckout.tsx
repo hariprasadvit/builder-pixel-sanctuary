@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { 
+import {
   CreditCard,
   Lock,
   CheckCircle,
@@ -15,7 +15,7 @@ import {
   EyeOff,
   Plus,
   Trash2,
-  Edit
+  Edit,
 } from "lucide-react";
 
 interface SavedCard {
@@ -44,26 +44,26 @@ interface NewCardForm {
   saveCard: boolean;
 }
 
-export default function EnhancedStripeCheckout({ 
-  amount, 
-  currency, 
-  onSuccess, 
-  onCancel, 
-  isOpen 
+export default function EnhancedStripeCheckout({
+  amount,
+  currency,
+  onSuccess,
+  onCancel,
+  isOpen,
 }: EnhancedStripeCheckoutProps) {
   const [processing, setProcessing] = useState(false);
   const [showCvv, setShowCvv] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<"saved" | "new">("saved");
   const [selectedCardId, setSelectedCardId] = useState("");
   const [showNewCardForm, setShowNewCardForm] = useState(false);
-  
+
   const [newCard, setNewCard] = useState<NewCardForm>({
     number: "",
     expiry: "",
     cvv: "",
     name: "",
     email: "",
-    saveCard: true
+    saveCard: true,
   });
 
   // Mock saved cards - in real app this would come from user profile/API
@@ -74,15 +74,15 @@ export default function EnhancedStripeCheckout({
       last4: "4242",
       expiry: "12/26",
       name: "John Doe",
-      isDefault: true
+      isDefault: true,
     },
     {
       id: "card_2",
-      type: "mastercard", 
+      type: "mastercard",
       last4: "8888",
       expiry: "08/25",
       name: "John Doe",
-      isDefault: false
+      isDefault: false,
     },
     {
       id: "card_3",
@@ -90,99 +90,110 @@ export default function EnhancedStripeCheckout({
       last4: "1005",
       expiry: "04/27",
       name: "John Doe",
-      isDefault: false
-    }
+      isDefault: false,
+    },
   ]);
 
   const getCardIcon = (type: string) => {
-    switch(type) {
-      case "visa": return "💳";
-      case "mastercard": return "💳";
-      case "amex": return "💳";
-      default: return "💳";
+    switch (type) {
+      case "visa":
+        return "💳";
+      case "mastercard":
+        return "💳";
+      case "amex":
+        return "💳";
+      default:
+        return "💳";
     }
   };
 
   const getCardColor = (type: string) => {
-    switch(type) {
-      case "visa": return "from-blue-500 to-blue-600";
-      case "mastercard": return "from-red-500 to-red-600";  
-      case "amex": return "from-green-500 to-green-600";
-      default: return "from-gray-500 to-gray-600";
+    switch (type) {
+      case "visa":
+        return "from-blue-500 to-blue-600";
+      case "mastercard":
+        return "from-red-500 to-red-600";
+      case "amex":
+        return "from-green-500 to-green-600";
+      default:
+        return "from-gray-500 to-gray-600";
     }
   };
 
   const formatCardNumber = (value: string) => {
-    const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+    const v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
     const matches = v.match(/\d{4,16}/g);
-    const match = matches && matches[0] || '';
+    const match = (matches && matches[0]) || "";
     const parts = [];
     for (let i = 0, len = match.length; i < len; i += 4) {
       parts.push(match.substring(i, i + 4));
     }
     if (parts.length) {
-      return parts.join(' ');
+      return parts.join(" ");
     } else {
       return v;
     }
   };
 
   const formatExpiry = (value: string) => {
-    const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+    const v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
     let formattedValue = v;
     if (v.length >= 2) {
-      formattedValue = v.substring(0, 2) + '/' + v.substring(2, 4);
+      formattedValue = v.substring(0, 2) + "/" + v.substring(2, 4);
     }
     return formattedValue;
   };
 
-  const handleInputChange = (field: keyof NewCardForm, value: string | boolean) => {
+  const handleInputChange = (
+    field: keyof NewCardForm,
+    value: string | boolean,
+  ) => {
     if (typeof value === "boolean") {
-      setNewCard(prev => ({ ...prev, [field]: value }));
+      setNewCard((prev) => ({ ...prev, [field]: value }));
       return;
     }
-    
+
     let formattedValue = value;
-    
+
     if (field === "number") {
       formattedValue = formatCardNumber(value);
     } else if (field === "expiry") {
       formattedValue = formatExpiry(value);
     } else if (field === "cvv") {
-      formattedValue = value.replace(/[^0-9]/g, '').substring(0, 4);
+      formattedValue = value.replace(/[^0-9]/g, "").substring(0, 4);
     }
-    
-    setNewCard(prev => ({ ...prev, [field]: formattedValue }));
+
+    setNewCard((prev) => ({ ...prev, [field]: formattedValue }));
   };
 
   const validateForm = () => {
     if (paymentMethod === "saved") {
       return selectedCardId !== "";
     }
-    
+
     const { number, expiry, cvv, name, email } = newCard;
     return (
-      number.replace(/\s/g, '').length >= 13 &&
+      number.replace(/\s/g, "").length >= 13 &&
       expiry.length === 5 &&
       cvv.length >= 3 &&
       name.trim().length > 0 &&
-      email.includes('@')
+      email.includes("@")
     );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       alert("Please complete all required fields");
       return;
     }
 
     setProcessing(true);
-    
+
     // Simulate Stripe payment processing
-    await new Promise(resolve => setTimeout(resolve, 2500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+
     setProcessing(false);
     onSuccess();
   };
@@ -195,16 +206,22 @@ export default function EnhancedStripeCheckout({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
           <div className="flex items-center gap-3">
-            <div className={`w-10 h-10 ${BRAND_GRADIENT} rounded-lg flex items-center justify-center`}>
+            <div
+              className={`w-10 h-10 ${BRAND_GRADIENT} rounded-lg flex items-center justify-center`}
+            >
               <Lock className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">Secure Payment</h2>
-              <p className="text-sm text-gray-600">Choose your payment method</p>
+              <h2 className="text-xl font-semibold text-gray-900">
+                Secure Payment
+              </h2>
+              <p className="text-sm text-gray-600">
+                Choose your payment method
+              </p>
             </div>
           </div>
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             size="icon"
             onClick={onCancel}
             className="text-gray-400 hover:text-gray-600"
@@ -217,7 +234,10 @@ export default function EnhancedStripeCheckout({
         <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 border-b">
           <div className="text-center">
             <p className="text-sm text-gray-600 mb-1">Total Amount</p>
-            <p className="text-3xl font-bold text-gray-900">{currency}{amount.toFixed(2)}</p>
+            <p className="text-3xl font-bold text-gray-900">
+              {currency}
+              {amount.toFixed(2)}
+            </p>
           </div>
         </div>
 
@@ -231,9 +251,7 @@ export default function EnhancedStripeCheckout({
                 setShowNewCardForm(false);
               }}
               className={`flex-1 transition-all duration-300 ${
-                paymentMethod === "saved" 
-                  ? `${BRAND_GRADIENT} text-white`
-                  : ""
+                paymentMethod === "saved" ? `${BRAND_GRADIENT} text-white` : ""
               }`}
             >
               💳 Saved Cards
@@ -245,9 +263,7 @@ export default function EnhancedStripeCheckout({
                 setShowNewCardForm(true);
               }}
               className={`flex-1 transition-all duration-300 ${
-                paymentMethod === "new" 
-                  ? `${BRAND_GRADIENT} text-white`
-                  : ""
+                paymentMethod === "new" ? `${BRAND_GRADIENT} text-white` : ""
               }`}
             >
               <Plus className="w-4 h-4 mr-2" />
@@ -259,10 +275,13 @@ export default function EnhancedStripeCheckout({
             {/* Saved Cards Section */}
             {paymentMethod === "saved" && (
               <div className="space-y-3 animate-in slide-in-from-left duration-300">
-                <RadioGroup value={selectedCardId} onValueChange={setSelectedCardId}>
+                <RadioGroup
+                  value={selectedCardId}
+                  onValueChange={setSelectedCardId}
+                >
                   {savedCards.map((card) => (
                     <div key={card.id} className="relative">
-                      <div 
+                      <div
                         className={`border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 hover:shadow-lg ${
                           selectedCardId === card.id
                             ? "border-[#0b3b8f] bg-[#0b3b8f]/6 shadow-md transform scale-105"
@@ -272,7 +291,9 @@ export default function EnhancedStripeCheckout({
                       >
                         <div className="flex items-center space-x-3">
                           <RadioGroupItem value={card.id} id={card.id} />
-                          <div className={`w-12 h-8 rounded-lg bg-gradient-to-r ${getCardColor(card.type)} flex items-center justify-center text-white font-bold text-xs`}>
+                          <div
+                            className={`w-12 h-8 rounded-lg bg-gradient-to-r ${getCardColor(card.type)} flex items-center justify-center text-white font-bold text-xs`}
+                          >
                             {card.type.toUpperCase()}
                           </div>
                           <div className="flex-1">
@@ -293,7 +314,7 @@ export default function EnhancedStripeCheckout({
                     </div>
                   ))}
                 </RadioGroup>
-                
+
                 {selectedCardId && (
                   <div className="mt-4 p-4 bg-gray-50 rounded-lg animate-in slide-in-from-bottom duration-300">
                     <Label htmlFor="savedCardCvv">CVV for selected card</Label>
@@ -313,7 +334,11 @@ export default function EnhancedStripeCheckout({
                         className="absolute right-0 top-0 h-full px-3"
                         onClick={() => setShowCvv(!showCvv)}
                       >
-                        {showCvv ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        {showCvv ? (
+                          <EyeOff className="w-4 h-4" />
+                        ) : (
+                          <Eye className="w-4 h-4" />
+                        )}
                       </Button>
                     </div>
                   </div>
@@ -345,7 +370,9 @@ export default function EnhancedStripeCheckout({
                     id="cardNumber"
                     placeholder="1234 5678 9012 3456"
                     value={newCard.number}
-                    onChange={(e) => handleInputChange("number", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("number", e.target.value)
+                    }
                     maxLength={19}
                     className="mt-1"
                     required
@@ -360,7 +387,9 @@ export default function EnhancedStripeCheckout({
                       id="expiry"
                       placeholder="MM/YY"
                       value={newCard.expiry}
-                      onChange={(e) => handleInputChange("expiry", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("expiry", e.target.value)
+                      }
                       maxLength={5}
                       className="mt-1"
                       required
@@ -374,7 +403,9 @@ export default function EnhancedStripeCheckout({
                         type={showCvv ? "text" : "password"}
                         placeholder="123"
                         value={newCard.cvv}
-                        onChange={(e) => handleInputChange("cvv", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("cvv", e.target.value)
+                        }
                         maxLength={4}
                         className="pr-10"
                         required
@@ -386,7 +417,11 @@ export default function EnhancedStripeCheckout({
                         className="absolute right-0 top-0 h-full px-3"
                         onClick={() => setShowCvv(!showCvv)}
                       >
-                        {showCvv ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        {showCvv ? (
+                          <EyeOff className="w-4 h-4" />
+                        ) : (
+                          <Eye className="w-4 h-4" />
+                        )}
                       </Button>
                     </div>
                   </div>
@@ -411,7 +446,9 @@ export default function EnhancedStripeCheckout({
                     type="checkbox"
                     id="saveCard"
                     checked={newCard.saveCard}
-                    onChange={(e) => handleInputChange("saveCard", e.target.checked)}
+                    onChange={(e) =>
+                      handleInputChange("saveCard", e.target.checked)
+                    }
                     className="rounded border-gray-300"
                   />
                   <Label htmlFor="saveCard" className="text-sm">
@@ -425,14 +462,16 @@ export default function EnhancedStripeCheckout({
             <div className="bg-blue-50 p-4 rounded-lg">
               <div className="flex items-center gap-2 text-blue-700">
                 <CheckCircle className="w-4 h-4" />
-                <span className="text-sm font-medium">Your payment is secured with SSL encryption</span>
+                <span className="text-sm font-medium">
+                  Your payment is secured with SSL encryption
+                </span>
               </div>
             </div>
 
             {/* Submit Button */}
-            <Button 
-              type="submit" 
-              className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white h-12 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105` }
+            <Button
+              type="submit"
+              className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white h-12 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105`}
               disabled={processing || !validateForm()}
             >
               {processing ? (
@@ -443,15 +482,16 @@ export default function EnhancedStripeCheckout({
               ) : (
                 <div className="flex items-center gap-2">
                   <CreditCard className="w-5 h-5" />
-                  Pay {currency}{amount.toFixed(2)}
+                  Pay {currency}
+                  {amount.toFixed(2)}
                 </div>
               )}
             </Button>
 
             {/* Cancel */}
-            <Button 
+            <Button
               type="button"
-              variant="ghost" 
+              variant="ghost"
               className="w-full"
               onClick={onCancel}
               disabled={processing}

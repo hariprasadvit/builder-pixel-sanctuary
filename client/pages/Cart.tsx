@@ -333,7 +333,9 @@ export default function Cart() {
                   Add Demo Items
                 </Button>
                 <Link to="/">
-                  <Button className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }>
+                  <Button
+                    className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
+                  >
                     Continue Shopping
                   </Button>
                 </Link>
@@ -354,7 +356,7 @@ export default function Cart() {
                         );
                         triggerFireworks();
                       }}
-                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold w-full` }
+                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold w-full`}
                     >
                       🎆 Launch Fireworks! 🎆
                     </Button>
@@ -379,7 +381,7 @@ export default function Cart() {
                         // Then open payment modal
                         setTimeout(() => setShowStripeCheckout(true), 500);
                       }}
-                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold w-full` }
+                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold w-full`}
                     >
                       💳 Test Payment Flow 💳
                     </Button>
@@ -511,7 +513,7 @@ export default function Cart() {
                       <Button
                         onClick={handleApplyCoupon}
                         disabled={couponLoading || !couponCode.trim()}
-                        className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                        className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                       >
                         {couponLoading ? "..." : "Apply"}
                       </Button>
@@ -618,7 +620,7 @@ export default function Cart() {
                   </div>
 
                   <Button
-                    className={`${BRAND_GRADIENT} hover:opacity-90 text-white w-full` }
+                    className={`${BRAND_GRADIENT} hover:opacity-90 text-white w-full`}
                     onClick={() => setShowStripeCheckout(true)}
                   >
                     Proceed to Checkout

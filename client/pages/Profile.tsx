@@ -68,7 +68,9 @@ function ProfileWishlist() {
             </h3>
             <p className="text-gray-600 mb-4">Save items you love for later</p>
             <Link to="/">
-              <Button className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }>
+              <Button
+                className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
+              >
                 Start Shopping
               </Button>
             </Link>
@@ -306,7 +308,9 @@ export default function Profile() {
                       src={userData.avatar}
                       alt={userData.firstName}
                     />
-                    <AvatarFallback className={`text-2xl ${BRAND_GRADIENT} text-white` }>
+                    <AvatarFallback
+                      className={`text-2xl ${BRAND_GRADIENT} text-white`}
+                    >
                       {userData.firstName[0]}
                       {userData.lastName[0]}
                     </AvatarFallback>
@@ -314,7 +318,7 @@ export default function Profile() {
                   <Button
                     size="icon"
                     variant="outline"
-                    className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full ${BRAND_GRADIENT} text-white border-white` }
+                    className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full ${BRAND_GRADIENT} text-white border-white`}
                   >
                     <Camera className="w-4 h-4" />
                   </Button>
@@ -442,7 +446,7 @@ export default function Profile() {
                   <div className="flex gap-3">
                     <Button
                       onClick={handleSaveProfile}
-                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                      className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                     >
                       Save Changes
                     </Button>
@@ -464,7 +468,7 @@ export default function Profile() {
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Saved Addresses</CardTitle>
                 <Button
-                  className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                  className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                   onClick={() => setAddressModalOpen(true)}
                 >
                   <Plus className="w-4 h-4 mr-2" />
@@ -485,7 +489,7 @@ export default function Profile() {
                             {address.isDefault && (
                               <Badge
                                 variant="default"
-                                className={`${BRAND_GRADIENT} hover:opacity-90 text-white text-xs` }
+                                className={`${BRAND_GRADIENT} hover:opacity-90 text-white text-xs`}
                               >
                                 Default
                               </Badge>
@@ -532,7 +536,7 @@ export default function Profile() {
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Payment Methods</CardTitle>
                 <Button
-                  className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                  className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                   onClick={() => setAddCardOpen(true)}
                 >
                   <Plus className="w-4 h-4 mr-2" />
@@ -562,7 +566,7 @@ export default function Profile() {
                           {payment.isDefault && (
                             <Badge
                               variant="default"
-                              className={`${BRAND_GRADIENT} hover:opacity-90 text-white text-xs` }
+                              className={`${BRAND_GRADIENT} hover:opacity-90 text-white text-xs`}
                             >
                               Default
                             </Badge>
@@ -647,7 +651,7 @@ export default function Profile() {
                     <DialogFooter>
                       <Button
                         onClick={addCard}
-                        className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                        className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                       >
                         Save Card
                       </Button>
@@ -869,7 +873,7 @@ export default function Profile() {
                       </div>
                       <DialogFooter>
                         <Button
-                          className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                          className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                           onClick={() => setSecurityOpen(null)}
                         >
                           Save
@@ -898,7 +902,7 @@ export default function Profile() {
                       </div>
                       <DialogFooter>
                         <Button
-                          className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                          className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                           onClick={() => setSecurityOpen(null)}
                         >
                           Enable 2FA
@@ -927,7 +931,7 @@ export default function Profile() {
                       </div>
                       <DialogFooter>
                         <Button
-                          className={`${BRAND_GRADIENT} hover:opacity-90 text-white` }
+                          className={`${BRAND_GRADIENT} hover:opacity-90 text-white`}
                           onClick={() => setSecurityOpen(null)}
                         >
                           Save

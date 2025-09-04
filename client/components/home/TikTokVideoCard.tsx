@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Heart, MessageCircle, Share, ShoppingBag, Volume2, VolumeX, Play } from "lucide-react";
+import {
+  Heart,
+  MessageCircle,
+  Share,
+  ShoppingBag,
+  Volume2,
+  VolumeX,
+  Play,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
@@ -32,12 +40,12 @@ interface TikTokVideoCardProps {
   showControls?: boolean;
 }
 
-export default function TikTokVideoCard({ 
-  video, 
-  className = "", 
-  autoplay = true, 
+export default function TikTokVideoCard({
+  video,
+  className = "",
+  autoplay = true,
   muted = true,
-  showControls = false 
+  showControls = false,
 }: TikTokVideoCardProps) {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(video.liked || false);
@@ -54,8 +62,22 @@ export default function TikTokVideoCard({
   const { toast } = useToast();
   const handleAddToCart = () => {
     if (video.productId) {
-      addToCart({ id: video.productId, name: video.title, price: video.price, image: video.thumbnail || '', vendor: 'nearbuy', vendorName: 'Nearbuy', category: 'Videos' }, 1);
-      toast({ title: 'Added to cart', description: `${video.title} added to cart.` });
+      addToCart(
+        {
+          id: video.productId,
+          name: video.title,
+          price: video.price,
+          image: video.thumbnail || "",
+          vendor: "nearbuy",
+          vendorName: "Nearbuy",
+          category: "Videos",
+        },
+        1,
+      );
+      toast({
+        title: "Added to cart",
+        description: `${video.title} added to cart.`,
+      });
     } else {
       // fallback - navigate to product page if no productId
       if (video.productId) navigate(`/product/${video.productId}`);
@@ -73,7 +95,9 @@ export default function TikTokVideoCard({
   };
 
   return (
-    <div className={`relative bg-black rounded-2xl overflow-hidden shadow-lg group ${className}`}>
+    <div
+      className={`relative bg-black rounded-2xl overflow-hidden shadow-lg group ${className}`}
+    >
       {/* Video Container */}
       <div className="relative aspect-[9/16] bg-gray-900">
         {video.youtubeId ? (
@@ -110,7 +134,11 @@ export default function TikTokVideoCard({
               className="text-white bg-black/30 hover:bg-black/50 h-8 w-8 p-0 rounded-full"
               onClick={() => setIsMuted(!isMuted)}
             >
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              {isMuted ? (
+                <VolumeX className="w-4 h-4" />
+              ) : (
+                <Volume2 className="w-4 h-4" />
+              )}
             </Button>
           </div>
 
@@ -135,7 +163,9 @@ export default function TikTokVideoCard({
               className="flex flex-col items-center gap-1 text-white bg-black/30 hover:bg-black/50 h-auto p-2 rounded-full"
               onClick={handleLike}
             >
-              <Heart className={`w-5 h-5 ${isLiked ? 'fill-red-500 text-red-500' : ''}`} />
+              <Heart
+                className={`w-5 h-5 ${isLiked ? "fill-red-500 text-red-500" : ""}`}
+              />
               <span className="text-xs">{likeCount}</span>
             </Button>
 
@@ -162,12 +192,18 @@ export default function TikTokVideoCard({
           {/* Product Info & Buy Button - Bottom */}
           <div className="absolute bottom-3 left-3 right-3">
             <div className="bg-black/70 backdrop-blur-sm rounded-lg p-3 space-y-2">
-              <h3 className="text-white font-medium text-sm line-clamp-2">{video.title}</h3>
-              
+              <h3 className="text-white font-medium text-sm line-clamp-2">
+                {video.title}
+              </h3>
+
               <div className="flex items-center gap-2">
-                <span className="text-white font-bold text-lg">£{video.price.toFixed(2)}</span>
+                <span className="text-white font-bold text-lg">
+                  £{video.price.toFixed(2)}
+                </span>
                 {video.originalPrice && (
-                  <span className="text-gray-300 line-through text-sm">£{video.originalPrice.toFixed(2)}</span>
+                  <span className="text-gray-300 line-through text-sm">
+                    £{video.originalPrice.toFixed(2)}
+                  </span>
                 )}
               </div>
 

@@ -1,5 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ProductPlaceholder, SectionHeader, VideoPlaceholder } from "@/components/ui/placeholders";
+import {
+  ProductPlaceholder,
+  SectionHeader,
+  VideoPlaceholder,
+} from "@/components/ui/placeholders";
 import { Button } from "@/components/ui/button";
 
 function useCountdown(target: number) {
@@ -28,13 +32,24 @@ export default function FlashDealsCarousel() {
           <SectionHeader title="Flash Deals" icon="⚡">
             <div className="flex items-center gap-2 text-white font-semibold">
               <span>Ends in</span>
-              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(h).padStart(2,'0')}</span>:
-              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(m).padStart(2,'0')}</span>:
-              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">{String(s).padStart(2,'0')}</span>
+              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">
+                {String(h).padStart(2, "0")}
+              </span>
+              :
+              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">
+                {String(m).padStart(2, "0")}
+              </span>
+              :
+              <span className="px-2 py-1 bg-[#0b3b8f] text-white rounded-md">
+                {String(s).padStart(2, "0")}
+              </span>
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <a href="/product/1" className="block relative z-30 pointer-events-auto">
+            <a
+              href="/product/1"
+              className="block relative z-30 pointer-events-auto"
+            >
               <VideoPlaceholder
                 title="Tech Deals Live!"
                 price={89.99}
@@ -50,7 +65,10 @@ export default function FlashDealsCarousel() {
               />
             </a>
 
-            <a href="/product/2" className="block relative z-30 pointer-events-auto">
+            <a
+              href="/product/2"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title="Ninja CRISPi Air Fryer"
                 price={89.99}
@@ -63,7 +81,10 @@ export default function FlashDealsCarousel() {
               />
             </a>
 
-            <a href="/product/3" className="block relative z-30 pointer-events-auto">
+            <a
+              href="/product/3"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title="TRIP Magnesium Powder – Pomegranate"
                 price={24.99}
@@ -76,9 +97,12 @@ export default function FlashDealsCarousel() {
               />
             </a>
 
-            <a href="/product/4" className="block relative z-30 pointer-events-auto">
+            <a
+              href="/product/4"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
-                title={"Philips 32\" LED TV"}
+                title={'Philips 32" LED TV'}
                 price={199.99}
                 originalPrice={249.99}
                 badge="Deal"
@@ -89,7 +113,10 @@ export default function FlashDealsCarousel() {
               />
             </a>
 
-            <a href="/product/5" className="block relative z-30 pointer-events-auto">
+            <a
+              href="/product/5"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title="Vileda Turbo Mop & Bucket Bundle"
                 price={42.99}

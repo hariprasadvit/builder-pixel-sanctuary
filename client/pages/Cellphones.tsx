@@ -1369,7 +1369,9 @@ export default function Cellphones() {
                         rating={p.rating}
                         reviewCount={p.reviewCount}
                         origin={p.origin}
-                        deliveryEta={p.origin === "UK" ? "Tomorrow" : "5–10 days"}
+                        deliveryEta={
+                          p.origin === "UK" ? "Tomorrow" : "5–10 days"
+                        }
                         badge={(() => {
                           const map: Record<string, string> = {
                             "Samsung Galaxy S24 Ultra": "Bestseller",

@@ -63,7 +63,7 @@ const CARDS: CardData[] = [
     imageUrl: "/images/blender-9x16.jpg",
     avatarUrls: ["/img/d1.jpg", "/img/d2.jpg", "/img/d3.jpg", "/img/d4.jpg"],
     link: "/product/2",
-  }
+  },
 ];
 
 function Facepile({ urls, altPrefix }: { urls: string[]; altPrefix: string }) {
@@ -84,13 +84,15 @@ function Facepile({ urls, altPrefix }: { urls: string[]; altPrefix: string }) {
 
 function SnapshotCard({ data }: { data: CardData }) {
   const navigate = useNavigate();
-  const go = () => navigate(data.link || '/product/1');
+  const go = () => navigate(data.link || "/product/1");
   const content = (
     <article className="rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-3 flex flex-col h-[360px] focus-within:ring-2">
       {/* Top row */}
       <div className="flex items-center justify-between mb-2">
         <Facepile urls={data.avatarUrls} altPrefix={`${data.title} avatar`} />
-        <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700">AI quick take</span>
+        <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700">
+          AI quick take
+        </span>
       </div>
       {/* Main content */}
       <div className="flex gap-3 flex-1">
@@ -107,32 +109,74 @@ function SnapshotCard({ data }: { data: CardData }) {
         </div>
         {/* Right details 60% */}
         <div className="basis-3/5 flex flex-col min-w-0">
-          <h3 onClick={go} className="text-[16px] font-semibold leading-tight line-clamp-2 cursor-pointer">{data.title}</h3>
-          <div className="text-sm text-gray-700 mt-1 mb-1"><span aria-hidden>★★★★☆</span> 4.6 <span className="text-gray-400">—</span></div>
-          <p className="italic text-[13px] text-gray-700 leading-snug line-clamp-2">{data.pullQuote}</p>
+          <h3
+            onClick={go}
+            className="text-[16px] font-semibold leading-tight line-clamp-2 cursor-pointer"
+          >
+            {data.title}
+          </h3>
+          <div className="text-sm text-gray-700 mt-1 mb-1">
+            <span aria-hidden>★★★★☆</span> 4.6{" "}
+            <span className="text-gray-400">—</span>
+          </div>
+          <p className="italic text-[13px] text-gray-700 leading-snug line-clamp-2">
+            {data.pullQuote}
+          </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {data.chips.map((c, i) => (
-              <span key={i} className="text-[11px] px-2 py-1 rounded-full bg-gray-100 text-gray-700">{c}</span>
+              <span
+                key={i}
+                className="text-[11px] px-2 py-1 rounded-full bg-gray-100 text-gray-700"
+              >
+                {c}
+              </span>
             ))}
           </div>
           {/* Price strip */}
           <div className="mt-auto pt-3 border-t border-dashed border-gray-200 text-sm flex items-center gap-2 whitespace-nowrap">
             <span className="font-semibold text-gray-900">{data.price}</span>
-            <span className="text-gray-400 line-through text-xs">{data.mrp}</span>
-            <span className="text-emerald-600 text-xs font-medium">{data.discountPct}% off</span>
-            <span className="ml-auto text-[10px] px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700">{data.couponCode}</span>
+            <span className="text-gray-400 line-through text-xs">
+              {data.mrp}
+            </span>
+            <span className="text-emerald-600 text-xs font-medium">
+              {data.discountPct}% off
+            </span>
+            <span className="ml-auto text-[10px] px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700">
+              {data.couponCode}
+            </span>
           </div>
         </div>
       </div>
       {/* CTA row */}
       <div className="mt-3 grid grid-cols-[1fr,auto,auto] gap-2">
-        <Button aria-label="Add to Cart" className="h-9 text-white bg-black hover:bg-gray-900">Add to Cart</Button>
-        <Button aria-label="View details" variant="ghost" className="h-9" onClick={go}>View details</Button>
-        <Button aria-label="Save item" variant="outline" className="h-9 px-3"><Heart className="w-4 h-4" /></Button>
+        <Button
+          aria-label="Add to Cart"
+          className="h-9 text-white bg-black hover:bg-gray-900"
+        >
+          Add to Cart
+        </Button>
+        <Button
+          aria-label="View details"
+          variant="ghost"
+          className="h-9"
+          onClick={go}
+        >
+          View details
+        </Button>
+        <Button aria-label="Save item" variant="outline" className="h-9 px-3">
+          <Heart className="w-4 h-4" />
+        </Button>
       </div>
     </article>
   );
-  return <a href={data.link || '/product/1'} className="block relative z-30 pointer-events-auto">{content}</a>;
+  return (
+    <a
+      href={data.link || "/product/1"}
+      className="block relative z-30 pointer-events-auto"
+    >
+      {content}
+    </a>
+  );
 }
 
 export default function SocialSnapshotRail() {
@@ -140,7 +184,9 @@ export default function SocialSnapshotRail() {
     <section aria-label="Social Snapshot Rail" className="py-8">
       <div className="max-w-[1200px] mx-auto px-6 py-8 rounded-xl shadow-sm ring-1 ring-black/5 bg-gradient-to-br from-[#e6ecf7]/60 to-[#fde7e7]/60">
         <div className="mb-4">
-          <h5 className="text-sm font-semibold text-gray-900">Trending picks</h5>
+          <h5 className="text-sm font-semibold text-gray-900">
+            Trending picks
+          </h5>
           <p className="text-xs text-gray-600">What people vibe with</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -248,7 +248,7 @@ export default function PaymentSuccess() {
           >
             <Button
               onClick={() => navigate("/orders")}
-              className={`flex-1 ${BRAND_GRADIENT} hover:opacity-90 text-white h-12 font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105` }
+              className={`flex-1 ${BRAND_GRADIENT} hover:opacity-90 text-white h-12 font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105`}
             >
               <Package className="w-4 h-4 mr-2" />
               Track Your Order

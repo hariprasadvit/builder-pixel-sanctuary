@@ -1,5 +1,13 @@
 import React from "react";
-import { Play, Heart, MessageCircle, Eye, ShoppingBag, Star, User } from "lucide-react";
+import {
+  Play,
+  Heart,
+  MessageCircle,
+  Eye,
+  ShoppingBag,
+  Star,
+  User,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
@@ -8,7 +16,8 @@ import { useToast } from "@/hooks/use-toast";
 
 // Brand colors extracted from logo (navy + red)
 export const BRAND_GRADIENT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f]";
-export const BRAND_GRADIENT_TEXT = "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] bg-clip-text text-transparent";
+export const BRAND_GRADIENT_TEXT =
+  "bg-gradient-to-r from-[#0b3b8f] to-[#d32f2f] bg-clip-text text-transparent";
 
 interface BaseCardProps {
   cardHeight?: number | "auto"; // total outer card height
@@ -59,24 +68,51 @@ export function VideoPlaceholder({
   hideTitle = false,
   cardHeight = 420,
   mediaHeight = 240,
-  className = ""
+  className = "",
 }: VideoPlaceholderProps) {
   const isHorizontal = aspect === "16/9";
-  const outerStyle = typeof cardHeight === "number" ? { height: cardHeight } : undefined;
-  const mediaStyle = mediaHeight === "auto" ? undefined : { height: mediaHeight };
+  const outerStyle =
+    typeof cardHeight === "number" ? { height: cardHeight } : undefined;
+  const mediaStyle =
+    mediaHeight === "auto" ? undefined : { height: mediaHeight };
   const mediaPadding = mediaHeight === "auto" ? "" : "p-3";
   // Use explicit style for img to avoid unexpected cropping; keep aspect ratio intact
-  const imgStyle = mediaHeight === "auto" ? undefined : { width: '100%', height: '100%', objectFit: fit === 'cover' ? 'cover' : 'contain' } as React.CSSProperties;
-  const imgClass = mediaHeight === "auto" ? "w-full h-auto" : `w-full h-full transition-transform duration-300 group-hover:scale-105`;
+  const imgStyle =
+    mediaHeight === "auto"
+      ? undefined
+      : ({
+          width: "100%",
+          height: "100%",
+          objectFit: fit === "cover" ? "cover" : "contain",
+        } as React.CSSProperties);
+  const imgClass =
+    mediaHeight === "auto"
+      ? "w-full h-auto"
+      : `w-full h-full transition-transform duration-300 group-hover:scale-105`;
   return (
-    <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={outerStyle}>
-      <div className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`} style={mediaStyle}>
+    <div
+      className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`}
+      style={outerStyle}
+    >
+      <div
+        className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`}
+        style={mediaStyle}
+      >
         {thumbnailSrc ? (
           <>
-            <img src={thumbnailSrc} alt={title} className={imgClass} style={imgStyle} />
+            <img
+              src={thumbnailSrc}
+              alt={title}
+              className={imgClass}
+              style={imgStyle}
+            />
             <div className="shine-strip animate-shine z-10" />
             {showPlayOverlay && (
-              <button type="button" aria-label="Play video" className="absolute inset-0 flex items-center justify-center focus:outline-none z-20">
+              <button
+                type="button"
+                aria-label="Play video"
+                className="absolute inset-0 flex items-center justify-center focus:outline-none z-20"
+              >
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow ring-1 ring-black/10 transition-transform hover:scale-105">
                   <Play className="w-6 h-6 text-gray-800" />
                 </span>
@@ -84,7 +120,9 @@ export function VideoPlaceholder({
             )}
           </>
         ) : (
-          <div className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}>
+          <div
+            className={`${isHorizontal ? "w-full max-h-full aspect-video" : "w-full max-h-full aspect-[9/16]"} bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden`}
+          >
             <div className="text-center text-gray-600">
               <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-2 mx-auto">
                 <Play className="w-5 h-5 text-gray-500" />
@@ -101,21 +139,38 @@ export function VideoPlaceholder({
         )}
       </div>
       <div className="flex-1 p-3 pb-2 flex flex-col">
-        {!hideTitle && (<h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>)}
+        {!hideTitle && (
+          <h3 className="font-semibold text-sm line-clamp-2 mb-2">{title}</h3>
+        )}
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-bold text-base text-gray-900">£{price.toFixed(2)}</span>
+            <span className="font-bold text-base text-gray-900">
+              £{price.toFixed(2)}
+            </span>
             {originalPrice && (
-              <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
+              <span className="text-gray-500 line-through text-xs">
+                £{originalPrice.toFixed(2)}
+              </span>
             )}
           </div>
         )}
         <div className="flex items-center justify-between text-gray-600 text-xs mb-3">
           {showSocialCounters ? (
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1"><Heart className="w-3 h-3" /><span>{likes.toLocaleString()}</span></div>
-              <div className="flex items-center gap-1"><MessageCircle className="w-3 h-3" /><span>{comments}</span></div>
-              {showViews && (<div className="flex items-center gap-1"><Eye className="w-3 h-3" /><span>{views.toLocaleString()}</span></div>)}
+              <div className="flex items-center gap-1">
+                <Heart className="w-3 h-3" />
+                <span>{likes.toLocaleString()}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <MessageCircle className="w-3 h-3" />
+                <span>{comments}</span>
+              </div>
+              {showViews && (
+                <div className="flex items-center gap-1">
+                  <Eye className="w-3 h-3" />
+                  <span>{views.toLocaleString()}</span>
+                </div>
+              )}
             </div>
           ) : (
             <div />
@@ -127,7 +182,12 @@ export function VideoPlaceholder({
         </div>
         {showBuyButton && (
           <div className="mt-auto">
-            <AddToCartButton title={title} price={price} originalPrice={originalPrice} thumbnailSrc={thumbnailSrc} />
+            <AddToCartButton
+              title={title}
+              price={price}
+              originalPrice={originalPrice}
+              thumbnailSrc={thumbnailSrc}
+            />
           </div>
         )}
       </div>
@@ -167,11 +227,21 @@ export function ProductPlaceholder({
 }: ProductPlaceholderProps) {
   const box = mediaHeight; // 1:1 box
   return (
-    <div className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`} style={{ height: cardHeight }}>
-      <div className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`} style={{ height: mediaHeight }}>
+    <div
+      className={`group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${className}`}
+      style={{ height: cardHeight }}
+    >
+      <div
+        className={`relative w-full bg-white flex items-center justify-center overflow-hidden ${mediaPadding}`}
+        style={{ height: mediaHeight }}
+      >
         {thumbnailSrc ? (
           <>
-            <img src={thumbnailSrc} alt={title} className={`w-full h-full max-w-[90%] max-h-[90%] transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`} />
+            <img
+              src={thumbnailSrc}
+              alt={title}
+              className={`w-full h-full max-w-[90%] max-h-[90%] transition-transform duration-300 group-hover:scale-105 ${fit === "cover" ? "object-cover" : "object-contain"}`}
+            />
             <div className="shine-strip animate-shine z-10" />
           </>
         ) : (
@@ -190,22 +260,35 @@ export function ProductPlaceholder({
         )}
       </div>
       <div className="flex-1 p-3 pb-2 flex flex-col">
-        <h3 className="font-medium text-sm text-gray-900 line-clamp-2 mb-2">{title}</h3>
+        <h3 className="font-medium text-sm text-gray-900 line-clamp-2 mb-2">
+          {title}
+        </h3>
         {showPrice && (
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-bold text-base text-gray-900">£{price.toFixed(2)}</span>
+            <span className="font-bold text-base text-gray-900">
+              £{price.toFixed(2)}
+            </span>
             {originalPrice && (
-              <span className="text-gray-500 line-through text-xs">£{originalPrice.toFixed(2)}</span>
+              <span className="text-gray-500 line-through text-xs">
+                £{originalPrice.toFixed(2)}
+              </span>
             )}
           </div>
         )}
-        <div className={`flex items-center text-gray-600 text-xs ${showBuyButton ? 'mb-3' : 'mb-1'}`}>
+        <div
+          className={`flex items-center text-gray-600 text-xs ${showBuyButton ? "mb-3" : "mb-1"}`}
+        >
           <RatingStars value={rating} size={12} />
           <span className="ml-1 text-[10px] text-gray-500">({reviews})</span>
         </div>
         {showBuyButton && (
           <div className="mt-auto">
-            <AddToCartButton title={title} price={price} originalPrice={originalPrice} thumbnailSrc={thumbnailSrc} />
+            <AddToCartButton
+              title={title}
+              price={price}
+              originalPrice={originalPrice}
+              thumbnailSrc={thumbnailSrc}
+            />
           </div>
         )}
       </div>
@@ -226,18 +309,26 @@ export function BrandBannerPlaceholder({
   height = "h-64",
   title = "Banner Placeholder",
   className = "",
-  imageSrc
+  imageSrc,
 }: BrandBannerPlaceholderProps) {
   if (imageSrc) {
     return (
-      <div className={`${width} ${height} rounded-2xl overflow-hidden ${className}`}>
-        <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
+      <div
+        className={`${width} ${height} rounded-2xl overflow-hidden ${className}`}
+      >
+        <img
+          src={imageSrc}
+          alt={title}
+          className="w-full h-full object-cover"
+        />
         <div className="shine-strip animate-shine z-10" />
       </div>
     );
   }
   return (
-    <div className={`${width} ${height} bg-gray-200 rounded-2xl flex items-center justify-center ${className}`}>
+    <div
+      className={`${width} ${height} bg-gray-200 rounded-2xl flex items-center justify-center ${className}`}
+    >
       <div className="text-center text-gray-500">
         <div className="w-24 h-16 bg-gray-300 rounded-lg mb-3 mx-auto" />
         <p className="text-lg font-semibold">{title}</p>
@@ -253,22 +344,37 @@ interface BrandLogoPlaceholderProps {
   className?: string;
 }
 
-export function BrandLogoPlaceholder({ size = "md", shape = "square", className = "", src }: BrandLogoPlaceholderProps & { src?: string }) {
-  const sizeClasses = { sm: "w-12 h-12", md: "w-16 h-16", lg: "w-20 h-20" } as const;
+export function BrandLogoPlaceholder({
+  size = "md",
+  shape = "square",
+  className = "",
+  src,
+}: BrandLogoPlaceholderProps & { src?: string }) {
+  const sizeClasses = {
+    sm: "w-12 h-12",
+    md: "w-16 h-16",
+    lg: "w-20 h-20",
+  } as const;
   const shapeClass = shape === "circle" ? "rounded-full" : "rounded-lg";
   return (
-    <div className={`group ${sizeClasses[size]} ${shapeClass} flex items-center justify-center ${className}`}>
+    <div
+      className={`group ${sizeClasses[size]} ${shapeClass} flex items-center justify-center ${className}`}
+    >
       {src ? (
-        <div className={`w-full h-full p-2 flex items-center justify-center ${shapeClass} bg-white`}>
+        <div
+          className={`w-full h-full p-2 flex items-center justify-center ${shapeClass} bg-white`}
+        >
           <img
             src={src}
             alt="brand logo"
             className={`w-full h-full object-contain transition-transform duration-200 filter grayscale group-hover:grayscale-0 group-hover:scale-105`}
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
+            style={{ maxWidth: "100%", maxHeight: "100%" }}
           />
         </div>
       ) : (
-        <div className={`w-full h-full p-2 flex items-center justify-center bg-gray-200 ${shapeClass}`}>
+        <div
+          className={`w-full h-full p-2 flex items-center justify-center bg-gray-200 ${shapeClass}`}
+        >
           <div className="text-center text-gray-500">
             <div className={`w-6 h-6 bg-gray-300 ${shapeClass} mx-auto mb-1`} />
             <p className="text-xs font-medium">Logo</p>
@@ -287,7 +393,13 @@ interface SectionHeaderProps {
   textClass?: string;
 }
 
-export function SectionHeader({ title, icon, children, gradientClass = BRAND_GRADIENT, textClass = "text-white" }: SectionHeaderProps) {
+export function SectionHeader({
+  title,
+  icon,
+  children,
+  gradientClass = BRAND_GRADIENT,
+  textClass = "text-white",
+}: SectionHeaderProps) {
   return (
     <div className={`${gradientClass} ${textClass} p-5 rounded-t-2xl`}>
       <div className="flex items-center justify-between">
@@ -304,19 +416,41 @@ export function SectionHeader({ title, icon, children, gradientClass = BRAND_GRA
 export function AvatarPlaceholder({ size = 40 }: { size?: number }) {
   const px = `${size}px`;
   return (
-    <div className="bg-gray-200 rounded-full flex items-center justify-center overflow-hidden" style={{ width: px, height: px }}>
+    <div
+      className="bg-gray-200 rounded-full flex items-center justify-center overflow-hidden"
+      style={{ width: px, height: px }}
+    >
       <User className="w-5 h-5 text-gray-500" />
     </div>
   );
 }
 
-export function RatingStars({ value = 4.5, size = 14 }: { value?: number; size?: number }) {
+export function RatingStars({
+  value = 4.5,
+  size = 14,
+}: {
+  value?: number;
+  size?: number;
+}) {
   const full = Math.floor(value);
   const half = value - full >= 0.5;
   return (
     <div className="flex items-center gap-0.5 text-amber-500">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="" style={{ width: size, height: size, fill: i < full ? 'currentColor' : i === full && half ? 'currentColor' : 'none' }} />
+        <Star
+          key={i}
+          className=""
+          style={{
+            width: size,
+            height: size,
+            fill:
+              i < full
+                ? "currentColor"
+                : i === full && half
+                  ? "currentColor"
+                  : "none",
+          }}
+        />
       ))}
     </div>
   );
@@ -336,7 +470,12 @@ interface ReviewCardProps {
   };
 }
 
-export function ReviewPlaceholder({ username, rating, text, product }: ReviewCardProps) {
+export function ReviewPlaceholder({
+  username,
+  rating,
+  text,
+  product,
+}: ReviewCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center gap-3 mb-3">
@@ -353,22 +492,34 @@ export function ReviewPlaceholder({ username, rating, text, product }: ReviewCar
           <div className="flex items-center gap-3">
             <div className="w-20 h-20 bg-gray-50 rounded-md flex items-center justify-center overflow-hidden">
               {product.thumbnailSrc ? (
-                <img src={product.thumbnailSrc} alt={product.title} className="w-full h-full object-contain" />
+                <img
+                  src={product.thumbnailSrc}
+                  alt={product.title}
+                  className="w-full h-full object-contain"
+                />
               ) : (
                 <div className="w-12 h-12 bg-gray-200 rounded-md" />
               )}
             </div>
             <div className="flex-1">
-              <h4 className="text-sm font-medium text-gray-900 line-clamp-2">{product.title}</h4>
+              <h4 className="text-sm font-medium text-gray-900 line-clamp-2">
+                {product.title}
+              </h4>
               <div className="flex items-center gap-2 mt-2">
-                <span className="font-bold text-base text-gray-900">£{product.price.toFixed(2)}</span>
+                <span className="font-bold text-base text-gray-900">
+                  £{product.price.toFixed(2)}
+                </span>
                 {product.originalPrice && (
-                  <span className="text-gray-500 line-through text-xs">£{product.originalPrice.toFixed(2)}</span>
+                  <span className="text-gray-500 line-through text-xs">
+                    £{product.originalPrice.toFixed(2)}
+                  </span>
                 )}
               </div>
               <div className="flex items-center mt-2 text-xs text-gray-600">
                 <RatingStars value={product.rating ?? 4.5} size={12} />
-                <span className="ml-1 text-[10px] text-gray-500">({product.reviews ?? 120})</span>
+                <span className="ml-1 text-[10px] text-gray-500">
+                  ({product.reviews ?? 120})
+                </span>
               </div>
             </div>
           </div>
@@ -379,7 +530,17 @@ export function ReviewPlaceholder({ username, rating, text, product }: ReviewCar
 }
 
 // Small helper button to unify add-to-cart behaviour across placeholders
-function AddToCartButton({ title, price, originalPrice, thumbnailSrc }: { title: string; price: number; originalPrice?: number; thumbnailSrc?: string }) {
+function AddToCartButton({
+  title,
+  price,
+  originalPrice,
+  thumbnailSrc,
+}: {
+  title: string;
+  price: number;
+  originalPrice?: number;
+  thumbnailSrc?: string;
+}) {
   const { addToCart } = useCart();
   const { currentMarketplace, getMarketplaceLabel } = useMarketplace();
   const { toast } = useToast();
@@ -403,7 +564,10 @@ function AddToCartButton({ title, price, originalPrice, thumbnailSrc }: { title:
   };
 
   return (
-    <Button onClick={handleAdd} className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}>
+    <Button
+      onClick={handleAdd}
+      className={`w-full text-white ${BRAND_GRADIENT} hover:opacity-90 text-sm`}
+    >
       <ShoppingBag className="w-4 h-4 mr-2" />
       Add to Cart
     </Button>

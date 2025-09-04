@@ -190,12 +190,19 @@
 
   /* Shine sweep for icon discs */
   @keyframes shineSweep {
-    0% { transform: translateX(-120%) rotate(25deg); }
-    100% { transform: translateX(120%) rotate(25deg); }
+    0% {
+      transform: translateX(-120%) rotate(25deg);
+    }
+    100% {
+      transform: translateX(120%) rotate(25deg);
+    }
   }
 
   /* Trigger shine/spin on group hover */
-  .group:hover .animate-shine { animation: shineSweep 900ms ease-in-out; opacity: 1; }
+  .group:hover .animate-shine {
+    animation: shineSweep 900ms ease-in-out;
+    opacity: 1;
+  }
 
   /* Shine strip element inside icon discs */
   .shine-strip {
@@ -204,7 +211,12 @@
     bottom: -15%;
     left: -35%;
     width: 38%;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
     transform: translateX(-120%) rotate(25deg);
     opacity: 0;
     pointer-events: none;
@@ -218,7 +230,12 @@
     left: -35%;
     width: 38%;
     height: 130%;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
     transform: translateX(-120%) rotate(25deg);
     animation: shineSweep 900ms ease-in-out;
     opacity: 1;
@@ -227,15 +244,23 @@
   }
 
   /* Ensure existing shine-strip still works and overlay doesn't stack oddly */
-  .group.relative .shine-strip { z-index: 45; }
+  .group.relative .shine-strip {
+    z-index: 45;
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .group.relative:hover::after { animation: none; }
+    .group.relative:hover::after {
+      animation: none;
+    }
   }
 
   @keyframes gradientX {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
   }
   .animate-gradient-x {
     background-size: 200% 100%;
@@ -243,36 +268,78 @@
   }
 
   @keyframes boltStrike {
-    0% { transform: translate(-50%, -60%) rotate(8deg) scale(0.7); filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
-    60% { transform: translate(-50%, -50%) rotate(8deg) scale(1.06); filter: drop-shadow(0 18px 28px rgba(0,0,0,0.35)); }
-    100% { transform: translate(-50%, -50%) rotate(8deg) scale(1); filter: drop-shadow(0 16px 26px rgba(0,0,0,0.35)); }
+    0% {
+      transform: translate(-50%, -60%) rotate(8deg) scale(0.7);
+      filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+    }
+    60% {
+      transform: translate(-50%, -50%) rotate(8deg) scale(1.06);
+      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35));
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(8deg) scale(1);
+      filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.35));
+    }
   }
-  .bolt-strike { animation: boltStrike 700ms cubic-bezier(0.2, 0.9, 0.2, 1) both; }
+  .bolt-strike {
+    animation: boltStrike 700ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  }
 
   /* One-off flash shockwave for strike */
   @keyframes strikeFlash {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    12% { opacity: 0.95; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    12% {
+      opacity: 0.95;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.5);
+    }
   }
-  .strike-flash { animation: strikeFlash 550ms ease-out both; }
+  .strike-flash {
+    animation: strikeFlash 550ms ease-out both;
+  }
 
   /* Quick glow pulse after strike */
   @keyframes boltPulse {
-    0% { filter: drop-shadow(0 0 0 rgba(255,255,200,0)); }
-    50% { filter: drop-shadow(0 0 22px rgba(255,240,170,0.7)); }
-    100% { filter: drop-shadow(0 0 0 rgba(255,255,200,0)); }
+    0% {
+      filter: drop-shadow(0 0 0 rgba(255, 255, 200, 0));
+    }
+    50% {
+      filter: drop-shadow(0 0 22px rgba(255, 240, 170, 0.7));
+    }
+    100% {
+      filter: drop-shadow(0 0 0 rgba(255, 255, 200, 0));
+    }
   }
-  .bolt-pulse { animation: boltPulse 900ms ease-in-out 300ms 1 both; }
+  .bolt-pulse {
+    animation: boltPulse 900ms ease-in-out 300ms 1 both;
+  }
 
   @keyframes ukDrift {
-    0% { transform: translateX(-2%); }
-    100% { transform: translateX(2%); }
+    0% {
+      transform: translateX(-2%);
+    }
+    100% {
+      transform: translateX(2%);
+    }
   }
-  .uk-drift { animation: ukDrift 12s ease-in-out infinite alternate; }
+  .uk-drift {
+    animation: ukDrift 12s ease-in-out infinite alternate;
+  }
   @media (prefers-reduced-motion: reduce) {
-    .bolt-strike, .strike-flash, .bolt-pulse { animation: none; }
-    .uk-drift { animation: none; }
+    .bolt-strike,
+    .strike-flash,
+    .bolt-pulse {
+      animation: none;
+    }
+    .uk-drift {
+      animation: none;
+    }
   }
 
   .dark {

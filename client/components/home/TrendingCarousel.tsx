@@ -18,7 +18,9 @@ interface TrendingCarouselProps {
   videos?: TrendingVideo[];
 }
 
-export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps) {
+export default function TrendingCarousel({
+  videos = [],
+}: TrendingCarouselProps) {
   // Default placeholder videos to ensure consistent layout
   const defaultVideos: TrendingVideo[] = [
     {
@@ -29,17 +31,17 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
       badge: "Hot Deal",
       likes: 15400,
       comments: 324,
-      views: 89000
+      views: 89000,
     },
     {
-      id: "2", 
+      id: "2",
       title: "Summer Fashion Haul",
       price: 79.99,
       originalPrice: 119.99,
       badge: "Trending",
       likes: 22100,
       comments: 567,
-      views: 156000
+      views: 156000,
     },
     {
       id: "3",
@@ -48,7 +50,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
       badge: "New",
       likes: 8900,
       comments: 156,
-      views: 45000
+      views: 45000,
     },
     {
       id: "4",
@@ -58,7 +60,7 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
       badge: "50% OFF",
       likes: 12800,
       comments: 298,
-      views: 67000
+      views: 67000,
     },
     {
       id: "5",
@@ -67,23 +69,26 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
       badge: "Best Seller",
       likes: 18600,
       comments: 412,
-      views: 123000
-    }
+      views: 123000,
+    },
   ];
 
   // Render exactly 8 placeholder boxes (no images) for a tight masonry layout
   const boxCount = 8;
-  const selectedVideos = Array.from({ length: boxCount }).map((_, i) => ({
-    id: `placeholder-${i}`,
-    title: "",
-    price: 0,
-    originalPrice: undefined,
-    badge: undefined,
-    likes: 0,
-    comments: 0,
-    views: 0,
-    __srcIndex: i
-  }) as any);
+  const selectedVideos = Array.from({ length: boxCount }).map(
+    (_, i) =>
+      ({
+        id: `placeholder-${i}`,
+        title: "",
+        price: 0,
+        originalPrice: undefined,
+        badge: undefined,
+        likes: 0,
+        comments: 0,
+        views: 0,
+        __srcIndex: i,
+      }) as any,
+  );
   // keep length explicit
   selectedVideos.length = boxCount;
 
@@ -118,7 +123,9 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
       <div className="container mx-auto px-2">
         {/* Section Header */}
         <div className="mb-6">
-          <div className={`h-1 w-full rounded bg-gradient-to-r from-[#e3f2fd] to-[#e1f5fe] mb-3`}></div>
+          <div
+            className={`h-1 w-full rounded bg-gradient-to-r from-[#e3f2fd] to-[#e1f5fe] mb-3`}
+          ></div>
           <div className="flex flex-col items-center">
             <style>{`
               @keyframes ukWave {
@@ -130,9 +137,10 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
             `}</style>
 
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
-              <span className="bg-gradient-to-r from-[#012169] to-[#C8102E] bg-clip-text text-transparent">Trending Videos</span>
+              <span className="bg-gradient-to-r from-[#012169] to-[#C8102E] bg-clip-text text-transparent">
+                Trending Videos
+              </span>
             </h2>
-
           </div>
         </div>
 
@@ -141,11 +149,11 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           <div
             className="mx-auto w-full lg:w-8/12"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr 1fr',
-              gridTemplateRows: '150px 220px 220px 180px',
-              gap: '12px',
-              gridTemplateAreas: `"a a b" "c d b" "c d e" "f g h"`
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gridTemplateRows: "150px 220px 220px 180px",
+              gap: "12px",
+              gridTemplateAreas: `"a a b" "c d b" "c d e" "f g h"`,
             }}
           >
             <style>{`
@@ -153,101 +161,234 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
               .trending-banner img { display:block; width:100%; height:100%; object-fit:cover; }
             `}</style>
 
-            {['a','b','c','d','e','f','g','h'].map((area, i) => {
-              if (area === 'a') {
+            {["a", "b", "c", "d", "e", "f", "g", "h"].map((area, i) => {
+              if (area === "a") {
                 return (
-                  <div key={`blk-${area}`} style={{ gridArea: area }} className="trending-banner">
-                    <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F54c4816c2cb947ba8007130404165717?format=webp&width=1200" alt="banner" />
+                  <div
+                    key={`blk-${area}`}
+                    style={{ gridArea: area }}
+                    className="trending-banner"
+                  >
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F54c4816c2cb947ba8007130404165717?format=webp&width=1200"
+                      alt="banner"
+                    />
                   </div>
                 );
               }
 
               // area b: place user-provided image with overlays
-              if (area === 'b') {
-                const imgSrc = 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faeb4511072754f109bbdd39fd9ebe496?format=webp&width=800';
-                const creatorName = 'Zhao Yi';
+              if (area === "b") {
+                const imgSrc =
+                  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faeb4511072754f109bbdd39fd9ebe496?format=webp&width=800";
+                const creatorName = "Zhao Yi";
                 return (
-                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden relative bg-black">
-                    <img src={imgSrc} alt={area} className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105" />
+                  <div
+                    key={`blk-${area}`}
+                    style={{ gridArea: area }}
+                    className="rounded-md overflow-hidden relative bg-black"
+                  >
+                    <img
+                      src={imgSrc}
+                      alt={area}
+                      className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105"
+                    />
                     <div className="absolute inset-0 bg-black/28" />
                     <div className="relative z-10 flex items-center justify-center p-3 h-full">
-                      <img src={imgSrc} alt={area} className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg" />
+                      <img
+                        src={imgSrc}
+                        alt={area}
+                        className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg"
+                      />
                     </div>
-                    <button aria-label="Play video" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7L8 5z" fill="#111"/></svg>
+                    <button
+                      aria-label="Play video"
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow"
+                    >
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M8 5v14l11-7L8 5z" fill="#111" />
+                      </svg>
                     </button>
-                    <button aria-label="More actions" className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow">
-                      <svg width="18" height="4" viewBox="0 0 18 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#111"/><circle cx="9" cy="2" r="2" fill="#111"/><circle cx="16" cy="2" r="2" fill="#111"/></svg>
+                    <button
+                      aria-label="More actions"
+                      className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow"
+                    >
+                      <svg
+                        width="18"
+                        height="4"
+                        viewBox="0 0 18 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="2" cy="2" r="2" fill="#111" />
+                        <circle cx="9" cy="2" r="2" fill="#111" />
+                        <circle cx="16" cy="2" r="2" fill="#111" />
+                      </svg>
                     </button>
                     <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-black/40 px-2 py-1 rounded-full">
-                      <img src={imgSrc} alt="avatar" className="w-8 h-8 rounded-full ring-2 ring-white object-cover" />
+                      <img
+                        src={imgSrc}
+                        alt="avatar"
+                        className="w-8 h-8 rounded-full ring-2 ring-white object-cover"
+                      />
                       <div className="text-sm text-white flex items-center gap-2">
                         <span className="font-semibold">{creatorName}</span>
-                        <span title="Verified" className="text-xs text-emerald-400">✔️</span>
+                        <span
+                          title="Verified"
+                          className="text-xs text-emerald-400"
+                        >
+                          ✔️
+                        </span>
                       </div>
                     </div>
-                    <button aria-label="Toggle mute" className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9v6h4l5 4V5L9 9H5z" fill="#111"/></svg>
+                    <button
+                      aria-label="Toggle mute"
+                      className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 9v6h4l5 4V5L9 9H5z" fill="#111" />
+                      </svg>
                     </button>
                   </div>
                 );
               }
 
               // area c, d, e, f, g, h: show creator card with blurred background and overlays
-              if (['c','d','e','f','g','h'].includes(area)) {
+              if (["c", "d", "e", "f", "g", "h"].includes(area)) {
                 // choose image and name per area
                 const imgMap: Record<string, string> = {
-                  c: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800',
-                  d: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800',
-                  e: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf40b23e5b9a4786b28c3c2ecb75cd01?format=webp&width=800',
-                  f: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F45c7f017f830434a859b680fad12589e?format=webp&width=800',
-                  g: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d24405ddca744bea45d58bbc256c383?format=webp&width=800',
-                  h: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbb72997bd25f480aacf6612f6fbeea22?format=webp&width=800'
+                  c: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe145a965a29e40aea94af410100bbd4e?format=webp&width=800",
+                  d: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F02f4310e31254e67a1e496266af050d6?format=webp&width=800",
+                  e: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf40b23e5b9a4786b28c3c2ecb75cd01?format=webp&width=800",
+                  f: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F45c7f017f830434a859b680fad12589e?format=webp&width=800",
+                  g: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d24405ddca744bea45d58bbc256c383?format=webp&width=800",
+                  h: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbb72997bd25f480aacf6612f6fbeea22?format=webp&width=800",
                 };
-                const nameMap: Record<string, string> = { c: 'Li Wei', d: 'Wang Fang', e: 'Zhang Lei', f: 'Jun Park', g: 'Mei Lin', h: 'Xiao Chen' };
+                const nameMap: Record<string, string> = {
+                  c: "Li Wei",
+                  d: "Wang Fang",
+                  e: "Zhang Lei",
+                  f: "Jun Park",
+                  g: "Mei Lin",
+                  h: "Xiao Chen",
+                };
                 const imgSrc = imgMap[area];
                 const creatorName = nameMap[area];
 
                 return (
-                  <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md overflow-hidden relative bg-black">
+                  <div
+                    key={`blk-${area}`}
+                    style={{ gridArea: area }}
+                    className="rounded-md overflow-hidden relative bg-black"
+                  >
                     {/* blurred background */}
-                    <img src={imgSrc} alt={area} className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105" />
+                    <img
+                      src={imgSrc}
+                      alt={area}
+                      className="absolute inset-0 w-full h-full object-cover filter blur-md scale-105"
+                    />
                     {/* subtle overlay to focus */}
                     <div className="absolute inset-0 bg-black/28" />
 
                     {/* foreground subject (centered) */}
                     <div className="relative z-10 flex items-center justify-center p-3 h-full">
-                      <img src={imgSrc} alt={area} className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg" />
+                      <img
+                        src={imgSrc}
+                        alt={area}
+                        className="max-h-[85%] max-w-full object-contain rounded-lg shadow-lg"
+                      />
                     </div>
 
                     {/* play overlay center */}
-                    <button aria-label="Play video" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7L8 5z" fill="#111"/></svg>
+                    <button
+                      aria-label="Play video"
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow"
+                    >
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M8 5v14l11-7L8 5z" fill="#111" />
+                      </svg>
                     </button>
 
                     {/* top bar: ellipsis on right */}
-                    <button aria-label="More actions" className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow">
-                      <svg width="18" height="4" viewBox="0 0 18 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#111"/><circle cx="9" cy="2" r="2" fill="#111"/><circle cx="16" cy="2" r="2" fill="#111"/></svg>
+                    <button
+                      aria-label="More actions"
+                      className="absolute top-2 right-2 z-20 bg-white/90 p-1 rounded-full shadow"
+                    >
+                      <svg
+                        width="18"
+                        height="4"
+                        viewBox="0 0 18 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="2" cy="2" r="2" fill="#111" />
+                        <circle cx="9" cy="2" r="2" fill="#111" />
+                        <circle cx="16" cy="2" r="2" fill="#111" />
+                      </svg>
                     </button>
 
                     {/* top-left: avatar + name + verified */}
                     <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-black/40 px-2 py-1 rounded-full">
-                      <img src={imgSrc} alt="avatar" className="w-8 h-8 rounded-full ring-2 ring-white object-cover" />
+                      <img
+                        src={imgSrc}
+                        alt="avatar"
+                        className="w-8 h-8 rounded-full ring-2 ring-white object-cover"
+                      />
                       <div className="text-sm text-white flex items-center gap-2">
                         <span className="font-semibold">{creatorName}</span>
-                        <span title="Verified" className="text-xs text-emerald-400">✔️</span>
+                        <span
+                          title="Verified"
+                          className="text-xs text-emerald-400"
+                        >
+                          ✔️
+                        </span>
                       </div>
                     </div>
 
                     {/* bottom-right: mute/unmute icon */}
-                    <button aria-label="Toggle mute" className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9v6h4l5 4V5L9 9H5z" fill="#111"/></svg>
+                    <button
+                      aria-label="Toggle mute"
+                      className="absolute bottom-3 right-3 z-20 bg-white/90 p-2 rounded-full shadow"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 9v6h4l5 4V5L9 9H5z" fill="#111" />
+                      </svg>
                     </button>
                   </div>
                 );
               }
 
-              return <div key={`blk-${area}`} style={{ gridArea: area }} className="rounded-md bg-black" />;
+              return (
+                <div
+                  key={`blk-${area}`}
+                  style={{ gridArea: area }}
+                  className="rounded-md bg-black"
+                />
+              );
             })}
           </div>
         </div>
@@ -257,10 +398,17 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
           <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide px-4">
             {selectedVideos.map((video) => {
               const srcIndex = (video as any).__srcIndex as number;
-              const thumb = srcIndex < trendingThumbs.length ? trendingThumbs[srcIndex] : undefined;
-              const title = trendingTitles[srcIndex % trendingTitles.length] || video.title;
+              const thumb =
+                srcIndex < trendingThumbs.length
+                  ? trendingThumbs[srcIndex]
+                  : undefined;
+              const title =
+                trendingTitles[srcIndex % trendingTitles.length] || video.title;
               return (
-                <div key={`mobile-${srcIndex}-${video.id}`} className="flex-shrink-0 w-40">
+                <div
+                  key={`mobile-${srcIndex}-${video.id}`}
+                  className="flex-shrink-0 w-40"
+                >
                   <VideoPlaceholder
                     className="p-2"
                     title={title}

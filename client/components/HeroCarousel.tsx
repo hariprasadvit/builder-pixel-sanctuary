@@ -33,7 +33,6 @@ export default function HeroCarousel() {
     el.scrollTo({ left: i * w, behavior: "smooth" });
   };
 
-
   return (
     <section className="bg-white">
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
@@ -52,13 +51,12 @@ export default function HeroCarousel() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    className={`w-full h-full ${((s as any).fit === "contain") ? "object-contain p-4 md:p-6" : "object-cover"}`}
+                    className={`w-full h-full ${(s as any).fit === "contain" ? "object-contain p-4 md:p-6" : "object-cover"}`}
                   />
                 </div>
               ))}
             </div>
           </div>
-
 
           {/* Dots */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
@@ -69,7 +67,9 @@ export default function HeroCarousel() {
                   aria-label={`Go to slide ${i + 1}`}
                   onClick={() => goTo(i)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    i === index ? "bg-gray-900 scale-110" : "bg-gray-400/60 hover:bg-gray-600"
+                    i === index
+                      ? "bg-gray-900 scale-110"
+                      : "bg-gray-400/60 hover:bg-gray-600"
                   }`}
                 />
               ))}

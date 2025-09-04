@@ -12,7 +12,6 @@ import SocialSellSection from "@/components/home/SocialSellSection";
 import ExploreCurated from "@/components/home/ExploreCurated";
 import WowFlashBanner from "@/components/home/WowFlashBanner";
 
-
 export default function Index() {
   return (
     <div className="min-h-screen bg-gray-50">

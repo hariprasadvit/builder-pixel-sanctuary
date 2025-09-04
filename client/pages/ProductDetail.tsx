@@ -31,7 +31,8 @@ import { BRAND_GRADIENT } from "@/components/ui/placeholders";
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getCurrencySymbol, currentMarketplace, getMarketplaceLabel } = useMarketplace();
+  const { getCurrencySymbol, currentMarketplace, getMarketplaceLabel } =
+    useMarketplace();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const { isWishlisted, toggle } = useWishlist();
@@ -42,7 +43,6 @@ export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState("Black Titanium");
   const [selectedStorage, setSelectedStorage] = useState("256GB");
   const [selectedSize, setSelectedSize] = useState("");
-
 
   // Mock product data - in real app this would be fetched based on the ID
   const iphoneProduct = {
@@ -211,12 +211,12 @@ export default function ProductDetail() {
   };
 
   const productsById: Record<string, any> = {
-    '1': iphoneProduct,
-    '2': blenderProduct,
-    'c1': clothingProduct,
+    "1": iphoneProduct,
+    "2": blenderProduct,
+    c1: clothingProduct,
   };
 
-  const product = productsById[id || '1'] || iphoneProduct;
+  const product = productsById[id || "1"] || iphoneProduct;
 
   // default selected size when product loads
   useEffect(() => {
@@ -244,17 +244,20 @@ export default function ProductDetail() {
         image: product.images && product.images[0] ? product.images[0] : "",
         vendor: (window as any).__selectedMarketplace__ || "nearbuy",
         vendorName: "Nearbuy",
-        category: product.category || 'General',
+        category: product.category || "General",
       },
       quantity,
     );
-    toast({ title: "Added to cart", description: `${quantity} x ${product.title} added to cart.` });
+    toast({
+      title: "Added to cart",
+      description: `${quantity} x ${product.title} added to cart.`,
+    });
   };
 
   const handleBuyNow = () => {
     // add to cart first, then navigate to checkout (simple flow)
     handleAddToCart();
-    navigate('/checkout');
+    navigate("/checkout");
   };
 
   const handleSubmitReview = () => {
@@ -287,7 +290,8 @@ export default function ProductDetail() {
       camera: "Dual 48MP & Ultra Wide",
       battery: "Up to 22 hours video playback",
       features: ["Action button", "Face ID", "USB‑C"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffa1d63fd57984ad6b476b94454261bb5?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ffa1d63fd57984ad6b476b94454261bb5?format=webp&width=800",
     },
     {
       model: "iPhone 16 Plus",
@@ -297,7 +301,8 @@ export default function ProductDetail() {
       camera: "Dual 48MP & Ultra Wide",
       battery: "Up to 27 hours video playback",
       features: ["Larger display", "Longer battery", "USB‑C"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F80e6edf4d64e41bb81bcc68170dedb6d?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F80e6edf4d64e41bb81bcc68170dedb6d?format=webp&width=800",
     },
     {
       model: "iPhone 16 Pro",
@@ -307,7 +312,8 @@ export default function ProductDetail() {
       camera: "Triple camera system: 48MP main, 5x telephoto",
       battery: "Up to 30+ hours video playback",
       features: ["ProMotion display", "Titanium frame", "Pro camera system"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F54cd0bd2c4a44a2d8dc73ae8a3e8ee70?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F54cd0bd2c4a44a2d8dc73ae8a3e8ee70?format=webp&width=800",
     },
     {
       model: "iPhone 16 Pro Max",
@@ -317,7 +323,8 @@ export default function ProductDetail() {
       camera: "Advanced triple camera: 48MP main, 5x telephoto",
       battery: "Best-in-class battery life",
       features: ["Largest display", "Best battery", "Pro camera system"],
-      image: "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F91b3cb24d5414dcbab76789c6aed27cc?format=webp&width=800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F91b3cb24d5414dcbab76789c6aed27cc?format=webp&width=800",
     },
   ];
 
@@ -351,9 +358,10 @@ export default function ProductDetail() {
     },
   ];
 
-  const aiSummary = product.id === '2'
-    ? "Based on customer feedback, the SOLARA Blendkwik is praised for its portability, ease of use, and ability to crush frozen fruit and light ice. Users highlight the USB-C rechargeable battery and that it’s great for on-the-go smoothies. Primary suggestions: some users request a slightly larger capacity and stronger motor for heavy-duty blending. Overall sentiment: ~89% positive."
-    : "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
+  const aiSummary =
+    product.id === "2"
+      ? "Based on customer feedback, the SOLARA Blendkwik is praised for its portability, ease of use, and ability to crush frozen fruit and light ice. Users highlight the USB-C rechargeable battery and that it’s great for on-the-go smoothies. Primary suggestions: some users request a slightly larger capacity and stronger motor for heavy-duty blending. Overall sentiment: ~89% positive."
+      : "Based on 2,847 customer reviews, the iPhone 16 excels in camera quality (95% positive), battery life (92% positive), and performance (97% positive). Most common praise: Camera Control feature, A18 chip speed, and build quality. Main concerns: Price point (mentioned in 12% of reviews) and desire for better zoom capabilities. Overall sentiment: 94% positive, with 'camera' and 'fast' being the most mentioned positive keywords.";
 
   const colorOptions = [
     {
@@ -467,9 +475,11 @@ export default function ProductDetail() {
           <span className="mx-2">/</span>
           <span
             className="hover:text-brand-blue cursor-pointer"
-            onClick={() => navigate(`/${(product.category || 'electronics').toLowerCase()}`)}
+            onClick={() =>
+              navigate(`/${(product.category || "electronics").toLowerCase()}`)
+            }
           >
-            {product.category || 'Electronics'}
+            {product.category || "Electronics"}
           </span>
           <span className="mx-2">/</span>
           <span className="text-gray-900">{product.title}</span>
@@ -512,7 +522,7 @@ export default function ProductDetail() {
             {/* Header Info */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className={`${BRAND_GRADIENT} text-white text-xs` }>
+                <Badge className={`${BRAND_GRADIENT} text-white text-xs`}>
                   {product.origin}
                 </Badge>
                 <Badge variant="outline" className="text-xs">
@@ -584,7 +594,9 @@ export default function ProductDetail() {
 
             {/* Product Description - Now visible on mobile */}
             <div className="bg-[#0b3b8f]/6 rounded-lg p-4 border border-[#0b3b8f]/10">
-              <p className="text-gray-800 text-sm leading-relaxed">{product.description}</p>
+              <p className="text-gray-800 text-sm leading-relaxed">
+                {product.description}
+              </p>
             </div>
 
             {/* Product Highlights - Mobile version */}
@@ -631,7 +643,7 @@ export default function ProductDetail() {
             <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 -mx-1 space-y-3">
               <Button
                 size="lg"
-                className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold py-4 text-lg shadow-lg h-12` }
+                className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold py-4 text-lg shadow-lg h-12`}
                 onClick={handleBuyNow}
                 disabled={!product.inStock}
               >
@@ -641,7 +653,7 @@ export default function ProductDetail() {
               <Button
                 variant="outline"
                 size="lg"
-                className={`w-full border-2 border-[#0b3b8f] text-[#0b3b8f] hover:bg-[#0b3b8f]/10 font-medium py-4 text-lg h-12` }
+                className={`w-full border-2 border-[#0b3b8f] text-[#0b3b8f] hover:bg-[#0b3b8f]/10 font-medium py-4 text-lg h-12`}
                 onClick={handleAddToCart}
                 disabled={!product.inStock}
               >
@@ -689,7 +701,7 @@ export default function ProductDetail() {
               <div className="col-span-5 space-y-4">
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <Badge className={`${BRAND_GRADIENT} text-white` }>
+                    <Badge className={`${BRAND_GRADIENT} text-white`}>
                       {product.origin}
                     </Badge>
                     <Badge variant="outline">{product.brand}</Badge>
@@ -739,7 +751,9 @@ export default function ProductDetail() {
 
                   {/* Product Description */}
                   <div className="bg-[#0b3b8f]/6 rounded-lg p-4 border border-[#0b3b8f]/10">
-                    <p className="text-gray-800 text-sm leading-relaxed">{product.description}</p>
+                    <p className="text-gray-800 text-sm leading-relaxed">
+                      {product.description}
+                    </p>
                   </div>
                 </div>
 
@@ -768,14 +782,17 @@ export default function ProductDetail() {
                     <h4 className="font-medium text-gray-900 mb-2">Size</h4>
                     <div className="flex gap-2 flex-wrap">
                       {product.sizes.map((s: string) => (
-                        <button key={s} className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-[#0b3b8f] bg-brand-blue/10" : "border-gray-200"}`} onClick={() => setSelectedSize(s)}>
+                        <button
+                          key={s}
+                          className={`px-3 py-1 rounded-md border ${selectedSize === s ? "border-[#0b3b8f] bg-brand-blue/10" : "border-gray-200"}`}
+                          onClick={() => setSelectedSize(s)}
+                        >
                           {s}
                         </button>
                       ))}
                     </div>
                   </div>
                 )}
-
 
                 {/* Delivery Info */}
                 <Card>
@@ -828,7 +845,7 @@ export default function ProductDetail() {
                   <div className="space-y-3">
                     <Button
                       size="lg"
-                      className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14` }
+                      className={`w-full ${BRAND_GRADIENT} hover:opacity-90 text-white font-semibold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-14`}
                       onClick={handleBuyNow}
                       disabled={!product.inStock}
                     >
@@ -839,7 +856,7 @@ export default function ProductDetail() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className={`w-full border-2 border-[#0b3b8f] text-[#0b3b8f] hover:bg-[#0b3b8f]/10 font-medium py-4 text-lg transition-all duration-200 h-14` }
+                      className={`w-full border-2 border-[#0b3b8f] text-[#0b3b8f] hover:bg-[#0b3b8f]/10 font-medium py-4 text-lg transition-all duration-200 h-14`}
                       onClick={handleAddToCart}
                       disabled={!product.inStock}
                     >
@@ -917,7 +934,9 @@ export default function ProductDetail() {
                   <ul className="space-y-2 text-sm text-gray-700">
                     {product.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-3 py-1">
-                        <span className="text-[#0b3b8f] font-bold text-lg leading-none">•</span>
+                        <span className="text-[#0b3b8f] font-bold text-lg leading-none">
+                          •
+                        </span>
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -926,40 +945,60 @@ export default function ProductDetail() {
 
                 {/* Quick Specs */}
                 <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <h3 className="font-semibold text-gray-900 mb-3">Quick Specs</h3>
+                  <h3 className="font-semibold text-gray-900 mb-3">
+                    Quick Specs
+                  </h3>
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    {Object.entries(product.specifications || {}).slice(0, 4).map(([k, v]) => (
-                      <div key={k}>
-                        <span className="text-gray-600">{k}</span>
-                        <div className="font-medium">{String(v)}</div>
-                      </div>
-                    ))}
+                    {Object.entries(product.specifications || {})
+                      .slice(0, 4)
+                      .map(([k, v]) => (
+                        <div key={k}>
+                          <span className="text-gray-600">{k}</span>
+                          <div className="font-medium">{String(v)}</div>
+                        </div>
+                      ))}
                   </div>
                 </div>
 
                 {/* Value Proposition */}
-                {product.id === '2' && (
+                {product.id === "2" && (
                   <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge className="bg-red-500 text-white text-xs">LIMITED OFFER</Badge>
-                      <span className="text-sm font-medium text-gray-900">Save {getCurrencySymbol()}{(product.originalPrice - product.price).toFixed(2)}</span>
+                      <Badge className="bg-red-500 text-white text-xs">
+                        LIMITED OFFER
+                      </Badge>
+                      <span className="text-sm font-medium text-gray-900">
+                        Save {getCurrencySymbol()}
+                        {(product.originalPrice - product.price).toFixed(2)}
+                      </span>
                     </div>
-                    <p className="text-sm text-gray-700">Get the {product.title} with fast delivery and 1-year warranty upon registration. Limited time offer — save on the launch price.</p>
+                    <p className="text-sm text-gray-700">
+                      Get the {product.title} with fast delivery and 1-year
+                      warranty upon registration. Limited time offer — save on
+                      the launch price.
+                    </p>
                   </div>
                 )}
 
                 {/* Why Choose This */}
-                {product.id === '2' && (
+                {product.id === "2" && (
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">Why Choose {product.title}?</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">
+                      Why Choose {product.title}?
+                    </h4>
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
                         <Shield className="w-4 h-4 text-[#0b3b8f]" />
-                        <span>Safe, high-quality materials and certified components</span>
+                        <span>
+                          Safe, high-quality materials and certified components
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Star className="w-4 h-4 text-yellow-500" />
-                        <span>{product.rating}/5 rating from {product.reviewCount} customers</span>
+                        <span>
+                          {product.rating}/5 rating from {product.reviewCount}{" "}
+                          customers
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Truck className="w-4 h-4 text-green-600" />
@@ -1038,7 +1077,7 @@ export default function ProductDetail() {
         </div>
 
         {/* Marketing Images - Single Column Scroll Layout */}
-        {product.category === 'Clothing' ? (
+        {product.category === "Clothing" ? (
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-6">Why NOBERO T‑Shirts?</h2>
             <div className="space-y-0">
@@ -1049,7 +1088,11 @@ export default function ProductDetail() {
                 "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F915231fbe5c649b491a8cbe1a416ccd0?format=webp&width=1500",
               ].map((image, index) => (
                 <div key={index} className="w-full">
-                  <img src={image} alt={`NOBERO ${index + 1}`} className="w-full h-auto object-cover block" />
+                  <img
+                    src={image}
+                    alt={`NOBERO ${index + 1}`}
+                    className="w-full h-auto object-cover block"
+                  />
                 </div>
               ))}
             </div>
@@ -1058,7 +1101,12 @@ export default function ProductDetail() {
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-6">Why {product.title}?</h2>
             <div className="space-y-0">
-              {(product.id === '1' ? marketingImages.slice(0, 2) : (product.images && product.images.length ? product.images : marketingImages)).map((image, index) => (
+              {(product.id === "1"
+                ? marketingImages.slice(0, 2)
+                : product.images && product.images.length
+                  ? product.images
+                  : marketingImages
+              ).map((image, index) => (
                 <div key={index} className="w-full">
                   <img
                     src={image}
@@ -1072,11 +1120,13 @@ export default function ProductDetail() {
         )}
 
         {/* Product Comparison */}
-        {product.category !== 'Clothing' && (
+        {product.category !== "Clothing" && (
           <Card className="mb-8">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold">Compare {product.brand} Models</h2>
+                <h2 className="text-xl font-bold">
+                  Compare {product.brand} Models
+                </h2>
                 <Button
                   variant="outline"
                   onClick={() => setShowComparison(!showComparison)}
@@ -1096,7 +1146,9 @@ export default function ProductDetail() {
                         <div
                           key={index}
                           className={`border rounded-lg p-4 ${
-                            phone.model === product.model ? "border-blue-500 bg-blue-50 shadow-md" : "border-gray-200 bg-white"
+                            phone.model === product.model
+                              ? "border-blue-500 bg-blue-50 shadow-md"
+                              : "border-gray-200 bg-white"
                           }`}
                         >
                           <div className="space-y-3">
@@ -1108,29 +1160,47 @@ export default function ProductDetail() {
                                   className="w-full h-full object-contain p-2"
                                 />
                               </div>
-                              <h3 className="font-bold text-lg">{phone.model}</h3>
+                              <h3 className="font-bold text-lg">
+                                {phone.model}
+                              </h3>
                               <p className="text-xl font-bold text-green-600">
                                 {phone.price}
                               </p>
                             </div>
                             <div className="space-y-2 text-sm">
                               <div>
-                                <span className="font-medium text-gray-600">Motor:</span>
+                                <span className="font-medium text-gray-600">
+                                  Motor:
+                                </span>
                                 <p className="text-gray-800">{phone.motor}</p>
                               </div>
                               <div>
-                                <span className="font-medium text-gray-600">Capacity:</span>
-                                <p className="text-gray-800">{phone.capacity}</p>
+                                <span className="font-medium text-gray-600">
+                                  Capacity:
+                                </span>
+                                <p className="text-gray-800">
+                                  {phone.capacity}
+                                </p>
                               </div>
                               <div>
-                                <span className="font-medium text-gray-600">Battery:</span>
+                                <span className="font-medium text-gray-600">
+                                  Battery:
+                                </span>
                                 <p className="text-gray-800">{phone.battery}</p>
                               </div>
                               <div>
-                                <span className="font-medium text-gray-600">Features:</span>
+                                <span className="font-medium text-gray-600">
+                                  Features:
+                                </span>
                                 <div className="flex flex-wrap gap-1 mt-1">
                                   {phone.features.map((feature, i) => (
-                                    <Badge key={i} variant="secondary" className="text-xs">{feature}</Badge>
+                                    <Badge
+                                      key={i}
+                                      variant="secondary"
+                                      className="text-xs"
+                                    >
+                                      {feature}
+                                    </Badge>
                                   ))}
                                 </div>
                               </div>
@@ -1217,12 +1287,18 @@ export default function ProductDetail() {
                   <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
                     <table className="w-full">
                       <tbody className="divide-y divide-gray-200">
-                        {Object.entries(product.specifications).map(([key, value]) => (
-                          <tr key={key} className="hover:bg-gray-50">
-                            <td className="px-4 py-3 text-sm font-medium text-gray-900 w-1/3">{key}</td>
-                            <td className="px-4 py-3 text-sm text-gray-700">{String(value)}</td>
-                          </tr>
-                        ))}
+                        {Object.entries(product.specifications).map(
+                          ([key, value]) => (
+                            <tr key={key} className="hover:bg-gray-50">
+                              <td className="px-4 py-3 text-sm font-medium text-gray-900 w-1/3">
+                                {key}
+                              </td>
+                              <td className="px-4 py-3 text-sm text-gray-700">
+                                {String(value)}
+                              </td>
+                            </tr>
+                          ),
+                        )}
                       </tbody>
                     </table>
                   </div>
@@ -1254,22 +1330,24 @@ export default function ProductDetail() {
                   </div>
 
                   {/* AI Summary */}
-  {product.category !== 'Clothing' && (
-    <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
-      <CardContent className="p-4">
-        <div className="flex items-center gap-2 mb-3">
-          <Bot className="w-5 h-5 text-purple-600" />
-          <h3 className="font-semibold text-purple-900">
-            AI Review Summary
-          </h3>
-          <Badge className="bg-purple-100 text-purple-700 text-xs">
-            Powered by AI
-          </Badge>
-        </div>
-        <p className="text-sm text-gray-700 leading-relaxed">{aiSummary}</p>
-      </CardContent>
-    </Card>
-  )}
+                  {product.category !== "Clothing" && (
+                    <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Bot className="w-5 h-5 text-purple-600" />
+                          <h3 className="font-semibold text-purple-900">
+                            AI Review Summary
+                          </h3>
+                          <Badge className="bg-purple-100 text-purple-700 text-xs">
+                            Powered by AI
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          {aiSummary}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  )}
 
                   {/* Write a Review */}
                   <div className="border rounded-lg p-4">
@@ -1572,7 +1650,10 @@ export default function ProductDetail() {
               <h2 className="text-xl font-bold">
                 Customers who viewed this item also viewed
               </h2>
-              <Button variant="ghost" className="text-[#0b3b8f] hover:underline">
+              <Button
+                variant="ghost"
+                className="text-[#0b3b8f] hover:underline"
+              >
                 View more
               </Button>
             </div>
