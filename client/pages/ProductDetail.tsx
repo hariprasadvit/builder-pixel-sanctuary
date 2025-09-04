@@ -558,7 +558,7 @@ export default function ProductDetail() {
             </div>
 
             {/* Product Description - Now visible on mobile */}
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+            <div className="bg-[#0b3b8f]/6 rounded-lg p-4 border border-[#0b3b8f]/10">
               <p className="text-gray-800 text-sm leading-relaxed">{product.description}</p>
             </div>
 
@@ -713,7 +713,7 @@ export default function ProductDetail() {
                   </div>
 
                   {/* Product Description */}
-                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                  <div className="bg-[#0b3b8f]/6 rounded-lg p-4 border border-[#0b3b8f]/10">
                     <p className="text-gray-800 text-sm leading-relaxed">{product.description}</p>
                   </div>
                 </div>
