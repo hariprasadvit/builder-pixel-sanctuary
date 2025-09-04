@@ -35,16 +35,13 @@ export default function FlashDealsCarousel() {
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
             <a href="/product/1" className="block relative z-30 pointer-events-auto">
-              <VideoPlaceholder
-                title="Tech Deals Live!"
-                price={89.99}
-                originalPrice={109.99}
-                badge="Hot Deal"
-                likes={3200}
-                comments={64}
-                aspect="16/9"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
-                fit="cover"
+              <ProductPlaceholder
+                title="Smartrun A6 Treadmill"
+                price={299.99}
+                originalPrice={399.99}
+                badge="Limited"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5a2faa9687f3425fa777d83d6801fce9?format=webp&width=800"
+                fit="contain"
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
@@ -52,11 +49,11 @@ export default function FlashDealsCarousel() {
 
             <a href="/product/2" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
-                title="Ninja CRISPi Air Fryer"
-                price={89.99}
-                originalPrice={109.99}
-                badge="Exclusive"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
+                title="3-Piece Hardside Luggage Set"
+                price={129.99}
+                originalPrice={179.99}
+                badge="Travel"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa2b4009e08244e11bcdaa69bc0888053?format=webp&width=800"
                 fit="contain"
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
@@ -65,11 +62,11 @@ export default function FlashDealsCarousel() {
 
             <a href="/product/3" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
-                title="TRIP Magnesium Powder – Pomegranate"
-                price={24.99}
-                originalPrice={29.99}
-                badge="New"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
+                title="Presto Active Wash Detergent 8kg"
+                price={15.99}
+                originalPrice={19.99}
+                badge="Super Value"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9c1dbc7306e24a8ca61d044d63d3f342?format=webp&width=800"
                 fit="contain"
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
@@ -78,24 +75,37 @@ export default function FlashDealsCarousel() {
 
             <a href="/product/4" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
-                title="Vileda Turbo 3-in-1 Microfibre Mop Kit"
-                price={39.99}
-                originalPrice={49.99}
-                badge="Top Pick"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7d1d9c3652ed49b1b9f81df3b0d3aee7?format=webp&width=800"
+                title={"Philips 32\" LED TV"}
+                price={199.99}
+                originalPrice={249.99}
+                badge="Deal"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5c109ec24aa94fa4916978ce02580ccf?format=webp&width=800"
                 fit="contain"
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
             </a>
 
-            <a href="/product/5" className="block">
+            <a href="/product/5" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
-                title="Vileda Turbo Mop & Bucket Bundle"
-                price={42.99}
-                originalPrice={52.99}
-                badge="Best Seller"
-                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F170a30c88a3c44ada629d58963d506db?format=webp&width=800"
+                title="Slovic Doorway Pull-Up Bar"
+                price={24.99}
+                originalPrice={34.99}
+                badge="Fitness"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2a6e54e0ac624cec9e04c048284a779a?format=webp&width=800"
+                fit="contain"
+                cardHeight={cardHeight}
+                mediaHeight={mediaHeight}
+              />
+            </a>
+
+            <a href="/product/6" className="block relative z-30 pointer-events-auto">
+              <ProductPlaceholder
+                title="Clip-on Lavalier Microphone"
+                price={29.99}
+                originalPrice={39.99}
+                badge="New"
+                thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc1733dfbf8e74ac589270fbe6bfaa4a5?format=webp&width=800"
                 fit="contain"
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
