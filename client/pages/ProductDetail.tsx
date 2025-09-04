@@ -127,8 +127,10 @@ export default function ProductDetail() {
     inStock: true,
     stockCount: 34,
     images: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3f08b41427634eff923fa23e7f5ca9cd?format=webp&width=800",
-      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F733271c97b48431d85c9f90c5db28e9a?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd13546187dfb44b4bba2bfaeed61a853?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbc6a150242fb4a0ea1907d5406c6d846?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fd7c29ab3cc974d96b6f2502e0d9cd568?format=webp&width=800",
+      "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbee6b7bf593d4cdb849582405a2a43ec?format=webp&width=800",
     ],
     brand: "KitchenPro",
     model: "BlendGo 500",
