@@ -88,20 +88,13 @@ export default function TrendingCarousel({ videos = [] }: TrendingCarouselProps)
 
   // Thumbnails for Trending Videos (updated)
   const trendingThumbs = [
-    // 0-5
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6a0648851b214f4d8d775a638bb50fb8?format=webp&width=800", // thumbnail 6
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7b33d455f294407486c6dc42d1e1acf4?format=webp&width=800", // thumbnail 4
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F05bd6a0680a54750a609ddf11ce8f115?format=webp&width=800", // thumbnail 3
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6b8ddc8a54934f99aceb14e3147d222c?format=webp&width=800", // thumbnail 2
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc4edea0b19bb4d1488fdc4c80cf77613?format=webp&width=800", // image 1
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe55e86fa90934a2f97e72a995b4a02ea?format=webp&width=800", // image 2
-    // 6-11
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcaa5048166c343c3bd08705eb080a9c7?format=webp&width=800", // image 3
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6a0648851b214f4d8d775a638bb50fb8?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F7b33d455f294407486c6dc42d1e1acf4?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F05bd6a0680a54750a609ddf11ce8f115?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6b8ddc8a54934f99aceb14e3147d222c?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc4edea0b19bb4d1488fdc4c80cf77613?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe55e86fa90934a2f97e72a995b4a02ea?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fcaa5048166c343c3bd08705eb080a9c7?format=webp&width=800",
   ];
   const trendingTitles = [
     // Titles matching tiles 1-12 above
