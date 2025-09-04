@@ -266,9 +266,6 @@ export default function ProductDetail() {
   };
 
   const marketingImages = [
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbf25397c817d4090bfed61f37d0297f3?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Feb8ccf1b427d4d138cb1c16148b2821f?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F793c3e01001144a39e1173a6819bfc01?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F20e5372ed55c4f3e941b99b7391f989a?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F480b2c6d23df41bdab1b2e6c0fdcd452?format=webp&width=800",
     "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6bd8091f6be64b9ca4cc03e7ed51c9b2?format=webp&width=800",
