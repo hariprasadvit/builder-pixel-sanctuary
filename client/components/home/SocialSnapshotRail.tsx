@@ -83,6 +83,8 @@ function Facepile({ urls, altPrefix }: { urls: string[]; altPrefix: string }) {
 }
 
 function SnapshotCard({ data }: { data: CardData }) {
+  const navigate = useNavigate();
+  const go = () => navigate(data.link || '/product/1');
   const content = (
     <article className="rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-3 flex flex-col h-[360px] focus-within:ring-2">
       {/* Top row */}
