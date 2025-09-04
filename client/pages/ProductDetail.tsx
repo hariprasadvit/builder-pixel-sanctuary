@@ -233,14 +233,28 @@ export default function ProductDetail() {
     }
   };
 
+  const { addToCart } = useCart();
   const handleAddToCart = () => {
-    console.log(`Added ${quantity} x ${product.title} to cart`);
-    // In real app, this would add to cart context/state
+    addToCart(
+      {
+        id: product.id,
+        name: product.title,
+        price: product.price,
+        originalPrice: product.originalPrice,
+        image: product.images && product.images[0] ? product.images[0] : "",
+        vendor: (window as any).__selectedMarketplace__ || "nearbuy",
+        vendorName: "Nearbuy",
+        category: product.category || 'General',
+      },
+      quantity,
+    );
+    toast({ title: "Added to cart", description: `${quantity} x ${product.title} added to cart.` });
   };
 
   const handleBuyNow = () => {
-    console.log(`Buy now: ${quantity} x ${product.title}`);
-    // In real app, this would navigate to checkout
+    // add to cart first, then navigate to checkout (simple flow)
+    handleAddToCart();
+    navigate('/checkout');
   };
 
   const handleSubmitReview = () => {
