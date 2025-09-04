@@ -52,7 +52,7 @@ export default function CategoryHighlights() {
                 )}
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
                 {!(cat.key === 'electronics' || cat.key === 'cellphones' || cat.key === 'clothing') && (
-                  <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="mt-4 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-4">
                     {cat.key === 'beauty' ? (
                       [
                         { title: 'British Makeup Tips', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F733271c97b48431d85c9f90c5db28e9a?format=webp&width=800' },
