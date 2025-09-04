@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type CardData = {
   title: string;
