@@ -37,101 +37,29 @@ export default function ExploreCurated() {
           </button>
           <div ref={railRef} className="p-4 px-12 flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             <div className="shrink-0 w-4 md:w-6" />
-            <ProductPlaceholder
-              title="Dell Inspiron 15 (Ryzen)"
-              price={599.0}
-              originalPrice={699.0}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="MacBook Air 13” (M2)"
-              price={999.0}
-              originalPrice={1099.0}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75ab3a008e80471da9d31841b1b590b7?format=webp&width=1200"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="Sony ZV-1 Vlog Camera"
-              price={549.0}
-              originalPrice={649.0}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F1254a7b2203a4401b1b14ed1498915ab?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="boAt Wave Smartwatch"
-              price={39.0}
-              originalPrice={59.0}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="boAt Party Speaker 160W"
-              price={129.0}
-              originalPrice={159.0}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4351f4cb715647bbb2c6fc9ee39be1c3?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="Ninja CRISPi Air Fryer"
-              price={89.99}
-              originalPrice={109.99}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F0a8bd53faa3b47b8b4500805a7d4d67c?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="TRIP Magnesium Powder – Pomegranate"
-              price={24.99}
-              originalPrice={29.99}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Ff198716fff91439da185dbe6ad643539?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
-
-            <ProductPlaceholder
-              title="Vileda Turbo Mop & Bucket Bundle"
-              price={42.99}
-              originalPrice={52.99}
-              thumbnailSrc="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F4351f4cb715647bbb2c6fc9ee39be1c3?format=webp&width=800"
-              fit="contain"
-              showBuyButton={false}
-              cardHeight="auto"
-              mediaHeight={140}
-              className="min-w-[220px] md:min-w-[240px] snap-start"
-            />
+            {[
+              { title: 'Mulberry Small Leather Bag', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F75d72b9d128e4c07b313b8abbea56f06?format=webp&width=800', price: 249.0, original: 349.0 },
+              { title: 'Dr. Martens 1460 Boots', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F24ee2a04a9fb460584d4655f7ed04324?format=webp&width=800', price: 139.0, original: 179.0 },
+              { title: 'The Macallan 12 Years', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdf4a65e723474978b614d55c5f9b8f40?format=webp&width=800', price: 59.0, original: 79.0 },
+              { title: 'Mrs Bridges Orange Marmalade', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F6c5ea03f5fb645dfabddb5827a09e4a9?format=webp&width=800', price: 5.99, original: 7.99 },
+              { title: 'Coombes Castle Red Leicester', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F46a82f97fd374730a17f3e480c77bb2a?format=webp&width=800', price: 4.99, original: 6.99 },
+              { title: 'Fortnum & Mason Breakfast Tea', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F2df4fa481d1144a295b3aa55afaaeecc?format=webp&width=800', price: 14.99, original: 19.99 },
+              { title: 'Emma Bridgewater Mug', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fdd400a6f6f574137b03f9f27b9bd818f?format=webp&width=800', price: 24.99, original: 29.99 },
+              { title: 'Elemis Pro-Collagen Balm', img: 'https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5d56ccaa22af4cc3bbb90ee57fc571ae?format=webp&width=800', price: 59.0, original: 85.0 },
+            ].map((p, i) => (
+              <ProductPlaceholder
+                key={`london-${i}`}
+                title={p.title}
+                price={p.price}
+                originalPrice={p.original}
+                thumbnailSrc={p.img}
+                fit="contain"
+                showBuyButton={false}
+                cardHeight="auto"
+                mediaHeight={140}
+                className="min-w-[220px] md:min-w-[240px] snap-start"
+              />
+            ))}
             <div className="shrink-0 w-4 md:w-6" />
           </div>
         </div>
