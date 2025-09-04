@@ -41,7 +41,7 @@ export default function ProductDetail() {
   const [selectedStorage, setSelectedStorage] = useState("256GB");
 
   // Mock product data - in real app this would be fetched based on the ID
-  const product = {
+  const iphoneProduct = {
     id: "1",
     title: "iPhone 16 Pro Max 256GB with Camera Control",
     price: 999.99,
