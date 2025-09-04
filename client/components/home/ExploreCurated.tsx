@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { ProductPlaceholder } from "@/components/ui/placeholders";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Truck } from "lucide-react";
 
 export default function ExploreCurated() {
   const railRef = useRef<HTMLDivElement>(null);
