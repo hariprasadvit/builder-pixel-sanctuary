@@ -1105,7 +1105,7 @@ export default function ProductDetail() {
         <Card className="mb-8">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">Compare iPhone Models</h2>
+              <h2 className="text-xl font-bold">Compare Blendkwik Models</h2>
               <Button
                 variant="outline"
                 onClick={() => setShowComparison(!showComparison)}
