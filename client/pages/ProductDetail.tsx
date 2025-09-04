@@ -31,7 +31,7 @@ import { BRAND_GRADIENT } from "@/components/ui/placeholders";
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getCurrencySymbol } = useMarketplace();
+  const { getCurrencySymbol, currentMarketplace, getMarketplaceLabel } = useMarketplace();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const { isWishlisted, toggle } = useWishlist();
