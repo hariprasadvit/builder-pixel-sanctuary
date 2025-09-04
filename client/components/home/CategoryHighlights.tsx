@@ -48,7 +48,7 @@ export default function CategoryHighlights() {
                     <div className="shine-strip animate-shine z-10" />
                   </div>
                 ) : cat.key === 'clothing' ? null : (
-                  <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" imageSrc={cat.key === 'beauty' ? "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F9ed2b34b6ab54cdd93facf5d3d76f480?format=webp&width=800" : undefined} />
+                  <BrandBannerPlaceholder title={`${cat.title} Banner Placeholder`} height="h-40" imageSrc={cat.key === 'beauty' ? "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Faa3a0f60c1a848dfb49a868855c5e928?format=webp&width=800" : undefined} />
                 )}
                 {cat.key === 'electronics' && (<div className="mt-6 border-t border-dashed border-gray-200" />)}
                 {!(cat.key === 'electronics' || cat.key === 'cellphones' || cat.key === 'clothing') && (
