@@ -1291,7 +1291,7 @@ export default function ProductDetail() {
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex items-center gap-3">
                             <Avatar className="w-8 h-8">
-                              <AvatarFallback className="bg-blue-100 text-blue-600">
+                              <AvatarFallback className="bg-[#0b3b8f]/10 text-[#0b3b8f]">
                                 {review.user.charAt(0)}
                               </AvatarFallback>
                             </Avatar>
