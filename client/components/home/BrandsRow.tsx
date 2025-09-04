@@ -12,6 +12,13 @@ const LOGOS = [
   "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fbdd3c767f5f54c999be4d6f5b07baf90?format=webp&width=800",
   "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F32c10e15dc274eb695964755fb439f8d?format=webp&width=800",
   "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fa5f75495652749889577bd4603a21836?format=webp&width=800",
+  // additional logos
+  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F8aef28c7a6fd4370807383cb48767334?format=webp&width=800",
+  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F3a0a43497af94f1da498b74985941f84?format=webp&width=800",
+  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fc0274009bf8c409594d130cd90dbfb7f?format=webp&width=800",
+  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F909e70287ecb42e782a7c7e287e18392?format=webp&width=800",
+  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F938f1113064c42199d08c12d9fd8b178?format=webp&width=800",
+  "https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2Fe091c40ecde54025810192262c8bf4ca?format=webp&width=800",
 ];
 
 export default function BrandsRow() {
