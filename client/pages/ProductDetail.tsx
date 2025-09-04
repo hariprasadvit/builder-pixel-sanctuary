@@ -1031,13 +1031,13 @@ export default function ProductDetail() {
           </div>
         ) : (
           <div className="mb-8">
-            <h2 className="text-xl font-bold mb-6">Why SOLARA Blendkwik?</h2>
+            <h2 className="text-xl font-bold mb-6">Why {product.title}?</h2>
             <div className="space-y-0">
-              {marketingImages.map((image, index) => (
+              {(product.images && product.images.length ? product.images : marketingImages).map((image, index) => (
                 <div key={index} className="w-full">
                   <img
                     src={image}
-                    alt={`SOLARA Blendkwik Marketing ${index + 1}`}
+                    alt={`${product.title} Marketing ${index + 1}`}
                     className="w-full h-auto object-cover block"
                   />
                 </div>
@@ -1046,12 +1046,12 @@ export default function ProductDetail() {
           </div>
         )}
 
-        {/* iPhone Comparison */}
+        {/* Product Comparison */}
         {product.category !== 'Clothing' && (
           <Card className="mb-8">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold">Compare Blendkwik Models</h2>
+                <h2 className="text-xl font-bold">Compare {product.brand} Models</h2>
                 <Button
                   variant="outline"
                   onClick={() => setShowComparison(!showComparison)}
