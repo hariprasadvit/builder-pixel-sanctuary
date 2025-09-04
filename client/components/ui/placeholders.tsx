@@ -326,9 +326,17 @@ interface ReviewCardProps {
   username: string;
   rating: number;
   text: string;
+  product?: {
+    title: string;
+    price: number;
+    originalPrice?: number;
+    thumbnailSrc?: string;
+    rating?: number;
+    reviews?: number;
+  };
 }
 
-export function ReviewPlaceholder({ username, rating, text }: ReviewCardProps) {
+export function ReviewPlaceholder({ username, rating, text, product }: ReviewCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center gap-3 mb-3">
@@ -338,7 +346,34 @@ export function ReviewPlaceholder({ username, rating, text }: ReviewCardProps) {
           <RatingStars value={rating} size={12} />
         </div>
       </div>
-      <p className="text-sm text-gray-700 line-clamp-4 flex-1">{text}</p>
+      <p className="text-sm text-gray-700 line-clamp-4">{text}</p>
+
+      {product && (
+        <div className="mt-4 bg-white rounded-lg border p-3 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-20 h-20 bg-gray-50 rounded-md flex items-center justify-center overflow-hidden">
+              {product.thumbnailSrc ? (
+                <img src={product.thumbnailSrc} alt={product.title} className="w-full h-full object-contain" />
+              ) : (
+                <div className="w-12 h-12 bg-gray-200 rounded-md" />
+              )}
+            </div>
+            <div className="flex-1">
+              <h4 className="text-sm font-medium text-gray-900 line-clamp-2">{product.title}</h4>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="font-bold text-base text-gray-900">£{product.price.toFixed(2)}</span>
+                {product.originalPrice && (
+                  <span className="text-gray-500 line-through text-xs">£{product.originalPrice.toFixed(2)}</span>
+                )}
+              </div>
+              <div className="flex items-center mt-2 text-xs text-gray-600">
+                <RatingStars value={product.rating ?? 4.5} size={12} />
+                <span className="ml-1 text-[10px] text-gray-500">({product.reviews ?? 120})</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
