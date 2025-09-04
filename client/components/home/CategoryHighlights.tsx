@@ -63,9 +63,6 @@ export default function CategoryHighlights() {
                     <UKDealsBanner />
                   </div>
                 )}
-                {cat.key === 'clothing' && (
-                  <h4 className="mt-4 text-lg font-extrabold bg-gradient-to-r from-pink-600 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">Explore Women's Clothing</h4>
-                )}
 
                 {/* New: Explore Men's Clothing subsection */}
                 {cat.key === 'clothing' && (
