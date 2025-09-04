@@ -70,6 +70,7 @@ const App = () => (
                             element={<Electronics />}
                           />
                           <Route path="/cellphones" element={<Cellphones />} />
+                          <Route path="/clothing" element={<Clothing />} />
                           <Route path="/laptops" element={<Laptops />} />
                           <Route path="/videos" element={<Videos />} />
                           <Route path="/Videos" element={<Videos />} />
