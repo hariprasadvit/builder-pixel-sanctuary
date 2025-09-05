@@ -47,7 +47,10 @@ export default function FlashDealsCarousel() {
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <Link to="/product/1" className="block relative z-30 pointer-events-auto">
+            <Link
+              to="/product/1"
+              className="block relative z-30 pointer-events-auto"
+            >
               <VideoPlaceholder
                 title="Tech Deals Live!"
                 price={89.99}
@@ -63,7 +66,10 @@ export default function FlashDealsCarousel() {
               />
             </Link>
 
-            <Link to="/product/2" className="block relative z-30 pointer-events-auto">
+            <Link
+              to="/product/2"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title="Ninja CRISPi Air Fryer"
                 price={89.99}
@@ -76,7 +82,10 @@ export default function FlashDealsCarousel() {
               />
             </Link>
 
-            <Link to="/product/3" className="block relative z-30 pointer-events-auto">
+            <Link
+              to="/product/3"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title="TRIP Magnesium Powder – Pomegranate"
                 price={24.99}
@@ -89,7 +98,10 @@ export default function FlashDealsCarousel() {
               />
             </Link>
 
-            <Link to="/product/4" className="block relative z-30 pointer-events-auto">
+            <Link
+              to="/product/4"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title={'Philips 32" LED TV'}
                 price={199.99}
@@ -102,7 +114,10 @@ export default function FlashDealsCarousel() {
               />
             </Link>
 
-            <Link to="/product/5" className="block relative z-30 pointer-events-auto">
+            <Link
+              to="/product/5"
+              className="block relative z-30 pointer-events-auto"
+            >
               <ProductPlaceholder
                 title="Vileda Turbo Mop & Bucket Bundle"
                 price={42.99}
