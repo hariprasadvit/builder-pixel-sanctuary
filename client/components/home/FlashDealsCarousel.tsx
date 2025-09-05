@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ProductPlaceholder,
   SectionHeader,
@@ -46,10 +47,7 @@ export default function FlashDealsCarousel() {
             </div>
           </SectionHeader>
           <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-2">
-            <a
-              href="/product/1"
-              className="block relative z-30 pointer-events-auto"
-            >
+            <Link to="/product/1" className="block relative z-30 pointer-events-auto">
               <VideoPlaceholder
                 title="Tech Deals Live!"
                 price={89.99}
@@ -63,12 +61,9 @@ export default function FlashDealsCarousel() {
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
-            </a>
+            </Link>
 
-            <a
-              href="/product/2"
-              className="block relative z-30 pointer-events-auto"
-            >
+            <Link to="/product/2" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
                 title="Ninja CRISPi Air Fryer"
                 price={89.99}
@@ -79,12 +74,9 @@ export default function FlashDealsCarousel() {
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
-            </a>
+            </Link>
 
-            <a
-              href="/product/3"
-              className="block relative z-30 pointer-events-auto"
-            >
+            <Link to="/product/3" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
                 title="TRIP Magnesium Powder – Pomegranate"
                 price={24.99}
@@ -95,12 +87,9 @@ export default function FlashDealsCarousel() {
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
-            </a>
+            </Link>
 
-            <a
-              href="/product/4"
-              className="block relative z-30 pointer-events-auto"
-            >
+            <Link to="/product/4" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
                 title={'Philips 32" LED TV'}
                 price={199.99}
@@ -111,12 +100,9 @@ export default function FlashDealsCarousel() {
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
-            </a>
+            </Link>
 
-            <a
-              href="/product/5"
-              className="block relative z-30 pointer-events-auto"
-            >
+            <Link to="/product/5" className="block relative z-30 pointer-events-auto">
               <ProductPlaceholder
                 title="Vileda Turbo Mop & Bucket Bundle"
                 price={42.99}
@@ -127,7 +113,7 @@ export default function FlashDealsCarousel() {
                 cardHeight={cardHeight}
                 mediaHeight={mediaHeight}
               />
-            </a>
+            </Link>
           </div>
           <div className="text-center pb-6">
             <Button variant="ghost">View All Deals</Button>
