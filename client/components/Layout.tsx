@@ -331,7 +331,7 @@ export default function Layout({ children }: LayoutProps) {
 
               {/* Logo */}
               <Link to="/" className="flex items-center">
-                <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F5b59b7abf70f46a4ab5fe227c77da926?format=webp&width=200" alt="Riky logo" className="h-8 w-auto" />
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F53518ffe01e34f6cbefcffeaf737462f?format=webp&width=800" alt="Riky logo" className="h-8 w-auto" />
               </Link>
             </div>
 
