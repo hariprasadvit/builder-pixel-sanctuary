@@ -244,7 +244,13 @@ export default function Layout({ children }: LayoutProps) {
       color: "text-indigo-600",
       to: "/sell",
     },
-    { id: "contact", label: "Contact Us", icon: Phone, color: "text-gray-600", to: "/contact" },
+    {
+      id: "contact",
+      label: "Contact Us",
+      icon: Phone,
+      color: "text-gray-600",
+      to: "/contact",
+    },
   ];
 
   const isActiveTab = (path: string) => {
@@ -278,17 +284,17 @@ export default function Layout({ children }: LayoutProps) {
                       Explore all product categories
                     </SheetDescription>
                   </SheetHeader>
-                  
+
                   <div className="py-6 space-y-4">
                     {/* Quick Categories */}
                     <div className="grid grid-cols-2 gap-4">
                       {[
-                        { name: 'Electronics', icon: '📱', to: '/electronics' },
-                        { name: 'Fashion', icon: '👕', to: '/fashion' },
-                        { name: 'Home', icon: '🏠', to: '/home' },
-                        { name: 'Beauty', icon: '💄', to: '/beauty' },
-                        { name: 'Sports', icon: '⚽', to: '/sports' },
-                        { name: 'Books', icon: '📚', to: '/books' }
+                        { name: "Electronics", icon: "📱", to: "/electronics" },
+                        { name: "Fashion", icon: "👕", to: "/fashion" },
+                        { name: "Home", icon: "🏠", to: "/home" },
+                        { name: "Beauty", icon: "💄", to: "/beauty" },
+                        { name: "Sports", icon: "⚽", to: "/sports" },
+                        { name: "Books", icon: "📚", to: "/books" },
                       ].map((cat) => (
                         <Button
                           key={cat.name}
@@ -304,7 +310,7 @@ export default function Layout({ children }: LayoutProps) {
                         </Button>
                       ))}
                     </div>
-                    
+
                     {/* Menu Items */}
                     <div className="space-y-2">
                       {menuItems.map((item) => {
@@ -319,7 +325,9 @@ export default function Layout({ children }: LayoutProps) {
                               setIsMenuOpen(false);
                             }}
                           >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
+                            <IconComponent
+                              className={`w-5 h-5 ${item.color}`}
+                            />
                             <span>{item.label}</span>
                           </Button>
                         );
@@ -331,7 +339,11 @@ export default function Layout({ children }: LayoutProps) {
 
               {/* Logo */}
               <Link to="/" className="flex items-center">
-                <img src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F53518ffe01e34f6cbefcffeaf737462f?format=webp&width=800" alt="Riky logo" className="h-8 w-auto" />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1ba648a6a1694e9aa91b762fb1bf4499%2F53518ffe01e34f6cbefcffeaf737462f?format=webp&width=800"
+                  alt="Riky logo"
+                  className="h-8 w-auto"
+                />
               </Link>
             </div>
 
@@ -340,7 +352,10 @@ export default function Layout({ children }: LayoutProps) {
               {/* Marketplace Selector */}
               <div className="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1">
                 <span className="text-xs font-medium">Shop:</span>
-                <Select value={currentMarketplace} onValueChange={setMarketplace}>
+                <Select
+                  value={currentMarketplace}
+                  onValueChange={setMarketplace}
+                >
                   <SelectTrigger className="bg-transparent border-none text-gray-800 text-sm font-medium h-auto p-0">
                     <SelectValue />
                   </SelectTrigger>
@@ -361,19 +376,41 @@ export default function Layout({ children }: LayoutProps) {
                   >
                     <MapPin className="w-4 h-4 text-gray-700" />
                     {/* UK flag */}
-                    <svg aria-hidden viewBox="0 0 60 30" className="w-5 h-2.5 rounded-sm ring-1 ring-black/10">
-                      <rect width="60" height="30" fill="#012169"/>
-                      <path d="M0,0 60,30 M60,0 0,30" stroke="#FFF" strokeWidth="6"/>
-                      <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="3"/>
-                      <rect x="0" y="12" width="60" height="6" fill="#FFF"/>
-                      <rect x="0" y="13.5" width="60" height="3" fill="#C8102E"/>
-                      <rect x="27" y="0" width="6" height="30" fill="#FFF"/>
-                      <rect x="28.5" y="0" width="3" height="30" fill="#C8102E"/>
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 60 30"
+                      className="w-5 h-2.5 rounded-sm ring-1 ring-black/10"
+                    >
+                      <rect width="60" height="30" fill="#012169" />
+                      <path
+                        d="M0,0 60,30 M60,0 0,30"
+                        stroke="#FFF"
+                        strokeWidth="6"
+                      />
+                      <path
+                        d="M0,0 60,30 M60,0 0,30"
+                        stroke="#C8102E"
+                        strokeWidth="3"
+                      />
+                      <rect x="0" y="12" width="60" height="6" fill="#FFF" />
+                      <rect
+                        x="0"
+                        y="13.5"
+                        width="60"
+                        height="3"
+                        fill="#C8102E"
+                      />
+                      <rect x="27" y="0" width="6" height="30" fill="#FFF" />
+                      <rect
+                        x="28.5"
+                        y="0"
+                        width="3"
+                        height="30"
+                        fill="#C8102E"
+                      />
                     </svg>
                     <div className="flex flex-col items-start text-left">
-                      <span className="text-xs text-gray-500">
-                        Deliver to
-                      </span>
+                      <span className="text-xs text-gray-500">Deliver to</span>
                       <span className="text-sm font-medium truncate">
                         {getCurrentLocationName()}
                       </span>
@@ -437,7 +474,11 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex items-center gap-3">
               {/* Cart */}
               <Link to="/cart">
-                <Button variant="ghost" size="icon" className="relative text-gray-800 hover:bg-gray-100 flex flex-col items-center h-auto py-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="relative text-gray-800 hover:bg-gray-100 flex flex-col items-center h-auto py-2"
+                >
                   <ShoppingCart className="w-5 h-5" />
                   <span className="text-xs mt-1 hidden md:block">Cart</span>
                   {getItemCount() > 0 && (
@@ -462,7 +503,11 @@ export default function Layout({ children }: LayoutProps) {
 
               {/* User Profile */}
               <Link to="/profile">
-                <Button variant="ghost" size="icon" className="hidden sm:flex text-gray-800 hover:bg-gray-100 flex-col items-center h-auto py-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hidden sm:flex text-gray-800 hover:bg-gray-100 flex-col items-center h-auto py-2"
+                >
                   <User className="w-5 h-5" />
                   <span className="text-xs mt-1">Profile</span>
                 </Button>
@@ -487,17 +532,17 @@ export default function Layout({ children }: LayoutProps) {
                       Explore all product categories
                     </SheetDescription>
                   </SheetHeader>
-                  
+
                   <div className="py-6 space-y-4">
                     {/* Quick Categories */}
                     <div className="grid grid-cols-2 gap-4">
                       {[
-                        { name: 'Electronics', icon: '📱', to: '/electronics' },
-                        { name: 'Fashion', icon: '👕', to: '/fashion' },
-                        { name: 'Home', icon: '🏠', to: '/home' },
-                        { name: 'Beauty', icon: '💄', to: '/beauty' },
-                        { name: 'Sports', icon: '⚽', to: '/sports' },
-                        { name: 'Books', icon: '📚', to: '/books' }
+                        { name: "Electronics", icon: "📱", to: "/electronics" },
+                        { name: "Fashion", icon: "👕", to: "/fashion" },
+                        { name: "Home", icon: "🏠", to: "/home" },
+                        { name: "Beauty", icon: "💄", to: "/beauty" },
+                        { name: "Sports", icon: "⚽", to: "/sports" },
+                        { name: "Books", icon: "📚", to: "/books" },
                       ].map((cat) => (
                         <Button
                           key={cat.name}
@@ -513,7 +558,7 @@ export default function Layout({ children }: LayoutProps) {
                         </Button>
                       ))}
                     </div>
-                    
+
                     {/* Menu Items */}
                     <div className="space-y-2">
                       {menuItems.map((item) => {
@@ -528,7 +573,9 @@ export default function Layout({ children }: LayoutProps) {
                               setIsMenuOpen(false);
                             }}
                           >
-                            <IconComponent className={`w-5 h-5 ${item.color}`} />
+                            <IconComponent
+                              className={`w-5 h-5 ${item.color}`}
+                            />
                             <span>{item.label}</span>
                           </Button>
                         );
@@ -591,17 +638,26 @@ export default function Layout({ children }: LayoutProps) {
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       About Riky
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Careers
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Press Releases
                     </a>
                   </li>
@@ -615,12 +671,18 @@ export default function Layout({ children }: LayoutProps) {
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link to="/sell" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <Link
+                      to="/sell"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Sell on Riky
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Become an Affiliate
                     </a>
                   </li>
@@ -634,12 +696,18 @@ export default function Layout({ children }: LayoutProps) {
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link to="/contact" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <Link
+                      to="/contact"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Contact Us
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Help Center
                     </a>
                   </li>
@@ -653,17 +721,26 @@ export default function Layout({ children }: LayoutProps) {
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Facebook
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Twitter
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-slate-300 hover:text-white text-sm transition-colors">
+                    <a
+                      href="#"
+                      className="text-slate-300 hover:text-white text-sm transition-colors"
+                    >
                       Instagram
                     </a>
                   </li>
@@ -684,22 +761,34 @@ export default function Layout({ children }: LayoutProps) {
       {/* Mobile Bottom Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40">
         <div className="grid grid-cols-5 h-16">
-          <Link to="/" className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/") ? "text-brand-blue" : "text-gray-600"}`}>
+          <Link
+            to="/"
+            className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/") ? "text-brand-blue" : "text-gray-600"}`}
+          >
             <Home className="w-5 h-5" />
             <span className="text-xs">Home</span>
           </Link>
 
-          <Link to="/categories" className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/categories") ? "text-brand-blue" : "text-gray-600"}`}>
+          <Link
+            to="/categories"
+            className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/categories") ? "text-brand-blue" : "text-gray-600"}`}
+          >
             <Grid3X3 className="w-5 h-5" />
             <span className="text-xs">Categories</span>
           </Link>
 
-          <Link to="/videos" className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/videos") ? "text-brand-blue" : "text-gray-600"}`}>
+          <Link
+            to="/videos"
+            className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/videos") ? "text-brand-blue" : "text-gray-600"}`}
+          >
             <Play className="w-5 h-5" />
             <span className="text-xs">Videos</span>
           </Link>
 
-          <Link to="/cart" className={`flex flex-col items-center justify-center gap-1 relative ${isActiveTab("/cart") ? "text-brand-blue" : "text-gray-600"}`}>
+          <Link
+            to="/cart"
+            className={`flex flex-col items-center justify-center gap-1 relative ${isActiveTab("/cart") ? "text-brand-blue" : "text-gray-600"}`}
+          >
             <ShoppingCart className="w-5 h-5" />
             <span className="text-xs">Cart</span>
             {getItemCount() > 0 && (
@@ -709,7 +798,10 @@ export default function Layout({ children }: LayoutProps) {
             )}
           </Link>
 
-          <Link to="/profile" className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/profile") ? "text-brand-blue" : "text-gray-600"}`}>
+          <Link
+            to="/profile"
+            className={`flex flex-col items-center justify-center gap-1 ${isActiveTab("/profile") ? "text-brand-blue" : "text-gray-600"}`}
+          >
             <UserCircle className="w-5 h-5" />
             <span className="text-xs">Profile</span>
           </Link>
